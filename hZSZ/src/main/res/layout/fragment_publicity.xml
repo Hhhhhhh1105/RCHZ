@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@drawable/back_com_sup"
+    android:orientation="vertical"
+    android:visibility="visible">
+
+    <include
+        android:layout_width="fill_parent"
+        android:layout_height="@dimen/head_h"
+        layout="@layout/inc_head" />
+
+    <LinearLayout
+        android:layout_gravity="bottom"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center|bottom"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="horizontal"
+        android:layout_weight="0.08"
+        android:visibility="visible"
+        >
+
+        <ImageView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/com_sug"
+            android:id="@+id/imageView"
+            android:layout_weight="1.14"
+            android:visibility="gone"/>
+
+        <Button
+            android:id="@+id/btn_sug"
+            android:text="我要建议"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:background="@drawable/shape_complain_suggest"
+            android:layout_marginLeft="0dp"
+            android:layout_marginRight="20dp"
+            android:layout_marginBottom="10dp"/>
+
+        <Button
+            android:id="@+id/btn_comp"
+            android:text="我要投诉"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            android:background="@drawable/shape_complain_suggest"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="0dp"
+            android:layout_marginBottom="10dp"
+            />
+
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        android:layout_weight="0.08"
+        android:visibility="gone"
+        android:weightSum="1">
+
+        <at.markushi.ui.CircleButton
+            android:id="@+id/btn_track"
+            android:layout_width="85dp"
+            android:layout_height="86dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_npc_track"
+            android:visibility="gone"
+            app:cb_color="#00B0F0" />
+
+        <at.markushi.ui.CircleButton
+
+            android:layout_width="124dp"
+            android:layout_height="87dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_user_com"
+            app:cb_color="#FF4444"
+            android:layout_weight="0.13"
+            android:visibility="visible"/>
+
+        <at.markushi.ui.CircleButton
+
+            android:layout_width="130dp"
+            android:layout_height="91dp"
+            android:layout_gravity="center"
+            android:src="@drawable/ic_user_sug"
+            app:cb_color="#FFBB33"
+            android:layout_weight="0.12"
+            android:visibility="visible"/>
+
+    </LinearLayout>
+
+    <RadioGroup
+        android:id="@+id/rg_headtab"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_horizontal"
+        android:orientation="horizontal"
+        android:paddingBottom="@dimen/padding_medium"
+        android:paddingLeft="@dimen/padding_large"
+        android:paddingRight="@dimen/padding_large"
+        android:paddingTop="@dimen/padding_medium"
+        android:visibility="gone">
+
+        <RadioButton
+            android:id="@+id/rb_head_left"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="@drawable/shape_tabbtn_l_bg"
+            android:button="@null"
+            android:checked="true"
+            android:gravity="center"
+            android:padding="@dimen/padding_small"
+            android:text="最新投诉"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/btn_black_white"
+            android:textSize="@dimen/font_normal" />
+
+        <!--为增加排行版，需修改样式，没有圆角，将shape_r改成了m-->
+        <RadioButton
+            android:id="@+id/rb_head_right"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-1dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_tabbtn_m_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="@dimen/padding_small"
+            android:text="投诉地图"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/btn_black_white"
+            android:textSize="@dimen/font_normal" />
+
+
+        <RadioButton
+            android:id="@+id/rb_head_add"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="-1dp"
+            android:layout_weight="1"
+            android:background="@drawable/shape_tabbtn_r_bg"
+            android:button="@null"
+            android:gravity="center"
+            android:padding="@dimen/padding_small"
+            android:text="排行榜"
+            android:textAppearance="?android:attr/textAppearanceSmall"
+            android:textColor="@color/btn_black_white"
+            android:textSize="@dimen/font_normal" />
+
+    </RadioGroup>
+
+    <FrameLayout
+        android:id="@+id/fl_section_container"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1"
+        android:visibility="gone">
+    </FrameLayout>
+
+</LinearLayout>

@@ -1,0 +1,936 @@
+-- Merging decision tree log ---
+manifest
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:2:1-545:12
+	package
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:3:5-27
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+	android:versionName
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:5:5-32
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+	android:versionCode
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:4:5-29
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+	xmlns:android
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:2:11-69
+uses-sdk
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:7:5-9:41
+MERGED from [com.github.markushi:circlebutton:1.1] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\AndroidManifest.xml:7:5-44
+MERGED from [:SMSSDK-2.1.3:] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\SMSSDK-2.1.3\AndroidManifest.xml:7:5-9:41
+MERGED from [com.google.android.gms:play-services-appindexing:8.4.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-base:8.4.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.google.android.gms\play-services-base\8.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:18:5-42
+MERGED from [com.android.support:support-v4:24.1.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:21:5-23:54
+MERGED from [com.getbase:floatingactionbutton:1.10.1] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.10.1\AndroidManifest.xml:8:5-10:41
+MERGED from [com.android.support:cardview-v7:24.0.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.0.0\AndroidManifest.xml:20:5-43
+MERGED from [com.jude:rollviewpager:1.2.9] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.jude\rollviewpager\1.2.9\AndroidManifest.xml:7:5-9:41
+MERGED from [com.android.support:appcompat-v7:23.2.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\AndroidManifest.xml:21:5-23:78
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\AndroidManifest.xml:5:5-44
+MERGED from [com.android.support:support-vector-drawable:23.2.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.0\AndroidManifest.xml:5:5-43
+MERGED from [com.github.afollestad.material-dialogs:core:0.8.5.1] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.1\AndroidManifest.xml:8:5-11:75
+MERGED from [me.zhanghai.android.materialprogressbar:library:1.1.4] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\me.zhanghai.android.materialprogressbar\library\1.1.4\AndroidManifest.xml:11:5-13:41
+MERGED from [com.android.support:recyclerview-v7:23.2.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\recyclerview-v7\23.2.0\AndroidManifest.xml:20:5-43
+	tools:overrideLibrary
+		ADDED from [com.android.support:support-v4:24.1.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:23:9-51
+	android:targetSdkVersion
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:9:9-38
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+	android:minSdkVersion
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:8:9-34
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+		INJECTED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml
+uses-permission#android.permission.INTERNET
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:11:5-67
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:11:22-64
+uses-permission#android.permission.CALL_PHONE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:12:5-69
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:12:22-66
+uses-permission#android.permission.CAMERA
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:13:5-65
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:13:22-62
+uses-permission#android.permission.GET_ACCOUNTS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:15:5-71
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:15:22-68
+uses-permission#android.permission.USE_CREDENTIALS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:16:5-74
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:16:22-71
+uses-permission#android.permission.MANAGE_ACCOUNTS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:17:5-74
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:17:22-71
+uses-permission#android.permission.AUTHENTICATE_ACCOUNTS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:18:5-80
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:18:22-77
+uses-permission#android.permission.ACCESS_NETWORK_STATE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:19:5-79
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:19:22-76
+uses-permission#com.android.launcher.permission.READ_SETTINGS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:20:5-85
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:20:22-82
+uses-permission#android.permission.CHANGE_WIFI_STATE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:21:5-76
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:21:22-73
+uses-permission#android.permission.ACCESS_WIFI_STATE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:22:5-76
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:22:22-73
+uses-permission#android.permission.READ_PHONE_STATE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:23:5-75
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:23:22-72
+uses-permission#android.permission.WRITE_EXTERNAL_STORAGE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:24:5-81
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:24:22-78
+uses-permission#android.permission.BROADCAST_STICKY
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:25:5-75
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:25:22-72
+uses-permission#android.permission.WRITE_SETTINGS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:26:5-73
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:26:22-70
+uses-permission#android.permission.BAIDU_LOCATION_SERVICE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:30:5-81
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:30:22-78
+uses-permission#android.permission.ACCESS_COARSE_LOCATION
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:31:5-81
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:31:22-78
+uses-permission#android.permission.ACCESS_FINE_LOCATION
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:32:5-79
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:32:22-76
+uses-permission#android.permission.MOUNT_UNMOUNT_FILESYSTEMS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:39:5-84
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:39:22-81
+uses-permission#android.permission.READ_LOGS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:40:5-68
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:40:22-65
+uses-permission#android.permission.VIBRATE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:52:5-66
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:52:22-63
+uses-permission#android.permission.WAKE_LOCK
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:53:5-68
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:53:22-65
+uses-permission#android.permission.READ_CONTACTS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:59:5-72
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:59:22-69
+uses-permission#android.permission.RECEIVE_SMS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:65:5-70
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:65:22-67
+uses-permission#android.permission.READ_SMS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:66:5-67
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:66:22-64
+uses-permission#android.permission.GET_TASKS
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:67:5-68
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:67:22-65
+uses-permission#android.permission.RECEIVE_BOOT_COMPLETED
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:77:5-81
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:77:22-78
+uses-permission#android.permission.BLUETOOTH
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:82:5-68
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:82:22-65
+uses-permission#android.permission.BLUETOOTH_ADMIN
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:83:5-74
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:83:22-71
+uses-permission#android.permission.SYSTEM_ALERT_WINDOW
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:88:5-78
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:88:22-75
+uses-permission#getui.permission.GetuiService.com.zju.rchz
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:90:5-82
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:90:22-79
+permission#getui.permission.GetuiService.com.zju.rchz
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:112:5-114:55
+	android:protectionLevel
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:114:9-41
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:113:9-66
+android:users-permission
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:116:5-89
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:116:31-86
+application
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:118:5-543:19
+MERGED from [com.github.markushi:circlebutton:1.1] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.github.markushi\circlebutton\1.1\AndroidManifest.xml:9:5-20
+MERGED from [:SMSSDK-2.1.3:] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\SMSSDK-2.1.3\AndroidManifest.xml:11:5-12:19
+MERGED from [com.google.android.gms:play-services-appindexing:8.4.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.google.android.gms\play-services-appindexing\8.4.0\AndroidManifest.xml:19:5-20
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:20:5-24:19
+MERGED from [com.android.support:support-v4:24.1.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\support-v4\24.1.0\AndroidManifest.xml:25:5-20
+MERGED from [com.getbase:floatingactionbutton:1.10.1] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.getbase\floatingactionbutton\1.10.1\AndroidManifest.xml:12:5-20
+MERGED from [com.android.support:cardview-v7:24.0.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\cardview-v7\24.0.0\AndroidManifest.xml:22:5-20
+MERGED from [com.android.support:appcompat-v7:23.2.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\appcompat-v7\23.2.0\AndroidManifest.xml:25:5-20
+MERGED from [com.android.support:animated-vector-drawable:23.2.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\animated-vector-drawable\23.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.android.support:support-vector-drawable:23.2.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.android.support\support-vector-drawable\23.2.0\AndroidManifest.xml:7:5-20
+MERGED from [com.github.afollestad.material-dialogs:core:0.8.5.1] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.github.afollestad.material-dialogs\core\0.8.5.1\AndroidManifest.xml:13:5-20
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:121:9-41
+	android:allowBackup
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:119:9-35
+	android:icon
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:120:9-45
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:122:9-40
+service#com.baidu.location.f
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:123:9-130:19
+	android:enabled
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:125:13-35
+	android:process
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:126:13-38
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:124:13-48
+intent-filter#com.baidu.location.service_v2.2
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:127:13-129:29
+action#com.baidu.location.service_v2.2
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:128:17-81
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:128:25-71
+meta-data#com.baidu.lbsapi.API_KEY
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:138:9-140:64
+	android:value
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:140:13-61
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:139:13-52
+activity#com.zju.rchz.activity.WelcomeActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:150:9-160:20
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:153:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:152:13-45
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:154:13-54
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:151:13-65
+intent-filter#android.intent.action.MAIN+android.intent.category.LAUNCHER
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:155:13-159:29
+action#android.intent.action.MAIN
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:156:17-69
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:156:25-66
+category#android.intent.category.LAUNCHER
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:158:17-77
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:158:27-74
+activity#com.mob.tools.MobUIShell
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:163:9-167:69
+	android:windowSoftInputMode
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:167:13-67
+	android:configChanges
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:166:13-74
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:165:13-72
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:164:13-52
+activity#com.zju.rchz.activity.MainActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:169:9-173:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:173:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:171:13-45
+	android:launchMode
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:172:13-44
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:170:13-62
+activity#com.zju.rchz.activity.LoginActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:174:9-177:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:177:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:176:13-45
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:175:13-63
+activity#com.zju.rchz.activity.SugOrComtActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:178:9-180:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:180:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:179:13-67
+activity#com.zju.rchz.activity.DubanTopersonListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:181:9-183:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:183:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:182:13-75
+activity#com.zju.rchz.activity.DubanTopersonCoordListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:184:9-186:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:186:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:185:13-80
+activity#com.zju.rchz.activity.DubanTopersonCitychiefListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:187:9-189:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:189:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:188:13-84
+activity#com.zju.rchz.activity.DubanTopersonLeaderListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:190:9-192:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:192:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:191:13-81
+activity#com.zju.rchz.activity.ProblemReportActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:193:9-195:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:195:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:194:13-71
+activity#com.zju.rchz.activity.DuChaDanActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:196:9-198:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:198:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:197:13-66
+activity#com.zju.rchz.activity.ProblemReportDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:199:9-201:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:201:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:200:13-77
+activity#com.zju.rchz.activity.DuChaDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:202:9-204:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:204:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:203:13-69
+activity#com.zju.rchz.activity.EvalCompActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:205:9-207:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:207:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:206:13-66
+activity#com.zju.rchz.activity.ForgotPasswordActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:208:9-210:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:210:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:209:13-72
+activity#com.zju.rchz.activity.ChangePasswordActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:211:9-213:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:213:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:212:13-72
+activity#com.zju.rchz.activity.ViewAllActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:214:9-217:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:217:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:216:13-45
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:215:13-65
+activity#com.zju.rchz.activity.NewsDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:218:9-221:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:221:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:220:13-45
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:219:13-68
+activity#com.zju.rchz.activity.XmlActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:222:9-224:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:224:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:223:13-61
+activity#com.zju.rchz.activity.MyCollectActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:225:9-227:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:227:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:226:13-67
+activity#com.zju.rchz.activity.NpcMemberActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:228:9-230:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:230:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:229:13-67
+activity#com.zju.rchz.activity.NpcListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:231:9-232:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:232:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:231:19-71
+activity#com.zju.rchz.activity.NpcFeedbackActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:233:9-234:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:234:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:233:19-75
+activity#com.zju.rchz.activity.CompListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:235:9-237:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:237:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:236:13-66
+activity#com.zju.rchz.activity.ProblemReportListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:238:9-240:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:240:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:239:13-75
+activity#com.zju.rchz.activity.DuChaListAcitivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:241:9-243:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:243:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:242:13-68
+activity#com.zju.rchz.activity.CompDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:244:9-246:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:246:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:245:13-68
+activity#com.zju.rchz.activity.AboutActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:247:9-249:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:249:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:248:13-63
+activity#com.zju.rchz.activity.RegisterActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:250:9-253:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:253:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:252:13-45
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:251:13-66
+activity#com.zju.rchz.activity.MeActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:254:9-257:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:257:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:256:13-45
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:255:13-60
+activity#com.zju.rchz.activity.SettingActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:258:9-261:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:261:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:260:13-45
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:259:13-65
+activity#com.zju.rchz.activity.SectionActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:262:9-265:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:265:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:264:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:263:13-65
+activity#com.zju.rchz.activity.RiverActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:266:9-269:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:269:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:268:13-47
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:267:13-63
+activity#com.zju.rchz.activity.OutletActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:270:9-273:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:273:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:272:13-43
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:271:13-64
+activity#com.zju.rchz.activity.SmallWaterActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:274:9-277:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:277:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:276:13-52
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:275:13-68
+activity#com.zju.rchz.activity.SmallWaterListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:278:9-280:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:280:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:279:13-72
+activity#com.zju.rchz.activity.SearchRiverActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:281:9-284:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:284:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:283:13-48
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:282:13-69
+activity#com.zju.rchz.activity.SearchNewsActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:285:9-288:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:288:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:287:13-33
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:286:13-68
+activity#com.zju.rchz.activity.SearchCompActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:289:9-292:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:292:13-49
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:291:13-33
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:290:13-68
+activity#com.zju.rchz.activity.ViewItActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:293:9-295:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:295:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:294:13-64
+activity#com.zju.rchz.activity.SectionListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:296:9-298:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:298:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:297:13-69
+activity#com.zju.rchz.activity.RiverListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:299:9-301:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:301:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:300:13-67
+activity#com.zju.rchz.activity.OutletListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:302:9-303:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:303:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:302:19-74
+activity#com.zju.rchz.chief.activity.ChiefCompListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:305:9-307:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:307:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:306:13-77
+activity#com.zju.rchz.chief.activity.ChiefCompDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:308:9-310:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:310:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:309:13-79
+activity#com.zju.rchz.chief.activity.ChiefInspectActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:311:9-313:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:313:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:312:13-76
+activity#com.zju.rchz.chief.activity.ChiefRecordListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:314:9-316:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:316:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:315:13-79
+activity#com.zju.rchz.chief.activity.ChiefDubanListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:317:9-319:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:319:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:318:13-78
+activity#com.zju.rchz.chief.activity.ChiefEditRecordActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:320:9-322:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:322:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:321:13-79
+activity#com.zju.rchz.chief.activity.ChiefDubanDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:323:9-325:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:325:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:324:13-80
+activity#com.zju.rchz.chief.activity.ChiefRivermanageActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:326:9-327:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:327:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:326:19-86
+activity#com.zju.rchz.chief.activity.ChiefLowLevelPubActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:328:9-329:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:329:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:328:19-86
+activity#com.zju.rchz.chief.activity.ChiefSignActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:330:9-332:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:332:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:331:13-73
+activity#com.zju.rchz.chief.activity.ChiefNpcSupActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:333:9-334:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:334:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:333:19-81
+activity#com.zju.rchz.npc.activity.ChiefNpcSugDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:335:9-336:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:336:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:335:19-85
+activity#com.zju.rchz.chief.activity.ChiefMailListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:337:9-339:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:339:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:338:13-77
+activity#com.zju.rchz.chief.activity.ChiefNotepadActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:340:9-342:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:342:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:341:13-76
+activity#com.zju.rchz.chief.activity.ChiefEditNoteActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:343:9-345:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:345:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:344:13-77
+activity#com.zju.rchz.chief.activity.DuabnTopersonDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:346:9-348:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:348:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:347:13-83
+activity#com.zju.rchz.chief.activity.DuabnTopersonCitychiefDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:349:9-351:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:351:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:350:13-92
+activity#com.zju.rchz.chief.activity.ChiefMailDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:352:9-354:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:354:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:353:13-79
+activity#com.zju.rchz.chief.activity.ChiefTrackViewActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:355:9-356:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:356:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:355:19-84
+activity#com.zju.rchz.npc.activity.NpcLegalListActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:361:9-362:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:362:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:361:19-80
+activity#com.zju.rchz.npc.activity.NpcMyjobActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:363:9-364:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:364:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:363:19-76
+activity#com.zju.rchz.npc.activity.NpcRankActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:365:9-366:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:366:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:365:19-75
+activity#com.zju.rchz.npc.activity.NpcSugDetailActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:367:9-368:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:368:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:367:19-80
+service#com.zju.rchz.service.LocalService
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:371:9-69
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:371:18-66
+activity#com.zju.rchz.activity.CompPhotoActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:373:9-375:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:375:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:374:13-67
+activity#com.zju.rchz.activity.PhotoViewActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:376:9-379:89
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:378:13-49
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:379:13-77
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:377:13-67
+activity#com.zju.rchz.activity.RiverPositionActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:380:9-382:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:382:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:381:13-71
+activity#com.zju.rchz.activity.NewRiverPositionActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:383:9-385:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:385:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:384:13-74
+activity#com.zju.rchz.activity.ComplainMap
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:386:9-388:61
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:388:13-49
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:387:13-61
+meta-data#UMENG_APPKEY
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:390:9-392:56
+	android:value
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:392:13-53
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:391:13-40
+activity#com.umeng.socialize.view.ShareActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:404:9-410:71
+	android:launchMode
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:407:13-44
+	android:noHistory
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:408:13-37
+	android:windowSoftInputMode
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:410:13-68
+	android:configChanges
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:406:13-57
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:409:13-50
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:405:13-66
+activity#com.zju.rchz.wxapi.WXEntryActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:411:9-416:75
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:415:13-49
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:414:13-36
+	android:configChanges
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:413:13-74
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:416:13-72
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:412:13-62
+activity#com.tencent.tauth.AuthActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:419:9-431:20
+	android:launchMode
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:421:13-44
+	android:noHistory
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:422:13-37
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:420:13-58
+intent-filter#android.intent.action.VIEW+android.intent.category.BROWSABLE+android.intent.category.DEFAULT
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:423:13-430:29
+action#android.intent.action.VIEW
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:424:17-69
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:424:25-66
+category#android.intent.category.DEFAULT
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:426:17-76
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:426:27-73
+category#android.intent.category.BROWSABLE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:427:17-78
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:427:27-75
+data
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:429:17-59
+	android:scheme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:429:23-56
+activity#com.tencent.connect.common.AssistActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:432:9-435:84
+	android:screenOrientation
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:434:13-49
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:435:13-72
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:433:13-69
+meta-data#PUSH_APPID
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:439:9-441:54
+	android:value
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:441:13-51
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:440:13-38
+meta-data#PUSH_APPKEY
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:442:9-444:54
+	android:value
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:444:13-51
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:443:13-39
+meta-data#PUSH_APPSECRET
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:445:9-447:53
+	android:value
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:447:13-50
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:446:13-42
+receiver#com.zju.rchz.receiver.PushReceiver
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:450:9-456:20
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:452:13-37
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:451:13-62
+intent-filter#com.igexin.sdk.action.4YaVWDm7Cj8Fv7qvEQ2CW4
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:453:13-455:29
+action#com.igexin.sdk.action.4YaVWDm7Cj8Fv7qvEQ2CW4
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:454:17-87
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:454:25-84
+service#com.igexin.sdk.PushService
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:459:9-463:54
+	android:process
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:463:13-43
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:462:13-47
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:461:13-36
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:460:13-54
+service#com.igexin.sdk.PushServiceUser
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:464:9-467:62
+	android:label
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:467:13-51
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:466:13-36
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:465:13-58
+receiver#com.igexin.sdk.PushReceiver
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:469:9-480:20
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:469:19-61
+intent-filter#android.intent.action.ACTION_POWER_CONNECTED+android.intent.action.ACTION_POWER_DISCONNECTED+android.intent.action.BOOT_COMPLETED+android.intent.action.MEDIA_MOUNTED+android.intent.action.USER_PRESENT+android.net.conn.CONNECTIVITY_CHANGE+com.igexin.sdk.action.refreshls
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:470:13-479:29
+action#android.intent.action.BOOT_COMPLETED
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:471:17-79
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:471:25-76
+action#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:472:17-79
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:472:25-76
+action#android.intent.action.USER_PRESENT
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:473:17-77
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:473:25-74
+action#com.igexin.sdk.action.refreshls
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:474:17-74
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:474:25-71
+action#android.intent.action.MEDIA_MOUNTED
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:476:17-78
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:476:25-75
+action#android.intent.action.ACTION_POWER_CONNECTED
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:477:17-87
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:477:25-84
+action#android.intent.action.ACTION_POWER_DISCONNECTED
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:478:17-90
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:478:25-87
+receiver#com.igexin.sdk.PushManagerReceiver
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:481:9-487:20
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:483:13-37
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:482:13-62
+intent-filter#com.igexin.sdk.action.pushmanager
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:484:13-486:29
+action#com.igexin.sdk.action.pushmanager
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:485:17-76
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:485:25-73
+activity#com.igexin.sdk.PushActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:489:9-495:84
+	android:process
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:493:13-43
+	android:excludeFromRecents
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:491:13-46
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:492:13-37
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:495:13-72
+	android:taskAffinity
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:494:13-67
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:490:13-55
+service#com.igexin.download.DownloadService
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:497:9-499:46
+	android:process
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:499:13-43
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:498:13-63
+receiver#com.igexin.download.DownloadReceiver
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:501:9-505:20
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:501:19-70
+intent-filter#android.net.conn.CONNECTIVITY_CHANGE
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:502:13-504:29
+provider#com.igexin.download.DownloadProvider
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:507:9-511:46
+	android:authorities
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:509:13-57
+	android:process
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:511:13-43
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:510:13-36
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:508:13-64
+activity#com.igexin.getuiext.activity.GetuiExtActivity
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:513:9-520:75
+	android:process
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:518:13-43
+	android:excludeFromRecents
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:516:13-46
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:517:13-37
+	android:configChanges
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:515:13-72
+	android:theme
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:520:13-72
+	android:taskAffinity
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:519:13-62
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:514:13-73
+receiver#com.igexin.getuiext.service.PayloadReceiver
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:522:9-529:20
+	android:exported
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:524:13-37
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:523:13-71
+intent-filter#com.igexin.sdk.action.4YaVWDm7Cj8Fv7qvEQ2CW4+com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:525:13-528:29
+action#com.igexin.sdk.action.7fjUl2Z3LH6xYy7NQK4ni4
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:526:17-87
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:526:25-84
+service#com.igexin.getuiext.service.GetuiExtService
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:531:9-533:46
+	android:process
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:533:13-43
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:532:13-71
+meta-data#com.google.android.gms.version
+ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:538:9-540:69
+MERGED from [com.google.android.gms:play-services-basement:8.4.0] D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\exploded-aar\com.google.android.gms\play-services-basement\8.4.0\AndroidManifest.xml:21:9-23:69
+	android:value
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:540:13-66
+	android:name
+		ADDED from D:\Androidproject\RC\RCHZ\hZSZ\src\main\AndroidManifest.xml:539:13-58
