@@ -51,6 +51,7 @@ import com.zju.rchz.R;
 import com.zju.rchz.Tags;
 import com.zju.rchz.Values;
 import com.zju.rchz.activity.PhotoViewActivity;
+import com.zju.rchz.activity.ProblemReportActivity;
 import com.zju.rchz.model.BaseRes;
 import com.zju.rchz.model.DateTime;
 import com.zju.rchz.model.River;
@@ -70,6 +71,7 @@ import java.io.ByteArrayOutputStream;
 import java.io.FileNotFoundException;
 import java.lang.reflect.Field;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -115,6 +117,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	//判断是否大于5min
 	private int startTimeHour;
 	private int startTimeMin;
+	private String startTime;
 
 	/**
 	 * ATTENTION: This was auto-generated to implement the App Indexing API.
@@ -130,6 +133,13 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	//确定是新加巡河单还是编辑巡河单（现在已经无法编辑）
 	private boolean isAddNewRiverRecord = false;
 
+	//记录当前的年月日
+	String year="2015";
+	String month="10";
+	String day="10";
+
+	private String eventFlag = "0";//上报人员身份。0代表督察员，1代表河长。
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -139,6 +149,31 @@ public class ChiefEditRecordActivity extends BaseActivity {
 
 		InjectUtils.injectViews(this, R.id.class);
 
+		//登录人员身份判断
+		boolean logined = getUser().isLogined();
+		boolean ischief = getUser().isLogined() && getUser().isChief();
+		//判断是否是村级河长 8
+		boolean isVillageChief =getUser().isLogined() && getUser().isVillageChief();
+		//判断是否是河管员 7
+		boolean isCleaner =getUser().isLogined() && getUser().isCleaner();
+		//判断是否是协管员 6
+		boolean isCoordinator = getUser().isLogined() && getUser().isCoordinator();
+		//判断是否是市级或区级河长 区级9 市级10
+		boolean isDistrictChief = logined && getUser().isDistrictChief();
+		boolean isCityChief = logined && getUser().isCityChief();
+		//市级河长联系人
+		boolean isCityLinkMan =logined && getUser().isCityLinkMan();
+		//督察员13
+		boolean isDucha=getUser().isLogined() && getUser().isDucha();
+		//是否是领导
+		boolean isLeader=getUser().isLogined()&&getUser().isLeader();
+
+		if(ischief||isVillageChief||isDistrictChief||isCityChief){
+			findViewById(R.id.action_event_report).setVisibility(View.VISIBLE);
+			eventFlag = "1";
+		}else {
+			findViewById(R.id.action_event_report).setVisibility(View.GONE);
+		}
 //		if (location != null) {
 //			latlist_temp = "" + location.getLatitude();
 //			latlist_temp = "" + location.getLongitude();
@@ -180,6 +215,11 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			}
 		});
 
+		//初始化当前的年月日
+		Calendar calendar=Calendar.getInstance();  //获取当前时间，作为图标的名字
+		year=calendar.get(Calendar.YEAR)+"";
+		month=calendar.get(Calendar.MONTH)+1+"";
+		day=calendar.get(Calendar.DAY_OF_MONTH)+"";
 
 		riverRecord = StrUtils.Str2Obj(getIntent().getStringExtra(Tags.TAG_RECORD), RiverRecord.class);
 
@@ -189,9 +229,14 @@ public class ChiefEditRecordActivity extends BaseActivity {
 
 		submitUuidParam = new JSONObject();
 		submitTemporaryParam = new JSONObject();
+		submitSetRiverRecordIsCorrectParam = new JSONObject();
 		try{
 			submitUuidParam.put("UUID",getUser().getUuid());
 			submitTemporaryParam.put("UUID",getUser().getUuid());
+			submitSetRiverRecordIsCorrectParam.put("UUID",getUser().getUuid());
+			submitSetRiverRecordIsCorrectParam.put("year",year);
+			submitSetRiverRecordIsCorrectParam.put("month",month);
+			submitSetRiverRecordIsCorrectParam.put("day",day);
 		} catch (JSONException e) {
 			e.printStackTrace();
 		}
@@ -214,6 +259,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			viewRender.renderView(findViewById(R.id.sv_main), riverRecord);
 
 			//巡河开始时间
+			startTime = DateTime.getNow().getYMDHMS(this);
 			startTimeHour = DateTime.getNow().hours;
 			startTimeMin = DateTime.getNow().minutes;
 
@@ -373,6 +419,17 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			}
 		});*/
 
+		//巡河过程中事件上报
+		findViewById(R.id.action_event_report).setOnClickListener(new View.OnClickListener() {
+			@Override
+			public void onClick(View view) {
+				Intent intent = new Intent(ChiefEditRecordActivity.this, ProblemReportActivity.class);
+				Bundle bundle=new Bundle();
+				bundle.putString("eventFlag", eventFlag);//上报人员身份标志位
+				intent.putExtras(bundle);
+				startActivity(intent);
+			}
+		});
 
 		//相机拍摄照片
 		findViewById(R.id.action_camera).setOnClickListener(new View.OnClickListener() {
@@ -908,6 +965,9 @@ public class ChiefEditRecordActivity extends BaseActivity {
 						submitParam.put("authority", getUser().getAuthority());
 						submitParam.put("UUID", getUser().getUuid());
 
+						//巡河时间
+						submitParam.put("startTime", startTime);
+
 						//判断巡河是否超过了5min
 						//看是否超过5min
 						int endTimeHour = DateTime.getNow().hours;
@@ -979,6 +1039,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	JSONObject submitParam = null;
 	JSONObject submitTemporaryParam = null;
 	JSONObject submitUuidParam = null;
+	JSONObject submitSetRiverRecordIsCorrectParam = null;
 
 	private void submitData() {
 		showOperating(R.string.doing_submitting);
@@ -991,6 +1052,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			public void callback(BaseRes o) {
 				hideOperating();
 				if (o != null && o.isSuccess()) {
+//					hideOperating();
 					showToast("提交成功!");
 					setResult(RESULT_OK);
 
@@ -1002,6 +1064,17 @@ public class ChiefEditRecordActivity extends BaseActivity {
 					imgLatlist="";
 
 					finish();
+
+					//判断轨迹有效性的请求
+					getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
+						@Override
+						public void callback(BaseRes o) {
+							hideOperating();
+							if (o != null && o.isSuccess()) {
+
+							}
+						}
+					}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
 				}
 			}
 		}, BaseRes.class, submitParam);

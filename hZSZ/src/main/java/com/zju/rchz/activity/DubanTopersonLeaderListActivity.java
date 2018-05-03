@@ -92,13 +92,13 @@ public class DubanTopersonLeaderListActivity extends BaseActivity implements Vie
                 warp.setText(R.id.tv_time, comp.getTime() != null ? comp
                         .getTime().getYMDHM(DubanTopersonLeaderListActivity.this) : "");    //投诉时间
 
-//                if (type == 0) {
+                if (type == 0) {
                 ((Button) warp.getViewById(R.id.btn_handle))
-                        .setText("查看详情");         //0是未处理，1是已处理
-//                } else {
-//                    ((Button) warp.getViewById(R.id.btn_handle))
-//                            .setText("查看督办单");
-//                }
+                        .setText("批  示");         //0是未处理，1是已处理
+                } else {
+                    ((Button) warp.getViewById(R.id.btn_handle))
+                            .setText("查看督办单");
+                }
                 ((Button) warp.getViewById(R.id.btn_handle)).setTag(comp);
                 ((Button) warp.getViewById(R.id.btn_handle))
                         .setOnClickListener(btnClk);

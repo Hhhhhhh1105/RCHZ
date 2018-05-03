@@ -57,6 +57,9 @@ public class DateTime {
 	public String getYMDHM() {
 		return String.format(Locale.getDefault(), "%s。%02d。%02d %02d:%02d", 1900 + year, month + 1, date, hours, minutes);
 	}
+	public String getYMDHMS(Context context) {
+		return StrUtils.renderText(context, R.string.fmt_ymdhms, 1900 + year, month + 1, date, hours, minutes, seconds);
+	}
 
 	public String getYM(Context context) {
 		return StrUtils.renderText(context, R.string.fmt_date_ym, 1900 + year, month + 1);

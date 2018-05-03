@@ -40,6 +40,15 @@ public class RiverRecord {
 	public String recordPersonName;
 	public String recordRiverName;
 	public int recordPersonAuth; //巡河人的等级
+	public String isCorrect;//有效性判断 ，1表示有效，0表示无效
+
+	public String getIsCorrect() {
+		return isCorrect;
+	}
+
+	public void setIsCorrect(String isCorrect) {
+		this.isCorrect = isCorrect;
+	}
 
 	// local
 	public River locRiver;

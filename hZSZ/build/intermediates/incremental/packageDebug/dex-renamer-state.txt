@@ -1,4 +1,4 @@
-#Wed Nov 29 19:40:09 CST 2017
+#Sat Apr 28 20:14:14 CST 2018
 base.0=D\:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_8a0ca7c9b5f449211b31f9f7ae9d8746b06bda31
 renamed.1=classes.dex
 renamed.0=classes2.dex

@@ -13,25 +13,37 @@
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="0.8"
         android:tag="tt:{.m:getYMD2}"
         android:text="2015-5-1"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/black"
-        android:textSize="@dimen/font_large" />
+        android:textSize="@dimen/font_normal" />
 
     <TextView
         android:layout_width="0dp"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:layout_weight="1.2"
         android:gravity="center_horizontal"
         android:tag="tt:{.recordRiverName}"
         android:text="菜洋河"
         android:textAppearance="?android:attr/textAppearanceMedium"
         android:textColor="@color/black"
-        android:textSize="@dimen/font_large" />
+        android:textSize="@dimen/font_normal" />
+
+    <TextView
+        android:id="@+id/tv_riverrecord_iscorrect"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_weight="0.6"
+        android:gravity="center_horizontal"
+        android:text="有效？"
+        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textColor="@color/black"
+        android:textSize="@dimen/font_normal" />
 
     <LinearLayout
+        android:id="@+id/ll_deal_edit"
         android:layout_width="@dimen/two_text_btn_w"
         android:layout_height="wrap_content"
         android:gravity="center_horizontal"

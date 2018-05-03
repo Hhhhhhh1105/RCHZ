@@ -3,7 +3,7 @@ package com.zju.rchz;
 import com.zju.rchz.model.District;
 
 public class Values {
-	final public static String Ver = "2.0.0";
+	final public static String Ver = "2.1.1";
 //	final public static String Ver = "1.3.2";
 	final public static boolean DEBUG = false;
 	final public static boolean RELEASE = false;
@@ -49,4 +49,5 @@ public class Values {
 	//SystemParameters
 	public static int tourriver;
 	public static int dialmobile;
+	public static int timesOfRiverTour;
 }

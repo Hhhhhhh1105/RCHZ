@@ -100,13 +100,17 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
         isCoordinator = getUser().isLogined() && getUser().isCoordinator();
         ischief = getUser().isLogined() && getUser().isChief();
 
+        //协管员不需要签收
         if(isCoordinator){
             findViewById(R.id.tv_sgin).setVisibility(View.GONE);
         }else if(ischief){
             findViewById(R.id.tv_sgin).setVisibility(View.VISIBLE);
         }
 
+        //不评价
         findViewById(R.id.ll_evalinfo).setVisibility(View.GONE);
+
+        //是否有回复框
         if (isHandled) {
             findViewById(R.id.ll_handle).setVisibility(View.GONE);
             // findViewById(R.id.ll_status).setVisibility(View.GONE);
@@ -281,6 +285,15 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
                         findViewById(R.id.check_result2).setVisibility(View.GONE);
                     }
 
+                    //是否有批示结果
+                    if(dubanTopersonData.getInstructionResult()!=null&&dubanTopersonData.getInstructionResult()!=""){
+                        findViewById(R.id.ll_intruction).setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_instruction_time)).setText(dubanTopersonData.getInstructionDate() != null ? dubanTopersonData.getInstructionDate().getYMDHM(DuabnTopersonDetailActivity.this) : "");
+                        ((TextView)findViewById(R.id.tv_instructionPerson)).setText(dubanTopersonData.getInstructionPerson());
+                        ((TextView)findViewById(R.id.tv_intructionResult)).setText(dubanTopersonData.getInstructionResult());
+                    }else {
+                        findViewById(R.id.check_result2).setVisibility(View.GONE);
+                    }
                     initPhotoView(dubanTopersonData.picPath);
                     initResultPhotoView(dubanTopersonData.dealPicPath);
 

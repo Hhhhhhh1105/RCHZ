@@ -80,17 +80,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minWidth="140dp"
                     android:text="@string/com_name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
                 <TextView
                     android:id="@+id/tv_user_name"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
                     android:tag="tt:{.m:getPersonName}"
                     android:text="@string/eg_name"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -111,16 +110,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/sug_phone"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
                 <TextView
                     android:id="@+id/tv_user_telno"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
                     android:tag="tt:{.m:getTeleNum}"
                     android:text="@string/eg_phone"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -141,16 +140,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/com_river"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
                 <TextView
                     android:id="@+id/tv_rivername"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
                     android:tag="tt:{.m:getRiverName}"
                     android:text="@string/eg_sug_river"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -171,16 +170,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/com_theme"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
                 <TextView
                     android:id="@+id/tv_comp_title"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
                     android:tag="tt:{.m:getTheme}"
                     android:text="@string/eg_sug_theme"
                     android:textAppearance="?android:attr/textAppearanceMedium"
@@ -201,16 +200,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/com_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
                 <TextView
                     android:id="@+id/tv_comp_content"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
                     android:tag="tt:{.m:getContent}"
                     android:text="@string/eg_sug_content"
                     android:textAppearance="?android:attr/textAppearanceMedium"

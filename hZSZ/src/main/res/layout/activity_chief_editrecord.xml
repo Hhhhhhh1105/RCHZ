@@ -323,6 +323,16 @@
             android:layout_marginEnd="6dp">
 
             <com.getbase.floatingactionbutton.FloatingActionButton
+                android:id="@+id/action_event_report"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                fab:fab_colorNormal="@color/white"
+                fab:fab_title="上报"
+                fab:fab_size="mini"
+                android:src="@drawable/ic_event_report"
+                fab:fab_colorPressed="@color/white_pressed"/>
+
+            <com.getbase.floatingactionbutton.FloatingActionButton
                 android:id="@+id/action_camera"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

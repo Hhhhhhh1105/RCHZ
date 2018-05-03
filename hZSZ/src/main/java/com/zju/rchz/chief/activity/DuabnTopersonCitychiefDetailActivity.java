@@ -94,16 +94,33 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
         dubanTopersonObject = StrUtils.Str2Obj(getIntent().getStringExtra(Tags.TAG_COMP), DubanTopersonObject.class);
         isNpcComp = getIntent().getBooleanExtra(Tags.TAG_ISNPCCOMP, false);
 
+        //领导权限不签收
         if (getUser().isLeaderDuban==0){
             findViewById(R.id.tv_sgin).setVisibility(View.VISIBLE);
+
+            //市级河长对于自己河道的督办单可以全程查看，不需要操作
+            findViewById(R.id.ll_handle).setVisibility(View.GONE);
         }else{
             findViewById(R.id.tv_sgin).setVisibility(View.GONE);
+
+            //领导身份批示
+            //是否有回复框
+            if (isHandled) {
+                findViewById(R.id.ll_handle).setVisibility(View.GONE);
+                // findViewById(R.id.ll_status).setVisibility(View.GONE);
+            } else {
+                ((TextView)findViewById(R.id.tv_return)).setText("批示详情");
+                ((EditText)findViewById(R.id.et_handlecontent)).setHint("请输入批示详情");
+                findViewById(R.id.ll_chief_photos).setVisibility(View.GONE);//不需要回复图片
+                if (!dubanTopersonObject.isHandled())
+                    findViewById(R.id.ll_result).setVisibility(View.GONE);
+            }
         }
-        findViewById(R.id.inc_handle).setVisibility(View.GONE);
+
+        //不评价
         findViewById(R.id.ll_evalinfo).setVisibility(View.GONE);
-//        findViewById(R.id.handle_status).setVisibility(View.GONE);
-            if (!dubanTopersonObject.isHandled())
-                findViewById(R.id.ll_result).setVisibility(View.GONE);
+        if (!dubanTopersonObject.isHandled())
+            findViewById(R.id.ll_result).setVisibility(View.GONE);
 
 
         if (dubanTopersonObject != null) {
@@ -227,13 +244,10 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
 
                 if (o != null && o.isSuccess()) {
                     dubanTopersonData = o.data;
-//                    compFul.isComp = isComp;
-//                    compFul.advTheme = comp.advTheme;
-//                    compFul.compTheme = comp.compTheme;
                     viewRender.renderView(findViewById(R.id.ll_root), dubanTopersonData);
 
-                        ((TextView) findViewById(R.id.tv_user_name)).setText("***");
-                        ((TextView) findViewById(R.id.tv_user_telno)).setText("***********");
+                    ((TextView) findViewById(R.id.tv_user_name)).setText("***");
+                    ((TextView) findViewById(R.id.tv_user_telno)).setText("***********");
 
                     ((TextView)findViewById(R.id.tv_handlestatus)).setText(dubanTopersonData.getNewMark(TransformNewstate(dubanTopersonData.getNewState())));
                     findViewById(R.id.sv_main).setVisibility(View.VISIBLE);
@@ -295,6 +309,15 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
                     }else {
                         findViewById(R.id.check_result2).setVisibility(View.GONE);
                     }
+                    //是否有批示结果
+                    if(dubanTopersonData.getInstructionResult()!=null&&dubanTopersonData.getInstructionResult()!=""){
+                        findViewById(R.id.ll_intruction).setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_instruction_time)).setText(dubanTopersonData.getInstructionDate() != null ? dubanTopersonData.getInstructionDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
+                        ((TextView)findViewById(R.id.tv_instructionPerson)).setText(dubanTopersonData.getInstructionPerson());
+                        ((TextView)findViewById(R.id.tv_intructionResult)).setText(dubanTopersonData.getInstructionResult());
+                    }else {
+                        findViewById(R.id.check_result2).setVisibility(View.GONE);
+                    }
 
                     initPhotoView(dubanTopersonData.picPath);
                     initResultPhotoView(dubanTopersonData.dealPicPath);
@@ -343,13 +366,59 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
     public void onClick(View v) {
         int ope = 0;
         switch (v.getId()) {
-//            case R.id.btn_cancel: {
-//                finish();
-//                break;
-//            }
-//            case R.id.btn_submit:
-//                ope = 1;
-//            case R.id.btn_store: {
+            case R.id.btn_cancel: {
+                finish();
+                break;
+            }
+            case R.id.btn_submit:
+                ope = 1;
+                String s = ((EditText) findViewById(R.id.et_handlecontent)).getText().toString().trim();
+                if (s.length() > 0) {
+                    opetype = ope;
+                    instructionResult = s;
+                    submitData();
+//                    LinearLayout ll_photos = (LinearLayout) findViewById(R.id.ll_chief_photos);
+//                    if (ll_photos.getChildCount() <= 1){
+//                        showToast("请您拍摄相关图片，在回复详情栏上传之后再提交");
+//                        return;
+//                    }
+//                    if (ll_photos.getChildCount() > 1) {
+//                        // 有图片
+//                        hasImg = true;
+//                        final Uri[] bmps = new Uri[ll_photos.getChildCount() - 1];
+//                        for (int i = 0; i < bmps.length; ++i) {
+//                            bmps[i] = (Uri) ll_photos.getChildAt(i).getTag();
+//                        }
+//                        asynCallAndShowProcessDlg("正在处理图片...", new Callable() {
+//                            @Override
+//                            public void call(Object... args) {
+//
+//                                StringBuffer sb = new StringBuffer();
+//                                for (Uri bmp : bmps) {
+//                                    if (sb.length() > 0)
+//                                        sb.append(";");
+//                                    byte[] bts = bmp2Bytes(bmp);
+//                                    Log.i("NET", bmp.toString() + " bts.len " + bts.length);
+//                                    sb.append(Base64.encodeToString(bts, Base64.DEFAULT));
+//                                }
+//                                picbase64 = sb.toString();
+//                                Log.i("NET", "all base64.len " + picbase64.length());
+//                                safeCall(new Callable() {
+//                                    @Override
+//                                    public void call(Object... args) {
+//                                        submitData();
+//                                    }
+//                                });
+//                            }
+//                        });
+//                    } else {
+//                        submitData();
+//                    }
+                } else {
+                    showToast("处理结果不能为空!");
+                }
+                break;
+            case R.id.btn_store: {
 //                String s = ((EditText) findViewById(R.id.et_handlecontent)).getText().toString().trim();
 //                if (s.length() > 0) {
 //                    opetype = ope;
@@ -395,7 +464,7 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
 //                    showToast("处理结果不能为空!");
 //                }
 //                break;
-//            }
+            }
             case R.id.tv_complain_map:{
                 Intent intent = new Intent(DuabnTopersonCitychiefDetailActivity.this, ComplainMap.class);
                 Bundle bundle=new Bundle();
@@ -415,39 +484,37 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
 
     private String picbase64 = "";
     private int opetype = 0;
-    private String dealContent = null;
-//
-//    private void submitData() {
-//        showOperating("正在提交数据...");
-//
-//        String request;
-//        JSONObject params;
-//
-////        if (isNpcComp) {
-//
-//        //人大投诉处理
-//        request = "Add_ChiefDubanTopersonDeal_Content";
-//        params = ParamUtils.freeParam(null, "dubanTopersonId", dubanTopersonObject.getId(), "dealContent", dealContent, "picBase64", picbase64);
-//
-//        getRequestContext().add(request, new Callback<BaseRes>() {
-//            @Override
-//            public void callback(BaseRes o) {
-//                hideOperating();
-//                if (o != null && o.isSuccess()) {
-//                    showToast(opetype == 0 ? "暂存成功" : "提交成功");
-//                    if (opetype == 1) {
-//                        setResult(RESULT_OK);
-//
-//                        imgLatlist="";
-//                        imgLnglist="";
-//
-//                        finish();
-//                    }
-//                }
-//            }
-//            // picBase64
-//        }, BaseRes.class, params);
-//    }
+    private String instructionResult = null;
+    private String instructionPerson = null;
+
+    private void submitData() {
+        showOperating("正在提交数据...");
+
+        String request;
+        JSONObject params;
+
+        request = "Add_LeaderDubanTopersonDeal_Content";
+        params = ParamUtils.freeParam(null, "dubanTopersonId", dubanTopersonObject.getId(), "instructionResult", instructionResult,"instructionPerson",getUser().getRealName());
+
+        getRequestContext().add(request, new Callback<BaseRes>() {
+            @Override
+            public void callback(BaseRes o) {
+                hideOperating();
+                if (o != null && o.isSuccess()) {
+                    showToast(opetype == 0 ? "暂存成功" : "提交成功");
+                    if (opetype == 1) {
+                        setResult(RESULT_OK);
+
+                        imgLatlist="";
+                        imgLnglist="";
+
+                        finish();
+                    }
+                }
+            }
+            // picBase64
+        }, BaseRes.class, params);
+    }
 
     private Uri imageFilePath = null;
 

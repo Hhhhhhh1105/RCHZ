@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zju.rchz"
     android:versionCode="17"
-    android:versionName="2.0.0" >
+    android:versionName="2.1.1" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -136,17 +136,16 @@
         <!-- android:value="NAIjbQ5YZ6lDQ6sjDjNyGWhPLgfrv7U6" /> -->
 
 
-        <!-- 百度正式 SHA1=4D:ED:FD:18:D3:8E:A4:DF:E7:C5:67:D5:96:85:57:0F:AA:4B:84:16 -->
+        <!-- 百度正式 SHA1=91:0C:25:B7:C6:B7:FD:9F:7F:7B:F9:DC:E9:76:8E:04:03:58:1A:5C -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
-            android:value="R6xmgmkLHRaqFdrm6IRhGdpOdjg0ViZc" />
+            android:value="z2LMSwExOzmteAwGCAGvhqw0v3sBNUTF" />
 
-        <!--
-        百度测试 
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="FN24KOpYV6MOLaO9dGhjqgUb" />
-        -->
+        <!-- &lt;!&ndash; 百度正式 SHA1=4D:ED:FD:18:D3:8E:A4:DF:E7:C5:67:D5:96:85:57:0F:AA:4B:84:16&ndash;&gt; -->
+        <!-- <meta-data -->
+        <!-- android:name="com.baidu.lbsapi.API_KEY" -->
+        <!-- android:value="R6xmgmkLHRaqFdrm6IRhGdpOdjg0ViZc" /> -->
+
         <activity
             android:name="com.zju.rchz.activity.WelcomeActivity"
             android:label="@string/app_name"

@@ -172,9 +172,9 @@ public class ChiefInspectActivity extends BaseActivity{
 
         if(isAddNewRiverRecord) {
             startTimer();//打开定时器，向服务器传轨迹点
-            showToast("kai");
+//            showToast("kai");
         }else {
-            showToast("meikan");
+//            showToast("meikan");
         }
     /*    btn_stop.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -497,7 +497,9 @@ public class ChiefInspectActivity extends BaseActivity{
         isStopLocClient = true;
 
         mBaiduMap.setMyLocationEnabled(false);
-        mMapView.onDestroy();
+        if(mMapView!=null){
+            mMapView.onDestroy();
+        }
         mMapView = null;
         mBaiduMap = null;
 

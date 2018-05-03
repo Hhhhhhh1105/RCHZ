@@ -776,6 +776,10 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\layout\\abc_search_dropdown_item_icons_2line.xml"
     },
     {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout\\inc_instruction.xml",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\layout\\inc_instruction.xml"
+    },
+    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout\\umeng_socialize_at_view.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\layout\\umeng_socialize_at_view.xml"
     },

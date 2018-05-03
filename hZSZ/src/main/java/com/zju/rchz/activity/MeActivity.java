@@ -151,13 +151,10 @@ public class MeActivity extends BaseActivity {
 		if(isCleaner){
 			View v1=findViewById(R.id.rl_chief_sign);
 			v1.setVisibility(View.VISIBLE);
-			View v3=findViewById(R.id.rl_leaderDuban_list);
-			v3.setVisibility(View.VISIBLE);
+
 		}else {
 			View v1=findViewById(R.id.rl_chief_sign);
 			v1.setVisibility(View.GONE);
-			View v3=findViewById(R.id.rl_leaderDuban_list);
-			v3.setVisibility(View.GONE);
 		}
 
 		//协管员
@@ -297,7 +294,12 @@ public class MeActivity extends BaseActivity {
 				break;
 			}
 			case R.id.tv_problem_report: {
-				startActivity(new Intent(this, ProblemReportActivity.class));
+				Intent intent = new Intent(this, ProblemReportActivity.class);
+				Bundle bundle=new Bundle();
+				bundle.putString("eventFlag", "0");//督察员问题上报（0表示上报人是督察员）
+				intent.putExtras(bundle);
+				startActivity(intent);
+//				startActivity(new Intent(this, ProblemReportActivity.class));
 				break;
 			}
 			case R.id.tv_ducha_list: {

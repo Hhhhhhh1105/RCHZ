@@ -66,7 +66,7 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="0.8"
             android:text="巡查日期"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/blue"
@@ -75,9 +75,19 @@
         <TextView
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_weight="1"
+            android:layout_weight="1.2"
             android:gravity="center"
             android:text="巡查河段"
+            android:textAppearance="?android:attr/textAppearanceMedium"
+            android:textColor="@color/blue"
+            android:textSize="@dimen/font_normal" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="0.6"
+            android:gravity="center"
+            android:text="有效性"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/blue"
             android:textSize="@dimen/font_normal" />

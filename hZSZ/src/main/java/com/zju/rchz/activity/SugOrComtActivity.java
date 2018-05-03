@@ -238,9 +238,28 @@ public class SugOrComtActivity extends BaseActivity {
 
 	private void readyToSugOrCom(final River river) {
 		if (river.isPiecewise()) {
-			String[] names = new String[river.townRiverChiefs.length];
+			//按下级镇街河长处理
+//            String[] names = new String[river.townRiverChiefs.length];
+//            for (int i = 0; i < names.length; ++i) {
+//                names[i] = river.townRiverChiefs[i].townRiverName;
+//            }
+//            Dialog alertDialog = new AlertDialog.Builder(this).setTitle(R.string.river_select_segment).setItems(names, new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    setWithRiver(river, which);
+//                }
+//            }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//
+//                }
+//            }).setCancelable(false).create();
+//            alertDialog.show();
+
+			//按是否下级河道处理
+			String[] names = new String[river.lowLevelRivers.length];
 			for (int i = 0; i < names.length; ++i) {
-				names[i] = river.townRiverChiefs[i].townRiverName;
+				names[i] = river.lowLevelRivers[i].riverName;
 			}
 			Dialog alertDialog = new AlertDialog.Builder(this).setTitle(R.string.river_select_segment).setItems(names, new DialogInterface.OnClickListener() {
 				@Override
@@ -371,7 +390,7 @@ public class SugOrComtActivity extends BaseActivity {
 				if (segment_ix == -1) {
 					((TextView) findViewById(R.id.tv_rivername)).setText(river.riverName);
 				} else {
-					((TextView) findViewById(R.id.tv_rivername)).setText(river.townRiverChiefs[segment_ix].townRiverName);
+					((TextView) findViewById(R.id.tv_rivername)).setText(river.lowLevelRivers[segment_ix].riverName);
 				}
 			} else {
 				showToast("没有传入河道参数");
@@ -393,7 +412,8 @@ public class SugOrComtActivity extends BaseActivity {
 	private void submmit() {
 		uname = ((EditText) findViewById(R.id.et_suggest_name)).getText().toString().trim();
 		//注意了，如果是人大，没有这两个编辑框。
-		subject = subject == null ? ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim(): subject;
+//		subject = subject == null ? ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim(): subject;
+		subject = ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim();
 		if (getUser().isNpc() && r.riverId == getUser().getMyRiverId() && !isCom) {
 			contentt = ((EditText) findViewById(R.id.et_npc_otherquestion)).getText().toString().trim();
 		} else
@@ -442,7 +462,9 @@ public class SugOrComtActivity extends BaseActivity {
 		if (getUser().isNpc())
 			anonymity = false;
 
-		rid = segment_ix < 0 ? river.riverId : (river.townRiverChiefs[segment_ix].townRiverId);
+//		rid = segment_ix < 0 ? river.riverId : (river.townRiverChiefs[segment_ix].townRiverId);
+
+		rid = segment_ix < 0 ? river.riverId : (river.lowLevelRivers[segment_ix].riverId);
 
 		LinearLayout ll_photos = (LinearLayout) findViewById(R.id.ll_photos);
 		if (ll_photos.getChildCount() > 1) {

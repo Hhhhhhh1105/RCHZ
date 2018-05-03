@@ -216,12 +216,12 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable-hdpi\\im_quality_small_3.png"
     },
     {
-        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_bottom_shouye_s.png",
-        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable-hdpi\\ic_bottom_shouye_s.png"
-    },
-    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_bottom_xinwen_n.png",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable-hdpi\\ic_bottom_xinwen_n.png"
+    },
+    {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_bottom_shouye_s.png",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable-hdpi\\ic_bottom_shouye_s.png"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\umeng_socialize_light_bar_bg_pad.9.png",

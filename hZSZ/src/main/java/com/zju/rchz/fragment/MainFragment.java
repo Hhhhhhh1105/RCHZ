@@ -842,7 +842,7 @@ public class MainFragment extends BaseFragment implements OnRefreshListener {
 					Values.districtLists = indexData.districtLists;
 					Values.tourriver = indexData.tourriver;
 					Values.dialmobile = indexData.dialmobile;
-
+					Values.timesOfRiverTour = indexData.timesOfRiverTour;
 
 					refreshSectionUI();
 					refreshRiverUI();

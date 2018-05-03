@@ -53,6 +53,34 @@ public class DubanTopersonData {
     private DateTime secondCheckTime;//督察员第二次验收的时间
     private Integer newState;//新状态字段 0待受理20已受理/待反馈30带查验40待审核41不合格50归档60转督
 
+    private String instructionResult;//批示结果
+    private String instructionPerson;//批示领导
+    private DateTime instructionDate;//批示日期
+
+    public void setInstructionResult(String instructionResult) {
+        this.instructionResult = instructionResult;
+    }
+
+    public void setInstructionPerson(String instructionPerson) {
+        this.instructionPerson = instructionPerson;
+    }
+
+    public void setInstructionDate(DateTime instructionDate) {
+        this.instructionDate = instructionDate;
+    }
+
+    public String getInstructionResult() {
+        return instructionResult;
+    }
+
+    public String getInstructionPerson() {
+        return instructionPerson;
+    }
+
+    public DateTime getInstructionDate() {
+        return instructionDate;
+    }
+
     public void setDealPersonName2(String dealPersonName2) {
         this.dealPersonName2 = dealPersonName2;
     }

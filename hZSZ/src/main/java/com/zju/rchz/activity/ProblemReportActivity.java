@@ -54,6 +54,8 @@ public class ProblemReportActivity extends BaseActivity {
     private int chiefFeedBack = 0;
     private int chiefWork = 0;
 
+    //上报人身份标志位：0代表督察员，1代表和河长
+    private String eventFlag = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -67,8 +69,9 @@ public class ProblemReportActivity extends BaseActivity {
 
         r = StrUtils.Str2Obj(getIntent().getStringExtra(Tags.TAG_RIVER), River.class);
         int ix = getIntent().getIntExtra(Tags.TAG_INDEX, -1);
-        isCom = getIntent().getBooleanExtra(Tags.TAG_ABOOLEAN, false);
+//        isCom = getIntent().getBooleanExtra(Tags.TAG_ABOOLEAN, false);
 
+        eventFlag= getIntent().getExtras().getString("eventFlag");
 
         ((TextView) findViewById(R.id.tv_suggest_river)).setText(R.string.form_problem_report_river);
 //            ((CheckBox) findViewById(R.id.ck_anonymity)).setText(R.string.form_complaint_anonymity);
@@ -240,9 +243,28 @@ public class ProblemReportActivity extends BaseActivity {
 
     private void readyToSugOrCom(final River river) {
         if (river.isPiecewise()) {
-            String[] names = new String[river.townRiverChiefs.length];
+            //按下级镇街河长处理
+//            String[] names = new String[river.townRiverChiefs.length];
+//            for (int i = 0; i < names.length; ++i) {
+//                names[i] = river.townRiverChiefs[i].townRiverName;
+//            }
+//            Dialog alertDialog = new AlertDialog.Builder(this).setTitle(R.string.river_select_segment).setItems(names, new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//                    setWithRiver(river, which);
+//                }
+//            }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
+//                @Override
+//                public void onClick(DialogInterface dialog, int which) {
+//
+//                }
+//            }).setCancelable(false).create();
+//            alertDialog.show();
+
+            //按是否下级河道处理
+            String[] names = new String[river.lowLevelRivers.length];
             for (int i = 0; i < names.length; ++i) {
-                names[i] = river.townRiverChiefs[i].townRiverName;
+                names[i] = river.lowLevelRivers[i].riverName;
             }
             Dialog alertDialog = new AlertDialog.Builder(this).setTitle(R.string.river_select_segment).setItems(names, new DialogInterface.OnClickListener() {
                 @Override
@@ -373,7 +395,7 @@ public class ProblemReportActivity extends BaseActivity {
                 if (segment_ix == -1) {
                     ((TextView) findViewById(R.id.tv_rivername)).setText(river.riverName);
                 } else {
-                    ((TextView) findViewById(R.id.tv_rivername)).setText(river.townRiverChiefs[segment_ix].townRiverName);
+                    ((TextView) findViewById(R.id.tv_rivername)).setText(river.lowLevelRivers[segment_ix].riverName);
                 }
             } else {
                 showToast("没有传入河道参数");
@@ -395,15 +417,12 @@ public class ProblemReportActivity extends BaseActivity {
     private void submmit() {
         uname = ((EditText) findViewById(R.id.et_suggest_name)).getText().toString().trim();
         //注意了，如果是人大，没有这两个编辑框。
-        subject = subject == null ? ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim(): subject;
-//        if (getUser().isNpc() && r.riverId == getUser().getMyRiverId() && !isCom) {
-//            contentt = ((EditText) findViewById(R.id.et_npc_otherquestion)).getText().toString().trim();
-//        } else
+//        subject = subject == null ? ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim(): subject;
+        subject = ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim();
+
         contentt = ((EditText) findViewById(R.id.et_suggest_contentt)).getText().toString().trim();
 
         telno = ((EditText) findViewById(R.id.et_phonenum)).getText().toString().trim();
-        // code = ((EditText)
-        // findViewById(R.id.et_authcode)).getText().toString().trim();
 
         if (uname.length() == 0) {
             showToast("姓名不能为空!");
@@ -462,7 +481,9 @@ public class ProblemReportActivity extends BaseActivity {
         //协管员不能匿名
         anonymity = false;
 
-        rid = segment_ix < 0 ? river.riverId : (river.townRiverChiefs[segment_ix].townRiverId);
+//        rid = segment_ix < 0 ? river.riverId : (river.townRiverChiefs[segment_ix].townRiverId);
+
+        rid = segment_ix < 0 ? river.riverId : (river.lowLevelRivers[segment_ix].riverId);
 
         LinearLayout ll_photos = (LinearLayout) findViewById(R.id.ll_photos);
         if (ll_photos.getChildCount() > 1) {
@@ -517,7 +538,9 @@ public class ProblemReportActivity extends BaseActivity {
 
 //        p = ParamUtils.freeParam(null, "riverId", rid, "compTheme", subject, "compContent", contentt, "compName", uname, "compTelephone", telno, "ifAnonymous", anonymity ? 1 : 0, "picBase64", picbase64 == null ? "" : picbase64);
 //        p = ParamUtils.freeParam(null, "riverId", rid, "duChaTheme", subject, "duChaContent", contentt, "duChaName", uname, "duChaTelephone", telno, "ifAnonymous", anonymity ? 1 : 0, "picBase64", picbase64 == null ? "" : picbase64);
-        p = ParamUtils.freeParam(null, "riverId", rid, "proReportTheme", subject, "proReportContent", contentt, "proReportName", uname, "proReportTelephone", telno, "ifAnonymous", anonymity ? 1 : 0, "picBase64", picbase64 == null ? "" : picbase64);
+        p = ParamUtils.freeParam(null, "riverId", rid, "proReportTheme", subject, "proReportContent", contentt,
+                "proReportName", uname, "proReportTelephone", telno, "ifAnonymous", anonymity ? 1 : 0,
+                "picBase64", picbase64 == null ? "" : picbase64,"eventFlag",eventFlag);
 
         //人大代表的相关参数
         try{

@@ -60,6 +60,12 @@
                 android:visibility="gone"/>
 
             <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/inc_instruction"
+                android:visibility="gone"/>
+
+            <include
                 android:id="@+id/handle_status"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -94,8 +100,8 @@
                 android:layout_height="wrap_content"
                 layout="@layout/inc_compevalinfo" />
 
+
             <include
-                android:id="@+id/inc_handle"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/inc_comphanle"

@@ -230,13 +230,9 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         if(isCleaner){
             View v1=rootView.findViewById(R.id.rl_chief_sign);
             v1.setVisibility(View.VISIBLE);
-            View v3=rootView.findViewById(R.id.rl_leaderDuban_list);
-            v3.setVisibility(View.VISIBLE);
         }else {
             View v1=rootView.findViewById(R.id.rl_chief_sign);
             v1.setVisibility(View.GONE);
-            View v3=rootView.findViewById(R.id.rl_leaderDuban_list);
-            v3.setVisibility(View.GONE);
         }
         //督察员
         if(isDucha){
@@ -415,7 +411,12 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             }
             //问题上报
             case R.id.tv_problem_report: {
-                startActivity(new Intent(getBaseActivity(), ProblemReportActivity.class));
+                Intent intent = new Intent(getBaseActivity(), ProblemReportActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("eventFlag", "0");//督察员问题上报（0表示上报人是督察员）
+                intent.putExtras(bundle);
+                startActivity(intent);
+//                startActivity(new Intent(getBaseActivity(), ProblemReportActivity.class));
                 break;
             }
             //河管员督办单

@@ -17,6 +17,7 @@
         android:padding="@dimen/page_padding" >
 
         <TextView
+            android:id="@+id/tv_return"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/replayinfo"
@@ -40,7 +41,8 @@
             android:id="@+id/hsv_photos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:background="@drawable/shape_gray_board_btn_bg" >
+            android:background="@drawable/shape_gray_board_btn_bg"
+            android:visibility="visible">
 
             <LinearLayout
                 android:id="@+id/ll_chief_photos"

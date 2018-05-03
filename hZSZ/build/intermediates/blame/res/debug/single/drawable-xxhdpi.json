@@ -24,6 +24,10 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xxhdpi\\common_plus_signin_btn_text_dark_disabled.9.png"
     },
     {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\ic_event_report.png",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable-xxhdpi\\ic_event_report.png"
+    },
+    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-xxhdpi\\common_google_signin_btn_icon_dark_disabled.9.png",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-xxhdpi\\common_google_signin_btn_icon_dark_disabled.9.png"
     },

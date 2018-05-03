@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.view.View;
@@ -17,7 +18,9 @@ import com.sin.android.sinlibs.adapter.SimpleViewInitor;
 import com.sin.android.sinlibs.tagtemplate.ViewRender;
 import com.zju.rchz.R;
 import com.zju.rchz.Tags;
+import com.zju.rchz.Values;
 import com.zju.rchz.model.BaseRes;
+import com.zju.rchz.model.DateTime;
 import com.zju.rchz.model.RiverRecord;
 import com.zju.rchz.model.RiverRecordListRes;
 import com.zju.rchz.model.RiverRecordTemporaryJsonRes;
@@ -44,6 +47,11 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 	private List<RiverRecord> records = new ArrayList<RiverRecord>();
 
 	private ViewRender viewRender = new ViewRender();
+
+	private int timesOfRiverRecord;//今日巡河次数
+	private DateTime todayDateTime;//今天的日期
+	//测试
+	private RiverRecord riverRecordTest = null;
 
 	// 编辑巡河单时的监听器
 	protected OnClickListener edtClk = new OnClickListener() {
@@ -106,6 +114,22 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 			convertView.setOnClickListener(edtClk);
 			convertView.findViewById(R.id.btn_delete).setOnClickListener(delClk);
 
+			if(record.isCorrect.equals("1")){
+				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("有效");
+				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(android.graphics.Color.GREEN);
+			}else if(record.isCorrect.equals("0")){
+				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("无效");
+				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(android.graphics.Color.RED);
+			}else {
+				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("判断中");
+				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.BLACK);
+			}
+//			if(record.recordDate.year == todayDateTime.year){
+//				if(record.recordDate.month == todayDateTime.month && record.recordDate.day == todayDateTime.day){
+//					convertView.findViewById(R.id.ll_deal_edit).setVisibility(View.VISIBLE);
+//				}
+//			}
+
 			return convertView;
 		}
 	};
@@ -113,6 +137,10 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 	public String year = "2015";
 	public String month = "7";
 
+	//记录当前的年月日
+	String yearToday="2015";
+	String monthToday="10";
+	String dayToday="10";
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -120,10 +148,16 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 		setTitle("巡查记录");
 		initHead(R.drawable.ic_head_back, 0);
 
+		todayDateTime = DateTime.getNow();//初始化
+
 		Locale.setDefault(Locale.CHINA);
 		Calendar calendar = Calendar.getInstance();
 		year = "" + calendar.get(Calendar.YEAR);
 		month = "" + (1 + calendar.get(Calendar.MONTH));
+		//初始化当前的年月日
+		yearToday=calendar.get(Calendar.YEAR)+"";
+		monthToday=calendar.get(Calendar.MONTH)+1+"";
+		dayToday=calendar.get(Calendar.DAY_OF_MONTH)+"";
 
 		findViewById(R.id.btn_new).setOnClickListener(this);
 		findViewById(R.id.tv_seldate).setOnClickListener(this);
@@ -144,21 +178,19 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 
 		((LinearLayout) findViewById(R.id.ll_main)).addView(listViewWarp.getRootView());
 		// listViewWarp.getRootView().setBackgroundColor(getResources().getColor(R.color.white));
+
+		submitSetRiverRecordIsCorrectParam = new JSONObject();
+		try{
+			submitSetRiverRecordIsCorrectParam.put("UUID",getUser().getUuid());
+			submitSetRiverRecordIsCorrectParam.put("year",yearToday);
+			submitSetRiverRecordIsCorrectParam.put("month",monthToday);
+			submitSetRiverRecordIsCorrectParam.put("day",dayToday);
+		} catch (JSONException e) {
+			e.printStackTrace();
+		}
 		loadRecords(true);
 		getHostRiverRecordTemporary();//获得服务器对应河长未完成的轨迹
-		// listViewWarp.getListView().setOnItemClickListener(new
-		// AdapterView.OnItemClickListener() {
-		// @Override
-		// public void onItemClick(AdapterView<?> arg0, View arg1, int pos, long
-		// arg3) {
-		// RiverRecord record = records.get(pos);
-		//
-		// Intent intent = new Intent(ChiefRecordListActivity.this,
-		// com.zju.hzsz.chief.activity.ChiefEditRecordActivity.class);
-		// intent.putExtra(Tags.TAG_RECORD, StrUtils.Obj2Str(record));
-		// startActivityForResult(intent, Tags.CODE_EDIT);
-		// }
-		// });
+
 		refreshDateView();
 	}
 
@@ -192,12 +224,16 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_new: {
-			Intent intent = new Intent(this, com.zju.rchz.chief.activity.ChiefEditRecordActivity.class);
-			Bundle bundle=new Bundle();
-			bundle.putString("latList_host", latList_host);
-			bundle.putString("lngList_host", lngList_host);
-			intent.putExtras(bundle);
-			startActivityForResult(intent, Tags.CODE_NEW);
+//			if(timesOfRiverRecord >= Values.timesOfRiverTour){
+//				showToast("今日巡河次数已达上限！");
+//			}else {
+				Intent intent = new Intent(this, com.zju.rchz.chief.activity.ChiefEditRecordActivity.class);
+				Bundle bundle=new Bundle();
+				bundle.putString("latList_host", latList_host);
+				bundle.putString("lngList_host", lngList_host);
+				intent.putExtras(bundle);
+				startActivityForResult(intent, Tags.CODE_NEW);
+//			}
 			break;
 		}
 		case R.id.tv_seldate: {
@@ -233,21 +269,42 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 		return true;
 	}
 
+	JSONObject submitSetRiverRecordIsCorrectParam = null;
+
 	private void loadRecords(final boolean refresh) {
 		if (refresh)
 			listViewWarp.setRefreshing(true);
 		else
 			listViewWarp.setLoadingMore(true);
+
+		//判断轨迹有效性的请求
+		getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
+			@Override
+			public void callback(BaseRes o) {
+				hideOperating();
+				if (o != null && o.isSuccess()) {
+
+				}
+			}
+		}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
+
 		getRequestContext().add("Get_Record_List", new Callback<RiverRecordListRes>() {
 			@Override
 			public void callback(RiverRecordListRes o) {
 				listViewWarp.setRefreshing(false);
 				listViewWarp.setLoadingMore(false);
 
+				timesOfRiverRecord = 0; //今日巡河次数初始化
 				if (o != null && o.isSuccess()) {
 					if (refresh)
 						records.clear();
 					for (RiverRecord rr : o.data) {
+						if(rr.recordDate.year == todayDateTime.year){
+							if (rr.recordDate.month == todayDateTime.month && rr.recordDate.day == todayDateTime.day){
+								timesOfRiverRecord +=1;
+							}
+						}
+						riverRecordTest = rr;
 						records.add(rr);
 					}
 					adapter.notifyDataSetChanged();
@@ -256,6 +313,7 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 				}
 			}
 		}, RiverRecordListRes.class, getPageParam(refresh));
+
 	}
 
 	private final int DefaultPageSize = Constants.DefaultPageSize;

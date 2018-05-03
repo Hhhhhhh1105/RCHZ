@@ -216,7 +216,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/me_item_tv_padding_left"
                     android:paddingRight="@dimen/page_padding"
-                    android:text="通知单抄送"
+                    android:text="领导批示"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
