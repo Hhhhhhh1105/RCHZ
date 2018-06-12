@@ -1,5 +1,9 @@
 [
     {
+        "merged": "F:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_launcher.png",
+        "source": "F:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable-ldpi\\ic_launcher.png"
+    },
+    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-ldpi\\ic_launcher.png",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable-ldpi\\ic_launcher.png"
     }

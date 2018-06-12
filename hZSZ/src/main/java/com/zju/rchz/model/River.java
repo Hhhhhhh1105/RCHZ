@@ -68,6 +68,8 @@ public class River {
 	//
 	 public boolean ifCare; /* 是否关注 */
 
+	public int numOfProblem;//未批示的问题数目
+
 	public boolean isCared(User u) {
 		boolean s = u.getCollections().contains(this);
 

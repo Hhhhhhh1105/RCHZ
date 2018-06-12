@@ -11,6 +11,12 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/head_h"
         layout="@layout/inc_head" />
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mv_position"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:clickable="false"
+        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"

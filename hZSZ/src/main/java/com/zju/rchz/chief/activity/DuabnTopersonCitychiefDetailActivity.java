@@ -8,7 +8,6 @@ import android.media.ThumbnailUtils;
 import android.net.Uri;
 import android.os.Bundle;
 import android.provider.MediaStore;
-import android.util.Base64;
 import android.util.Log;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,7 +17,6 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.sin.android.sinlibs.base.Callable;
 import com.sin.android.sinlibs.tagtemplate.TemplateEngine;
 import com.sin.android.sinlibs.tagtemplate.ViewRender;
 import com.zju.rchz.R;
@@ -51,6 +49,7 @@ import java.util.List;
 
 public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
 
+    private static final String TAG = "DuabnTopersonDetail";
     //    private ChiefComp comp = null;
     private DubanTopersonObject dubanTopersonObject=null;
     //    private ChiefCompFul compFul = null;
@@ -177,6 +176,7 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
             showToast("没有处理单信息");
             finish();
         }
+        Log.d(TAG,"DuabnTopersonCitychiefDetailActivity");
     }
 
     private String[] imgUrls = null;
@@ -268,6 +268,8 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
                         ((TextView)findViewById(R.id.tv_hnd_telno)).setText(dubanTopersonData.getDealTeleNum());
                         ((TextView)findViewById(R.id.tv_hnd_name)).setText(dubanTopersonData.getDealPersonName());
                         ((TextView)findViewById(R.id.tv_hnd_result)).setText(dubanTopersonData.getDealResult());
+                    }else {
+                        findViewById(R.id.deal_result1).setVisibility(View.GONE);
                     }
                     if (dubanTopersonData.getDeadLine()!=null&&dubanTopersonData.getDeadLine()!=""){
                         findViewById(R.id.v_deadline).setVisibility(View.VISIBLE);
@@ -309,16 +311,61 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
                     }else {
                         findViewById(R.id.check_result2).setVisibility(View.GONE);
                     }
-                    //是否有批示结果
-                    if(dubanTopersonData.getInstructionResult()!=null&&dubanTopersonData.getInstructionResult()!=""){
-                        findViewById(R.id.ll_intruction).setVisibility(View.VISIBLE);
-                        ((TextView)findViewById(R.id.tv_instruction_time)).setText(dubanTopersonData.getInstructionDate() != null ? dubanTopersonData.getInstructionDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
-                        ((TextView)findViewById(R.id.tv_instructionPerson)).setText(dubanTopersonData.getInstructionPerson());
-                        ((TextView)findViewById(R.id.tv_intructionResult)).setText(dubanTopersonData.getInstructionResult());
-                    }else {
-                        findViewById(R.id.check_result2).setVisibility(View.GONE);
-                    }
+//                    //是否有批示结果
+//                    if(dubanTopersonData.getInstructionResult()!=null&&dubanTopersonData.getInstructionResult()!=""){
+//                        findViewById(R.id.ll_intruction).setVisibility(View.VISIBLE);
+//                        ((TextView)findViewById(R.id.tv_instruction_time)).setText(dubanTopersonData.getInstructionDate() != null ? dubanTopersonData.getInstructionDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
+//                        ((TextView)findViewById(R.id.tv_instructionPerson)).setText(dubanTopersonData.getInstructionPerson());
+//                        ((TextView)findViewById(R.id.tv_intructionResult)).setText(dubanTopersonData.getInstructionResult());
+//                    }else {
+//                        findViewById(R.id.check_result2).setVisibility(View.GONE);
+//                    }
 
+                    //是否有市委书记批示结果
+                    if(dubanTopersonData.getInstructionFromSecretary()!=null&&dubanTopersonData.getInstructionFromSecretary()!=""){
+                        findViewById(R.id.ll_party_secretary_intruction).setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_partySecretaryIntruction_time))
+                                .setText(dubanTopersonData.getInstructionFromSecretaryDate() != null ? dubanTopersonData.getInstructionFromSecretaryDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
+                        ((TextView)findViewById(R.id.tv_partySecretaryIntruction)).setText(dubanTopersonData.getInstructionFromSecretary());
+                    }else {
+                        findViewById(R.id.ll_party_secretary_intruction).setVisibility(View.GONE);
+                    }
+                    //是否有市长批示结果
+                    if(dubanTopersonData.getInstructionFromMayor()!=null&&dubanTopersonData.getInstructionFromMayor()!=""){
+                        findViewById(R.id.ll_mayor_intruction).setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_mayorIntruction_time))
+                                .setText(dubanTopersonData.getInstructionFromMayorDate() != null ? dubanTopersonData.getInstructionFromMayorDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
+                        ((TextView)findViewById(R.id.tv_mayorIntruction)).setText(dubanTopersonData.getInstructionFromMayor());
+                    }else {
+                        findViewById(R.id.ll_mayor_intruction).setVisibility(View.GONE);
+                    }
+                    //是否有分管市长批示结果
+                    if(dubanTopersonData.getInstructionFromOtherMayor()!=null&&dubanTopersonData.getInstructionFromOtherMayor()!=""){
+                        findViewById(R.id.ll_other_mayor_intruction).setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_otherMayorIntruction_time))
+                                .setText(dubanTopersonData.getInstructionFromOtherMayorDate() != null ? dubanTopersonData.getInstructionFromOtherMayorDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
+                        ((TextView)findViewById(R.id.tv_otherMayorIntruction)).setText(dubanTopersonData.getInstructionFromOtherMayor());
+                    }else {
+                        findViewById(R.id.ll_other_mayor_intruction).setVisibility(View.GONE);
+                    }
+                    //是否有市级河长批示结果
+                    if(dubanTopersonData.getInstructionFromCityChief()!=null && dubanTopersonData.getInstructionFromCityChief()!=""){
+                        findViewById(R.id.ll_city_chief_intruction).setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_cityChiefIntruction_time))
+                                .setText(dubanTopersonData.getInstructionFromCityChiefDate() != null ? dubanTopersonData.getInstructionFromCityChiefDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
+                        ((TextView)findViewById(R.id.tv_cityChiefIntruction)).setText(dubanTopersonData.getInstructionFromCityChief());
+                    }else {
+                        findViewById(R.id.ll_city_chief_intruction).setVisibility(View.GONE);
+                    }
+                    //是否有镇街总河长批示结果
+                    if(dubanTopersonData.getInstructionFromBossChief()!=null&&dubanTopersonData.getInstructionFromBossChief()!=""){
+                        findViewById(R.id.ll_boss_chief_intruction).setVisibility(View.VISIBLE);
+                        ((TextView)findViewById(R.id.tv_bossChiefIntruction_time))
+                                .setText(dubanTopersonData.getInstructionFromBossChiefDate() != null ? dubanTopersonData.getInstructionFromBossChiefDate().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
+                        ((TextView)findViewById(R.id.tv_bossChiefIntruction)).setText(dubanTopersonData.getInstructionFromBossChief());
+                    }else {
+                        findViewById(R.id.ll_boss_chief_intruction).setVisibility(View.GONE);
+                    }
                     initPhotoView(dubanTopersonData.picPath);
                     initResultPhotoView(dubanTopersonData.dealPicPath);
 
@@ -705,8 +752,8 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
             imAnyUrls_SecondDeal = new String[list.size()];
             imAnyUrls_SecondDeal = list.toArray(imAnyUrls_SecondDeal);
 //            hsv_id.setVisibility(View.VISIBLE);
-            findViewById(R.id.hsv_result2_photos).setVisibility(View.VISIBLE);
-            LinearLayout ll_photos = (LinearLayout) findViewById(R.id.ll_handleresult2_photos);
+            findViewById(R.id.hsv_results2_photos).setVisibility(View.VISIBLE);
+            LinearLayout ll_photos = (LinearLayout) findViewById(R.id.ll_handleresults2_photos);
             ll_photos.removeAllViews();
 
             for (int i = 0; i < imAnyUrls_SecondDeal.length; ++i) {
@@ -729,7 +776,7 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
             }
         } else {
 //            ll_photos.setVisibility(View.GONE);
-            findViewById(R.id.hsv_result2_photos).setVisibility(View.GONE);
+            findViewById(R.id.hsv_results2_photos).setVisibility(View.GONE);
         }
     }
 

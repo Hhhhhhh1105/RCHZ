@@ -88,6 +88,7 @@ public class LoginActivity extends BaseActivity {
 					getUser().statusCity=o.data.statusCity;
 					getUser().isLeader=o.data.isLeader;
 					getUser().pwdmd5 = pwdmd5;
+					getUser().authorityForIntruction = o.data.authorityForIntruction;
 
 					saveLocalData();
 

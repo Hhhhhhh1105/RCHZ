@@ -38,6 +38,7 @@ import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
 import com.baidu.location.LocationClient;
 import com.baidu.location.LocationClientOption;
+import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.model.LatLng;
 import com.getbase.floatingactionbutton.FloatingActionsMenu;
 import com.google.android.gms.appindexing.Action;
@@ -75,6 +76,7 @@ import java.util.Calendar;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
+
 
 public class ChiefEditRecordActivity extends BaseActivity {
 
@@ -125,7 +127,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	 */
 	private GoogleApiClient client;
 
-	//dh  巡河线程改动
+	//巡河线程改动
 	private MyRunable myRunable_record = new MyRunable();
 	private boolean isRunMyRunable = false;
 	private boolean isNewRiverRecord = false;
@@ -140,13 +142,15 @@ public class ChiefEditRecordActivity extends BaseActivity {
 
 	private String eventFlag = "0";//上报人员身份。0代表督察员，1代表河长。
 
+
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		SDKInitializer.initialize(this.getApplication());
 		setContentView(R.layout.activity_chief_editrecord);
 
 		initHead(R.drawable.ic_head_back, 0);
-
+		SDKInitializer.initialize(this);
 		InjectUtils.injectViews(this, R.id.class);
 
 		//登录人员身份判断
@@ -168,12 +172,12 @@ public class ChiefEditRecordActivity extends BaseActivity {
 		//是否是领导
 		boolean isLeader=getUser().isLogined()&&getUser().isLeader();
 
-		if(ischief||isVillageChief||isDistrictChief||isCityChief){
+//		if(ischief||isVillageChief||isDistrictChief||isCityChief){
 			findViewById(R.id.action_event_report).setVisibility(View.VISIBLE);
 			eventFlag = "1";
-		}else {
-			findViewById(R.id.action_event_report).setVisibility(View.GONE);
-		}
+//		}else {
+//			findViewById(R.id.action_event_report).setVisibility(View.GONE);
+//		}
 //		if (location != null) {
 //			latlist_temp = "" + location.getLatitude();
 //			latlist_temp = "" + location.getLongitude();
@@ -190,11 +194,19 @@ public class ChiefEditRecordActivity extends BaseActivity {
 		btn_track.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
-				Intent intent = new Intent(ChiefEditRecordActivity.this, ChiefInspectActivity.class);
-				intent.putExtra("latlist_temp", latlist_temp);//将当前的巡河数据传至巡河地图界面
-				intent.putExtra("lnglist_temp", lnglist_temp);
-				intent.putExtra("isAddNewRiverRecord",isAddNewRiverRecord);
-				startActivityForResult(intent, Tags.CODE_LATLNG);
+				if(riverRecord.riverId==0){
+//					createMessageDialog("提示", "请选择巡查河道。", "确定", null, null, null, null).show();
+					selectRiver();
+				}else{
+					Intent intent = new Intent(ChiefEditRecordActivity.this, ChiefInspectActivity.class);
+					intent.putExtra("latlist_temp", OptimizePoints(latlist_temp,lnglist_temp)[0]);//将当前的巡河数据传至巡河地图界面
+					intent.putExtra("lnglist_temp", OptimizePoints(latlist_temp,lnglist_temp)[1]);
+//					intent.putExtra("latlist_temp", latlist_temp);//将当前的巡河数据传至巡河地图界面
+//					intent.putExtra("lnglist_temp", lnglist_temp);
+					intent.putExtra("isAddNewRiverRecord",isAddNewRiverRecord);
+					intent.putExtra("riverId",riverRecord.riverId);
+					startActivityForResult(intent, Tags.CODE_LATLNG);
+				}
 			}
 		});
 		btn_trackView = (Button) findViewById(R.id.btn_trackView);//查看轨迹按钮-查看巡河单界面
@@ -509,7 +521,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	}
 	//定时器，定时向服务器发送轨迹经纬度信息
 	private int DELAY_TIME = 1000;//延时1s开启定时器
-	private int PERIOD_TIME = 10000;//每过10s传一次数据
+	private int PERIOD_TIME = 90000;//每过90s传一次数据
 	Timer mTimer = null;
 	TimerTask mTimerTask = null;
 
@@ -523,6 +535,16 @@ public class ChiefEditRecordActivity extends BaseActivity {
 				@Override
 				public void run() {
 					try{
+						//失能 提交巡河单按钮
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								((Button)findViewById(R.id.btn_submit)).setText("轨迹暂存中...");
+								((Button)findViewById(R.id.btn_submit)).setBackgroundColor(getResources().getColor(R.color.half_black));
+							}
+						});
+						((Button)findViewById(R.id.btn_submit)).setClickable(false);
+
 						submitTemporaryParam.put("latList",latlist_temp);
 						submitTemporaryParam.put("lngList",lnglist_temp);
 
@@ -536,6 +558,15 @@ public class ChiefEditRecordActivity extends BaseActivity {
 								}
 							}, BaseRes.class, submitTemporaryParam);
 						}
+						//使能 提交巡河单按钮
+						runOnUiThread(new Runnable() {
+							@Override
+							public void run() {
+								((Button)findViewById(R.id.btn_submit)).setText("结束巡河");
+								((Button)findViewById(R.id.btn_submit)).setBackgroundColor(getResources().getColor(R.color.blue));
+							}
+						});
+						((Button)findViewById(R.id.btn_submit)).setClickable(true);
 
 					} catch (JSONException e) {
 						e.printStackTrace();
@@ -954,8 +985,10 @@ public class ChiefEditRecordActivity extends BaseActivity {
 						submitParam.put("picPath", picPath);
 
 						//添加巡河轨迹经纬度信息
-						submitParam.put("latlist", latlist_temp);
-						submitParam.put("lnglist", lnglist_temp);
+						submitParam.put("latlist", OptimizePoints(latlist_temp,lnglist_temp)[0]);
+						submitParam.put("lnglist", OptimizePoints(latlist_temp,lnglist_temp)[1]);
+//						submitParam.put("latlist", latlist_temp);
+//						submitParam.put("lnglist", lnglist_temp);
 
 						//添加图片经纬度信息
 						submitParam.put("imgLatlist", imgLatlist);
@@ -1044,6 +1077,8 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	private void submitData() {
 		showOperating(R.string.doing_submitting);
 
+		//关闭定时器
+		stopTimer();
 		//判断是否是村级河长
 		boolean isVillageChief = getUser().isLogined() && getUser().isVillageChief();
 
@@ -1065,16 +1100,16 @@ public class ChiefEditRecordActivity extends BaseActivity {
 
 					finish();
 
-					//判断轨迹有效性的请求
-					getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
-						@Override
-						public void callback(BaseRes o) {
-							hideOperating();
-							if (o != null && o.isSuccess()) {
-
-							}
-						}
-					}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
+//					//判断轨迹有效性的请求  （改为在列表中刷新，并且刚退回到列表界面就刷新一次）
+//					getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
+//						@Override
+//						public void callback(BaseRes o) {
+//							hideOperating();
+//							if (o != null && o.isSuccess()) {
+//
+//							}
+//						}
+//					}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
 				}
 			}
 		}, BaseRes.class, submitParam);
@@ -1426,9 +1461,10 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	LocationClient mLocClient;
 	public MyLocationListener myListener = new MyLocationListener();
 	List<LatLng> points = new ArrayList<LatLng>();//全部点
+	List<LatLng> threePointsToOnePoint = new ArrayList<LatLng>();//读取三个点，选取历史记录点距离居中的点
 	LatLng point;
 	//测试巡河轨迹点数
-	int i = 0;
+	int countOfHandler = 0;
 
 	//计算百度地图两点的距离
 	public Double getDistance(LatLng point1,LatLng point2) {
@@ -1457,10 +1493,11 @@ public class ChiefEditRecordActivity extends BaseActivity {
 		mLocClient.registerLocationListener(myListener);
 
 		LocationClientOption option = new LocationClientOption();
+		option.setOpenGps(true);//打开GPS
 		option.setLocationMode(LocationClientOption.LocationMode.Hight_Accuracy);
 		option.setCoorType("bd09ll");
 		option.setScanSpan(1000);
-
+		option.setPriority(LocationClientOption.GpsFirst);
 		mLocClient.setLocOption(option);
 		mLocClient.start();
 	}
@@ -1498,6 +1535,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	@Override
 	protected void onRestart() {
 		super.onRestart();
+		points.clear();
 		if(isAddNewRiverRecord){
 			showToastCenter(ChiefEditRecordActivity.getCurActivity(),"除拍照等操作外\n请在【查看轨迹】界面方便记录轨迹");
 			//线程启动
@@ -1534,42 +1572,59 @@ public class ChiefEditRecordActivity extends BaseActivity {
 
 		@Override
 		public void run() {
-			if(isRunMyRunable){
+//			showToast(String.valueOf(countOfHandler));
+//			if(isRunMyRunable){
 				if (!mLocClient.isStarted()) {
 					mLocClient.start();
+					System.out.println("testrc: ER+mLocClient.isStarted()");
 				}
 
 				if (points == null) {
 					handler.postDelayed(this, 2000);
+					System.out.println("testrc: ER+points == null");
 					return;
 				}
 
 				if (isFirstLoc && points.size() >= 1 && latlist_temp == null) {
 					//若从inspect返回（latlist_temp != null)就不执行这里的代码
-					isFirstLoc = false;
-					lnglist_temp = "" + points.get(points.size() - 1).longitude;
-					latlist_temp = "" + points.get(points.size() - 1).latitude;
-					point = points.get(points.size() - 1);
-					Log.i("temp:", "first" + latlist_temp);
+					if(points.size()>20){
+						isFirstLoc = false;
+						lnglist_temp = "" + points.get(points.size() - 1).longitude;
+						latlist_temp = "" + points.get(points.size() - 1).latitude;
+						point = points.get(points.size() - 1);
+						Log.i("temp:", "first" + latlist_temp);
+						System.out.println("testrc: ER+ points.size()>20");
+					}
+					System.out.println("testrc: ER+ isFirstLoc && points.size() >= 1 && latlist_temp == null");
 				} else if (points.size() > 1) {
 					//要解决从inspect返回时point的经纬度
+					System.out.println("testrc: ER+points.size() > 1");
 					if (isFirstLoc) {
 						//如果是从inspect返回，则isFirstLoc始终为真
 						System.out.println("recordInspect" + "：来自inspect跳到edit的记录位置");
 						point = points.get(points.size() - 1);
 						isFirstLoc = false;
+						System.out.println("testrc: ER+ isFirstLoc");
 					}
-//					//巡河轨迹测试
-//					i +=1;
-//					showToast(latlist_temp.substring(latlist_temp.length()>20? latlist_temp.length()-20 :0,latlist_temp.length())+"..."+i
-//							+"..."+getDistance(point,points.get(points.size()-1)));
 
-					if (point.latitude != points.get(points.size() - 1).latitude ||
-							point.longitude != points.get(points.size() - 1).longitude) { //如果一直处于一个位置则不重复记录
+					if (getDistance(point,points.get(points.size()-1))<150 &&
+							getDistance(point,points.get(points.size()-1))>0) { //如果一直处于一个位置则不重复记录
+						System.out.println("testrc: ER+getDistance");
+//						showToast(String.valueOf(countOfHandler++));
+//						if(threePointsToOnePoint.size() >= 3){
+//							point = medianFilterOfPoints(threePointsToOnePoint,point);
+//							lnglist_temp = lnglist_temp + "," + point.longitude;
+//							latlist_temp = latlist_temp + "," + point.latitude;
+//							Log.i("temp:", latlist_temp);
+////							showToast(latlist_temp);
+//							threePointsToOnePoint.clear();
+//						}
 						point = medianFilterOfPoints(points,point);
 						lnglist_temp = lnglist_temp + "," + point.longitude;
 						latlist_temp = latlist_temp + "," + point.latitude;
+						System.out.println("testrc: ER"+latlist_temp);
 						Log.i("temp:", latlist_temp);
+
 					}
 //					if (point.latitude != points.get(points.size() - 1).latitude ||
 //							point.longitude != points.get(points.size() - 1).longitude) { //如果一直处于一个位置则不重复记录
@@ -1579,12 +1634,12 @@ public class ChiefEditRecordActivity extends BaseActivity {
 //						Log.i("temp:", latlist_temp);
 //					}
 				}
-
+//				showToast(String.valueOf(countOfHandler++));
 				handler.postDelayed(this, 2000);
-			}
+//			}
 		}
 	}
-//对轨迹的数组，取最新的三个点并按照与point的距离排序，最后取三个数的中间一个
+	//对轨迹的数组，取最新的三个点并按照与point的距离排序，最后取三个数的中间一个
 	private LatLng medianFilterOfPoints(List<LatLng> pointsTemp,LatLng pointTemt){
 		double one, two, three;
 		LatLng decidePoint;
@@ -1604,6 +1659,78 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			return decidePoint;
 		}
 	}
+	//轨迹平滑滤波。SG5点1阶平滑。
+	public String[] OptimizePoints(String latListIn,String lngListIn){
+		String latListOut = new String("");
+		String lngListOut = new String("");//输出经纬度字符串
+		String[] latListInArray;
+		String[] lngListInArray;//输出经纬度数组
+		ArrayList<LatLng> pointsIn = new ArrayList<LatLng>();//输入点字符串转化
+
+		double latitude;
+		double longitude;
+
+		if(latListIn!=null && !latListIn.equals("")){
+			if (latListIn.contains(",")){
+				//如果不止一个数据，变成一个数组
+				latListInArray = latListIn.split(",");
+				lngListInArray = lngListIn.split(",");
+			}else{
+				//如果只有一个数据
+				latListInArray = new String[1];
+				lngListInArray = new String[1];
+				latListInArray[0] = latListIn;
+				lngListInArray[0] = lngListIn;
+			}
+			//是否有超过5 个点
+			if(latListInArray.length>=5){
+				for (int i = 0; i < latListInArray.length; i++){
+					pointsIn.add(new LatLng(Double.parseDouble(latListInArray[i]), Double.parseDouble(lngListInArray[i])));
+				}
+				int sizeOfPointIn = pointsIn.size();
+				for(int i = 0; i < sizeOfPointIn;i++){
+					if(i==0){//第一个
+						latitude =  (3*pointsIn.get(0).latitude+2*pointsIn.get(1).latitude+pointsIn.get(2).latitude-pointsIn.get(4).latitude)/5;
+						longitude = (3*pointsIn.get(0).longitude+2*pointsIn.get(1).longitude+pointsIn.get(2).longitude-pointsIn.get(4).longitude)/5;
+						latListOut = latListOut + latitude;
+						lngListOut = lngListOut + longitude;
+					}else if(i == 1){
+						latitude =  (4*pointsIn.get(0).latitude+3*pointsIn.get(1).latitude+2*pointsIn.get(2).latitude+pointsIn.get(3).latitude)/10;
+						longitude = (4*pointsIn.get(0).longitude+3*pointsIn.get(1).longitude+2*pointsIn.get(2).longitude+pointsIn.get(3).longitude)/10;
+						latListOut = latListOut + "," + latitude;
+						lngListOut = lngListOut + ","+ longitude;
+					}else if(i==sizeOfPointIn-1){//最后1个点
+						latitude =  (3*pointsIn.get(sizeOfPointIn-1).latitude+2*pointsIn.get(sizeOfPointIn-2).latitude+
+								pointsIn.get(sizeOfPointIn-3).latitude-pointsIn.get(sizeOfPointIn-5).latitude)/5;
+						longitude = (3*pointsIn.get(sizeOfPointIn-1).longitude+2*pointsIn.get(sizeOfPointIn-2).longitude+
+								pointsIn.get(sizeOfPointIn-3).longitude-pointsIn.get(sizeOfPointIn-5).longitude)/5;
+						latListOut = latListOut + ","+ latitude;
+						lngListOut = lngListOut +","+ longitude;
+					}else if(i == sizeOfPointIn-2){
+						latitude =  (4*pointsIn.get(sizeOfPointIn-1).latitude+3*pointsIn.get(sizeOfPointIn-2).latitude+
+								2*pointsIn.get(sizeOfPointIn-3).latitude+pointsIn.get(sizeOfPointIn-4).latitude)/10;
+						longitude = (4*pointsIn.get(sizeOfPointIn-1).longitude+3*pointsIn.get(sizeOfPointIn-2).longitude+
+								2*pointsIn.get(sizeOfPointIn-3).longitude+pointsIn.get(sizeOfPointIn-4).longitude)/10;
+						latListOut = latListOut + "," + latitude;
+						lngListOut = lngListOut + "," + longitude;
+					}else{// 中间的点
+						latitude =  (pointsIn.get(i-1).latitude+pointsIn.get(i-2).latitude+pointsIn.get(i).latitude+
+								pointsIn.get(i+1).latitude+pointsIn.get(i+2).latitude)/5;
+						longitude = (pointsIn.get(i-1).longitude+pointsIn.get(i-2).longitude+pointsIn.get(i).longitude+
+								pointsIn.get(i+1).longitude+pointsIn.get(i+2).longitude)/5;
+						latListOut = latListOut+ "," + latitude;
+						lngListOut = lngListOut + "," + longitude;
+					}
+				}
+			}else {
+				latListOut = latListIn;
+				lngListOut = lngListIn;
+			}
+
+		}
+		String[] out = {latListOut,lngListOut};
+		return out;
+	}
 
 	@Override
 	protected void onStop() {
@@ -1611,13 +1738,16 @@ public class ChiefEditRecordActivity extends BaseActivity {
 // See https://g.co/AppIndexing/AndroidStudio for more information.
 		AppIndex.AppIndexApi.end(client, getIndexApiAction());
 
-		getUser().setBaiduLatPoints(latlist_temp);
-		getUser().setBaiduLngPoints(lnglist_temp);
+		getUser().setBaiduLatPoints(OptimizePoints(latlist_temp,lnglist_temp)[0]);
+		getUser().setBaiduLngPoints(OptimizePoints(latlist_temp,lnglist_temp)[1]);
+//		getUser().setBaiduLatPoints(latlist_temp);
+//		getUser().setBaiduLngPoints(lnglist_temp);
 
-		points.clear();
-		if(mLocClient!=null){
-			mLocClient.unRegisterLocationListener(myListener);
-		}
+//		points.clear();
+		System.out.println("testrc: on stopppppppppppppppppppp");
+//		if(mLocClient!=null){
+//			mLocClient.unRegisterLocationListener(myListener);
+//		}
 		// ATTENTION: This was auto-generated to implement the App Indexing API.
 		// See https://g.co/AppIndexing/AndroidStudio for more information.
 		client.disconnect();
@@ -1633,6 +1763,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 		//关闭定时器
 		stopTimer();
 
+		System.out.println("testrc: ER+onDestroyyyyyyyyyyyyyyyyyy");
 		points.clear();
 		if(mLocClient!=null){
 			mLocClient.stop();

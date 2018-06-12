@@ -7,10 +7,8 @@ import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
 import android.view.KeyEvent;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.Button;
-import android.widget.TextView;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -20,7 +18,6 @@ import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.BaiduMap;
 import com.baidu.mapapi.map.BitmapDescriptor;
 import com.baidu.mapapi.map.BitmapDescriptorFactory;
-import com.baidu.mapapi.map.InfoWindow;
 import com.baidu.mapapi.map.MapStatus;
 import com.baidu.mapapi.map.MapStatusUpdate;
 import com.baidu.mapapi.map.MapStatusUpdateFactory;
@@ -34,7 +31,10 @@ import com.baidu.mapapi.model.LatLng;
 import com.zju.rchz.R;
 import com.zju.rchz.Values;
 import com.zju.rchz.model.BaseRes;
+import com.zju.rchz.model.RiverPosition;
+import com.zju.rchz.model.RiverPositionRes;
 import com.zju.rchz.net.Callback;
+import com.zju.rchz.utils.ParamUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -44,6 +44,8 @@ import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import static com.baidu.mapapi.utils.DistanceUtil.getDistance;
+
 
 /**
  * Created by Wangli on 2016/11/28.
@@ -52,6 +54,8 @@ public class ChiefInspectActivity extends BaseActivity{
 
     MapView mMapView;
     BaiduMap mBaiduMap;
+    private LatLng riverStart;
+    private LatLng riverEnd;
 
     Button btn_stop;
 
@@ -61,6 +65,11 @@ public class ChiefInspectActivity extends BaseActivity{
     boolean isFirstLoc = true;
     List<LatLng> points = new ArrayList<LatLng>();//全部点
     List<LatLng> points_tem = new ArrayList<LatLng>();//临时点
+    LatLng point;//记录的最后一个轨迹点
+    List<LatLng> threePointsToOnePoint = new ArrayList<LatLng>();//读取三个点，选取历史记录点距离居中的点
+    //测试巡河轨迹点数
+    int countOfHandler = 0;
+
 //    List<LatLng> points_to_server = new ArrayList<LatLng>();//提交至服务器后台的点
     String lngList;//上传至服务器的经度列表，为上传方便转化为字符串
     String latList;//上传至服务器的纬度列表，为上传方便转化为字符串
@@ -93,6 +102,9 @@ public class ChiefInspectActivity extends BaseActivity{
     //确定是新加巡河单还是编辑巡河单（现在已经无法编辑）
     private boolean isAddNewRiverRecord = false;
 
+    //传入河道编号：
+    private int riverId;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -109,6 +121,7 @@ public class ChiefInspectActivity extends BaseActivity{
 
         mMapView = (MapView) findViewById(R.id.mv_position);
         mBaiduMap = mMapView.getMap();
+        mMapView.showZoomControls(false);
 
         btn_stop = (Button) findViewById(R.id.btn_stop);
 
@@ -117,6 +130,28 @@ public class ChiefInspectActivity extends BaseActivity{
         latlist_temp = getIntent().getExtras().getString("latlist_temp");
         lnglist_temp = getIntent().getExtras().getString("lnglist_temp");
         isAddNewRiverRecord = getIntent().getExtras().getBoolean("isAddNewRiverRecord");
+        riverId = getIntent().getExtras().getInt("riverId",0);
+
+        if(riverId!=0){
+            getRequestContext().add("Get_OneRiverMap", new Callback<RiverPositionRes>() {
+                @Override
+                public void callback(RiverPositionRes o) {
+                    hideOperating();
+                    if (o != null && o.isSuccess()) {
+
+                        RiverPosition rp = o.data;
+                        if (rp.baidu_start_lat != 0.0){
+                            riverStart = new LatLng(rp.baidu_start_lat, rp.baidu_start_lng);
+                        }
+
+                        if (rp.baidu_end_lat != 0.0) {
+                            riverEnd = new LatLng(rp.baidu_end_lat, rp.baidu_end_lng);
+                        }
+//                        drawStartAndEnd();
+                    }
+                }
+            }, RiverPositionRes.class, ParamUtils.freeParam(null, "riverId", riverId));
+        }
 
         submitTemporaryParam = new JSONObject();
         try{
@@ -128,7 +163,7 @@ public class ChiefInspectActivity extends BaseActivity{
         track_start = BitmapDescriptorFactory.fromResource(R.drawable.track_start);
         track_end = BitmapDescriptorFactory.fromResource(R.drawable.track_end);
 
-        if (getIntent().getExtras().getString("latlist_temp") != null){
+        if (getIntent().getExtras().getString("latlist_temp") != null && !getIntent().getExtras().getString("latlist_temp").equals("")){
             hasHistroyData = true;
             Log.i("recordinspect", latlist_temp);
 
@@ -194,11 +229,80 @@ public class ChiefInspectActivity extends BaseActivity{
                 }
             }
         });*/
+
+        findViewById(R.id.btn_my_position).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mBaiduMap.setMyLocationData(new MyLocationData.Builder()
+                    .latitude(getLatitude()).longitude(getLongitude()).build());
+                //target：设置地图中心点；zoom:设置缩放级别
+                MapStatus status = new MapStatus.Builder().target(new LatLng(getLatitude(), getLongitude())).zoom(16).build();
+                //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+                mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+            }
+        });
+        findViewById(R.id.btn_river_position).setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (riverStart != null && riverEnd != null) {
+                    float lat = (float) ((riverStart.latitude + riverEnd.latitude) / 2);
+                    float lng = (float) ((riverStart.longitude + riverEnd.longitude) / 2);
+                    mBaiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
+
+                    //target：设置地图中心点；zoom:设置缩放级别
+                    MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(14).build();
+                    //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+                }else {
+                    showToast("暂时未录入河道起点终点信息。");
+                }
+            }
+        });
     }
 
+    /**
+     * 地图上显示河道起点终点
+     */
+    private void drawRiverStartAndEnd() {
+//        mBaiduMap.clear();
+
+        //在地图上显示起点和终点
+        BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.river_start);
+        BitmapDescriptor bmp_to = BitmapDescriptorFactory.fromResource(R.drawable.river_end);
+//        baiduMap.addOverlay(optionMe);
+
+        if (riverStart != null && riverEnd != null) {
+            MarkerOptions optionFrom = new MarkerOptions().position(riverStart).icon(bmp_from);
+            MarkerOptions optionTo = new MarkerOptions().position(riverEnd).icon(bmp_to);
+
+            Marker marker_Start = (Marker)mBaiduMap.addOverlay(optionFrom);
+            Marker marker_End = (Marker) mBaiduMap.addOverlay(optionTo);
+
+//            float lat = (float) ((riverStart.latitude + riverEnd.latitude) / 2);
+//            float lng = (float) ((riverStart.longitude + riverEnd.longitude) / 2);
+//            mBaiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
+//
+//            //target：设置地图中心点；zoom:设置缩放级别
+//            MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(13).build();
+//            //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+//            mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+
+        }else {
+//            mBaiduMap.setMyLocationData(new MyLocationData.Builder()
+//                    .latitude(getLatitude()).longitude(getLongitude()).build());
+//            //target：设置地图中心点；zoom:设置缩放级别
+//            MapStatus status = new MapStatus.Builder().target(new LatLng(getLatitude(), getLongitude())).zoom(13).build();
+//            //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+//            mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+
+            showToast("暂时未录入河道起点终点信息。");
+        }
+
+
+    }
     //定时器，定时向服务器发送轨迹经纬度信息
     private int DELAY_TIME = 1000;//延时1s开启定时器
-    private int PERIOD_TIME = 10000;//每过10s传一次数据
+    private int PERIOD_TIME = 90000;//每过90s传一次数据
     Timer mTimer = null;
     TimerTask mTimerTask = null;
     JSONObject submitTemporaryParam = null;
@@ -251,8 +355,6 @@ public class ChiefInspectActivity extends BaseActivity{
         }
     }
 
-
-
     View.OnClickListener backToEditListener = new View.OnClickListener() {
         @Override
         public void onClick(View v) {
@@ -279,8 +381,10 @@ public class ChiefInspectActivity extends BaseActivity{
 
             Intent intent = new Intent();
             intent.putExtra("result",points.toString());
-            intent.putExtra("latList",  latList);
-            intent.putExtra("lngList", lngList);
+            intent.putExtra("latList",  OptimizePoints(latList,lngList)[0]);
+            intent.putExtra("lngList", OptimizePoints(latList,lngList)[1]); //传优化后的轨迹数据
+//            intent.putExtra("latList",  latList);
+//            intent.putExtra("lngList", lngList); //优化前的轨迹数据
             intent.putExtra("isAddNewRiverRecord",isAddNewRiverRecord);
 
             ChiefInspectActivity.this.setResult(RESULT_OK, intent);
@@ -297,6 +401,7 @@ public class ChiefInspectActivity extends BaseActivity{
         showOperating();
 
         mBaiduMap.clear();
+
         BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.track_start);
         LatLng from = pointsToDrawFirst.get(0);
         Log.i("recordinspect", "起点坐标" + from.toString());
@@ -310,10 +415,11 @@ public class ChiefInspectActivity extends BaseActivity{
         MapStatus status = new MapStatus.Builder().target(from).zoom(Values.MAP_ZOOM_LEVEL).build();
         mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
 
+        drawRiverStartAndEnd();//画出河道的起止点
+
         hideOperating();
 
     }
-
 
     private void initLocation() {
 
@@ -353,11 +459,30 @@ public class ChiefInspectActivity extends BaseActivity{
                     if(lngList == null || latList == null){
                         lngList = "" + points.get(points.size() - 1).longitude;
                         latList = "" + points.get(points.size() - 1).latitude;
+                        point = points.get(points.size() - 1);
                     }else {
-                        lngList = lngList + "," + points.get(points.size() - 1).longitude;
-                        latList = latList + "," + points.get(points.size() - 1).latitude;
-                        Log.d("lngList:", lngList);
-                        Log.d("latList:", latList);
+                        if(point == null){
+                            point = points.get(points.size() - 1);
+                        }
+//                        threePointsToOnePoint.add(points.get(points.size() - 1));
+//                        if(threePointsToOnePoint.size() >= 3) {
+                        if(getDistance(point,points.get(points.size()-1))<100 && getDistance(point,points.get(points.size()-1))>0){
+//                            showToast(String.valueOf(countOfHandler++)+"...."+String.valueOf(getDistance(point,points.get(points.size()-1))));
+                            point = medianFilterOfPoints(points, point);
+                            lngList = lngList + "," + point.longitude;
+                            latList = latList + "," + point.latitude;
+//                            showToast(latList);
+                            Log.d("lngList:", lngList);
+                            Log.d("latList:", latList);
+                        }
+
+//                            threePointsToOnePoint.clear();
+//                        }
+//                        lngList = lngList + "," + points.get(points.size() - 1).longitude;
+//                        latList = latList + "," + points.get(points.size() - 1).latitude;
+//                        showToast(latList);
+//                        Log.d("lngList:", lngList);
+//                        Log.d("latList:", latList);
                     }
 
 //                    Log.d("points_to_server:", points_to_server.toString());
@@ -370,6 +495,100 @@ public class ChiefInspectActivity extends BaseActivity{
                 handler.postDelayed(this,2000);
             }
         }
+    }
+
+    //对轨迹的数组，取最新的三个点并按照与point的距离排序，最后取三个数的中间一个
+    private LatLng medianFilterOfPoints(List<LatLng> pointsTemp,LatLng pointTemt){
+        double one, two, three;
+        LatLng decidePoint;
+        if (pointsTemp.size()<3){
+            return pointsTemp.get(pointsTemp.size() - 1);
+        }else {
+            one = getDistance(pointTemt,pointsTemp.get(pointsTemp.size() - 1));//倒数第一个点与pointTemt的距离
+            two = getDistance(pointTemt,pointsTemp.get(pointsTemp.size() - 2));//倒数第2个点与pointTemt的距离
+            three = getDistance(pointTemt,pointsTemp.get(pointsTemp.size() - 3));//倒数第3个点与pointTemt的距离
+            if((one>=two && one<three)||(one >=three && one<two)){
+                decidePoint = pointsTemp.get(pointsTemp.size() - 1);
+            }else if((two>one && two<three)||(two>=three && two<=one)){
+                decidePoint = pointsTemp.get(pointsTemp.size() - 2);
+            }else {
+                decidePoint = pointsTemp.get(pointsTemp.size() - 3);
+            }
+            return decidePoint;
+        }
+    }
+
+    //轨迹平滑滤波。SG5点1阶平滑。
+    public String[] OptimizePoints(String latListIn,String lngListIn){
+        String latListOut = new String("");
+        String lngListOut = new String("");//输出经纬度字符串
+        String[] latListInArray;
+        String[] lngListInArray;//输出经纬度数组
+        ArrayList<LatLng> pointsIn = new ArrayList<LatLng>();//输入点字符串转化
+
+        double latitude;
+        double longitude;
+
+        if(!latListIn.equals("") && latListIn!=null){
+            if (latListIn.contains(",")){
+                //如果不止一个数据，变成一个数组
+                latListInArray = latListIn.split(",");
+                lngListInArray = lngListIn.split(",");
+            }else{
+                //如果只有一个数据
+                latListInArray = new String[1];
+                lngListInArray = new String[1];
+                latListInArray[0] = latListIn;
+                lngListInArray[0] = lngListIn;
+            }
+            //是否有超过5 个点
+            if(latListInArray.length>=5){
+                for (int i = 0; i < latListInArray.length; i++){
+                    pointsIn.add(new LatLng(Double.parseDouble(latListInArray[i]), Double.parseDouble(lngListInArray[i])));
+                }
+                int sizeOfPointIn = pointsIn.size();
+                for(int i = 0; i < sizeOfPointIn;i++){
+                    if(i==0){//第一个
+                        latitude =  (3*pointsIn.get(0).latitude+2*pointsIn.get(1).latitude+pointsIn.get(2).latitude-pointsIn.get(4).latitude)/5;
+                        longitude = (3*pointsIn.get(0).longitude+2*pointsIn.get(1).longitude+pointsIn.get(2).longitude-pointsIn.get(4).longitude)/5;
+                        latListOut = latListOut+latitude;
+                        lngListOut = lngListOut + longitude;
+                    }else if(i == 1){
+                        latitude =  (4*pointsIn.get(0).latitude+3*pointsIn.get(1).latitude+2*pointsIn.get(2).latitude+pointsIn.get(3).latitude)/10;
+                        longitude = (4*pointsIn.get(0).longitude+3*pointsIn.get(1).longitude+2*pointsIn.get(2).longitude+pointsIn.get(3).longitude)/10;
+                        latListOut = latListOut + "," + latitude;
+                        lngListOut = lngListOut + "," + longitude;
+                    }else if(i==sizeOfPointIn-1){//最后1个点
+                        latitude =  (3*pointsIn.get(sizeOfPointIn-1).latitude+2*pointsIn.get(sizeOfPointIn-2).latitude+
+                                pointsIn.get(sizeOfPointIn-3).latitude-pointsIn.get(sizeOfPointIn-5).latitude)/5;
+                        longitude = (3*pointsIn.get(sizeOfPointIn-1).longitude+2*pointsIn.get(sizeOfPointIn-2).longitude+
+                                pointsIn.get(sizeOfPointIn-3).longitude-pointsIn.get(sizeOfPointIn-5).longitude)/5;
+                        latListOut = latListOut+ "," + latitude;
+                        lngListOut = lngListOut + "," + longitude;
+                    }else if(i == sizeOfPointIn-2){
+                        latitude =  (4*pointsIn.get(sizeOfPointIn-1).latitude+3*pointsIn.get(sizeOfPointIn-2).latitude+
+                                2*pointsIn.get(sizeOfPointIn-3).latitude+pointsIn.get(sizeOfPointIn-4).latitude)/10;
+                        longitude = (4*pointsIn.get(sizeOfPointIn-1).longitude+3*pointsIn.get(sizeOfPointIn-2).longitude+
+                                2*pointsIn.get(sizeOfPointIn-3).longitude+pointsIn.get(sizeOfPointIn-4).longitude)/10;
+                        latListOut = latListOut + "," + latitude;
+                        lngListOut = lngListOut + "," + longitude;
+                    }else{// 中间的点
+                        latitude =  (pointsIn.get(i-1).latitude+pointsIn.get(i-2).latitude+pointsIn.get(i).latitude+
+                                pointsIn.get(i+1).latitude+pointsIn.get(i+2).latitude)/5;
+                        longitude = (pointsIn.get(i-1).longitude+pointsIn.get(i-2).longitude+pointsIn.get(i).longitude+
+                                pointsIn.get(i+1).longitude+pointsIn.get(i+2).longitude)/5;
+                        latListOut = latListOut + "," + latitude;
+                        lngListOut = lngListOut + "," + longitude;
+                    }
+                }
+            }else {
+                latListOut = latListIn;
+                lngListOut = lngListIn;
+            }
+
+        }
+        String[] out = {latListOut,lngListOut};
+        return out;
     }
 
     /**
@@ -442,6 +661,8 @@ public class ChiefInspectActivity extends BaseActivity{
         options = new MarkerOptions().position(avePoint).icon(track_start);
         mBaiduMap.addOverlay(options);
 
+        drawRiverStartAndEnd();//画出河道的起止点
+
     }
 
     private void drawEnd(List<LatLng> points) {
@@ -485,8 +706,10 @@ public class ChiefInspectActivity extends BaseActivity{
     @Override
     protected void onStop() {
         super.onStop();
-        getUser().setBaiduLatPoints(latList);
-        getUser().setBaiduLngPoints(lngList);
+        getUser().setBaiduLatPoints(OptimizePoints(latList,lngList)[0]);
+        getUser().setBaiduLngPoints(OptimizePoints(latList,lngList)[1]);
+//        getUser().setBaiduLatPoints(latList);
+//        getUser().setBaiduLngPoints(lngList);
 //        stopTimer();//关闭时钟，停止上传轨迹点
     }
 
@@ -498,11 +721,10 @@ public class ChiefInspectActivity extends BaseActivity{
 
         mBaiduMap.setMyLocationEnabled(false);
         if(mMapView!=null){
-            mMapView.onDestroy();
+//            mMapView.onDestroy();
         }
         mMapView = null;
         mBaiduMap = null;
-
         stopTimer();//关闭时钟，停止上传轨迹点
         super.onDestroy();
 

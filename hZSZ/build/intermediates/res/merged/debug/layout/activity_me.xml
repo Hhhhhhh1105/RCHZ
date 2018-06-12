@@ -195,14 +195,14 @@
 
             </RelativeLayout>
 
-            <!--领导视察-->
+            <!--领导视察（领导督办）-->
             <RelativeLayout
                 android:id="@+id/rl_leaderDuban_list"
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
                 android:layout_marginTop="@dimen/page_item_margin_v"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_leaderDuban_list"
@@ -210,6 +210,55 @@
                     android:layout_height="@dimen/me_item_h"
                     android:layout_marginLeft="@dimen/me_item_tv_margin_left"
                     android:layout_toRightOf="@+id/iv_leaderDuban_list"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="领导视察"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_comp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_leaderDuban_list"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_leader_check" >
+                </ImageView>
+
+            </RelativeLayout>
+
+            <!--领导批示。三个领导能看到所有的问题并进行批示-->
+            <RelativeLayout
+                android:id="@+id/rl_leaderintruction_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="visible">
+
+                <TextView
+                    android:id="@+id/tv_leaderintruction_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_leaderintruction_list"
                     android:drawableRight="@drawable/ic_arrow_rigth"
                     android:background="@drawable/btn_white_gray"
                     android:clickable="true"
@@ -234,7 +283,7 @@
                 </TextView>
 
                 <ImageView
-                    android:id="@+id/iv_leaderDuban_list"
+                    android:id="@+id/iv_leaderintruction_list"
                     android:layout_width="@dimen/me_item_icon_w"
                     android:layout_height="@dimen/me_item_icon_h"
                     android:contentDescription="@null"
@@ -1023,7 +1072,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_collection"
@@ -1057,7 +1107,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_setting"

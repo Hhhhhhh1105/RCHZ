@@ -46,7 +46,7 @@ import static android.content.Context.LOCATION_SERVICE;
 
 public class MeFragment extends BaseFragment implements View.OnClickListener{
 
-    private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_setting, R.id.rl_complaint, R.id.rl_suggestion };
+    private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_complaint, R.id.rl_suggestion };
     //村级河长登陆时
     private int[] showWhenChiefLogined = {R.id.rl_chief_complaint, R.id.rl_chief_record, R.id.rl_chief_suggestion };
     private int[] showWhenCityChiefLogined = { R.id.rl_chief_record };
@@ -81,6 +81,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             rootView.findViewById(R.id.tv_chief_dubanToperson).setOnClickListener(this);//我的督办单.，镇街河长
             rootView.findViewById(R.id.tv_citychief_dubanToperson).setOnClickListener(this);//我的督办单.，市级河长
             rootView.findViewById(R.id.tv_leaderDuban_list).setOnClickListener(this);//领导督办
+            rootView.findViewById(R.id.tv_leaderintruction_list).setOnClickListener(this);//领导批示
             rootView.findViewById(R.id.tv_chief_rivermanage).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_notepad).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_inspect).setOnClickListener(this);
@@ -194,6 +195,15 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         boolean isCityLinkMan =logined && getBaseActivity().getUser().isCityLinkMan();
         //是否是领导
         boolean isLeader=getBaseActivity().getUser().isLogined()&&getBaseActivity().getUser().isLeader();
+
+        //是否是书记
+        boolean isSecretary = logined && getBaseActivity().getUser().isSecretary();
+        //是否是市长
+        boolean isMayor = logined && getBaseActivity().getUser().isMayor();
+        //是否是分管市长
+        boolean isOtherMayor = logined && getBaseActivity().getUser().isOtherMayor();
+        //是否是镇街总河长
+        boolean isBossChief = logined && getBaseActivity().getUser().isBossChief();
         //管辖河道小bug - 1.4.30
         rootView.findViewById(R.id.rl_chief_rivermanage).setVisibility(View.GONE);
         for (int id : showWhenLogined) {
@@ -264,12 +274,23 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             View v1=rootView.findViewById(R.id.rl_citychief_dubanToperson);
             v1.setVisibility(View.GONE);
         }
-        //是否是领导isLeader
-        if(isLeader){
-            View v1=rootView.findViewById(R.id.rl_leaderDuban_list);
+        //批示
+        if(isSecretary || isMayor || isOtherMayor){
+            View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
             v1.setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("领导批示");
+        }else if(isCityChief){
+            View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
+            v1.setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("市级河长批示");
+//			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
+        } else if (isBossChief) {
+            View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
+            v1.setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("镇街总河长批示");
+//			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
         }else {
-            View v1=rootView.findViewById(R.id.rl_leaderDuban_list);
+            View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
             v1.setVisibility(View.GONE);
         }
 
@@ -371,6 +392,12 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 Intent intent = new Intent(getBaseActivity(), com.zju.rchz.activity.DubanTopersonLeaderListActivity.class);
                 getBaseActivity().getUser().isLeaderDuban = 1;
                 intent.putExtra("isLeaderDuban",1);
+                startActivity(intent);
+                break;
+            }
+            //领导批示
+            case R.id.tv_leaderintruction_list: {
+                Intent intent = new Intent(getBaseActivity(), com.zju.rchz.activity.LeaderInstructionActivity.class);
                 startActivity(intent);
                 break;
             }

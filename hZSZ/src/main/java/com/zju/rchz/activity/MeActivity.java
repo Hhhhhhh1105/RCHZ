@@ -17,7 +17,7 @@ import org.json.JSONObject;
 
 public class MeActivity extends BaseActivity {
 
-	private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_setting, R.id.rl_complaint, R.id.rl_suggestion };
+	private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_complaint, R.id.rl_suggestion };
 //	private int[] showWhenChiefLogined = { R.id.rl_chief_sign, R.id.rl_chief_mail, R.id.rl_chief_complaint, R.id.rl_chief_duban, R.id.rl_chief_inspect, R.id.rl_chief_record, R.id.rl_chief_suggestion };
 	private int[] showWhenChiefLogined = {R.id.rl_chief_complaint, R.id.rl_chief_record, R.id.rl_chief_suggestion  };
 	private int[] showWhenCityChiefLogined = {R.id.rl_chief_record};
@@ -48,6 +48,7 @@ public class MeActivity extends BaseActivity {
 		findViewById(R.id.tv_chief_dubanToperson).setOnClickListener(this);//我的督办单,镇街河长
 		findViewById(R.id.tv_citychief_dubanToperson).setOnClickListener(this);//我的督办单,市级河长
 		findViewById(R.id.tv_leaderDuban_list).setOnClickListener(this);//领导督办
+		findViewById(R.id.tv_leaderintruction_list).setOnClickListener(this);//领导督办rl_leaderintruction_list
 
 		findViewById(R.id.tv_chief_inspect).setOnClickListener(this);
 		findViewById(R.id.tv_chief_record).setOnClickListener(this);
@@ -130,6 +131,15 @@ public class MeActivity extends BaseActivity {
 		//是否是领导
 		boolean isLeader=getUser().isLogined()&&getUser().isLeader();
 
+		//是否是书记
+		boolean isSecretary = getUser().isLogined() && getUser().isSecretary();
+		//是否是市长
+		boolean isMayor = getUser().isLogined() && getUser().isMayor();
+		//是否是分管市长
+		boolean isOtherMayor = getUser().isLogined() && getUser().isOtherMayor();
+		//是否是镇街总河长
+		boolean isBossChief = getUser().isLogined() && getUser().isBossChief();
+
 		for (int id : showWhenLogined) {
 			View v = findViewById(id);
 			if (v != null)
@@ -204,12 +214,23 @@ public class MeActivity extends BaseActivity {
 			v1.setVisibility(View.GONE);
 		}
 		//是否是领导isLeader
-		if(isLeader){
-			View v1=findViewById(R.id.rl_leaderDuban_list);
+		if(isSecretary || isMayor || isOtherMayor){
+			View v1=findViewById(R.id.rl_leaderintruction_list);
 			v1.setVisibility(View.VISIBLE);
+			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("领导批示");
+//			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
+		}else if(isCityChief){
+			View v1=findViewById(R.id.rl_leaderintruction_list);
+			v1.setVisibility(View.VISIBLE);
+			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("市级河长批示");
+//			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
+		} else if (isBossChief) {
+			View v1=findViewById(R.id.rl_leaderintruction_list);
+			v1.setVisibility(View.VISIBLE);
+			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("镇街总河长批示");
 //			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
 		}else {
-			View v1=findViewById(R.id.rl_leaderDuban_list);
+			View v1=findViewById(R.id.rl_leaderintruction_list);
 			v1.setVisibility(View.GONE);
 //			Toast.makeText(this,"else",Toast.LENGTH_LONG).show();
 		}
@@ -240,6 +261,13 @@ public class MeActivity extends BaseActivity {
 						com.zju.rchz.activity.DubanTopersonLeaderListActivity.class);
 				getUser().isLeaderDuban = 1;
 				intent.putExtra("isLeaderDuban",1);
+				startActivity(intent);
+				break;
+			}
+			//领导批示
+			case R.id.tv_leaderintruction_list: {
+				Intent intent = new Intent(this,
+						com.zju.rchz.activity.LeaderInstructionActivity.class);
 				startActivity(intent);
 				break;
 			}

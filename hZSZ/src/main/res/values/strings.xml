@@ -21,6 +21,9 @@
     <string name="list">列表</string>
     <string name="map">地图</string>
     <string name="searchriver">搜索河道</string>
+    <string name="leaderinstruction">领导批示</string>
+    <string name="cityChiefInstruction">市级河长批示</string>
+    <string name="bossChiefInstruction">镇街总河长批示</string>
     <string name="complaint">投诉</string>
     <string name="suggest">建议</string>
     <string name="isuggest">我要建议</string>
@@ -93,6 +96,11 @@
     <string name="instruction">批示情况</string>
     <string name="firstCheck">查验情况</string>
     <string name="secondCheck">第二次查验情况</string>
+    <string name="partySecretaryIntruction">市委书记批示</string>
+    <string name="mayorIntruction">市长批示</string>
+    <string name="otherMayorIntruction">分管市长批示</string>
+    <string name="cityChiefIntruction">市级河长批示</string>
+    <string name="bossChiefIntruction">镇街总河长批示</string>
     <string name="replayinfo">回复详情</string>
     <string name="handler">处理人</string>
     <string name="dubanTheam">督办主题</string>
@@ -106,6 +114,8 @@
     <string name="handleResultPerson">处理人</string>
     <string name="instructionPerson">批示领导</string>
     <string name="checkresult">查验结果</string>
+    <string name="intructionContent">批示结果</string>
+
     <string name="deadline">处理期限</string>
     <string name="handlestatus">处理状态:</string>
     <string name="evaluateinfo">评价情况</string>
@@ -181,6 +191,7 @@
     <string name="mychiefduban">查看督办-提示单</string>
     <string name="myduban">我的督办单</string>
     <string name="dubandan">督办单列表</string>
+    <string name="intruction">领导批示</string>
     <string name="note_to_leader">通知单抄送</string>
     <string name="dubanTochief">查看督办单</string>
     <string name="dubanTocitychief">查看督办单</string>

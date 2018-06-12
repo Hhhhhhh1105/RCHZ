@@ -92,14 +92,14 @@
         </TableLayout>
 
         <HorizontalScrollView
-            android:id="@+id/hsv_result2_photos"
+            android:id="@+id/hsv_results2_photos"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@color/white"
             android:visibility="gone" >
 
             <LinearLayout
-                android:id="@+id/ll_handleresult2_photos"
+                android:id="@+id/ll_handleresults2_photos"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:gravity="center_vertical"

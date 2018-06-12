@@ -57,6 +57,97 @@ public class DubanTopersonData {
     private String instructionPerson;//批示领导
     private DateTime instructionDate;//批示日期
 
+    private String instructionFromSecretary;//书记批示结果
+    private DateTime instructionFromSecretaryDate;//批示日期
+    private String instructionFromMayor;//市长批示结果
+    private DateTime instructionFromMayorDate;//批示日期
+    private String instructionFromOtherMayor;//分管市长批示结果
+    private DateTime instructionFromOtherMayorDate;//批示日期
+    private String instructionFromCityChief;//市级河长批示结果
+    private DateTime instructionFromCityChiefDate;//批示日期
+    private String instructionFromBossChief;//总河长批示结果
+    private DateTime instructionFromBossChiefDate;//批示日期
+
+    public void setInstructionFromCityChief(String instructionFromCityChief) {
+        this.instructionFromCityChief = instructionFromCityChief;
+    }
+
+    public void setInstructionFromCityChiefDate(DateTime instructionFromCityChiefDate) {
+        this.instructionFromCityChiefDate = instructionFromCityChiefDate;
+    }
+
+    public String getInstructionFromCityChief() {
+        return instructionFromCityChief;
+    }
+
+    public DateTime getInstructionFromCityChiefDate() {
+        return instructionFromCityChiefDate;
+    }
+
+    public void setInstructionFromSecretary(String instructionFromSecretary) {
+        this.instructionFromSecretary = instructionFromSecretary;
+    }
+
+    public void setInstructionFromSecretaryDate(DateTime instructionFromSecretaryDate) {
+        this.instructionFromSecretaryDate = instructionFromSecretaryDate;
+    }
+
+    public void setInstructionFromMayor(String instructionFromMayor) {
+        this.instructionFromMayor = instructionFromMayor;
+    }
+
+    public void setInstructionFromMayorDate(DateTime instructionFromMayorDate) {
+        this.instructionFromMayorDate = instructionFromMayorDate;
+    }
+
+    public void setInstructionFromOtherMayor(String instructionFromOtherMayor) {
+        this.instructionFromOtherMayor = instructionFromOtherMayor;
+    }
+
+    public void setInstructionFromOtherMayorDate(DateTime instructionFromOtherMayorDate) {
+        this.instructionFromOtherMayorDate = instructionFromOtherMayorDate;
+    }
+
+    public void setInstructionFromBossChief(String instructionFromBossChief) {
+        this.instructionFromBossChief = instructionFromBossChief;
+    }
+
+    public void setInstructionFromBossChiefDate(DateTime instructionFromBossChiefDate) {
+        this.instructionFromBossChiefDate = instructionFromBossChiefDate;
+    }
+
+    public String getInstructionFromSecretary() {
+        return instructionFromSecretary;
+    }
+
+    public DateTime getInstructionFromSecretaryDate() {
+        return instructionFromSecretaryDate;
+    }
+
+    public String getInstructionFromMayor() {
+        return instructionFromMayor;
+    }
+
+    public DateTime getInstructionFromMayorDate() {
+        return instructionFromMayorDate;
+    }
+
+    public String getInstructionFromOtherMayor() {
+        return instructionFromOtherMayor;
+    }
+
+    public DateTime getInstructionFromOtherMayorDate() {
+        return instructionFromOtherMayorDate;
+    }
+
+    public String getInstructionFromBossChief() {
+        return instructionFromBossChief;
+    }
+
+    public DateTime getInstructionFromBossChiefDate() {
+        return instructionFromBossChiefDate;
+    }
+
     public void setInstructionResult(String instructionResult) {
         this.instructionResult = instructionResult;
     }

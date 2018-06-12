@@ -52,11 +52,39 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/inc_compinfo" />
+
             <include
                 android:id="@+id/duban"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/inc_duban_content"
+                android:visibility="gone"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/inc_party_secretary_intruction"
+                android:visibility="gone"/>
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/inc_mayor_intruction"
+                android:visibility="gone"/>
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/inc_other_mayor_intruction"
+                android:visibility="gone"/>
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/inc_citychief_instruction"
+                android:visibility="gone"/>
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/inc_boss_chief_instruction"
                 android:visibility="gone"/>
 
             <include
@@ -105,6 +133,12 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 layout="@layout/inc_comphanle"
+                />
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                layout="@layout/inc_make_intruction"
+                android:visibility="visible"
                 />
         </LinearLayout>
     </ScrollView>

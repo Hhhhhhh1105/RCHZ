@@ -6,6 +6,7 @@
     <color name="text_gray">#444</color>
     <color name="text_high">#FFF</color>
     <color name="white">#FFF</color>
+    <color name="transparent_background">#CCFFFFFF</color>
     <color name="white_pressed">#f1f1f1</color>
     <color name="green">#37c674</color><!-- 37c674-->
     <color name="blue">#3385ff</color><!-- 50b0d9-->
