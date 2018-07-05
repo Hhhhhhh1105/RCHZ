@@ -152,6 +152,7 @@
     <string name="river_contactinfo">河长联系方式</string>
     <string name="period_7days">7天</string>
     <string name="period_1month">30天</string>
+    <string name="cityriverchief_responsibility">职务</string>
     
     <string name="river_district_title">市级河长</string>
     <string name="river_city_title">市级河长</string>
@@ -370,11 +371,18 @@
     <!--<string name="level_3">区级</string>改为荣成的市级-->
     <string name="level_3">市级</string>
     <string name="level_4">镇街级</string>
+    <string name="level_5">村级</string>
     <string name="level_river_1">省级河道</string>
     <string name="level_river_2">市级河道</string>
     <!--<string name="level_river_3">区级河道</string>-->
     <string name="level_river_3">市级河道</string>
     <string name="level_river_4">镇街级河道</string>
+    <string name="level_lake_1">省级湖泊</string>
+    <string name="level_lake_2">市级湖泊</string>
+    <!--<string name="level_lake_3">区级湖泊</string>-->
+    <string name="level_lake_3">市级湖泊</string>
+    <string name="level_lake_4">镇街级湖泊</string>
+    <string name="level_lake_5">村级湖泊</string>
     <string name="level_3s">重要区级</string>
     <string name="level_river_3s">重要区级河道</string>
 
@@ -437,5 +445,26 @@
     <!--npc isRead-->
     <string name="sup_isread">河长已阅</string>
     <string name="sup_notread">河长未阅</string>
+    <string name="city">市级</string>
+
+    <!--lake-->
+    <string name="lake_code">湖泊编号：</string>
+    <string name="no_code">暂无编号</string>
+    <string name="no_owner">未知区域</string>
+    <string name="lake_capacity">湖泊库容：</string>
+    <string name="lake_unknow">未知</string>
+    <string name="lake_depth">平均深度：</string>
+    <string name="lake_size">湖泊面积：</string>
+    <string name="lake_level">湖泊等级</string>
+    <string name="lake_main_function">主要功能</string>
+    <string name="lake_contactinfo">湖长联系方式</string>
+    <string name="city_lake_chief_name">市级湖长</string>
+    <string name="vicecity_lake_chief_name">市级副湖长</string>
+    <string name="city_lake_connectchief_name">市级湖长联系人</string>
+    <string name="district_lake_chief_name">区级湖长</string>
+    <string name="district_lake_connectchief_name">区级湖长联系人</string>
+    <string name="town_lake_chief_name">镇街湖长</string>
+    <string name="village_lake_chief_name">村级湖长</string>
+    <string name="lake_police_name">湖泊警长</string>
 
 </resources>

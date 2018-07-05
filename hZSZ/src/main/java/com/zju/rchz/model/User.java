@@ -69,6 +69,10 @@ public class User {
 	// 河长
 	public int authority;
 	public River[] riverSum = new River[] {};
+
+	//湖长
+	public Lake[] lakeSum = new Lake[] {};
+
 	public int ifOnJob = 0;
 
 	// 是否河长

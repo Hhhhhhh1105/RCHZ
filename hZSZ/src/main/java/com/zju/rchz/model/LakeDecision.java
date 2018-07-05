@@ -1,0 +1,13 @@
+package com.zju.rchz.model;
+
+/**
+ * Created by ZJTLM4600l on 2018/6/12.
+ */
+
+public class LakeDecision {
+    public long lakeId;
+    public String lakeSerialNum;
+    public String lakeName;
+    public String lakeStrategyPath;
+    public String lakeStrategyAbstract;
+}

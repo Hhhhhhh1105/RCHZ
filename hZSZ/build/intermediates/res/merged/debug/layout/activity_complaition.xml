@@ -469,7 +469,8 @@
             <include
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                layout="@layout/inc_compevalinfo" />
+                layout="@layout/inc_compevalinfo"
+                android:visibility="gone"/>
 
             <LinearLayout
                 android:layout_width="match_parent"

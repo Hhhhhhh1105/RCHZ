@@ -1,9 +1,5 @@
 [
     {
-        "merged": "F:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\activity_chief_recordlist.xml",
-        "source": "F:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\src\\main\\res\\layout-xlarge\\activity_chief_recordlist.xml"
-    },
-    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout-xlarge-v4\\activity_chief_recordlist.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\layout-xlarge\\activity_chief_recordlist.xml"
     }

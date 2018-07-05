@@ -223,7 +223,9 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
                             ((TextView)findViewById(R.id.tv_sgin)).setText("已签收");
                         }
                     }
-                    if(dubanTopersonData.getDealResult()!=null&& dubanTopersonData.getDealTime()!=null){
+
+                    if(dubanTopersonData.getDealResult()!=null && dubanTopersonData.getDealResult()!=""){//&& dubanTopersonData.getDealTime()!=null
+//                        showToast("if");
                         //设置标志位isSecondFeedback
                         findViewById(R.id.deal_result1).setVisibility(View.VISIBLE);
                         isSecondFeedback=1;//下一次是第二次反馈
@@ -232,6 +234,7 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
                         ((TextView)findViewById(R.id.tv_hnd_name)).setText(dubanTopersonData.getDealPersonName());
                         ((TextView)findViewById(R.id.tv_hnd_result)).setText(dubanTopersonData.getDealResult());
                     }else {
+//                        showToast("else");
                         findViewById(R.id.deal_result1).setVisibility(View.GONE);
                     }
 

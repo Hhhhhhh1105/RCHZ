@@ -264,6 +264,7 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
                         }
                     }
                     if(dubanTopersonData.getDealResult()!=null&& dubanTopersonData.getDealTime()!=null){
+                        findViewById(R.id.deal_result1).setVisibility(View.VISIBLE);
                         ((TextView)findViewById(R.id.tv_hnd_datetime)).setText(dubanTopersonData.getSubmitTime() != null ? dubanTopersonData.getDealTime().getYMDHM(DuabnTopersonCitychiefDetailActivity.this) : "");
                         ((TextView)findViewById(R.id.tv_hnd_telno)).setText(dubanTopersonData.getDealTeleNum());
                         ((TextView)findViewById(R.id.tv_hnd_name)).setText(dubanTopersonData.getDealPersonName());
@@ -271,6 +272,7 @@ public class DuabnTopersonCitychiefDetailActivity extends BaseActivity {
                     }else {
                         findViewById(R.id.deal_result1).setVisibility(View.GONE);
                     }
+                    //处理期限
                     if (dubanTopersonData.getDeadLine()!=null&&dubanTopersonData.getDeadLine()!=""){
                         findViewById(R.id.v_deadline).setVisibility(View.VISIBLE);
                         findViewById(R.id.tr_deadline).setVisibility(View.VISIBLE);

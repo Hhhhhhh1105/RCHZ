@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<instant-run
+    api-level="22"
+    density="xhdpi"
+    format="8"
+    plugin-version="2.2.0"
+    timestamp="5241018077290"
+    token="-8900174504563252341"
+    verifier="COLD_SWAP_REQUESTED" >
+
+    <task
+        name="javac"
+        duration="0" />
+    <task
+        name="instant-run-dex"
+        duration="0" />
+    <task
+        name="instant-run-transform"
+        duration="0" />
+    <task
+        name="verifier"
+        duration="0" />
+
+    <artifact
+        location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+        type="RESOURCES" />
+
+    <build
+        timestamp="3130495033027"
+        verifier="FULL_BUILD_REQUESTED" >
+        <artifact
+            location="D:\Androidproject\RC\RCHZ\hZSZ\build\outputs\apk\hZSZ-debug.apk"
+            type="MAIN" />
+    </build>
+    <build
+        timestamp="5241018077290"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
+            type="RESOURCES" />
+    </build>
+
+</instant-run>

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zju.rchz"
     android:versionCode="17"
-    android:versionName="2.1.5">
+    android:versionName="2.1.6">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -129,14 +129,14 @@
             </intent-filter>
         </service>
          <!--百度正式 SHA1=7D:78:E9:BF:B2:DE:E4:83:EF:14:64:F5:C9:A3:53:9E:C7:84:2C:5D-->
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="NAIjbQ5YZ6lDQ6sjDjNyGWhPLgfrv7U6" />
-
-        <!-- 百度正式 SHA1=91:0C:25:B7:C6:B7:FD:9F:7F:7B:F9:DC:E9:76:8E:04:03:58:1A:5C-->
         <!--<meta-data-->
             <!--android:name="com.baidu.lbsapi.API_KEY"-->
-            <!--android:value="z2LMSwExOzmteAwGCAGvhqw0v3sBNUTF" />-->
+            <!--android:value="NAIjbQ5YZ6lDQ6sjDjNyGWhPLgfrv7U6" />-->
+
+        <!-- 百度正式 SHA1=91:0C:25:B7:C6:B7:FD:9F:7F:7B:F9:DC:E9:76:8E:04:03:58:1A:5C-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="z2LMSwExOzmteAwGCAGvhqw0v3sBNUTF" />
 
         <!--&lt;!&ndash; 百度正式 SHA1=4D:ED:FD:18:D3:8E:A4:DF:E7:C5:67:D5:96:85:57:0F:AA:4B:84:16&ndash;&gt;-->
         <!--<meta-data-->
@@ -267,6 +267,13 @@
             android:label="@string/river_info"
             android:screenOrientation="portrait"></activity>
         <activity
+            android:name=".activity.LakeActivity"
+            android:label="@string/lake_info"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".activity.LakePositionActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name="com.zju.rchz.activity.OutletActivity"
             android:label="@string/outlet"
             android:screenOrientation="portrait"></activity>
@@ -278,9 +285,13 @@
             android:name="com.zju.rchz.activity.SmallWaterListActivity"
             android:screenOrientation="portrait"></activity>
         <activity
+            android:name=".activity.LakeListAcitivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
             android:name="com.zju.rchz.activity.SearchRiverActivity"
             android:label="@string/searchriver"
             android:screenOrientation="portrait"></activity>
+
 
         <activity
             android:name="com.zju.rchz.activity.LeaderInstructionActivity"

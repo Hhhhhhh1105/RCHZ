@@ -3,7 +3,7 @@ package com.zju.rchz;
 import com.zju.rchz.model.District;
 
 public class Values {
-	final public static String Ver = "2.1.5";
+	final public static String Ver = "2.1.6";
 //	final public static String Ver = "1.3.2";
 	final public static boolean DEBUG = false;
 	final public static boolean RELEASE = false;

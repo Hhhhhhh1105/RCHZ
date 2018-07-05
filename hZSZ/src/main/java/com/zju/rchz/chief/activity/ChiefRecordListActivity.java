@@ -214,6 +214,9 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 						//获得经纬度信息
 						latList_host = o.data.getLatlist();
 						lngList_host = o.data.getLnglist();
+					}else{
+						latList_host = "";
+						lngList_host = "";
 					}
 				}
 			}
@@ -260,6 +263,7 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 	@Override
 	public boolean onRefresh() {
 		loadRecords(true);
+		getHostRiverRecordTemporary();//获得服务器对应河长未完成的轨迹
 		return true;
 	}
 
@@ -335,6 +339,7 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 		super.onRestart();
 		//刷新判断今日的有效性
 		loadRecords(true);
+		getHostRiverRecordTemporary();//获得服务器对应河长未完成的轨迹
 
 	}
 	@Override
@@ -342,6 +347,7 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 		super.onActivityResult(requestCode, resultCode, data);
 		if (resultCode == RESULT_OK) {
 			loadRecords(true);
+			getHostRiverRecordTemporary();//获得服务器对应河长未完成的轨迹
 	}
 	}
 }
