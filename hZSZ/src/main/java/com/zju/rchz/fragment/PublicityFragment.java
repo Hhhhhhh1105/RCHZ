@@ -11,11 +11,14 @@ import android.widget.ImageView;
 import android.widget.RadioGroup;
 import android.widget.RadioGroup.OnCheckedChangeListener;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.zju.rchz.R;
 import com.zju.rchz.Tags;
+import com.zju.rchz.activity.LakeSugOrComtActivity;
 import com.zju.rchz.activity.MainActivity;
 import com.zju.rchz.activity.SugOrComtActivity;
+import com.zju.rchz.model.BottomAnimDialog;
 
 
 /**
@@ -68,7 +71,7 @@ public class PublicityFragment extends BaseFragment implements OnCheckedChangeLi
 //			rootView.findViewById(R.id.iv_head_right).setOnClickListener(new View.OnClickListener() {
 //
 //				@Override
-//				public void onClick(View arg0) {
+//				public void onClick(View arg0) {4
 //					if (islist && !isRank) {
 //						listFragment.onHeadRefresh();
 //					} else if(!islist && !isRank){
@@ -80,7 +83,7 @@ public class PublicityFragment extends BaseFragment implements OnCheckedChangeLi
 //				}
 //			});
 
-			//一键投诉按钮的设置（DH）MainActivity.getCurActivity().getUser().isLogined()
+			//一键投诉按钮的设置MainActivity.getCurActivity().getUser().isLogined()
 			rootView.findViewById(R.id.btn_comp).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
@@ -92,15 +95,43 @@ public class PublicityFragment extends BaseFragment implements OnCheckedChangeLi
 				}
 			});
 
-			//一键建议按钮的设置（DH）
+			//一键建议按钮的设置
 			rootView.findViewById(R.id.btn_sug).setOnClickListener(new View.OnClickListener() {
 
 				@Override
 				public void onClick(View arg0) {
 					if (MainActivity.getCurActivity().checkUserAndLogin("请到个人中心进行注册或登录，使用个人账号登录后再进行建议。")){
-						Intent intent = new Intent(getBaseActivity(), SugOrComtActivity.class);
-						intent.putExtra(Tags.TAG_ABOOLEAN, false);
-						startActivity(intent);
+//						Intent intent = new Intent(getBaseActivity(), SugOrComtActivity.class);
+//						intent.putExtra(Tags.TAG_ABOOLEAN, false);
+//						startActivity(intent);
+						final BottomAnimDialog dialog = new BottomAnimDialog(getBaseActivity(), "建议河道", "建议湖泊", "取消");
+						dialog.setClickListener(new BottomAnimDialog.BottonAnimDialogListener() {
+							@Override
+							public void onItem1Listener() {
+								// TO_DO
+								Intent intent = new Intent(getBaseActivity(), SugOrComtActivity.class);
+								intent.putExtra(Tags.TAG_ABOOLEAN, false);
+								startActivity(intent);
+								dialog.dismiss();
+							}
+
+							@Override
+							public void onItem2Listener() {
+								// TO_DO
+								Intent intent = new Intent(getBaseActivity(), LakeSugOrComtActivity.class);
+								intent.putExtra(Tags.TAG_ABOOLEAN, false);
+								startActivity(intent);
+								dialog.dismiss();
+							}
+
+							@Override
+							public void onItem3Listener() {
+								dialog.dismiss();
+							}
+						});
+
+						dialog.show();
+
 					}
 				}
 			});

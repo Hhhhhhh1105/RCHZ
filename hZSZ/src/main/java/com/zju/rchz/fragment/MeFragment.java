@@ -86,6 +86,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             rootView.findViewById(R.id.tv_chief_notepad).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_inspect).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_record).setOnClickListener(this);
+            rootView.findViewById(R.id.tv_lakechief_record).setOnClickListener(this);//巡河记录
             rootView.findViewById(R.id.tv_chief_suggestion).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_sign).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_mail).setOnClickListener(this);
@@ -354,6 +355,12 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             }
             case R.id.tv_chief_record: {
                 Intent intent = new Intent(getBaseActivity(), com.zju.rchz.chief.activity.ChiefRecordListActivity.class);
+                startActivity(intent);
+                break;
+            }
+            //巡河记录
+            case R.id.tv_lakechief_record: {
+                Intent intent = new Intent(getBaseActivity(), com.zju.rchz.lakechief.activity.LakeChiefRecordListActivity.class);
                 startActivity(intent);
                 break;
             }

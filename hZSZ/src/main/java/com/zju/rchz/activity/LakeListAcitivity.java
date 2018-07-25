@@ -22,10 +22,12 @@ import com.zju.rchz.R;
 import com.zju.rchz.Tags;
 import com.zju.rchz.model.District;
 import com.zju.rchz.model.Lake;
+import com.zju.rchz.model.LakeDataRes;
 import com.zju.rchz.model.LakeListRes;
 import com.zju.rchz.model.RiverQuickSearchRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ImgUtils;
+import com.zju.rchz.utils.ObjUtils;
 import com.zju.rchz.utils.ParamUtils;
 import com.zju.rchz.utils.ResUtils;
 import com.zju.rchz.utils.StrUtils;
@@ -63,6 +65,7 @@ public class LakeListAcitivity extends BaseActivity implements TextView.OnEditor
 
     private List<Lake> lakes = new ArrayList<Lake>();
 
+    private boolean isSelectLake = false;
     //点击单个item，跳转函数
     View.OnClickListener lakeClick = new View.OnClickListener() {
         @Override
@@ -72,6 +75,28 @@ public class LakeListAcitivity extends BaseActivity implements TextView.OnEditor
                 intent.putExtra(Tags.TAG_LAKE, StrUtils.Obj2Str(view.getTag()));
                 startActivity(intent);
             }
+        }
+    };
+    View.OnClickListener backLake = new View.OnClickListener() {
+        @Override
+        public void onClick(View view) {
+            final Lake lake = (Lake)view.getTag();
+            showOperating("加载湖泊数据...");
+            getRequestContext().add("Get_OneLake_Data", new Callback<LakeDataRes>() {
+
+                @Override
+                public void callback(LakeDataRes o) {
+                    hideOperating();
+                    if (o != null && o.isSuccess()) {
+                        ObjUtils.mergeObj(lake, o.data);
+                        Intent intent = new Intent();
+                        intent.putExtra(Tags.TAG_LAKE, StrUtils.Obj2Str(lake));
+                        setResult(RESULT_OK, intent);
+                        finish();
+                    }
+                }
+            }, LakeDataRes.class, ParamUtils.freeParam(null, "lakeId", lake.lakeId));
+
         }
     };
 
@@ -100,7 +125,7 @@ public class LakeListAcitivity extends BaseActivity implements TextView.OnEditor
             }
 
             convertView.setTag(lake);
-            convertView.setOnClickListener(lakeClick);
+            convertView.setOnClickListener(isSelectLake? backLake:lakeClick);
 
             return convertView;
         }
@@ -242,6 +267,11 @@ public class LakeListAcitivity extends BaseActivity implements TextView.OnEditor
 
             }
         }, LakeListRes.class, p);
+
+        if (getIntent().getIntExtra(Tags.TAG_CODE, 0) == Tags.CODE_SELECTLAKE) {
+            setTitle(getIntent().getStringExtra(Tags.TAG_TITLE));
+            isSelectLake = true;
+        }
     }
 
     /**

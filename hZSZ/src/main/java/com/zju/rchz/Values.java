@@ -3,7 +3,7 @@ package com.zju.rchz;
 import com.zju.rchz.model.District;
 
 public class Values {
-	final public static String Ver = "2.1.6";
+	final public static String Ver = "2.1.8";
 //	final public static String Ver = "1.3.2";
 	final public static boolean DEBUG = false;
 	final public static boolean RELEASE = false;
@@ -30,7 +30,7 @@ public class Values {
 	public static int UPLOAD_IMG_W = 400;
 	public static int UPLOAD_IMG_H = 400;
 
-	public static int MAP_ZOOM_LEVEL = 16;
+	public static int MAP_ZOOM_LEVEL = 17;
 	public static int MAP_ZOOM_MAX_LEVEL = 20;
 	public static int MAP_ZOOM_MIN_LEVEL = 14;
 

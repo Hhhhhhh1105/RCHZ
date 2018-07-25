@@ -4,9 +4,11 @@ import android.content.Intent;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -33,7 +35,11 @@ import com.zju.rchz.activity.BaseActivity;
 import com.zju.rchz.activity.ComplainMap;
 import com.zju.rchz.activity.PhotoViewActivity;
 import com.zju.rchz.model.Imag;
+import com.zju.rchz.model.WholeRiverMap;
+import com.zju.rchz.model.WholeRiverMapRes;
+import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ImgUtils;
+import com.zju.rchz.utils.ParamUtils;
 import com.zju.rchz.utils.StrUtils;
 
 import java.util.ArrayList;
@@ -67,6 +73,23 @@ public class ChiefTrackViewActivity extends BaseActivity {
 
     private List<LatLng> pointsToDraw;
 
+    private LatLng riverStart;
+    private LatLng riverEnd;
+    private String riverAllLatitude;//河道全部点
+    private String riverAllLongitude;
+    private String[] riverAllLatitudeArray;
+    private String[] riverAllLongitudeArray;
+    WholeRiverMap wholeRiverMap;
+    ArrayList<LatLng> riverAllPoint;
+
+    //传入河道编号：
+    private int riverId;
+
+    Handler handler = new Handler();
+
+    private Button trackPosition;
+    private Button riverPosition;
+
     BitmapDescriptor bmp_image = BitmapDescriptorFactory.fromResource(R.drawable.river_record_image_location);
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -77,10 +100,12 @@ public class ChiefTrackViewActivity extends BaseActivity {
         setTitle("查看巡河轨迹");
         initHead(R.drawable.ic_head_back,0);
 
+        handler.postDelayed(new MyRunable(),3000);
         //地图初始化
         MapView mv_trackview = (MapView) findViewById(R.id.mv_trackview);
         baiduMap = mv_trackview.getMap();
         baiduMap.getUiSettings().setOverlookingGesturesEnabled(true);
+        mv_trackview.showZoomControls(false);
 
         //得到轨迹经纬度数组
         Bundle bundle=this.getIntent().getExtras();
@@ -92,7 +117,58 @@ public class ChiefTrackViewActivity extends BaseActivity {
         picPath=bundle.getString("picPath");
 //        longitude=bundle.getDouble("longitude");
 //        latitude=bundle.getDouble("latitude");
-//
+        riverId = bundle.getInt("riverId",0);
+
+        if(riverId!=0){
+            getRequestContext().add("Get_WholeRiverMap", new Callback<WholeRiverMapRes>() {
+                @Override
+                public void callback(WholeRiverMapRes o) {
+                    hideOperating();
+                    if (o != null && o.isSuccess()) {
+                        if (o.data !=null && o.data.allLongitude!=null){
+                            wholeRiverMap = o.data;
+                            riverAllLatitude = wholeRiverMap.allLatitude;
+                            riverAllLongitude = wholeRiverMap.allLongitude;
+                            System.out.println("testrc: o.data !=null && o.data.allLongitude!=null");
+                        }
+                        if(riverAllLatitude !=null && !riverAllLatitude.equals("")){
+                            System.out.println("testrc: //得到河道的所有坐标");
+                            //得到河道的所有坐标
+                            if (riverAllLatitude!=null && riverAllLatitude.contains(",")){
+                                //如果不止一个数据，变成一个数组
+                                riverAllLatitudeArray = riverAllLatitude.split(",");
+                                riverAllLongitudeArray = riverAllLongitude.split(",");
+                                System.out.println("testrc: //如果不止一个数据，变成一个数组");
+                            }else{
+                                //如果只有一个数据
+                                riverAllLatitudeArray = new String[1];
+                                riverAllLongitudeArray = new String[1];
+                                riverAllLatitudeArray[0] = riverAllLatitude;
+                                riverAllLongitudeArray[0] = riverAllLongitude;
+                                System.out.println("testrc: //如果只有一个数据");
+                            }
+                            riverStart =new LatLng(Double.parseDouble(riverAllLatitudeArray[0]), Double.parseDouble(riverAllLongitudeArray[0]));
+                            riverEnd =new LatLng(Double.parseDouble(riverAllLatitudeArray[riverAllLatitudeArray.length-1]),
+                                    Double.parseDouble(riverAllLongitudeArray[riverAllLatitudeArray.length-1]));
+//                            //起点和终点
+//                            if(riverAllLongitudeArray!=null && riverAllLongitudeArray.length>0){
+//                                System.out.println("testrc: 起点和终点");
+//                                riverStart =new LatLng(Double.parseDouble(riverAllLatitudeArray[0]), Double.parseDouble(riverAllLongitudeArray[0]));
+//                                riverEnd =new LatLng(Double.parseDouble(riverAllLatitudeArray[riverAllLatitudeArray.length-1]),
+//                                        Double.parseDouble(riverAllLongitudeArray[riverAllLatitudeArray.length-1]));
+//                                System.out.println("testrc: riverStart:"+riverStart.toString()+"riverEnd:"+riverEnd.toString());
+//                            }
+                            riverAllPoint = new ArrayList<LatLng>();
+
+                            for (int i = 0; i < riverAllLatitudeArray.length; i++){
+                                riverAllPoint.add(new LatLng(Double.parseDouble(riverAllLatitudeArray[i]), Double.parseDouble(riverAllLongitudeArray[i])));
+                            }
+                        }
+                    }
+                }
+            }, WholeRiverMapRes.class, ParamUtils.freeParam(null, "riverId", riverId));
+        }
+
         //将字符串变成数组形式,如果只含有一个坐标点，强行变成两个
         if (getIntent().getExtras().getString("latList") != null){
 
@@ -104,8 +180,6 @@ public class ChiefTrackViewActivity extends BaseActivity {
         }
         latArray = latList.split(",");
         lngArray = lngList.split(",");
-
-//
 
 //        if(imgLatlist==null||imgLnglist==null||picPath==null) {
 //            imgLatlist=longitude.toString();
@@ -151,8 +225,6 @@ public class ChiefTrackViewActivity extends BaseActivity {
         Log.i("来自trackView的lngArray", lngArray[0].toString());
         Log.i("pointsToDraw", pointsToDraw.toString());
 
-        //开始画轨迹
-        drawTrack();
         //覆盖物点击响应事件
         baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
             @Override
@@ -179,6 +251,55 @@ public class ChiefTrackViewActivity extends BaseActivity {
                 return false;
             }
         });
+
+        trackPosition = (Button) findViewById(R.id.btn_my_position);
+        trackPosition.setClickable(false);
+        trackPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if(pointsToDraw!=null){
+                    float lat = (float) ((pointsToDraw.get(0).latitude + pointsToDraw.get(pointsToDraw.size()-1).latitude) / 2);
+                    float lng = (float) ((pointsToDraw.get(0).longitude + pointsToDraw.get(pointsToDraw.size()-1).longitude) / 2);
+                    baiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
+
+                    //target：设置地图中心点；zoom:设置缩放级别
+                    MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(15).build();
+                    //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+                    baiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+                }
+
+            }
+        });
+        riverPosition = (Button) findViewById(R.id.btn_river_position);
+        riverPosition.setClickable(false);
+        riverPosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (riverStart != null && riverEnd != null) {
+                    float lat = (float) ((riverStart.latitude + riverEnd.latitude) / 2);
+                    float lng = (float) ((riverStart.longitude + riverEnd.longitude) / 2);
+                    baiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
+
+                    //target：设置地图中心点；zoom:设置缩放级别
+                    MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(14).build();
+                    //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+                    baiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+                }else {
+                    showToast("暂时未录入河道信息。");
+                }
+            }
+        });
+    }
+
+    private class MyRunable implements Runnable {
+
+        @Override
+        public void run() {
+            riverPosition.setClickable(true);
+            trackPosition.setClickable(true);
+            //开始画轨迹
+            drawTrack();
+        }
     }
 
     private void showLocation(final Marker marker) {  //显示气泡
@@ -214,11 +335,12 @@ public class ChiefTrackViewActivity extends BaseActivity {
     private void drawTrack() {
         baiduMap.clear();
 
+        //先画河道
+        drawRiver();
+
         //在地图上显示起点和终点
         BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.track_start);
         BitmapDescriptor bmp_to = BitmapDescriptorFactory.fromResource(R.drawable.track_end);
-
-
 
         //起点和终点值
         LatLng from = pointsToDraw.get(0);
@@ -248,11 +370,11 @@ public class ChiefTrackViewActivity extends BaseActivity {
 
         //可设置循环，添加坐标点
         OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                .color(Color.BLUE).points(pointsToDraw);
+                .color(Color.GREEN).points(pointsToDraw);
         baiduMap.addOverlay(ooPolyline);
 
         //设置地图中心点与设置缩放级别
-        MapStatus status = new MapStatus.Builder().target(new LatLng(lat,lng)).zoom(Values.MAP_ZOOM_LEVEL).build();
+        MapStatus status = new MapStatus.Builder().target(new LatLng(lat,lng)).zoom(15).build();
         //改变地图的状态
         baiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
 
@@ -317,6 +439,29 @@ public class ChiefTrackViewActivity extends BaseActivity {
 //            view1.findViewById(R.id.hsv_result_photos).setVisibility(View.GONE);
         }
 
+    }
+
+    /**
+     * 地图上显示河道
+     * drawRiverStartAndEnd
+     */
+    private void drawRiver() {
+        //在地图上显示起点和终点
+        BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.river_start);
+        BitmapDescriptor bmp_to = BitmapDescriptorFactory.fromResource(R.drawable.river_end);
+//        baiduMap.addOverlay(optionMe);
+        if (riverStart != null && riverEnd != null) {
+            System.out.println("testrc: drawRiver():riverStart != null && riverEnd != null");
+            MarkerOptions optionFrom = new MarkerOptions().position(riverStart).icon(bmp_from);
+            MarkerOptions optionTo = new MarkerOptions().position(riverEnd).icon(bmp_to);
+            baiduMap.addOverlay(optionFrom);
+
+            OverlayOptions ooPolyline = new PolylineOptions().width(10).color(Color.BLUE).points(riverAllPoint);
+            baiduMap.addOverlay(ooPolyline);
+            Marker marker_End = (Marker) baiduMap.addOverlay(optionTo);
+        }else {
+            showToast("暂时未录入河道信息。");
+        }
     }
 
     String[] imgResultUrls = null;

@@ -86,35 +86,7 @@ public class ProblemReportActivity extends BaseActivity {
             ((EditText) findViewById(R.id.et_suggest_name)).setEnabled(true);
         }
 
-        //如果是人大代表，则显示“代表姓名”，并隐去匿名
-//        if (getUser().isNpc()) {
-////			((EditText) findViewById(R.id.et_suggest_name)).setHint("代表姓名");
-//            //将投诉人直接显示为人大代表的姓名
-//            ((EditText) findViewById(R.id.et_suggest_name)).setText(getUser().getRealName());
-//            ((EditText) findViewById(R.id.et_suggest_name)).setEnabled(false);
-//            findViewById(R.id.ll_anonymity).setVisibility(View.GONE);
-//            //不自动弹出软键盘
-//            getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
-//        }
-
-
         setTitle(R.string.iProblemReport);
-
-//        //如果是人大代表，并且这条河是自己的河时,并且是监督状态时
-//        if (r != null) {
-//
-//            if (getUser().isNpc() && r.riverId == getUser().getMyRiverId() && !isCom) {
-//                refreshToNpcView();
-//                btnInit();
-//
-//                subject = "人大代表监督河长，无主题";
-//
-//                setTitle("我要监督");
-//                ((TextView) findViewById(R.id.tv_suggest_river)).setText("监督河道");
-//            }
-//
-//        }
-
 
         findViewById(R.id.btn_submit).setOnClickListener(new View.OnClickListener() {
 

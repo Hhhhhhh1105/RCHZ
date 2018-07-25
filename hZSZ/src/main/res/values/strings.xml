@@ -74,6 +74,8 @@
     <string name="form_login_forgot">忘记密码?</string>
     <string name="form_suggest_river">建议河道</string>
     <string name="form_complaint_river">投诉河道</string>
+    <string name="form_complaint_lake">投诉湖泊</string>
+    <string name="form_suggest_lake">建议湖泊</string>
     <string name="form_problem_report_river">上报河道</string>
     <string name="form_ducha_river">督察河道</string>
     <string name="form_suggest_anonymity">匿名建议</string>
@@ -188,6 +190,7 @@
     <string name="mychiefsuggestion">处理建议</string>
     <string name="mychiefinspect">开始巡河</string>
     <string name="mychiefrecord">巡查记录</string>
+    <string name="myLakeChiefRecord">巡湖记录</string>
     <string name="mychiefrivermanage">管辖河道</string>
     <string name="mychiefduban">查看督办-提示单</string>
     <string name="myduban">我的督办单</string>

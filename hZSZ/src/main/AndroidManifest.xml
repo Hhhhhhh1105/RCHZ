@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zju.rchz"
     android:versionCode="17"
-    android:versionName="2.1.6">
+    android:versionName="2.1.8">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -133,15 +133,15 @@
             <!--android:name="com.baidu.lbsapi.API_KEY"-->
             <!--android:value="NAIjbQ5YZ6lDQ6sjDjNyGWhPLgfrv7U6" />-->
 
-        <!-- 百度正式 SHA1=91:0C:25:B7:C6:B7:FD:9F:7F:7B:F9:DC:E9:76:8E:04:03:58:1A:5C-->
-        <meta-data
-            android:name="com.baidu.lbsapi.API_KEY"
-            android:value="z2LMSwExOzmteAwGCAGvhqw0v3sBNUTF" />
-
-        <!--&lt;!&ndash; 百度正式 SHA1=4D:ED:FD:18:D3:8E:A4:DF:E7:C5:67:D5:96:85:57:0F:AA:4B:84:16&ndash;&gt;-->
+        <!-- 百度正式 SHA1=91:0C:25:B7:C6:B7:FD:9F:7F:7B:F9:DC:E9:76:8E:04:03:58:1A:5C  台式机debug版-->
         <!--<meta-data-->
             <!--android:name="com.baidu.lbsapi.API_KEY"-->
-            <!--android:value="R6xmgmkLHRaqFdrm6IRhGdpOdjg0ViZc" />-->
+            <!--android:value="z2LMSwExOzmteAwGCAGvhqw0v3sBNUTF" />-->
+
+        <!-- 签名版 SHA1=08:B5:FA:61:F7:38:79:FD:1D:10:58:3D:C0:00:72:8D:21:97:70:8C-->
+        <meta-data
+            android:name="com.baidu.lbsapi.API_KEY"
+            android:value="qBqh3W4TiHNOWG7h0hOQzLVZ0TXPPZMk" />
 
         <activity
             android:name="com.zju.rchz.activity.WelcomeActivity"
@@ -173,6 +173,9 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.zju.rchz.activity.SugOrComtActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.zju.rchz.activity.LakeSugOrComtActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.zju.rchz.activity.DubanTopersonListActivity"
@@ -329,6 +332,18 @@
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.zju.rchz.chief.activity.ChiefRecordListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.zju.rchz.lakechief.activity.LakeChiefRecordListActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.zju.rchz.lakechief.activity.LakeChiefEditRecordActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.zju.rchz.lakechief.activity.LakeChiefInspectActivity"
+            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name="com.zju.rchz.lakechief.activity.LakeChiefTrackViewActivity"
             android:screenOrientation="portrait"></activity>
         <activity
             android:name="com.zju.rchz.chief.activity.ChiefDubanListActivity"

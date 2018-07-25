@@ -55,6 +55,7 @@ public class MeActivity extends BaseActivity {
 		findViewById(R.id.tv_chief_suggestion).setOnClickListener(this);
 		findViewById(R.id.tv_chief_sign).setOnClickListener(this);
 		findViewById(R.id.tv_chief_mail).setOnClickListener(this);
+		findViewById(R.id.tv_lakechief_record).setOnClickListener(this);
 	}
 
 	private void checkNotify() {
@@ -288,6 +289,12 @@ public class MeActivity extends BaseActivity {
 			startActivity(intent);
 			break;
 		}
+		//巡湖记录
+			case R.id.tv_lakechief_record: {
+				Intent intent = new Intent(this, com.zju.rchz.lakechief.activity.LakeChiefRecordListActivity.class);
+				startActivity(intent);
+				break;
+			}
 		case R.id.tv_chief_duban: {
 			Intent intent = new Intent(this, com.zju.rchz.chief.activity.ChiefDubanListActivity.class);
 			startActivity(intent);

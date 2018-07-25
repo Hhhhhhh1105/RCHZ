@@ -10,11 +10,56 @@
         android:layout_height="@dimen/head_h"
         layout="@layout/inc_head" />
 
-    <com.baidu.mapapi.map.MapView
-        android:id="@+id/mv_trackview"
-        android:layout_width="fill_parent"
+    <RelativeLayout
+        android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:clickable="true" />
+        android:layout_weight="1">
+        <com.baidu.mapapi.map.MapView
+            android:id="@+id/mv_trackview"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true" />
+        <RelativeLayout
+            android:layout_width="110dp"
+            android:layout_height="150dp"
+            android:layout_alignParentRight="true"
+            android:layout_alignParentTop="true"
+            android:visibility="visible"
+            android:id="@+id/relativeLayout">
+
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/item_map_legend"
+                android:layout_alignParentTop="true"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true" />
+        </RelativeLayout>
+
+        <Button
+            android:id="@+id/btn_my_position"
+            android:text="轨迹位置"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_me_river_position"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentLeft="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginLeft="@dimen/bottom_button_leftandright_magin"
+            />
+        <Button
+            android:id="@+id/btn_river_position"
+            android:text="河道位置"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@drawable/shape_me_river_position"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true"
+            android:layout_marginBottom="@dimen/activity_vertical_margin"
+            android:layout_marginRight="@dimen/bottom_button_leftandright_magin"
+            />
+
+    </RelativeLayout>
 
 </LinearLayout>

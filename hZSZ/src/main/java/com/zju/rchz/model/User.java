@@ -19,7 +19,7 @@ public class User {
 	public int authorityForIntruction = 0;//批示的权限：0或者null表示没有批示权限；1表示市委书记批示权限
 										//2表示市长批示权限，3表示分管市长批示权限。
 
-	public int isLeader = 0;//是否 为报送 1是0否
+	public int isLeader = 0;
 
 	public int isLeaderDuban = 0;//是否是 领导督办功能块
 	//用户的区划信息：普通用户为0，河长为对应区划

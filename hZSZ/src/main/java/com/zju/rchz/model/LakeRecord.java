@@ -33,24 +33,18 @@ public class LakeRecord {
     public String lnglist; //纬度数组
     public String recordLakeName;
     public String recordPersonName;
+    public String imgLnglist;//照片的经度
+    public String imgLatlist;//照片的纬度
 
     public long recordId;
     public long recordPersonId; //巡湖人的userId
-    public int recordPersonAuth;  //巡湖人的authority
+    public int recordPersonAuthority;  //巡湖人的authority
 
-    private boolean isCompleted;//是否是已完成的巡湖记录
+    public String isCorrect;//有效性判断 ，1表示有效，0表示无效
 
     // local
     public Lake locLake;
     public String locLakeName;
-
-    public boolean isCompleted() {
-        return isCompleted;
-    }
-
-    public void setCompleted(boolean completed) {
-        isCompleted = completed;
-    }
 
     public String getYMD2() {
         return recordDate != null ? recordDate.getYMD2(BaseActivity.getCurActivity()) : "";

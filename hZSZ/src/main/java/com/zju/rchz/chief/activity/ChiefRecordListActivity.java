@@ -1,5 +1,6 @@
 package com.zju.rchz.chief.activity;
 
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -230,12 +231,26 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 //			if(timesOfRiverRecord >= Values.timesOfRiverTour){
 //				showToast("今日巡河次数已达上限！");
 //			}else {
-				Intent intent = new Intent(this, com.zju.rchz.chief.activity.ChiefEditRecordActivity.class);
-				Bundle bundle=new Bundle();
-				bundle.putString("latList_host", latList_host);
-				bundle.putString("lngList_host", lngList_host);
-				intent.putExtras(bundle);
-				startActivityForResult(intent, Tags.CODE_NEW);
+			AlertDialog.Builder ab = new AlertDialog.Builder(ChiefRecordListActivity.this);
+			ab.setTitle("温馨提示");
+			ab.setMessage("请您在巡河履职过程中保持APP在前台显示，中途跳转到其他应用（如微信等）可能导致轨迹考核无效！感谢您对工作的支持！");
+			ab.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+				@Override
+				public void onClick(DialogInterface arg0, int arg1) {
+
+					Intent intent = new Intent(getCurActivity(), com.zju.rchz.chief.activity.ChiefEditRecordActivity.class);
+					Bundle bundle=new Bundle();
+					bundle.putString("latList_host", latList_host);
+					bundle.putString("lngList_host", lngList_host);
+					intent.putExtras(bundle);
+					startActivityForResult(intent, Tags.CODE_NEW);
+
+					arg0.dismiss();
+				}
+			});
+
+			ab.setCancelable(false);
+			ab.create().show();
 //			}
 			break;
 		}

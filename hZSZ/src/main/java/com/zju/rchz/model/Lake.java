@@ -5,7 +5,7 @@ package com.zju.rchz.model;
  */
 
 public class Lake {
-    public long lakeId;
+    public int lakeId;
     public String lakeName;//湖泊名称
     public int lakeLevel;//等级
     public int waterType;
