@@ -49,6 +49,7 @@ public class LakeDubanTopersonListActivity extends BaseActivity implements ViewP
         private List<DubanTopersonObject> items=new ArrayList<DubanTopersonObject>();
         private SimpleListAdapter adapter = null;
 
+
         //处理投诉单按钮
         private View.OnClickListener btnClk = new View.OnClickListener() {
 
@@ -219,6 +220,17 @@ public class LakeDubanTopersonListActivity extends BaseActivity implements ViewP
                     / DefaultPageSize + 1);
             try {
                 j.put("ifDeal", type);
+                //根据身份传入参数identity以获取数据，湖督察员0、镇级湖长1，市级湖长2
+                if(getUser().isLakeCoordinator()){
+                j.put("identity",0);
+                }
+                if(getUser().isLakeChief()){
+                    j.put("identity",1);
+                }
+                if(getUser().isCityLakeChief()){
+                    j.put("identity",2);
+                }
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }

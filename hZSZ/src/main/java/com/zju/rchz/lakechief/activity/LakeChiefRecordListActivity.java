@@ -155,6 +155,9 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
         setTitle("巡查记录");
         initHead(R.drawable.ic_head_back, 0);
 
+        //目前湖长巡湖记录不显示有效性
+        findViewById(R.id.isValid).setVisibility(View.GONE);
+
         todayDateTime = DateTime.getNow();//初始化
 
         Locale.setDefault(Locale.CHINA);
