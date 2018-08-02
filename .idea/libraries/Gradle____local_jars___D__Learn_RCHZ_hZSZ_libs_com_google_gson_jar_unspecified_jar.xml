@@ -1,5 +1,5 @@
 <component name="libraryTable">
-  <library name="com.google.gson">
+  <library name="Gradle: __local_jars__:D.\Learn\RCHZ\hZSZ\libs\com.google.gson.jar:unspecified@jar">
     <CLASSES>
       <root url="jar://$PROJECT_DIR$/hZSZ/libs/com.google.gson.jar!/" />
     </CLASSES>
