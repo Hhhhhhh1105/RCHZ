@@ -14,78 +14,314 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65429ebd-7535-4eb5-b5d0-37b1e7e33c80" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/cache.properties.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileHashes.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshots.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/fileSnapshotsToTreeSnapshotsIndex.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/taskArtifacts/taskArtifacts.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
+      <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeDubanTopersonListActivity$CompListPager$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeDubanTopersonListActivity$CompListPager$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeDubanTopersonListActivity$CompListPager$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeDubanTopersonListActivity$CompListPager.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeDubanTopersonListActivity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/MainActivity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SectionListActivity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ViewAllActivity$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ViewAllActivity$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ViewAllActivity$Holder.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ViewAllActivity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/WelcomeActivity$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/WelcomeActivity$1$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/WelcomeActivity$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/WelcomeActivity$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/WelcomeActivity$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/WelcomeActivity$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/WelcomeActivity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$10.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$11.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$12.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$13.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$14.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$15.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$16.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$17.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$18.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$19.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$20.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$21.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$22.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$23.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$24.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$7.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$8.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$9.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment$MyBDLocationListner.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MainFragment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityFragment$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityFragment$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityFragment$2$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityFragment$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityFragment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment$RiverPagerItem$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment$RiverPagerItem.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment$ShowRiverType.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverFragment.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$2$1$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$2$1.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$2.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$3.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$4.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$5.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$6.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity$7.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity.class" afterPath="" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java" afterPath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java" afterPath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity.java" afterPath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity.java" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_recordlist.xml" afterPath="$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_recordlist.xml" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/android/support/v7/appcompat/R.java" afterPath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/android/support/v7/appcompat/R.java" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/afollestad/materialdialogs/R.java" afterPath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/afollestad/materialdialogs/R.java" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/jude/rollviewpager/R.java" afterPath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/jude/rollviewpager/R.java" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/zju/rchz/Manifest.java" afterPath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/zju/rchz/Manifest.java" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/zju/rchz/R.java" afterPath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/zju/rchz/R.java" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/me/zhanghai/android/materialprogressbar/R.java" afterPath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/me/zhanghai/android/materialprogressbar/R.java" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/blame/res/debug/single/layout.json" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/blame/res/debug/single/layout.json" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/android/support/v7/appcompat/R$id.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/afollestad/materialdialogs/R$id.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/afollestad/materialdialogs/R$id.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/jude/rollviewpager/R$id.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/jude/rollviewpager/R$id.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$id.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$id.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$integer.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$integer.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$layout.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$layout.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$string.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$string.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$style.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$style.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$styleable.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$styleable.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$3$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$3$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$3$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$3$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/AuthCodeActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/BaseActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/BaseActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ChangePasswordActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ChangePasswordActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompDetailActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompDetailActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompListActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompListActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompListActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/CompListActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ComplainMap.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ComplainMap.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$10.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$10.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$7.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity$7.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDanActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaListAcitivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaListAcitivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaListAcitivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DuChaListAcitivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonCitychiefListActivity$CompListPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonCitychiefListActivity$CompListPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonCoordListActivity$CompListPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonCoordListActivity$CompListPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonLeaderListActivity$CompListPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonLeaderListActivity$CompListPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonListActivity$CompListPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/DubanTopersonListActivity$CompListPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/EvalCompActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/EvalCompActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/EvalCompActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/EvalCompActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ForgotPasswordActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ForgotPasswordActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeListAcitivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeListAcitivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeListAcitivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeListAcitivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeProblemReportActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeProblemReportActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeProblemReportActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeProblemReportActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeProblemReportActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeProblemReportActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeSugOrComtActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeSugOrComtActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeSugOrComtActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeSugOrComtActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeSugOrComtActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LakeSugOrComtActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderInstructionActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderInstructionActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderInstructionActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderInstructionActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderIntructionDetailActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderIntructionDetailActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderIntructionDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LeaderIntructionDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LoginActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LoginActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/MyCollectActivity$5.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/MyCollectActivity$5.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/MyCollectActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/MyCollectActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NewRiverPositionActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NewRiverPositionActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NewsDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NewsDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NpcListActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NpcListActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NpcMemberActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/NpcMemberActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/OneRiverNumOfProblemListActivity$CompListPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/OneRiverNumOfProblemListActivity$CompListPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/OutletActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/OutletActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/PhotoViewActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/PhotoViewActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$10.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$10.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$7.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity$7.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportListActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportListActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportListActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/ProblemReportListActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RegisterActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RegisterActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RegisterActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RegisterActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RegisterActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RegisterActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RiverActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RiverActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RiverActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/RiverActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchCompActivity$5.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchCompActivity$5.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchCompActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchCompActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchNewsActivity$5.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchNewsActivity$5.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchNewsActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchNewsActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchRiverActivity$5.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchRiverActivity$5.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchRiverActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SearchRiverActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SectionActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SectionActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SectionActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SectionActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SectionActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SectionActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SettingActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SettingActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SmallWaterActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SmallWaterActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SmallWaterListActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SmallWaterListActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SmallWaterListActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SmallWaterListActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity$8.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity$8.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/SugOrComtActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/adapter/MyAdapter.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/adapter/MyAdapter.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefCompDetailActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefCompDetailActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefCompDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefCompDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefCompListActivity$CompListPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefCompListActivity$CompListPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefDubanListActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefDubanListActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefEditRecordActivity$14.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefEditRecordActivity$14.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefEditRecordActivity$18.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefEditRecordActivity$18.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefEditRecordActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefEditRecordActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefInspectActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefInspectActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefLowLevelPubActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefLowLevelPubActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefMailListActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefMailListActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefRecordListActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefRecordListActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefRivermanageActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefRivermanageActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefSignActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefSignActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefSignActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefSignActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefSignActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefSignActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefTrackViewActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/ChiefTrackViewActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity$2$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity$2$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonCitychiefDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity$3$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity$3$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity$5.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity$5.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/YearMonthSelectDialog.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/YearMonthSelectDialog.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/clz/RootViewWarp.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/clz/RootViewWarp.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/NewsFragment$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/NewsFragment$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/NewsFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/NewsFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/OutletFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/OutletFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/OutletListFragment$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/OutletListFragment$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityListFragment$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityListFragment$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityMapFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/PublicityMapFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RankingFragment$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RankingFragment$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RankingFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RankingFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverListFragment$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/RiverListFragment$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionListFragment$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionListFragment$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionListFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionListFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionMapFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/SectionMapFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabPagerListFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabPagerListFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$RankingPager$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$RankingPager$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$RankingPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$RankingPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$RankingPager.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment$RankingPager.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/TabRankingFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/BaseLakePagerItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/BaseLakePagerItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakeInfoItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakeInfoItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakePolicyItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakePolicyItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakeQualityItem$5.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakeQualityItem$5.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakeQualityItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/lake/LakeQualityItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcCompFragment$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcCompFragment$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcCompFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcCompFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcRiverFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcRiverFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcSugFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/NpcSugFragment.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/chief/ChiefNpcCompListFragment$CompListPager$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/npc/chief/ChiefNpcCompListFragment$CompListPager$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/BaseRiverPagerItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/BaseRiverPagerItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverCompItem$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverCompItem$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverInfoItem$11$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverInfoItem$11$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverInfoItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverInfoItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverInfoPubItem$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverInfoPubItem$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverPolicyItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverPolicyItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverQualityItem$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverQualityItem$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverQualityItem.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/river/RiverQualityItem.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefEditRecordActivity$14.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefEditRecordActivity$14.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefEditRecordActivity$18.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefEditRecordActivity$18.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefEditRecordActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefEditRecordActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefInspectActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefInspectActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefTrackViewActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/lakechief/activity/LakeChiefTrackViewActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/model/BottomAnimDialog$clickListener.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/model/BottomAnimDialog$clickListener.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/model/BottomAnimDialog.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/model/BottomAnimDialog.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/ChiefNpcSugDetailActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/ChiefNpcSugDetailActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/ChiefNpcSugDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/ChiefNpcSugDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcLegalListActivity$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcLegalListActivity$2.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcMyjobActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcMyjobActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcRankActivity$4.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcRankActivity$4.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcRankActivity$6.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcRankActivity$6.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcRankActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcRankActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcSugDetailActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcSugDetailActivity$1.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcSugDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/npc/activity/NpcSugDetailActivity.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/utils/ViewUtils.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/utils/ViewUtils.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/view/ListViewWarp.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/view/ListViewWarp.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/me/zhanghai/android/materialprogressbar/R$id.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/me/zhanghai/android/materialprogressbar/R$id.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-af/values-af.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-am/values-am.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ar/values-ar.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-az-rAZ/values-az-rAZ.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-bg/values-bg.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-bn-rBD/values-bn-rBD.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ca/values-ca.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-cs/values-cs.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-da/values-da.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-de/values-de.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-el/values-el.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rAU/values-en-rAU.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rGB/values-en-rGB.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en-rIN/values-en-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-en/values-en.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-es-rUS/values-es-rUS.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-es/values-es.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-et-rEE/values-et-rEE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-eu-rES/values-eu-rES.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fa/values-fa.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fi/values-fi.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr-rCA/values-fr-rCA.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-fr/values-fr.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gl-rES/values-gl-rES.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-gu-rIN/values-gu-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h320dp-v13/values-h320dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-h720dp-v13/values-h720dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hdpi-v4/values-hdpi-v4.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hi/values-hi.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hr/values-hr.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hu/values-hu.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-hy-rAM/values-hy-rAM.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-in/values-in.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-is-rIS/values-is-rIS.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-it/values-it.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-iw/values-iw.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ja/values-ja.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ka-rGE/values-ka-rGE.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-kk-rKZ/values-kk-rKZ.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-km-rKH/values-km-rKH.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-kn-rIN/values-kn-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ko/values-ko.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ky-rKG/values-ky-rKG.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-land/values-land.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-large-v4/values-large-v4.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ldltr-v21/values-ldltr-v21.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-lo-rLA/values-lo-rLA.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-lt/values-lt.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-lv/values-lv.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mk-rMK/values-mk-rMK.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ml-rIN/values-ml-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mn-rMN/values-mn-rMN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-mr-rIN/values-mr-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ms-rMY/values-ms-rMY.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-my-rMM/values-my-rMM.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nb/values-nb.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ne-rNP/values-ne-rNP.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-night-v8/values-night-v8.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-nl/values-nl.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pa-rIN/values-pa-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pl/values-pl.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-port/values-port.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rBR/values-pt-rBR.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt-rPT/values-pt-rPT.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-pt/values-pt.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ro/values-ro.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ru/values-ru.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-si-rLK/values-si-rLK.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sk/values-sk.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sl/values-sl.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sq-rAL/values-sq-rAL.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sr/values-sr.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sv/values-sv.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw/values-sw.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw600dp-v13/values-sw600dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-sw720dp-v13/values-sw720dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ta-rIN/values-ta-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-te-rIN/values-te-rIN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-th/values-th.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tl/values-tl.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-tr/values-tr.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uk/values-uk.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-ur-rPK/values-ur-rPK.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-uz-rUZ/values-uz-rUZ.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v11/values-v11.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v12/values-v12.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v13/values-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v14/values-v14.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v17/values-v17.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v18/values-v18.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v21/values-v21.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v22/values-v22.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-v23/values-v23.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-vi/values-vi.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w360dp-v13/values-w360dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w480dp-v13/values-w480dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w500dp-v13/values-w500dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w600dp-v13/values-w600dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w720dp-v13/values-w720dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-w820dp-v13/values-w820dp-v13.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-land-v4/values-xlarge-land-v4.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-xlarge-v4/values-xlarge-v4.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rCN/values-zh-rCN.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rHK/values-zh-rHK.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zh-rTW/values-zh-rTW.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values-zu/values-zu.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/merged.dir/values/values.xml" afterPath="" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/zip-cache/JdTJAAY4vxjofJgNZwhC9r7xKxc=" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/zip-cache/JdTJAAY4vxjofJgNZwhC9r7xKxc=" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/pre-dexed/debug/debug_a082cbe6dbc5feaeb0dcc26129419012d957307f.jar" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/pre-dexed/debug/debug_a082cbe6dbc5feaeb0dcc26129419012d957307f.jar" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/res/merged/debug/layout/activity_chief_recordlist.xml" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/res/merged/debug/layout/activity_chief_recordlist.xml" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/res/resources-debug.ap_" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/symbols/debug/R.txt" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/outputs/apk/hZSZ-debug.apk" afterPath="$PROJECT_DIR$/hZSZ/build/outputs/apk/hZSZ-debug.apk" />
     </list>
     <ignored path="RCHZ.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -134,8 +370,8 @@
       <file leaf-file-name="MeFragment.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="256">
-              <caret line="267" column="43" lean-forward="true" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
+            <state relative-caret-position="5016">
+              <caret line="267" column="43" lean-forward="false" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -157,32 +393,42 @@
       <file leaf-file-name="BaseActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/BaseActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="352">
-              <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+            <state relative-caret-position="550">
+              <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LakeChiefRecordListActivity.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="LakeChiefRecordListActivity.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-788">
-              <caret line="312" column="19" lean-forward="false" selection-start-line="312" selection-start-column="16" selection-end-line="312" selection-end-column="19" />
+            <state relative-caret-position="160">
+              <caret line="158" column="25" lean-forward="false" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="25" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LakeDubanTopersonListActivity.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="activity_chief_recordlist.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_recordlist.xml">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="135">
+              <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
+              <folding />
+            </state>
+          </provider>
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LakeDubanTopersonListActivity.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-594">
-              <caret line="190" column="20" lean-forward="true" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
-              <folding>
-                <element signature="e#7329#8289#0" expanded="true" />
-                <element signature="e#8288#8289#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="-1232">
+              <caret line="190" column="20" lean-forward="false" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -217,20 +463,10 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="MyCenterActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/MyCenterActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="88">
-              <caret line="7" column="13" lean-forward="false" selection-start-line="7" selection-start-column="13" selection-end-line="7" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
       <file leaf-file-name="activity_me.xml" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_me.xml">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="113">
+            <state relative-caret-position="5104">
               <caret line="232" column="20" lean-forward="false" selection-start-line="232" selection-start-column="16" selection-end-line="232" selection-end-column="20" />
               <folding />
             </state>
@@ -257,10 +493,10 @@
       <find>tv_lakechief_record</find>
       <find>refreshDateView</find>
       <find>btn_new</find>
-      <find>有效性</find>
       <find>业务处置</find>
       <find>lakeproblem_report_list</find>
       <find>rl_problem_report_list</find>
+      <find>有效性</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2457,8 +2693,9 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="PackagesPane" />
+      <pane id="Scope" />
       <pane id="Scratches" />
+      <pane id="PackagesPane" />
       <pane id="AndroidView">
         <subPane>
           <expand>
@@ -2550,17 +2787,6 @@
               <item name="hZSZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
               <item name="src" type="462c0819:PsiDirectoryNode" />
               <item name="main" type="462c0819:PsiDirectoryNode" />
-              <item name="java" type="462c0819:PsiDirectoryNode" />
-              <item name="com" type="462c0819:PsiDirectoryNode" />
-              <item name="rchz" type="462c0819:PsiDirectoryNode" />
-              <item name="activity" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="RCHZ" type="b2602c69:ProjectViewProjectNode" />
-              <item name="RCHZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="hZSZ" type="8a07ba80:GradleTreeStructureProvider$GradleModuleDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="main" type="462c0819:PsiDirectoryNode" />
               <item name="res" type="462c0819:PsiDirectoryNode" />
             </path>
             <path>
@@ -2576,7 +2802,6 @@
           <select />
         </subPane>
       </pane>
-      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -2974,8 +3199,9 @@
   </component>
   <component name="ToolWindowManager">
     <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -2991,7 +3217,7 @@
       <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2725322" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.50686496" sideWeight="0.4946352" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
@@ -3223,7 +3449,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="28000">
           <caret line="1212" column="19" lean-forward="false" selection-start-line="1212" selection-start-column="19" selection-end-line="1212" selection-end-column="19" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3231,7 +3456,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1562">
           <caret line="74" column="0" lean-forward="false" selection-start-line="74" selection-start-column="0" selection-end-line="74" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3270,7 +3494,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="1210">
           <caret line="59" column="21" lean-forward="false" selection-start-line="59" selection-start-column="20" selection-end-line="59" selection-end-column="21" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3278,7 +3501,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="6" column="75" lean-forward="false" selection-start-line="6" selection-start-column="75" selection-end-line="6" selection-end-column="75" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3286,7 +3508,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="6" column="13" lean-forward="false" selection-start-line="6" selection-start-column="13" selection-end-line="6" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3304,17 +3525,6 @@
           <caret line="212" column="32" lean-forward="false" selection-start-line="212" selection-start-column="32" selection-end-line="212" selection-end-column="32" />
           <folding />
         </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_recordlist.xml">
-      <provider editor-type-id="text-editor">
-        <state relative-caret-position="135">
-          <caret line="85" column="17" lean-forward="false" selection-start-line="85" selection-start-column="9" selection-end-line="85" selection-end-column="17" />
-          <folding />
-        </state>
-      </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeListAcitivity.java">
@@ -3346,7 +3556,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_me.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="113">
+        <state relative-caret-position="5104">
           <caret line="232" column="20" lean-forward="false" selection-start-line="232" selection-start-column="16" selection-end-line="232" selection-end-column="20" />
           <folding />
         </state>
@@ -3365,24 +3575,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="352">
-          <caret line="62" column="34" lean-forward="true" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
+        <state relative-caret-position="550">
+          <caret line="62" column="34" lean-forward="false" selection-start-line="62" selection-start-column="34" selection-end-line="62" selection-end-column="34" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="256">
-          <caret line="267" column="43" lean-forward="true" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-788">
-          <caret line="312" column="19" lean-forward="false" selection-start-line="312" selection-start-column="16" selection-end-line="312" selection-end-column="19" />
+        <state relative-caret-position="5016">
+          <caret line="267" column="43" lean-forward="false" selection-start-line="267" selection-start-column="43" selection-end-line="267" selection-end-column="43" />
           <folding />
         </state>
       </provider>
@@ -3405,12 +3607,28 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-594">
-          <caret line="190" column="20" lean-forward="true" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
-          <folding>
-            <element signature="e#7329#8289#0" expanded="true" />
-            <element signature="e#8288#8289#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="-1232">
+          <caret line="190" column="20" lean-forward="false" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_recordlist.xml">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="158" column="25" lean-forward="false" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="25" />
+          <folding />
         </state>
       </provider>
     </entry>

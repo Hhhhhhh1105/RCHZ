@@ -89,9 +89,11 @@
             android:layout_weight="0.6"
             android:gravity="center"
             android:text="有效性"
+            android:id="@+id/isValid"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/blue"
-            android:textSize="@dimen/font_normal" />
+            android:textSize="@dimen/font_normal"
+            />
 
         <TextView
             android:layout_width="@dimen/two_text_btn_w"
