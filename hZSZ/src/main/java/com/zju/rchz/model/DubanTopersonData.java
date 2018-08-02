@@ -68,6 +68,34 @@ public class DubanTopersonData {
     private String instructionFromBossChief;//总河长批示结果
     private DateTime instructionFromBossChiefDate;//批示日期
 
+    private Integer riverOrLake;
+    private String lakeName;
+    private String lakeDist;
+
+    public void setRiverOrLake(Integer riverOrLake) {
+        this.riverOrLake = riverOrLake;
+    }
+
+    public void setLakeName(String lakeName) {
+        this.lakeName = lakeName;
+    }
+
+    public void setLakeDist(String lakeDist) {
+        this.lakeDist = lakeDist;
+    }
+
+    public Integer getRiverOrLake() {
+        return riverOrLake;
+    }
+
+    public String getLakeName() {
+        return lakeName;
+    }
+
+    public String getLakeDist() {
+        return lakeDist;
+    }
+
     public void setInstructionFromCityChief(String instructionFromCityChief) {
         this.instructionFromCityChief = instructionFromCityChief;
     }
@@ -426,6 +454,12 @@ public class DubanTopersonData {
         return submitTime;
     }
 
+    public String getRiverOrLakeName() {
+        if(getRiverOrLake().intValue() == 0)
+            return riverName;
+        else
+            return lakeName;
+    }
     public String getRiverName() {
         return riverName;
     }

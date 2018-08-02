@@ -81,7 +81,7 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
         //在使用SDK各组件之前初始化context信息，传入ApplicationContext
         SDKInitializer.initialize(getApplicationContext());
         setContentView(R.layout.activity_chief_trackview);
-        setTitle("查看巡河轨迹");
+        setTitle("查看巡湖轨迹");
         initHead(R.drawable.ic_head_back,0);
 
         handler.postDelayed(new MyRunable(),3000);
@@ -206,6 +206,9 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
 
             }
         });
+        findViewById(R.id.river_legend).setVisibility(View.GONE);
+        findViewById(R.id.btn_my_position).setVisibility(View.GONE);
+        findViewById(R.id.btn_river_position).setVisibility(View.GONE);
 //        findViewById(R.id.btn_river_position).setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View view) {

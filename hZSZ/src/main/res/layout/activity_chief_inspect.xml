@@ -28,6 +28,7 @@
             android:visibility="visible"
             android:id="@+id/relativeLayout">
             <include
+                android:id="@+id/river_legend"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 layout="@layout/item_map_legend" />

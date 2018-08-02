@@ -11,11 +11,11 @@ public class Constants {
 	public static final String SerUrl2 = "http://123.206.204.153:8080"; // release
 	public static final String SerUrl3 = "http://192.168.100.250:8080"; // 本地调试
 
-	public static final String SerUrl = SerUrl2;
+	public static final String SerUrl = SerUrl1;
 
 	public static final String rongChengHeZhang = "/RongChengHeZhang/background/app.htm";
 	public static final String uniiedPlatform = "/UniiedPlatform/background/app.htm";
-	public static final String ApiUrl = SerUrl + rongChengHeZhang;
+	public static final String ApiUrl = SerUrl + uniiedPlatform;
 //	public static final String ApiUrl = SerUrl1 + "/gzhd/background/app.htm";
 	public static final String AppKey = "10000";
 	public static final String AppSecret = "de85ac6fa475a0391d8c2e4e7413760";

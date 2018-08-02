@@ -113,6 +113,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 
 	private String latList_host;//服务器回传的轨迹经纬度
 	private String lngList_host;
+	private int riverRecordTempRiverId;
 
 	private String imgLnglist="";
 	private String imgLatlist="";
@@ -228,6 +229,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 		isReadOnly = getIntent().getBooleanExtra(Tags.TAG_ABOOLEAN, false);
 		latList_host = getIntent().getExtras().getString("latList_host");
 		lngList_host = getIntent().getExtras().getString("lngList_host");
+		riverRecordTempRiverId = getIntent().getExtras().getInt("riverId");
 
 		submitUuidParam = new JSONObject();
 		submitTemporaryParam = new JSONObject();
@@ -286,6 +288,15 @@ public class ChiefEditRecordActivity extends BaseActivity {
 					public void onClick(DialogInterface arg0, int arg1) {
 						latlist_temp = latList_host;
 						lnglist_temp = lngList_host;
+						riverRecord.riverId = riverRecordTempRiverId;
+						for (River r : getUser().riverSum) {
+							if (riverRecord.riverId == r.riverId) {
+								riverRecord.locRiver = r;
+								riverRecord.locRiverName = r.riverName;
+								refreshSelectRiverBtn();
+							}
+						}
+
 						startTimer();//开启定时器
 						arg0.dismiss();
 					}
@@ -517,6 +528,9 @@ public class ChiefEditRecordActivity extends BaseActivity {
 	TimerTask mTimerTask = null;
 
 	private void startTimer(){
+		if(riverRecord.riverId ==0) {
+			selectRiver();
+		}
 		if (mTimer == null) {
 			mTimer = new Timer();
 		}
@@ -538,6 +552,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 
 						submitTemporaryParam.put("latList",latlist_temp);
 						submitTemporaryParam.put("lngList",lnglist_temp);
+						submitTemporaryParam.put("riverId",riverRecord.riverId);
 
 						if(latlist_temp!=null && !latlist_temp.equals("")){
 							getRequestContext().add("AddOrEdit_RiverRecordTemporary", new Callback<BaseRes>() {

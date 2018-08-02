@@ -1,0 +1,35 @@
+[33mcommit c0e5e3d50cd1cdcc39c5f89a306343854a501f52[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m)[m
+Author: hhhhhh <j961797654@gmail.com>
+Date:   Thu Jul 19 14:51:43 2018 +0800
+
+    金航测试提交git0719
+
+[33mcommit 4a13bbe9df330a5205980b557e6e947d460c410c[m
+Author: DH <754817706@qq.com>
+Date:   Thu Jul 5 15:05:48 2018 +0800
+
+    2.1.6 巡河轨迹优化
+
+[33mcommit a683d5c511d3bb07ba2a279bfbd2d2ad1e96db33[m
+Author: DH <754817706@qq.com>
+Date:   Tue Jun 12 09:44:36 2018 +0800
+
+    2.1.5 网络错误问题，轨迹漂移问题的解决
+
+[33mcommit ecaae0b6f8419f6a019b81fcd9d1aba0f7d6335b[m
+Author: DH <754817706@qq.com>
+Date:   Thu May 3 13:45:55 2018 +0800
+
+    2.1.1
+
+[33mcommit deb9fcd60e3de1d4f2d3b9559ed98376c50bb650[m
+Author: DH <754817706@qq.com>
+Date:   Wed Nov 29 22:22:26 2017 +0800
+
+    git first: 2.0.0
+
+[33mcommit 92b97fe86bcd509c4c95134d9a02ccbc7f7f03ec[m
+Author: DH <754817706@qq.com>
+Date:   Wed Nov 29 20:05:40 2017 +0800
+
+    the first: add readme.md

@@ -151,7 +151,7 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 	@Override
 	protected void onActivityResult(int requestCode, int resultCode, Intent data) {
 		if (requestCode == Tags.CODE_LOGIN && requestCode == RESULT_OK) {
-			startActivity(new Intent(this, MeActivity.class), false);
+			startActivity(new Intent(this, MyCenterActivity.class), false);
 		} else {
 			super.onActivityResult(requestCode, resultCode, data);
 		}

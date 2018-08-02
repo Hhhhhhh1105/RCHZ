@@ -54,7 +54,7 @@ public class ProblemReportActivity extends BaseActivity {
     private int chiefFeedBack = 0;
     private int chiefWork = 0;
 
-    //上报人身份标志位：0代表督察员，1代表和河长
+    //点击问题上报时情景：0表示在最外面进行问题上报，1表示巡河过程中问题上报
     private String eventFlag = "0";
     @Override
     protected void onCreate(Bundle savedInstanceState) {

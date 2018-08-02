@@ -203,10 +203,10 @@ public class MainFragment extends BaseFragment implements OnRefreshListener {
 				@Override
 				public void onClick(View arg0) {
 					//跳转至个人中心
-					//getBaseActivity().startActivity(new Intent(getBaseActivity(), MeActivity.class), false);
+					//getBaseActivity().startActivity(new Intent(getBaseActivity(), MyCenterActivity.class), false);
 					// if (getBaseActivity().getUser().isLogined()) {
 					// getBaseActivity().startActivity(new
-					// Intent(getBaseActivity(), MeActivity.class), false);
+					// Intent(getBaseActivity(), MyCenterActivity.class), false);
 					// } else {
 					// Intent intent = new Intent(getBaseActivity(),
 					// LoginActivity.class);
@@ -904,7 +904,7 @@ public class MainFragment extends BaseFragment implements OnRefreshListener {
 					refreshRiverUI();
 					refreashOutletUI();
 					refreshSmallWaterUI();
-//					refreshLakeUI();
+					refreshLakeUI();
 
 					//如果是人大代表，则显示人大代表监督模块
 					if (getBaseActivity().getUser().isNpc()){

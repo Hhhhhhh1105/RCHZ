@@ -155,7 +155,7 @@
     <string name="period_7days">7天</string>
     <string name="period_1month">30天</string>
     <string name="cityriverchief_responsibility">职务</string>
-    
+
     <string name="river_district_title">市级河长</string>
     <string name="river_city_title">市级河长</string>
     <string name="river_supervisePhone">统一监督电话</string>
@@ -189,7 +189,7 @@
     <string name="mychiefsign">河长签到</string>
     <string name="mychiefsuggestion">处理建议</string>
     <string name="mychiefinspect">开始巡河</string>
-    <string name="mychiefrecord">巡查记录</string>
+    <string name="mychiefrecord">巡河记录</string>
     <string name="myLakeChiefRecord">巡湖记录</string>
     <string name="mychiefrivermanage">管辖河道</string>
     <string name="mychiefduban">查看督办-提示单</string>

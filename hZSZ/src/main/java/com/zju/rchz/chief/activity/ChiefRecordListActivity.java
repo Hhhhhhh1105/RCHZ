@@ -61,7 +61,7 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 		public void onClick(View btn) {
 			RiverRecord record = (RiverRecord) btn.getTag();
 			if (record != null) {
-				Intent intent = new Intent(ChiefRecordListActivity.this, com.zju.rchz.chief.activity.ChiefEditRecordActivity.class);
+				Intent intent = new Intent(ChiefRecordListActivity.this, ChiefEditRecordActivity.class);
 				intent.putExtra(Tags.TAG_RECORD, StrUtils.Obj2Str(record));
 				startActivityForResult(intent, Tags.CODE_EDIT);
 			}
@@ -117,10 +117,10 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 
 			if(record.isCorrect.equals("1")){
 				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("有效");
-				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(android.graphics.Color.GREEN);
+				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.GREEN);
 			}else if(record.isCorrect.equals("0")){
 				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("无效");
-				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(android.graphics.Color.RED);
+				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.RED);
 			}else {
 				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("判断中");
 				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.BLACK);
@@ -202,6 +202,7 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 	private YearMonthSelectDialog selectDialog = null;
 	private String latList_host;
 	private String lngList_host;
+	private int riverRecordTempRiverId;
 	JSONObject submitUuidParam = null;
 
 	//请求，判断服务器是否对应河长有未完成的轨迹
@@ -215,9 +216,11 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 						//获得经纬度信息
 						latList_host = o.data.getLatlist();
 						lngList_host = o.data.getLnglist();
+						riverRecordTempRiverId = (int)o.data.getRiverId();
 					}else{
 						latList_host = "";
 						lngList_host = "";
+						riverRecordTempRiverId = 0;
 					}
 				}
 			}
@@ -238,10 +241,11 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 				@Override
 				public void onClick(DialogInterface arg0, int arg1) {
 
-					Intent intent = new Intent(getCurActivity(), com.zju.rchz.chief.activity.ChiefEditRecordActivity.class);
+					Intent intent = new Intent(getCurActivity(), ChiefEditRecordActivity.class);
 					Bundle bundle=new Bundle();
 					bundle.putString("latList_host", latList_host);
 					bundle.putString("lngList_host", lngList_host);
+					bundle.putInt("riverId",riverRecordTempRiverId);
 					intent.putExtras(bundle);
 					startActivityForResult(intent, Tags.CODE_NEW);
 

@@ -17,6 +17,8 @@ import com.zju.rchz.activity.CompListActivity;
 import com.zju.rchz.activity.DuChaDanActivity;
 import com.zju.rchz.activity.DuChaListAcitivity;
 import com.zju.rchz.activity.DubanTopersonCoordListActivity;
+import com.zju.rchz.activity.LakeDubanTopersonListActivity;
+import com.zju.rchz.activity.LakeProblemReportActivity;
 import com.zju.rchz.activity.LoginActivity;
 import com.zju.rchz.activity.MyCollectActivity;
 import com.zju.rchz.activity.ProblemReportActivity;
@@ -46,20 +48,26 @@ import static android.content.Context.LOCATION_SERVICE;
 
 public class MeFragment extends BaseFragment implements View.OnClickListener{
 
+    //任何人登录时显示我的投诉、我的建议、注销登录
     private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_complaint, R.id.rl_suggestion };
-    //村级河长登陆时
+    //三级河长、河管员登陆时
     private int[] showWhenChiefLogined = {R.id.rl_chief_complaint, R.id.rl_chief_record, R.id.rl_chief_suggestion };
+    //三级湖长登录时显示巡湖记录、处理投诉、处理建议
+    private int[] showWhenLakechiefLogined ={R.id.rl_chief_complaint,R.id.rl_lakechief_record,R.id.rl_chief_suggestion};
+
     private int[] showWhenCityChiefLogined = { R.id.rl_chief_record };
+
 //    private int[] showWhenChiefLogined = { R.id.rl_chief_sign, R.id.rl_chief_mail, R.id.rl_chief_complaint, R.id.rl_chief_duban, R.id.rl_chief_record, R.id.rl_chief_suggestion };
     private int[] showWhenNpcLogined = { R.id.rl_npc_myriver};
 
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
+        //加载布局
         if (rootView == null){
             rootView = inflater.inflate(R.layout.activity_me, container, false);
-
+            //设置actionBar布局
             RootViewWarp warp = getRootViewWarp();
             warp.setHeadImage(0, 0);
             warp.setHeadTitle(R.string.mycenter);
@@ -72,9 +80,10 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             rootView.findViewById(R.id.tv_about).setOnClickListener(this);
             rootView.findViewById(R.id.tv_logout).setOnClickListener(this);
             rootView.findViewById(R.id.iv_logo).setOnClickListener(this);
-
-            rootView.findViewById(R.id.tv_problem_report).setOnClickListener(this);//问题上报
-            rootView.findViewById(R.id.tv_problem_report_list).setOnClickListener(this);
+            rootView.findViewById(R.id.tv_problem_report).setOnClickListener(this);//河道问题上报
+            rootView.findViewById(R.id.tv_lakeproblem_report).setOnClickListener(this);//湖泊问题上报
+            rootView.findViewById(R.id.tv_problem_report_list).setOnClickListener(this);//河道业务处置
+            rootView.findViewById(R.id.tv_lakeproblem_report_list).setOnClickListener(this);//湖泊业务处置
             rootView.findViewById(R.id.tv_chief_complaint).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_duban).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_duban).setOnClickListener(this);
@@ -86,14 +95,13 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             rootView.findViewById(R.id.tv_chief_notepad).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_inspect).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_record).setOnClickListener(this);
-            rootView.findViewById(R.id.tv_lakechief_record).setOnClickListener(this);//巡河记录
+            rootView.findViewById(R.id.tv_lakechief_record).setOnClickListener(this);//巡湖记录
             rootView.findViewById(R.id.tv_chief_suggestion).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_sign).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_mail).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_npcsug).setOnClickListener(this);  //代表监督
             rootView.findViewById(R.id.tv_ducha).setOnClickListener(this);//督察
             rootView.findViewById(R.id.tv_ducha_list).setOnClickListener(this);
-
             rootView.findViewById(R.id.tv_npc_legal).setOnClickListener(this);  //规范法规
             rootView.findViewById(R.id.tv_npc_myriver).setOnClickListener(this);  //我的河道
             rootView.findViewById(R.id.tv_npc_myjob).setOnClickListener(this);  //我的履职
@@ -101,14 +109,14 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 
         }
 
-        if ( getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isNpc()) {
-            changeNpcLogo();
-            ((TextView) rootView.findViewById(R.id.tv_complaint)).setText("其他投诉");
-            ((TextView) rootView.findViewById(R.id.tv_suggestion)).setText("其他建议");
-        } else {
-            ((TextView) rootView.findViewById(R.id.tv_complaint)).setText("我的投诉");
-            ((TextView) rootView.findViewById(R.id.tv_suggestion)).setText("我的建议");
-        }
+//        if ( getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isNpc()) {
+//            changeNpcLogo();
+//            ((TextView) rootView.findViewById(R.id.tv_complaint)).setText("其他投诉");
+//            ((TextView) rootView.findViewById(R.id.tv_suggestion)).setText("其他建议");
+//        } else {
+//            ((TextView) rootView.findViewById(R.id.tv_complaint)).setText("我的投诉");
+//            ((TextView) rootView.findViewById(R.id.tv_suggestion)).setText("我的建议");
+//        }
 
         return rootView;
     }
@@ -171,21 +179,23 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         ((TextView) rootView.findViewById(R.id.tv_chief_unhandlecomplaint_count)).setVisibility(View.GONE);
         ((TextView) rootView.findViewById(R.id.tv_chief_unhandlesuggestion_count)).setVisibility(View.GONE);
         ((TextView) rootView.findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setVisibility(View.GONE);
-        if (getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isChief()) {
+        //镇级河湖长可以 查看投诉
+        if (getBaseActivity().getUser().isLogined() && (getBaseActivity().getUser().isChief()||getBaseActivity().getUser().isLakeChief())) {
             checkNotify();
         }
     }
 
     private void refreshView() {
+        //判断是否已登录
         boolean logined = getBaseActivity().getUser().isLogined();
         boolean ischief = getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isChief();
         //判断是否是村级河长 8
         boolean isVillageChief = getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isVillageChief();
         //判断是否是河管员 7
         boolean isCleaner = getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isCleaner();
-        //判断是否是协管员 6
+        //判断是否是督察员协管员 6
         boolean isCoordinator = getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isCoordinator();
-        //督察员13
+        //市级督察员13
         boolean isDucha=getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isDucha();
 
         //判断是否是市级或区级河长 区级9 市级10
@@ -206,6 +216,27 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         //是否是镇街总河长
         boolean isBossChief = logined && getBaseActivity().getUser().isBossChief();
         //管辖河道小bug - 1.4.30
+        //是否湖长
+
+        //3个湖长等级标志位------------------------------------
+
+        //是否镇级湖长 2
+        boolean isLakechief =getBaseActivity().getUser().isLogined()&&getBaseActivity().getUser().isLakeChief();
+        //村级湖长 8
+        boolean isVillageLakeChief=getBaseActivity().getUser().isLogined()&&getBaseActivity().getUser().isVillageLakeChief();
+        //市级湖长 10
+        boolean isCityLakeChief=getBaseActivity().getUser().isLogined()&&getBaseActivity().getUser().isCityLakeChief();
+
+        boolean isLakeCoordinator=getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isLakeCoordinator();
+
+
+        for(int id:showWhenLakechiefLogined){
+            View v = rootView.findViewById(id);
+            if(v!=null){
+                v.setVisibility((isLakechief||isCityLakeChief||isVillageLakeChief)?View.VISIBLE:View.GONE);
+            }
+        }
+
         rootView.findViewById(R.id.rl_chief_rivermanage).setVisibility(View.GONE);
         for (int id : showWhenLogined) {
             View v = rootView.findViewById(id);
@@ -223,6 +254,10 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             View v2 =  rootView.findViewById(R.id.rl_chief_suggestion);
             v2.setVisibility(View.GONE);
         }
+        if(isLakechief){
+            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+        }
         //协管员
         if(isCoordinator){
             View v1=rootView.findViewById(R.id.rl_problem_report);
@@ -235,6 +270,19 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             View v1=rootView.findViewById(R.id.rl_problem_report);
             v1.setVisibility(View.GONE);
             View v2=rootView.findViewById(R.id.rl_problem_report_list);
+            v2.setVisibility(View.GONE);
+        }
+        if(isLakeCoordinator){
+            View v1=rootView.findViewById(R.id.rl_lakeproblem_report);
+            v1.setVisibility(View.VISIBLE);
+            View v2=rootView.findViewById(R.id.rl_lakeproblem_report_list);
+            v2.setVisibility(View.VISIBLE);
+//            View v3=rootView.findViewById(R.id.rl_lakechief_record);
+//            v3.setVisibility(View.VISIBLE);
+        }else {
+            View v1=rootView.findViewById(R.id.rl_lakeproblem_report);
+            v1.setVisibility(View.GONE);
+            View v2=rootView.findViewById(R.id.rl_lakeproblem_report_list);
             v2.setVisibility(View.GONE);
         }
         //河管员签到
@@ -296,20 +344,25 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         }
 
         //如果是人大代表账号
+        if (isNpc){
+            changeNpcLogo();
+
+        }
         if (isCleaner) {
 
             ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河管员巡河");
             ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河管员签到");
 
-        } else if(isCoordinator){
+        } else if(isCoordinator||isLakeCoordinator){
             ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("督察员巡河");
+            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("督察员巡湖");
         } else {
             getRootViewWarp().setHeadTitle("个人中心");
             //更改底端tab栏为“个人中心”
             ((RadioButton) getBaseActivity().findViewById(R.id.rd_panhang)).setText("个人中心");
 
             //dh
-            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河长巡河");
+            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("巡河记录");
             ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河长签到");
 
         }
@@ -353,12 +406,13 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 startActivity(intent);
                 break;
             }
+            //巡河记录
             case R.id.tv_chief_record: {
                 Intent intent = new Intent(getBaseActivity(), com.zju.rchz.chief.activity.ChiefRecordListActivity.class);
                 startActivity(intent);
                 break;
             }
-            //巡河记录
+            //巡湖记录
             case R.id.tv_lakechief_record: {
                 Intent intent = new Intent(getBaseActivity(), com.zju.rchz.lakechief.activity.LakeChiefRecordListActivity.class);
                 startActivity(intent);
@@ -443,11 +497,21 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 startActivity(new Intent(getBaseActivity(), CompListActivity.class));
                 break;
             }
-            //问题上报
+            //河道问题上报
             case R.id.tv_problem_report: {
                 Intent intent = new Intent(getBaseActivity(), ProblemReportActivity.class);
                 Bundle bundle=new Bundle();
-                bundle.putString("eventFlag", "0");//督察员问题上报（0表示上报人是督察员）
+                bundle.putString("eventFlag", "0");//（0是外面的问题上报，1是巡河过程中的问题上报）
+                intent.putExtras(bundle);
+                startActivity(intent);
+//                startActivity(new Intent(getBaseActivity(), ProblemReportActivity.class));
+                break;
+            }
+            //湖泊问题上报
+            case R.id.tv_lakeproblem_report:{
+                Intent intent = new Intent(getBaseActivity(), LakeProblemReportActivity.class);
+                Bundle bundle=new Bundle();
+                bundle.putString("eventFlag", "0");//（0是外面的问题上报，1是巡河过程中的问题上报）
                 intent.putExtras(bundle);
                 startActivity(intent);
 //                startActivity(new Intent(getBaseActivity(), ProblemReportActivity.class));
@@ -461,6 +525,17 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 //                startActivity(new Intent(getBaseActivity(), DubanTopersonCoordListActivity.class));
                 break;
             }
+
+
+            //湖泊业务处置
+            case R.id.tv_lakeproblem_report_list: {
+                Intent intent = new Intent(getBaseActivity(), LakeDubanTopersonListActivity.class);
+                //intent.putExtra("isLeaderDuban",0);
+                startActivity(intent);
+//                startActivity(new Intent(getBaseActivity(), DubanTopersonCoordListActivity.class));
+                break;
+            }
+
             //督察
             case R.id.tv_ducha: {
                 startActivity(new Intent(getBaseActivity(), DuChaDanActivity.class));

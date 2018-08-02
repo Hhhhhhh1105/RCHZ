@@ -384,7 +384,7 @@
             android:layout_marginTop="@dimen/form_singleline_margin_v"
             android:layout_weight="1"
             android:background="@drawable/form_btn1_bg"
-            android:text="结束巡河"
+            android:text="结束巡查"
             android:textColor="@color/btn_white_green" />
 
         <Button

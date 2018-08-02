@@ -54,7 +54,6 @@ public class LakeSugOrComtActivity extends BaseActivity {
     //照片位置
     private Location imgLocation = null;
 
-//    private River r;
     private Lake l;
 
     private LinearLayout ll_cboxes = null;
@@ -171,18 +170,6 @@ public class LakeSugOrComtActivity extends BaseActivity {
         });
     }
 
-
-    private void selectRiver() {
-        Intent intent = new Intent(this, SearchRiverActivity.class);
-        intent.putExtra(Tags.TAG_CODE, Tags.CODE_SELECTRIVER);
-        if (isCom){
-            intent.putExtra(Tags.TAG_TITLE, "选择投诉河道");
-        }
-        else{
-            intent.putExtra(Tags.TAG_TITLE, "选择建议河道");
-        }
-        startActivityForResult(intent, Tags.CODE_SELECTRIVER);
-    }
     private void selectLake() {
         Intent intent = new Intent(this, LakeListAcitivity.class);
         intent.putExtra(Tags.TAG_CODE, Tags.CODE_SELECTLAKE);
@@ -334,7 +321,12 @@ public class LakeSugOrComtActivity extends BaseActivity {
             lake = l;
 
             if (lake != null) {
-                ((TextView) findViewById(R.id.tv_rivername)).setText(lake.lakeName);
+                if(l.isTownLake()){
+                    ((TextView) findViewById(R.id.tv_rivername)).setText(lake.lakeName);
+                }else {
+                    showToast("市级/村级湖泊不能投诉（建议）。");
+                }
+
             } else {
                 showToast("没有传入湖泊参数");
                 finish();
@@ -359,15 +351,9 @@ public class LakeSugOrComtActivity extends BaseActivity {
         //注意了，如果是人大，没有这两个编辑框。
 //		subject = subject == null ? ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim(): subject;
         subject = ((EditText) findViewById(R.id.et_suggest_subject)).getText().toString().trim();
-//        if (getUser().isNpc() && r.riverId == getUser().getMyRiverId() && !isCom) {
-//            contentt = ((EditText) findViewById(R.id.et_npc_otherquestion)).getText().toString().trim();
-//        } else
-//            contentt = ((EditText) findViewById(R.id.et_suggest_contentt)).getText().toString().trim();
 
         contentt = ((EditText) findViewById(R.id.et_suggest_contentt)).getText().toString().trim();
         telno = ((EditText) findViewById(R.id.et_phonenum)).getText().toString().trim();
-        // code = ((EditText)
-        // findViewById(R.id.et_authcode)).getText().toString().trim();
 
         if (uname.length() == 0) {
             showToast("姓名不能为空!");
@@ -410,9 +396,6 @@ public class LakeSugOrComtActivity extends BaseActivity {
 
         anonymity = ((CheckBox) findViewById(R.id.ck_anonymity)).isChecked();
 
-//		rid = segment_ix < 0 ? river.riverId : (river.townRiverChiefs[segment_ix].townRiverId);
-
-//        rid = segment_ix < 0 ? river.riverId : (river.lowLevelRivers[segment_ix].riverId);
         lakeId = lake.lakeId;
         LinearLayout ll_photos = (LinearLayout) findViewById(R.id.ll_photos);
         if (ll_photos.getChildCount() > 1) {
@@ -455,8 +438,7 @@ public class LakeSugOrComtActivity extends BaseActivity {
             }else {
                 submitData();
             }
-//
-//			submitData();
+
         }
 
 
@@ -464,11 +446,6 @@ public class LakeSugOrComtActivity extends BaseActivity {
 
         // startAuthCode();
     }
-
-    // @Override
-    // protected void whenAuthSuccess() {
-    // submitData();
-    // }
 
     private void submitData() {
         showOperating();
@@ -479,7 +456,6 @@ public class LakeSugOrComtActivity extends BaseActivity {
             p = ParamUtils.freeParam(null, "lakeId", lakeId, "advTheme", subject, "advContent", contentt, "advName", uname, "advTelephone", telno, "ifAnonymous", anonymity ? 1 : 0);
         }
 
-        // if(((CheckBox) findViewById(R.id.ck_gps)).isChecked())
         if (location != null && ((CheckBox) findViewById(R.id.ck_gps)).isChecked()) {
             try {
                 p.put("latitude", location.getLatitude());
@@ -489,18 +465,18 @@ public class LakeSugOrComtActivity extends BaseActivity {
             }
         }
         if (isCom) {
-//            getRequestContext().add("rivercomplaints_action_add", new Callback<SugOrComRes>() {
-//                @Override
-//                public void callback(SugOrComRes o) {
-//                    if (o != null && o.isSuccess()) {
-//                        imgLatlist="";
-//                        imgLnglist="";
-//                        doResult(o);
-//                    } else {
-//                        hideOperating();
-//                    }
-//                }
-//            }, SugOrComRes.class, p);
+            getRequestContext().add("lakecomplaints_action_add", new Callback<SugOrComRes>() {
+                @Override
+                public void callback(SugOrComRes o) {
+                    if (o != null && o.isSuccess()) {
+                        imgLatlist="";
+                        imgLnglist="";
+                        doResult(o);
+                    } else {
+                        hideOperating();
+                    }
+                }
+            }, SugOrComRes.class, p);
         } else {
             getRequestContext().add("lakeadvise_action_add", new Callback<SugOrComRes>() {
                 @Override

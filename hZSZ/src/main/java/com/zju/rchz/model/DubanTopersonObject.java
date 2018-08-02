@@ -16,7 +16,16 @@ public class DubanTopersonObject {
     public int overdue;
     public int sendtochief;
 
+    private Integer riverOrLake;
     private Integer newState;//新状态字段 0待受理20已受理/待反馈30带查验40待审核41不合格50归档60转督
+
+    public Integer getRiverOrLake() {
+        return riverOrLake;
+    }
+
+    public void setRiverOrLake(Integer riverOrLake) {
+        this.riverOrLake = riverOrLake;
+    }
 
     public String getId() {
         return id;

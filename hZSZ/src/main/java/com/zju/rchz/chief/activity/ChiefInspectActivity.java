@@ -352,6 +352,7 @@ public class ChiefInspectActivity extends BaseActivity{
                     try{
                         submitTemporaryParam.put("latList",latList);
                         submitTemporaryParam.put("lngList",lngList);
+                        submitTemporaryParam.put("riverId",riverId);
 
                         if(latlist_temp!=null && !latlist_temp.equals("")){
                             getRequestContext().add("AddOrEdit_RiverRecordTemporary", new Callback<BaseRes>() {
@@ -803,6 +804,5 @@ public class ChiefInspectActivity extends BaseActivity{
         mBaiduMap = null;
         stopTimer();//关闭时钟，停止上传轨迹点
         super.onDestroy();
-
     }
 }

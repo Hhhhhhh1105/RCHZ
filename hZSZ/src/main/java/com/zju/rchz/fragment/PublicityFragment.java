@@ -88,9 +88,36 @@ public class PublicityFragment extends BaseFragment implements OnCheckedChangeLi
 				@Override
 				public void onClick(View arg0) {
 					if (MainActivity.getCurActivity().checkUserAndLogin("请到个人中心进行注册或登录，使用个人账号登录后再进行投诉。")){
-						Intent intent = new Intent(getBaseActivity(), SugOrComtActivity.class);
-						intent.putExtra(Tags.TAG_ABOOLEAN, true);
-						startActivity(intent);
+						final BottomAnimDialog dialog = new BottomAnimDialog(getBaseActivity(), "投诉河道", "投诉湖泊", "取消");
+						dialog.setClickListener(new BottomAnimDialog.BottonAnimDialogListener() {
+							@Override
+							public void onItem1Listener() {
+								// TO_DO
+								Intent intent = new Intent(getBaseActivity(), SugOrComtActivity.class);
+								intent.putExtra(Tags.TAG_ABOOLEAN, true);
+								startActivity(intent);
+								dialog.dismiss();
+							}
+
+							@Override
+							public void onItem2Listener() {
+								// TO_DO
+								Intent intent = new Intent(getBaseActivity(), LakeSugOrComtActivity.class);
+								intent.putExtra(Tags.TAG_ABOOLEAN, true);
+								startActivity(intent);
+								dialog.dismiss();
+							}
+
+							@Override
+							public void onItem3Listener() {
+								dialog.dismiss();
+							}
+						});
+
+						dialog.show();
+//						Intent intent = new Intent(getBaseActivity(), SugOrComtActivity.class);
+//						intent.putExtra(Tags.TAG_ABOOLEAN, true);
+//						startActivity(intent);
 					}
 				}
 			});

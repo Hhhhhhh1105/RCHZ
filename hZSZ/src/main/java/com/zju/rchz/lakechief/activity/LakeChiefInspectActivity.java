@@ -101,8 +101,8 @@ public class LakeChiefInspectActivity extends BaseActivity {
     //确定是新加巡湖单还是编辑巡湖单（现在已经无法编辑）
     private boolean isAddNewLakeRecord = false;
 
-    //传入湖道编号：
-    private int lakeId;
+    //传入湖泊编号：
+    private int lakeRecordTempLakeId;
 
     //计数，如果长时间没有新的点加入要删除的轨迹，认为之前的取点有误
     private int countNoJoin = 0;
@@ -133,7 +133,7 @@ public class LakeChiefInspectActivity extends BaseActivity {
         lnglist_temp = getIntent().getExtras().getString("lnglist_temp");
 //        showToast(latlist_temp+"++"+lnglist_temp+hasHistroyData);
         isAddNewLakeRecord = getIntent().getExtras().getBoolean("isAddNewLakeRecord");
-        lakeId = getIntent().getExtras().getInt("lakeId",0);
+        lakeRecordTempLakeId = getIntent().getExtras().getInt("lakeId");
 
 //        if(lakeId!=0){
 //
@@ -213,8 +213,10 @@ public class LakeChiefInspectActivity extends BaseActivity {
                 }
             }
         });*/
+        findViewById(R.id.river_legend).setVisibility(View.GONE);
 
         myPosition = (Button) findViewById(R.id.btn_my_position);
+        myPosition.setVisibility(View.GONE);
         myPosition.setClickable(false);
         myPosition.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -238,6 +240,7 @@ public class LakeChiefInspectActivity extends BaseActivity {
             }
         });
         lakePosition = (Button) findViewById(R.id.btn_river_position);
+        lakePosition.setVisibility(View.GONE);
         lakePosition.setClickable(false);
         lakePosition.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -255,39 +258,40 @@ public class LakeChiefInspectActivity extends BaseActivity {
     JSONObject submitTemporaryParam = null;
 
     private void startTimer(){
-//        if (mTimer == null) {
-//            mTimer = new Timer();
-//        }
-//
-//        if (mTimerTask == null) {
-//            mTimerTask = new TimerTask() {
-//                @Override
-//                public void run() {
-//                    try{
-//                        submitTemporaryParam.put("latList",latList);
-//                        submitTemporaryParam.put("lngList",lngList);
-//
-//                        if(latlist_temp!=null && !latlist_temp.equals("")){
-//                            getRequestContext().add("AddOrEdit_LakeRecordTemporary", new Callback<BaseRes>() {
-//                                @Override
-//                                public void callback(BaseRes o) {
-//                                    if (o != null && o.isSuccess()) {
-//
-//                                    }
-//                                }
-//                            }, BaseRes.class, submitTemporaryParam);
-//                        }
-//
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                }
-//            };
-//        }
-//
-//        if(mTimer != null && mTimerTask != null )
-//            mTimer.schedule(mTimerTask, DELAY_TIME, PERIOD_TIME);
+        if (mTimer == null) {
+            mTimer = new Timer();
+        }
+
+        if (mTimerTask == null) {
+            mTimerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    try{
+                        submitTemporaryParam.put("latList",latList);
+                        submitTemporaryParam.put("lngList",lngList);
+                        submitTemporaryParam.put("lakeId",lakeRecordTempLakeId);
+
+                        if(latlist_temp!=null && !latlist_temp.equals("")){
+                            getRequestContext().add("AddOrEdit_LakeRecordTemporary", new Callback<BaseRes>() {
+                                @Override
+                                public void callback(BaseRes o) {
+                                    if (o != null && o.isSuccess()) {
+
+                                    }
+                                }
+                            }, BaseRes.class, submitTemporaryParam);
+                        }
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            };
+        }
+
+        if(mTimer != null && mTimerTask != null )
+            mTimer.schedule(mTimerTask, DELAY_TIME, PERIOD_TIME);
 
     }
 

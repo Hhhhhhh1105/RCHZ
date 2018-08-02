@@ -16,6 +16,7 @@ public class User {
 	public List<Integer> readNewsIds = null;
 	public String statusCity = "";
 
+
 	public int authorityForIntruction = 0;//批示的权限：0或者null表示没有批示权限；1表示市委书记批示权限
 										//2表示市长批示权限，3表示分管市长批示权限。
 
@@ -64,10 +65,12 @@ public class User {
 		uuid = null;
 		pwdmd5 = null;
 	}
-
+	//河湖判断
+	public int status;
 
 	// 河长
 	public int authority;
+
 	public River[] riverSum = new River[] {};
 
 	//湖长
@@ -75,40 +78,61 @@ public class User {
 
 	public int ifOnJob = 0;
 
-	// 是否河长
+
+
+	// 是否镇级河长
 	public boolean isChief() {
-		return authority == 2 && ifOnJob == 0;
+		return authority == 2 && ifOnJob == 0&&(status==0||status==2);
 	}
+	//是否镇级湖长
+	public  boolean isLakeChief(){return (authority == 2&&(status==1||status==2));}
 
 	//是否是村级河长
 	public boolean isVillageChief(){
 		//村级河长的权限
-		return authority == 8 && ifOnJob == 0;
+		return authority == 8 && ifOnJob == 0&&(status==0||status==2);
 	}
+	//是否是村级湖长
+	public boolean isVillageLakeChief(){
+		return authority == 8 && ifOnJob == 0&&(status==1||status==2);
+	}
+
 	//是否是河管员
 	public boolean isCleaner(){
 		//河管员的权限
 		return authority == 7 && ifOnJob == 0;
 	}
+
 	public boolean isCoordinator(){
-		//协管员权限
-		return authority==6 && ifOnJob ==0;
+		//河道督察员协管员权限
+		return authority==6 && ifOnJob ==0&&(status==0||status==2);
+	}
+	public boolean isLakeCoordinator(){
+		//湖泊督察员协管员权限
+		return authority==6 && ifOnJob ==0&&(status==1||status==2);
 	}
 	public boolean isDucha(){
-		//督察员权限
+		//市级督察员权限
 		return authority==13 && ifOnJob ==0;
 	}
 
 	//是否是区级河长
 	public boolean isDistrictChief() {
 		//区级河长的权限
-		return authority == 9;
+		return authority == 9&&(status==0||status==2);
+	}
+	//市级河长
+	public boolean isCityChief() {
+
+
+		return authority == 10 && statusCity.equals("1")&&(status==0||status==2);
 	}
 
-	public boolean isCityChief() {
-		//市级河长的权限
+	//市级湖长
+	public boolean isCityLakeChief() {
 
-		return authority == 10 && statusCity.equals("1");
+
+		return authority == 10 && statusCity.equals("1")&&(status==1||status==2);
 	}
 	public boolean isSecretary() {
 		//市委书记的权限
@@ -125,7 +149,7 @@ public class User {
 	}
 	public boolean isBossChief() {
 		//镇街总河长的权限
-		return authorityForIntruction == 4;
+		return authorityForIntruction == 4&&(status==0||status==2);
 	}
 
 	public boolean isCityLinkMan(){
@@ -141,10 +165,13 @@ public class User {
 	public int getAuthority() {
 		return authority;
 	}
+	public int getStatus(){return status;}
+
 
 	public void setAuthority(int authority) {
 		this.authority = authority;
 	}
+	public void setStatus(int status){this.status=status;}
 
 	//获取河长
 	public String getUuid() {

@@ -76,4 +76,8 @@ public class Lake {
     public String getDistrictName() {
         return districtName;
     }
+
+    public boolean isTownLake(){
+        return lakeLevel==4;
+    }
 }

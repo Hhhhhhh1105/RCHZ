@@ -1,6 +1,8 @@
 package com.zju.rchz.lakechief.activity;
 
 import com.zju.rchz.activity.BaseActivity;
+
+import android.app.AlertDialog;
 import android.app.Dialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -117,12 +119,14 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
             convertView.setOnClickListener(edtClk);
             convertView.findViewById(R.id.btn_delete).setOnClickListener(delClk);
 
+            ((TextView)convertView.findViewById(R.id.recordRiverName)).setText(record.recordLakeName);
+            ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setVisibility(View.GONE);
             if(record.isCorrect.equals("1")){
                 ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("有效");
-                ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(android.graphics.Color.GREEN);
+                ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.GREEN);
             }else if(record.isCorrect.equals("0")){
                 ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("无效");
-                ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(android.graphics.Color.RED);
+                ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.RED);
             }else {
                 ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("判断中");
                 ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.BLACK);
@@ -204,26 +208,29 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
     private YearMonthSelectDialog selectDialog = null;
     private String latList_host;
     private String lngList_host;
+    private int riverRecordTempLakeId;
     JSONObject submitUuidParam = null;
 
     //请求，判断服务器是否对应河长有未完成的轨迹
     private void getHostLakeRecordTemporary(){
-//        getRequestContext().add("Get_LakeRecordTemporary", new Callback<RiverRecordTemporaryJsonRes>() {
-//            @Override
-//            public void callback(RiverRecordTemporaryJsonRes o) {
-//                hideOperating();
-//                if (o != null && o.isSuccess()) {
-//                    if(o.data!=null){
-//                        //获得经纬度信息
-//                        latList_host = o.data.getLatlist();
-//                        lngList_host = o.data.getLnglist();
-//                    }else{
-//                        latList_host = "";
-//                        lngList_host = "";
-//                    }
-//                }
-//            }
-//        }, RiverRecordTemporaryJsonRes.class, submitUuidParam);
+        getRequestContext().add("Get_LakeRecordTemporary", new Callback<RiverRecordTemporaryJsonRes>() {
+            @Override
+            public void callback(RiverRecordTemporaryJsonRes o) {
+                hideOperating();
+                if (o != null && o.isSuccess()) {
+                    if(o.data!=null){
+                        //获得经纬度信息
+                        latList_host = o.data.getLatlist();
+                        lngList_host = o.data.getLnglist();
+                        riverRecordTempLakeId = (int)o.data.getLakeId();
+                    }else{
+                        latList_host = "";
+                        lngList_host = "";
+                        riverRecordTempLakeId = 0;
+                    }
+                }
+            }
+        }, RiverRecordTemporaryJsonRes.class, submitUuidParam);
     }
 
     @Override
@@ -233,12 +240,28 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
 //			if(timesOfRiverRecord >= Values.timesOfRiverTour){
 //				showToast("今日巡河次数已达上限！");
 //			}else {
-                Intent intent = new Intent(this, com.zju.rchz.lakechief.activity.LakeChiefEditRecordActivity.class);
-                Bundle bundle=new Bundle();
-                bundle.putString("latList_host", latList_host);
-                bundle.putString("lngList_host", lngList_host);
-                intent.putExtras(bundle);
-                startActivityForResult(intent, Tags.CODE_NEW);
+                AlertDialog.Builder ab = new AlertDialog.Builder(LakeChiefRecordListActivity.this);
+                ab.setTitle("温馨提示");
+                ab.setMessage("请您在巡湖履职过程中保持APP在前台显示，中途跳转到其他应用（如微信等）可能导致轨迹考核无效！感谢您对工作的支持！");
+                ab.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+
+                        Intent intent = new Intent(getCurActivity(), LakeChiefEditRecordActivity.class);
+                        Bundle bundle=new Bundle();
+                        bundle.putString("latList_host", latList_host);
+                        bundle.putString("lngList_host", lngList_host);
+                        bundle.putInt("lakeId",riverRecordTempLakeId);
+                        intent.putExtras(bundle);
+                        startActivityForResult(intent, Tags.CODE_NEW);
+
+                        arg0.dismiss();
+                    }
+                });
+
+                ab.setCancelable(false);
+                ab.create().show();
+
 //			}
                 break;
             }

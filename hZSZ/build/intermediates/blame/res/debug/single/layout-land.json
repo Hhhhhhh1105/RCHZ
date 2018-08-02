@@ -1,5 +1,9 @@
 [
     {
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_main.xml",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\layout-land\\fragment_main.xml"
+    },
+    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout-land\\fragment_main.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\layout-land\\fragment_main.xml"
     }

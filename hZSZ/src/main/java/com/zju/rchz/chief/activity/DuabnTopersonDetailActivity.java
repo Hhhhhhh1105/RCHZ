@@ -56,10 +56,8 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
     private DubanTopersonObject dubanTopersonObject=null;
 //    private ChiefCompFul compFul = null;
     private DubanTopersonData dubanTopersonData=null;
-    private boolean isComp = true;
     private boolean isHandled = true;
     private boolean hasImg = false;
-    private boolean isNpcComp = false;
     private String imgLnglist="";
     private String imgLatlist="";
     private int isSecondFeedback=0;
@@ -72,11 +70,9 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
         public String evalString(Object model, String tmpl) throws NoSuchFieldException, SecurityException, IllegalArgumentException, IllegalAccessException, NoSuchMethodException, InvocationTargetException {
             String s = super.evalString(model, tmpl);
             if (s != null) {
-                if (isComp) {
                     s = s.replace("建议", "上报");
-                } else {
                     s = s.replace("投诉", "上报");
-                }
+
             }
             return s;
         }
@@ -91,7 +87,6 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
         setContentView(R.layout.activity_chief_compdetail);
         isHandled = getIntent().getBooleanExtra(Tags.TAG_HANDLED, false);
         dubanTopersonObject = StrUtils.Str2Obj(getIntent().getStringExtra(Tags.TAG_COMP), DubanTopersonObject.class);
-        isNpcComp = getIntent().getBooleanExtra(Tags.TAG_ISNPCCOMP, false);
        //判断是否是协管员 6
         isCoordinator = getUser().isLogined() && getUser().isCoordinator();
         ischief = getUser().isLogined() && getUser().isChief();
@@ -116,18 +111,16 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
         }
 
         if (dubanTopersonObject != null) {
-//            isComp = comp.isComp();
 
             initHead(R.drawable.ic_head_back, 0);
             setTitle(!isHandled ? "处理督办" : "处理单");
 
-//            if (comp.isComp()) {
-//                // 投诉
+            ViewUtils.replaceInView((ViewGroup) findViewById(R.id.ll_root), "建议", "上报");
+            ViewUtils.replaceInView((ViewGroup) findViewById(R.id.ll_root), "投诉", "上报");
+            if (dubanTopersonObject.getRiverOrLake().intValue()==1){
+                ViewUtils.replaceInView((ViewGroup) findViewById(R.id.ll_root), "河道", "湖泊");
+            }
 
-                ViewUtils.replaceInView((ViewGroup) findViewById(R.id.ll_root), "建议", "上报");
-//            } else {
-                ViewUtils.replaceInView((ViewGroup) findViewById(R.id.ll_root), "投诉", "上报");
-//            }
 
             findViewById(R.id.btn_submit).setOnClickListener(this);
             findViewById(R.id.btn_store).setOnClickListener(this);
@@ -468,8 +461,8 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
         String request,request1;
         JSONObject params,params1;
 
-            request = "Add_ChiefDubanTopersonDeal_Content";
-            params = ParamUtils.freeParam(null, "dubanTopersonId", dubanTopersonObject.getId(), "dealContent", dealContent, "isSecondFeedback",isSecondFeedback,"picBase64", picbase64);
+        request = "Add_ChiefDubanTopersonDeal_Content";
+        params = ParamUtils.freeParam(null, "dubanTopersonId", dubanTopersonObject.getId(), "dealContent", dealContent, "isSecondFeedback",isSecondFeedback,"picBase64", picbase64);
 
         request1="Add_CoordinatorDubanTopersonCheck_Content";
         params1=ParamUtils.freeParam(null, "dubanTopersonId", dubanTopersonObject.getId(), "checkContent", dealContent, "isSecondCheck",isSecondCheck, "picBase64", picbase64);

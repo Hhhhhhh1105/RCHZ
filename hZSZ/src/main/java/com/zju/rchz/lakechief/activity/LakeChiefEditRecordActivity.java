@@ -114,6 +114,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
 
     private String latList_host;//服务器回传的轨迹经纬度
     private String lngList_host;
+    private int lakeRecordTempLakeId;
 
     private String imgLnglist="";
     private String imgLatlist="";
@@ -184,18 +185,18 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
         btn_track.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                if(lakeRecord.lakeId==0){
-//                    selectLake();
-//                }else{
+                if(lakeRecord.lakeId==0){
+                    selectLake();
+                }else{
                     Intent intent = new Intent(LakeChiefEditRecordActivity.this, LakeChiefInspectActivity.class);
 //					intent.putExtra("latlist_temp", OptimizePoints(latlist_temp,lnglist_temp)[0]);
 //					intent.putExtra("lnglist_temp", OptimizePoints(latlist_temp,lnglist_temp)[1]);
                     intent.putExtra("latlist_temp", latlist_temp);//将当前的巡湖数据传至巡湖地图界面
                     intent.putExtra("lnglist_temp", lnglist_temp);
                     intent.putExtra("isAddNewLakeRecord",isAddNewLakeRecord);
-                    intent.putExtra("lakeId", lakeRecord.lakeId);
+                    intent.putExtra("lakeId", (int)lakeRecord.lakeId);
                     startActivityForResult(intent, Tags.CODE_LATLNG);
-//                }
+                }
             }
         });
         btn_trackView = (Button) findViewById(R.id.btn_trackView);//查看轨迹按钮-查看巡湖单界面
@@ -228,6 +229,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
         isReadOnly = getIntent().getBooleanExtra(Tags.TAG_ABOOLEAN, false);
         latList_host = getIntent().getExtras().getString("latList_host");
         lngList_host = getIntent().getExtras().getString("lngList_host");
+        lakeRecordTempLakeId = getIntent().getExtras().getInt("lakeId");
 
         submitUuidParam = new JSONObject();
         submitTemporaryParam = new JSONObject();
@@ -276,16 +278,26 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             //看是否有未完成的轨迹信息
 //			getHostRiverRecordTemporary();
 
-            //检查是否正确退出了巡湖,弹出窗口询问其是否继续巡湖
+            //检查是否是否有未完成的轨迹
             if (latList_host != null && !latList_host.equals("")) {
                 AlertDialog.Builder ab = new AlertDialog.Builder(LakeChiefEditRecordActivity.this);
                 ab.setTitle("有未完成的巡湖轨迹");
-                ab.setMessage("系统检测到您上次未正常提交巡湖单，继续采用之前的巡湖轨迹？");
+                ab.setMessage("您要放弃这条轨迹吗?");
                 ab.setPositiveButton("是", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
                         latlist_temp = latList_host;
                         lnglist_temp = lngList_host;
+                        lakeRecord.lakeId = lakeRecordTempLakeId;
+
+                        for (Lake l : getUser().lakeSum) {
+                            if (lakeRecord.lakeId == l.lakeId) {
+                                lakeRecord.locLake = l;
+                                lakeRecord.locLakeName = l.lakeName;
+                                refreshSelectLakeBtn();
+                            }
+                        }
+
                         startTimer();//开启定时器
                         arg0.dismiss();
                     }
@@ -517,70 +529,74 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
     TimerTask mTimerTask = null;
 
     private void startTimer(){
-//        if (mTimer == null) {
-//            mTimer = new Timer();
-//        }
-//
-//        if (mTimerTask == null) {
-//            mTimerTask = new TimerTask() {
-//                @Override
-//                public void run() {
-//                    try{
-//                        //失能 提交巡湖单按钮
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                ((Button)findViewById(R.id.btn_submit)).setText("轨迹暂存中...");
-//                                ((Button)findViewById(R.id.btn_submit)).setBackgroundColor(getResources().getColor(R.color.half_black));
-//                            }
-//                        });
-//                        ((Button)findViewById(R.id.btn_submit)).setClickable(false);
-//
-//                        submitTemporaryParam.put("latList",latlist_temp);
-//                        submitTemporaryParam.put("lngList",lnglist_temp);
-//
-//                        if(latlist_temp!=null && !latlist_temp.equals("")){
-//                            getRequestContext().add("AddOrEdit_LakeRecordTemporary", new Callback<BaseRes>() {
-//                                @Override
-//                                public void callback(BaseRes o) {
-//                                    if (o != null && o.isSuccess()) {
-//
-//                                    }
-//                                }
-//                            }, BaseRes.class, submitTemporaryParam);
-//                        }
-//                        //使能 提交巡湖单按钮
-//                        runOnUiThread(new Runnable() {
-//                            @Override
-//                            public void run() {
-//                                ((Button)findViewById(R.id.btn_submit)).setText("结束巡湖");
-//                                ((Button)findViewById(R.id.btn_submit)).setBackgroundColor(getResources().getColor(R.color.blue));
-//                            }
-//                        });
-//                        ((Button)findViewById(R.id.btn_submit)).setClickable(true);
-//
-//                    } catch (JSONException e) {
-//                        e.printStackTrace();
-//                    }
-//
-//                }
-//            };
-//        }
-//
-//        if(mTimer != null && mTimerTask != null )
-//            mTimer.schedule(mTimerTask, DELAY_TIME, PERIOD_TIME);
+        if(lakeRecord.lakeId ==0){
+            selectLake();
+        }
+        if (mTimer == null) {
+            mTimer = new Timer();
+        }
+
+        if (mTimerTask == null) {
+            mTimerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    try{
+                        //失能 提交巡湖单按钮
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((Button)findViewById(R.id.btn_submit)).setText("轨迹暂存中...");
+                                ((Button)findViewById(R.id.btn_submit)).setBackgroundColor(getResources().getColor(R.color.half_black));
+                            }
+                        });
+                        ((Button)findViewById(R.id.btn_submit)).setClickable(false);
+
+                        submitTemporaryParam.put("latList",latlist_temp);
+                        submitTemporaryParam.put("lngList",lnglist_temp);
+                        submitTemporaryParam.put("lakeId",lakeRecord.lakeId);
+
+                        if(latlist_temp!=null && !latlist_temp.equals("")){
+                            getRequestContext().add("AddOrEdit_LakeRecordTemporary", new Callback<BaseRes>() {
+                                @Override
+                                public void callback(BaseRes o) {
+                                    if (o != null && o.isSuccess()) {
+
+                                    }
+                                }
+                            }, BaseRes.class, submitTemporaryParam);
+                        }
+                        //使能 提交巡湖单按钮
+                        runOnUiThread(new Runnable() {
+                            @Override
+                            public void run() {
+                                ((Button)findViewById(R.id.btn_submit)).setText("结束巡湖");
+                                ((Button)findViewById(R.id.btn_submit)).setBackgroundColor(getResources().getColor(R.color.blue));
+                            }
+                        });
+                        ((Button)findViewById(R.id.btn_submit)).setClickable(true);
+
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
+
+                }
+            };
+        }
+
+        if(mTimer != null && mTimerTask != null )
+            mTimer.schedule(mTimerTask, DELAY_TIME, PERIOD_TIME);
 
     }
 
     private void stopTimer(){
-//        if (mTimer != null) {
-//            mTimer.cancel();
-//            mTimer = null;
-//        }
-//        if (mTimerTask != null) {
-//            mTimerTask.cancel();
-//            mTimerTask = null;
-//        }
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+        }
+        if (mTimerTask != null) {
+            mTimerTask.cancel();
+            mTimerTask = null;
+        }
     }
 
     private static final String[] CBOX_TITLES = new String[]{//
@@ -668,15 +684,15 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
         ab.setPositiveButton("确定", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
-                //删除舍弃的轨迹
-                getRequestContext().add("Delete_LakeRecordTemporary", new Callback<BaseRes>() {
-                    @Override
-                    public void callback(BaseRes o) {
-                        if (o != null && o.isSuccess()) {
-
-                        }
-                    }
-                }, BaseRes.class, submitUuidParam);
+//                //删除舍弃的轨迹
+//                getRequestContext().add("Delete_LakeRecordTemporary", new Callback<BaseRes>() {
+//                    @Override
+//                    public void callback(BaseRes o) {
+//                        if (o != null && o.isSuccess()) {
+//
+//                        }
+//                    }
+//                }, BaseRes.class, submitUuidParam);
 
                 //提交成功之后，将缓存坐标值设为空
                 latlist_temp = "";
@@ -961,8 +977,6 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
 
                             submitParam.put("sludge", 0);
                             submitParam.put("sludges", "");
-                            submitParam.put("lakeinplace", 0);
-                            submitParam.put("lakeinplaces", "");
                             submitParam.put("deal", "");
 
                         }
@@ -990,6 +1004,9 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
 
                         //巡湖时间
                         submitParam.put("recordStartDate", startTime);
+
+                        submitParam.put("lakeinplace", 0);
+                        submitParam.put("lakeinplaces", "");
 
                         //判断巡湖是否超过了5min
                         //看是否超过5min
