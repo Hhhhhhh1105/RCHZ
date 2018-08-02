@@ -1,8 +1,11 @@
 package com.zju.rchz.activity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ArrayAdapter;
+import android.widget.AutoCompleteTextView;
 import android.widget.EditText;
 
 import com.sin.android.sinlibs.utils.MD5Utils;
@@ -15,8 +18,10 @@ import com.zju.rchz.utils.ParamUtils;
 import com.zju.rchz.utils.StrUtils;
 
 public class LoginActivity extends BaseActivity {
-	EditText et_username = null;
+	AutoCompleteTextView Atv_username=null;
 	EditText et_password = null;
+    private ArrayAdapter<String> arrayAdapter;
+
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -30,7 +35,7 @@ public class LoginActivity extends BaseActivity {
 		findViewById(R.id.btn_login).setOnClickListener(this);
 		findViewById(R.id.btn_register).setOnClickListener(this);
 
-		et_username = (EditText) findViewById(R.id.et_username);
+		Atv_username = (AutoCompleteTextView) findViewById(R.id.Atv_username);
 		et_password = (EditText) findViewById(R.id.et_password);
 
 	}
@@ -39,16 +44,18 @@ public class LoginActivity extends BaseActivity {
 	public void onClick(View v) {
 		switch (v.getId()) {
 		case R.id.btn_login: {
-			String username = et_username.getText().toString().trim();
+			String username = Atv_username.getText().toString().trim();
 			String passwrod = et_password.getText().toString().trim();
 			// if(et_username.getText().toString())
 			if (username.length() == 0) {
 				showToast(R.string.tip_username_empty);
-				et_username.requestFocus();
+				Atv_username.requestFocus();
 			} else if (passwrod.length() == 0) {
 				showToast(R.string.tip_password_empty);
 				et_password.requestFocus();
 			} else {
+
+
 				loginWitdhUP(username, passwrod);
 			}
 			break;
@@ -91,8 +98,9 @@ public class LoginActivity extends BaseActivity {
 					getUser().isLeader=o.data.isLeader;
 					getUser().pwdmd5 = pwdmd5;
 					getUser().authorityForIntruction = o.data.authorityForIntruction;
-
 					saveLocalData();
+					SharedPreferences.Editor editor=getSharedPreferences("login_name",MODE_PRIVATE).edit();
+
 
 					setResult(RESULT_OK);
 					finish();
@@ -113,15 +121,19 @@ public class LoginActivity extends BaseActivity {
 	@Override
 	protected void onResume() {
 		super.onResume();
-		if (et_username != null && !StrUtils.isNullOrEmpty(getUser().userName)) {
-			et_username.setText(getUser().userName);
+		if (Atv_username != null && !StrUtils.isNullOrEmpty(getUser().userName)) {
+            Atv_username.setText(getUser().userName);
 		}
-		if (et_username != null) {
-			if (Values.DEBUG) {
+		if (Atv_username != null) {
+			if (Values.hhDEBUG) {
+                String [] arr={"13370902388镇河","18606305918镇湖","13906710701镇河湖","17662702683河督","17662702851湖督","17662702861河湖督"};
+                arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr);
 //				et_username.setText("13706811460");
-				et_username.setText("18857100011");
+               // Atv_username.setText("18857100011");
 //				et_username.setText("13705813320");
-				et_password.setText("HZHZ123456");
+				//et_password.setText("HZHZ123456");
+                Atv_username.setAdapter(arrayAdapter);
+                et_password.setText("123456");
 			}
 		}
 	}
@@ -136,3 +148,6 @@ public class LoginActivity extends BaseActivity {
 		}
 	}
 }
+//    String [] arr={"aa","aab","aac"};
+//        arrayAdapter = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1,arr);
+//        autotext.setAdapter(arrayAdapter);

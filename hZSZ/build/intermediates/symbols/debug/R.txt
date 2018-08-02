@@ -1263,6 +1263,7 @@ int drawable utils_img_err 0x7f0201cb
 int drawable wave_both 0x7f0201cc
 int drawable wave_down 0x7f0201cd
 int drawable wave_up 0x7f0201ce
+int id Atv_username 0x7f0c00e2
 int id action0 0x7f0c02f1
 int id action_album 0x7f0c00a4
 int id action_bar 0x7f0c0066
@@ -1395,7 +1396,6 @@ int id et_suggest_contentt 0x7f0c00d3
 int id et_suggest_name 0x7f0c0195
 int id et_suggest_subject 0x7f0c0198
 int id et_text 0x7f0c0270
-int id et_username 0x7f0c00e2
 int id expand_activities_button 0x7f0c004a
 int id expanded_menu 0x7f0c005d
 int id fab_expand_menu_button 0x7f0c0004

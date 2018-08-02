@@ -565,6 +565,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             }
             case R.id.iv_logo: {
                 if (!getBaseActivity().getUser().isLogined()) {
+
+
                     Intent intent = new Intent(getBaseActivity(), LoginActivity.class);
                     startActivityForResult(intent, Tags.CODE_LOGIN);
                 }

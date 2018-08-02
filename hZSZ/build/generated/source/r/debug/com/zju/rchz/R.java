@@ -3618,6 +3618,7 @@ containing a value of this type.
         public static final int wave_up=0x7f0201ce;
     }
     public static final class id {
+        public static final int Atv_username=0x7f0c00e2;
         public static final int action0=0x7f0c02f1;
         public static final int action_album=0x7f0c00a4;
         public static final int action_bar=0x7f0c0066;
@@ -3750,7 +3751,6 @@ containing a value of this type.
         public static final int et_suggest_name=0x7f0c0195;
         public static final int et_suggest_subject=0x7f0c0198;
         public static final int et_text=0x7f0c0270;
-        public static final int et_username=0x7f0c00e2;
         public static final int expand_activities_button=0x7f0c004a;
         public static final int expanded_menu=0x7f0c005d;
         public static final int fab_expand_menu_button=0x7f0c0004;

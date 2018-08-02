@@ -31,9 +31,10 @@
                 android:scaleType="center"
                 android:src="@drawable/im_user" />
 
-            <EditText
-                android:id="@+id/et_username"
+            <AutoCompleteTextView
+                android:id="@+id/Atv_username"
                 style="@style/form_singleline_te"
+                android:completionThreshold="1"
                 android:layout_width="0dp"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="@dimen/form_singleline_padding"

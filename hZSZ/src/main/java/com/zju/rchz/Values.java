@@ -8,7 +8,7 @@ public class Values {
 	final public static boolean DEBUG = false;
 	final public static boolean RELEASE = false;
 	public static String LastVer = null;
-
+	final public static boolean hhDEBUG = false;
 	public static long lastAuthCodeTime = 0;
 
 	final public static int AUTHCODE_GAP_S = 60;
