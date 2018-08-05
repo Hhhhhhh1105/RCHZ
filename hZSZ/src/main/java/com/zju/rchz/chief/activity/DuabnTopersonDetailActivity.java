@@ -88,8 +88,8 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
         isHandled = getIntent().getBooleanExtra(Tags.TAG_HANDLED, false);
         dubanTopersonObject = StrUtils.Str2Obj(getIntent().getStringExtra(Tags.TAG_COMP), DubanTopersonObject.class);
        //判断是否是协管员 6
-        isCoordinator = getUser().isLogined() && getUser().isCoordinator();
-        ischief = getUser().isLogined() && getUser().isChief();
+        isCoordinator = getUser().isLogined() && (getUser().isCoordinator()||getUser().isLakeCoordinator());
+        ischief = getUser().isLogined() && (getUser().isChief()|| getUser().isLakeChief());
 
         //协管员不需要签收
         if(isCoordinator){

@@ -9,8 +9,10 @@
     </shared>
   </component>
   <component name="AndroidLogFilters">
-    <option name="TOOL_WINDOW_CUSTOM_FILTER" value="testrc" />
+    <option name="TOOL_WINDOW_CUSTOM_FILTER" value=".net" />
+    <option name="TOOL_WINDOW_LOG_LEVEL" value="debug" />
     <option name="TOOL_WINDOW_CONFIGURED_FILTER" value="Show only selected application" />
+    <option name="LOGCAT_FORMAT_STRING" value="%2$s/%3$s %4$c/%5$s: %6$s" />
   </component>
   <component name="ChangeListManager">
     <list default="true" id="65429ebd-7535-4eb5-b5d0-37b1e7e33c80" name="Default" comment="">
@@ -22,29 +24,22 @@
       <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.bin" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localClassSetAnalysis/localClassSetAnalysis.lock" />
       <change beforePath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" afterPath="$PROJECT_DIR$/.gradle/2.14.1/tasks/_hZSZ_compileDebugJavaWithJavac/localJarClasspathSnapshot/localJarClasspathSnapshot.lock" />
-      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/zju/rchz/R.java" afterPath="$PROJECT_DIR$/hZSZ/build/generated/source/r/debug/com/zju/rchz/R.java" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$id.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/R$id.class" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/Values.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/Values.class" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LoginActivity$1.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LoginActivity$1.class" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LoginActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/activity/LoginActivity.class" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment$2.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment$2.class" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment$3.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment$3.class" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.class" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment.class" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/classes/debug/com/zju/rchz/fragment/MeFragment.class" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/mergeDebugResources/compile-file-map.properties" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/dex-renamer-state.txt" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/file-input-save-data.txt" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/file-input-save-data.txt" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/zip-cache/JdTJAAY4vxjofJgNZwhC9r7xKxc=" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/incremental/packageDebug/zip-cache/JdTJAAY4vxjofJgNZwhC9r7xKxc=" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/pre-dexed/debug/debug_a082cbe6dbc5feaeb0dcc26129419012d957307f.jar" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/pre-dexed/debug/debug_a082cbe6dbc5feaeb0dcc26129419012d957307f.jar" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/res/merged/debug/layout/activity_login.xml" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/res/merged/debug/layout/activity_login.xml" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/res/resources-debug.ap_" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/res/resources-debug.ap_" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/symbols/debug/R.txt" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/symbols/debug/R.txt" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" afterPath="$PROJECT_DIR$/hZSZ/build/intermediates/transforms/dex/debug/folders/1000/1f/main/classes.dex" />
       <change beforePath="$PROJECT_DIR$/hZSZ/build/outputs/apk/hZSZ-debug.apk" afterPath="$PROJECT_DIR$/hZSZ/build/outputs/apk/hZSZ-debug.apk" />
       <change beforePath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Values.java" afterPath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Values.java" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LoginActivity.java" afterPath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LoginActivity.java" />
+      <change beforePath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.java" afterPath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.java" />
       <change beforePath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java" afterPath="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java" />
-      <change beforePath="$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_login.xml" afterPath="$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_login.xml" />
     </list>
     <ignored path="RCHZ.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -90,21 +85,54 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MeFragment.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="MeFragment.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="491">
-              <caret line="569" column="73" lean-forward="false" selection-start-line="569" selection-start-column="73" selection-end-line="569" selection-end-column="73" />
+            <state relative-caret-position="748">
+              <caret line="277" column="59" lean-forward="false" selection-start-line="277" selection-start-column="59" selection-end-line="277" selection-end-column="59" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="LoginActivity.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LoginActivity.java">
+      <file leaf-file-name="activity_me.xml" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_me.xml">
+          <provider editor-type-id="android-designer2">
+            <state />
+          </provider>
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="176">
-              <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+            <state relative-caret-position="6270">
+              <caret line="285" column="28" lean-forward="false" selection-start-line="285" selection-start-column="28" selection-end-line="285" selection-end-column="28" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LakeDubanTopersonListActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="1048">
+              <caret line="94" column="43" lean-forward="false" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="DuabnTopersonDetailActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="398">
+              <caret line="93" column="18" lean-forward="false" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="LakeProblemReportActivity.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeProblemReportActivity.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="4642">
+              <caret line="248" column="43" lean-forward="false" selection-start-line="248" selection-start-column="43" selection-end-line="248" selection-end-column="43" />
               <folding />
             </state>
           </provider>
@@ -114,27 +142,7 @@
         <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Values.java">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="220">
-              <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="BaseActivity.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/BaseActivity.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="337">
-              <caret line="255" column="34" lean-forward="false" selection-start-line="255" selection-start-column="34" selection-end-line="255" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="PreferencesWarp.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/utils/PreferencesWarp.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="506">
-              <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
+              <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
               <folding />
             </state>
           </provider>
@@ -164,6 +172,12 @@
       <find>problem_report_list</find>
       <find>chief_dubanToperson</find>
       <find>查看</find>
+      <find>btn_handle</find>
+      <find>提交</find>
+      <find>Add_CoordinatorDubanTopersonCheck_Content</find>
+      <find>isCoordinator</find>
+      <find>_lakeproblem_report_list</find>
+      <find>ischief</find>
     </findStrings>
   </component>
   <component name="GenerateSignedApkSettings">
@@ -2254,16 +2268,16 @@
         <option value="$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_recordlist.xml" />
         <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/lakechief/activity/LakeChiefRecordListActivity.java" />
         <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java" />
-        <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java" />
         <option value="$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_login.xml" />
-        <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Values.java" />
         <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LoginActivity.java" />
+        <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Values.java" />
+        <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java" />
+        <option value="$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.java" />
       </list>
     </option>
   </component>
-  <component name="ProjectFrameBounds" extendedState="6">
-    <option name="x" value="222" />
-    <option name="y" value="42" />
+  <component name="ProjectFrameBounds" extendedState="1">
+    <option name="x" value="-8" />
     <option name="width" value="1936" />
     <option name="height" value="1038" />
   </component>
@@ -2362,6 +2376,20 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
+      <pane id="Scratches" />
+      <pane id="PackagesPane" />
+      <pane id="AndroidView">
+        <subPane>
+          <expand>
+            <path>
+              <item name="RCHZ" type="1abcf292:AndroidViewProjectNode" />
+              <item name="hZSZ" type="feadf853:AndroidModuleNode" />
+            </path>
+          </expand>
+          <select />
+        </subPane>
+      </pane>
+      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <expand>
@@ -2457,33 +2485,20 @@
           <select />
         </subPane>
       </pane>
-      <pane id="AndroidView">
-        <subPane>
-          <expand>
-            <path>
-              <item name="RCHZ" type="1abcf292:AndroidViewProjectNode" />
-              <item name="hZSZ" type="feadf853:AndroidModuleNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-      <pane id="PackagesPane" />
-      <pane id="Scope" />
-      <pane id="Scratches" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="android.sdk.path" value="$USER_HOME$/AppData/Local/Android/Sdk" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$/keystore/rchz.jks" />
     <property name="SearchEverywhereHistoryKey" value="et_username&#9;PSI&#9;JAVA://com.zju.rchz.R.id#et_username&#10;monito&#9;PSI&#9;JAVA://javax.management.monitor.Monitor&#10;Const&#9;FILE&#9;file://D:/Androidproject/RC/RCHZ/hZSZ/src/main/java/com/zju/rchz/net/Constants.java&#10;con&#9;FILE&#9;file://D:/Androidproject/RC/RCHZ/hZSZ/src/main/java/com/zju/rchz/net/Constants.java&#10;Contan&#9;PSI&#9;JAVA://android.provider.ContactsContract.ContactNameColumns&#10;Con&#9;FILE&#9;file://D:/Androidproject/RC/RCHZ/hZSZ/src/main/java/com/zju/rchz/net/Constants.java&#10;MF&#9;PSI&#9;JAVA://com.zju.rchz.fragment.MainFragment" />
-    <property name="device.picker.selection" value="A7Q0218307004745" />
+    <property name="device.picker.selection" value="CYSBBDE742231438" />
     <property name="UI_DESIGNER_EDITOR_MODE.NlPaletteManager-NlPreviewForm.SHOW" value="false" />
     <property name="ExportApk.ApkPath" value="D:\Androidproject\RC\RCHZ\hZSZ" />
     <property name="ExportApk.Flavors" value="" />
     <property name="ExportApk.BuildType" value="release" />
     <property name="show.do.not.ask.upgrade.gradle.plugin" value="2.2.0" />
     <property name="settings.editor.selected.configurable" value="gradle.compiler" />
+    <property name="android.profiler.active" value="true" />
   </component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
@@ -2867,32 +2882,30 @@
     </todo-panel>
   </component>
   <component name="ToolWindowManager">
-    <frame x="-9" y="-9" width="1938" height="1048" extended-state="6" />
+    <frame x="-8" y="0" width="1936" height="1038" extended-state="1" />
     <editor active="true" />
     <layout>
-      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2725322" sideWeight="0.5068259" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5063966" order="15" side_tool="true" content_ui="tabs" />
-      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.07437071" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
-      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5045767" sideWeight="0.4946352" order="9" side_tool="false" content_ui="tabs" />
-      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Android Profiler" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="false" weight="0.32951945" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.2725322" sideWeight="0.5068259" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5063966" order="15" side_tool="true" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="13" side_tool="false" content_ui="tabs" />
+      <window_info id="Logcat" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.34375" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Captures" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2725322" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Capture Tool" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.2728249" sideWeight="0.49317408" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Problems" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32951945" sideWeight="0.5" order="16" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40160182" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Build" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.5045767" sideWeight="0.4946352" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32995737" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Device File Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="10" side_tool="true" content_ui="tabs" />
       <window_info id="Theme Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
@@ -2907,7 +2920,9 @@
       <window_info id="Android Model" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32942432" sideWeight="0.4936034" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3299356" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="14" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.40160182" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -2952,49 +2967,6 @@
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/LakeRecordListRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="200">
-          <caret line="8" column="0" lean-forward="false" selection-start-line="8" selection-start-column="0" selection-end-line="8" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/RiverRecordListRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="125">
-          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/build/generated/source/buildConfig/release/com/zju/rchz/BuildConfig.java" />
-    <entry file="file://$PROJECT_DIR$/hZSZ/build/generated/source/buildConfig/debug/com/zju/rchz/BuildConfig.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="225">
-          <caret line="11" column="50" lean-forward="false" selection-start-line="11" selection-start-column="50" selection-end-line="11" selection-end-column="50" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LeaderIntructionDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="177">
-          <caret line="294" column="119" lean-forward="false" selection-start-line="294" selection-start-column="119" selection-end-line="294" selection-end-column="119" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/DubanTopersonData.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="6400">
-          <caret line="390" column="5" lean-forward="false" selection-start-line="390" selection-start-column="5" selection-end-line="390" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/DubanTopersonCoordListActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="602">
-          <caret line="61" column="49" lean-forward="false" selection-start-line="61" selection-start-column="49" selection-end-line="61" selection-end-column="49" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/values/strings.xml">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="328">
@@ -3003,13 +2975,13 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_editrecord.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2300">
           <caret line="92" column="39" lean-forward="false" selection-start-line="92" selection-start-column="39" selection-end-line="92" selection-end-column="39" />
         </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/keystore/password.txt">
@@ -3023,13 +2995,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="50">
           <caret line="21" column="21" lean-forward="false" selection-start-line="21" selection-start-column="21" selection-end-line="21" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="550">
-          <caret line="65" column="32" lean-forward="false" selection-start-line="65" selection-start-column="32" selection-end-line="65" selection-end-column="32" />
         </state>
       </provider>
     </entry>
@@ -3095,13 +3060,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeProblemReportActivity.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3278">
-          <caret line="186" column="5" lean-forward="false" selection-start-line="186" selection-start-column="5" selection-end-line="186" selection-end-column="5" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/build.gradle">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="682">
@@ -3151,7 +3109,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-1166">
           <caret line="84" column="13" lean-forward="false" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="13" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3159,7 +3116,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="770">
           <caret line="212" column="32" lean-forward="false" selection-start-line="212" selection-start-column="32" selection-end-line="212" selection-end-column="32" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3180,114 +3136,20 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_my_center.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
-      <provider selected="true" editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="jar://$APPLICATION_HOME_DIR$/jre/jre/lib/rt.jar!/javax/management/monitor/Monitor.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="132">
           <caret line="46" column="64" lean-forward="true" selection-start-line="46" selection-start-column="64" selection-end-line="46" selection-end-column="64" />
-          <folding>
-            <marker date="1524905524307" expanded="false" signature="0:104" ph="/.../" />
-            <marker date="1524905524307" expanded="false" signature="148:1709" ph="..." />
-            <marker date="1524905524307" expanded="true" signature="2985:3003" ph="/**...*/" />
-            <marker date="1524905524307" expanded="true" signature="3467:3485" ph="/**...*/" />
-            <marker date="1524905524307" expanded="true" signature="3700:4018" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="4106:4331" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="4376:4383" ph="{}" />
-            <marker date="1524905524307" expanded="true" signature="4434:4582" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="4617:4624" ph="{}" />
-            <marker date="1524905524307" expanded="true" signature="4699:4717" ph="/**...*/" />
-            <marker date="1524905524307" expanded="true" signature="4789:4926" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="4932:4950" ph="/**...*/" />
-            <marker date="1524905524307" expanded="true" signature="5063:5357" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="5455:5949" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="6018:6279" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="6353:6413" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="6473:6745" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="6800:6811" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="6841:6847" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="6931:7666" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="7719:7730" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="7760:7766" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="7861:8279" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="8323:8334" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="8355:8361" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="8382:9146" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="9166:9703" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="9762:9898" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="9964:10107" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="10302:12792" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="12916:13324" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="13409:13420" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="13432:13438" ph=" }" />
-            <marker date="1524905524307" expanded="false" signature="13523:13534" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="13546:13552" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="13609:13616" ph="{}" />
-            <marker date="1524905524307" expanded="true" signature="13716:13744" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="13843:13871" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="13955:13966" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="13978:13984" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="14062:14511" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="14590:14659" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="14736:15065" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="15132:15188" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="15236:15603" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="15661:15832" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="15917:16077" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="16161:16224" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="16328:16565" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="16659:16782" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="16881:17087" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="17189:17286" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="17416:18168" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="18246:28244" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="28293:28582" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="28646:28776" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="28789:29866" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="29938:31029" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="30166:30418" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="30486:30600" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="30645:30660" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="30678:30688" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="30737:31023" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="31081:34203" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="31158:32375" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="32410:32425" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="32459:32469" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="32497:34197" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="32799:32865" ph="run() → {" />
-            <marker date="1524905524307" expanded="false" signature="33505:33524" ph="}" />
-            <marker date="1524905524307" expanded="true" signature="34257:34654" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="34333:34344" ph="{}" />
-            <marker date="1524905524307" expanded="false" signature="34406:34421" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="34438:34448" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="34476:34648" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="34686:34829" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="34812:34823" ph="{}" />
-            <marker date="1524905524307" expanded="true" signature="34863:35967" ph="{...}" />
-            <marker date="1524905524307" expanded="false" signature="35079:35094" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="35121:35131" ph=" }" />
-            <marker date="1524905524307" expanded="false" signature="35184:35199" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="35226:35236" ph=" }" />
-            <marker date="1524905524307" expanded="false" signature="35296:35311" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="35339:35349" ph=" }" />
-            <marker date="1524905524307" expanded="false" signature="35418:35433" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="35461:35471" ph=" }" />
-            <marker date="1524905524307" expanded="false" signature="35531:35546" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="35571:35581" ph=" }" />
-            <marker date="1524905524307" expanded="false" signature="35650:35665" ph=" { " />
-            <marker date="1524905524307" expanded="false" signature="35690:35700" ph=" }" />
-            <marker date="1524905524307" expanded="true" signature="35768:35826" ph="{...}" />
-            <marker date="1524905524307" expanded="true" signature="35903:35961" ph="{...}" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -3295,44 +3157,16 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="424">
           <caret line="158" column="25" lean-forward="false" selection-start-line="158" selection-start-column="25" selection-end-line="158" selection-end-column="25" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_chief_recordlist.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="91">
-          <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
       <provider editor-type-id="android-designer2">
         <state />
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="22">
-          <caret line="190" column="20" lean-forward="false" selection-start-line="190" selection-start-column="20" selection-end-line="190" selection-end-column="20" />
-          <folding>
-            <element signature="e#7329#8289#0" expanded="false" />
-            <element signature="e#8288#8289#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/ChiefCompListRes.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="56" lean-forward="false" selection-start-line="2" selection-start-column="56" selection-end-line="2" selection-end-column="56" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/ChiefCompList.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="44">
-          <caret line="2" column="13" lean-forward="false" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
+        <state relative-caret-position="91">
+          <caret line="91" column="24" lean-forward="false" selection-start-line="91" selection-start-column="24" selection-end-line="91" selection-end-column="24" />
           <folding />
         </state>
       </provider>
@@ -3354,6 +3188,9 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_login.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-453">
           <caret line="36" column="30" lean-forward="false" selection-start-line="36" selection-start-column="30" selection-end-line="36" selection-end-column="30" />
@@ -3385,20 +3222,6 @@
           </folding>
         </state>
       </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_me.xml">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="841" column="20" lean-forward="false" selection-start-line="841" selection-start-column="20" selection-end-line="841" selection-end-column="20" />
-          <folding />
-        </state>
-      </provider>
-      <provider editor-type-id="android-designer2">
-        <state />
-      </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Tags.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -3408,25 +3231,9 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Values.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="220">
-          <caret line="10" column="47" lean-forward="false" selection-start-line="10" selection-start-column="47" selection-end-line="10" selection-end-column="47" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/User.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="293">
-          <caret line="256" column="16" lean-forward="false" selection-start-line="256" selection-start-column="16" selection-end-line="256" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/BaseActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="337">
+        <state relative-caret-position="4576">
           <caret line="255" column="34" lean-forward="false" selection-start-line="255" selection-start-column="34" selection-end-line="255" selection-end-column="34" />
           <folding />
         </state>
@@ -3434,17 +3241,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/utils/PreferencesWarp.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="506">
+        <state relative-caret-position="594">
           <caret line="30" column="16" lean-forward="false" selection-start-line="30" selection-start-column="16" selection-end-line="30" selection-end-column="16" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="491">
-          <caret line="569" column="73" lean-forward="false" selection-start-line="569" selection-start-column="73" selection-end-line="569" selection-end-column="73" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -3452,6 +3250,142 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="176">
           <caret line="23" column="0" lean-forward="false" selection-start-line="23" selection-start-column="0" selection-end-line="23" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://$PROJECT_DIR$/hZSZ/libs/sinlibs.2016.311.jar!/com/sin/android/sinlibs/adapter/SimpleViewInitor.class">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="132">
+          <caret line="11" column="17" lean-forward="false" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/activity_me.xml">
+      <provider editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="6270">
+          <caret line="285" column="28" lean-forward="false" selection-start-line="285" selection-start-column="28" selection-end-line="285" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/item_chief_complaint2.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/res/layout/confs_chief_complist.xml">
+      <provider selected="true" editor-type-id="android-designer2">
+        <state />
+      </provider>
+      <provider editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android_studio_space/sources/android-26/java/util/List.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="237" column="12" lean-forward="false" selection-start-line="237" selection-start-column="12" selection-end-line="237" selection-end-column="12" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/ChiefCompList.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="8" column="0" lean-forward="true" selection-start-line="6" selection-start-column="29" selection-end-line="8" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/ChiefCompListRes.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="44">
+          <caret line="2" column="49" lean-forward="false" selection-start-line="2" selection-start-column="49" selection-end-line="2" selection-end-column="49" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/../android_studio_space/sources/android-26/android/widget/BaseAdapter.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="281">
+          <caret line="48" column="16" lean-forward="false" selection-start-line="48" selection-start-column="16" selection-end-line="48" selection-end-column="16" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/DubanTopersonObject.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-748">
+          <caret line="9" column="13" lean-forward="false" selection-start-line="9" selection-start-column="13" selection-end-line="9" selection-end-column="13" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/User.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="365">
+          <caret line="109" column="28" lean-forward="true" selection-start-line="109" selection-start-column="28" selection-end-line="109" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/model/DubanTopersonData.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="299">
+          <caret line="303" column="27" lean-forward="false" selection-start-line="303" selection-start-column="27" selection-end-line="303" selection-end-column="27" />
+          <folding>
+            <element signature="e#8794#8795#0" expanded="false" />
+            <element signature="e#8833#8834#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeProblemReportActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="4642">
+          <caret line="248" column="43" lean-forward="false" selection-start-line="248" selection-start-column="43" selection-end-line="248" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/Values.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="220">
+          <caret line="10" column="46" lean-forward="false" selection-start-line="10" selection-start-column="46" selection-end-line="10" selection-end-column="46" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/chief/activity/DuabnTopersonDetailActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="398">
+          <caret line="93" column="18" lean-forward="false" selection-start-line="93" selection-start-column="18" selection-end-line="93" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/activity/LakeDubanTopersonListActivity.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1048">
+          <caret line="94" column="43" lean-forward="false" selection-start-line="94" selection-start-column="43" selection-end-line="94" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hZSZ/src/main/java/com/zju/rchz/fragment/MeFragment.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="748">
+          <caret line="277" column="59" lean-forward="false" selection-start-line="277" selection-start-column="59" selection-end-line="277" selection-end-column="59" />
           <folding />
         </state>
       </provider>

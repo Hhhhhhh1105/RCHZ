@@ -272,7 +272,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             View v2=rootView.findViewById(R.id.rl_problem_report_list);
             v2.setVisibility(View.GONE);
         }
-        if(isLakeCoordinator){
+        if(isLakeCoordinator||isLakechief||isCityLakeChief){
             View v1=rootView.findViewById(R.id.rl_lakeproblem_report);
             v1.setVisibility(View.VISIBLE);
             View v2=rootView.findViewById(R.id.rl_lakeproblem_report_list);
