@@ -105,11 +105,11 @@ public class User {
 
 	public boolean isCoordinator(){
 		//河道督察员协管员权限
-		return authority==6 && ifOnJob ==0&&(status==0||status==2);
+		return (authority==6 && ifOnJob ==0&&(status==0||status==2));
 	}
 	public boolean isLakeCoordinator(){
 		//湖泊督察员协管员权限
-		return authority==6 && ifOnJob ==0&&(status==1||status==2);
+		return (authority==6 && ifOnJob ==0&&(status==1||status==2));
 	}
 	public boolean isDucha(){
 		//市级督察员权限

@@ -386,7 +386,7 @@
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
                 android:layout_marginTop="@dimen/page_item_margin_v"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_leaderintruction_list"
@@ -625,103 +625,7 @@
                 </ImageView>
             </RelativeLayout>
 
-            <!--处理投诉-->
-            <RelativeLayout
-                android:id="@+id/rl_chief_complaint"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/me_item_h"
-                android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v"
-                android:visibility="gone">
 
-                <TextView
-                    android:id="@+id/tv_chief_complaint"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/me_item_h"
-                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
-                    android:layout_toRightOf="@+id/iv_chief_complaint"
-                    android:background="@drawable/btn_white_gray"
-                    android:clickable="true"
-                    android:drawableRight="@drawable/ic_arrow_rigth"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/me_item_tv_padding_left"
-                    android:paddingRight="@dimen/page_padding"
-                    android:text="@string/mychiefcomplaint"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/text_gray" />
-
-                <TextView
-                    android:id="@+id/tv_chief_unhandlecomplaint_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/me_item_h"
-                    android:gravity="right"
-                    android:paddingRight="@dimen/padding_medium"
-                    android:text="@string/eg_chief_unhandle_comp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/littlelightgray"
-                    android:visibility="gone" >
-                </TextView>
-
-                <ImageView
-                    android:id="@+id/iv_chief_complaint"
-                    android:layout_width="@dimen/me_item_icon_w"
-                    android:layout_height="@dimen/me_item_icon_h"
-                    android:contentDescription="@null"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_chief_complaint" >
-                </ImageView>
-            </RelativeLayout>
-
-            <!--处理意见-->
-            <RelativeLayout
-                android:id="@+id/rl_chief_suggestion"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/me_item_h"
-                android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/tv_chief_suggestion"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/me_item_h"
-                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
-                    android:layout_toRightOf="@+id/iv_chief_suggestion"
-                    android:background="@drawable/btn_white_gray"
-                    android:clickable="true"
-                    android:drawableRight="@drawable/ic_arrow_rigth"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/me_item_tv_padding_left"
-                    android:paddingRight="@dimen/page_padding"
-                    android:text="@string/mychiefsuggestion"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/text_gray" />
-
-                <TextView
-                    android:id="@+id/tv_chief_unhandlesuggestion_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/me_item_h"
-                    android:gravity="right"
-                    android:paddingRight="@dimen/padding_medium"
-                    android:text="@string/eg_chief_unhandle_sugs"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/littlelightgray"
-                    android:visibility="gone" >
-                </TextView>
-
-                <ImageView
-                    android:id="@+id/iv_chief_suggestion"
-                    android:layout_width="@dimen/me_item_icon_w"
-                    android:layout_height="@dimen/me_item_icon_h"
-                    android:contentDescription="@null"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_chief_suggestion" >
-                </ImageView>
-            </RelativeLayout>
 
             <!--开始巡河-->
             <RelativeLayout
@@ -833,7 +737,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_chief_dubanToperson"
@@ -881,7 +786,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_citychief_dubanToperson"
@@ -1131,6 +1037,103 @@
                     android:contentDescription="@null"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_chief_complaint" >
+                </ImageView>
+            </RelativeLayout>
+            <!--处理投诉-->
+            <RelativeLayout
+                android:id="@+id/rl_chief_complaint"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_chief_complaint"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_chief_complaint"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="@string/mychiefcomplaint"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:id="@+id/tv_chief_unhandlecomplaint_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_comp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_chief_complaint"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_chief_complaint" >
+                </ImageView>
+            </RelativeLayout>
+
+            <!--处理意见-->
+            <RelativeLayout
+                android:id="@+id/rl_chief_suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_chief_suggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_chief_suggestion"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="@string/mychiefsuggestion"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:id="@+id/tv_chief_unhandlesuggestion_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_sugs"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_chief_suggestion"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_chief_suggestion" >
                 </ImageView>
             </RelativeLayout>
 

@@ -1664,7 +1664,7 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>none</code></td><td>0</td><td></td></tr>
 <tr><td><code>standard</code></td><td>3</td><td></td></tr>
-<tr><td><code>direct</code></td><td>1</td><td> for now only direct & barriers </td></tr>
+<tr><td><code>direct</code></td><td>1</td><td></td></tr>
 <tr><td><code>barrier</code></td><td>2</td><td></td></tr>
 <tr><td><code>chains</code></td><td>4</td><td></td></tr>
 <tr><td><code>dimensions</code></td><td>8</td><td></td></tr>
@@ -3828,18 +3828,18 @@ containing a value of this type.
         public static final int iv_about=0x7f0c014d;
         public static final int iv_arrow_right=0x7f0c02c0;
         public static final int iv_banner=0x7f0c01d3;
-        public static final int iv_chief_complaint=0x7f0c0118;
-        public static final int iv_chief_duban=0x7f0c0126;
-        public static final int iv_chief_dubanToperson=0x7f0c0129;
-        public static final int iv_chief_inspect=0x7f0c0120;
+        public static final int iv_chief_complaint=0x7f0c013b;
+        public static final int iv_chief_duban=0x7f0c011e;
+        public static final int iv_chief_dubanToperson=0x7f0c0121;
+        public static final int iv_chief_inspect=0x7f0c0118;
         public static final int iv_chief_mail=0x7f0c0114;
-        public static final int iv_chief_notepad=0x7f0c0140;
+        public static final int iv_chief_notepad=0x7f0c0138;
         public static final int iv_chief_npcsug=0x7f0c0110;
         public static final int iv_chief_record=0x7f0c00f2;
-        public static final int iv_chief_rivermanage=0x7f0c0123;
+        public static final int iv_chief_rivermanage=0x7f0c011b;
         public static final int iv_chief_sign=0x7f0c00ef;
-        public static final int iv_chief_suggestion=0x7f0c011c;
-        public static final int iv_citychief_dubanToperson=0x7f0c012d;
+        public static final int iv_chief_suggestion=0x7f0c013f;
+        public static final int iv_citychief_dubanToperson=0x7f0c0125;
         public static final int iv_collection=0x7f0c0148;
         public static final int iv_complaint=0x7f0c0143;
         public static final int iv_ducha=0x7f0c010a;
@@ -3857,11 +3857,11 @@ containing a value of this type.
         public static final int iv_love=0x7f0c01c3;
         public static final int iv_month_left=0x7f0c00b9;
         public static final int iv_month_right=0x7f0c00bb;
-        public static final int iv_npc_comment=0x7f0c013a;
-        public static final int iv_npc_legal=0x7f0c013d;
-        public static final int iv_npc_myjob=0x7f0c0137;
-        public static final int iv_npc_myriver=0x7f0c0134;
-        public static final int iv_npc_name=0x7f0c0131;
+        public static final int iv_npc_comment=0x7f0c0132;
+        public static final int iv_npc_legal=0x7f0c0135;
+        public static final int iv_npc_myjob=0x7f0c012f;
+        public static final int iv_npc_myriver=0x7f0c012c;
+        public static final int iv_npc_name=0x7f0c0129;
         public static final int iv_onekey_comp=0x7f0c01d8;
         public static final int iv_phone=0x7f0c02d6;
         public static final int iv_photo=0x7f0c02a6;
@@ -4060,18 +4060,18 @@ containing a value of this type.
         public static final int river_alias=0x7f0c01c1;
         public static final int river_legend=0x7f0c00a7;
         public static final int river_record_list_id=0x7f0c0271;
-        public static final int rl_chief_complaint=0x7f0c0116;
-        public static final int rl_chief_duban=0x7f0c0124;
-        public static final int rl_chief_dubanToperson=0x7f0c0127;
-        public static final int rl_chief_inspect=0x7f0c011e;
+        public static final int rl_chief_complaint=0x7f0c0139;
+        public static final int rl_chief_duban=0x7f0c011c;
+        public static final int rl_chief_dubanToperson=0x7f0c011f;
+        public static final int rl_chief_inspect=0x7f0c0116;
         public static final int rl_chief_mail=0x7f0c0112;
-        public static final int rl_chief_notepad=0x7f0c013e;
+        public static final int rl_chief_notepad=0x7f0c0136;
         public static final int rl_chief_npcsug=0x7f0c010e;
         public static final int rl_chief_record=0x7f0c00f0;
-        public static final int rl_chief_rivermanage=0x7f0c0121;
+        public static final int rl_chief_rivermanage=0x7f0c0119;
         public static final int rl_chief_sign=0x7f0c00ed;
-        public static final int rl_chief_suggestion=0x7f0c011a;
-        public static final int rl_citychief_dubanToperson=0x7f0c012b;
+        public static final int rl_chief_suggestion=0x7f0c013d;
+        public static final int rl_citychief_dubanToperson=0x7f0c0123;
         public static final int rl_complaint=0x7f0c0141;
         public static final int rl_ducha=0x7f0c0108;
         public static final int rl_ducha_list=0x7f0c010b;
@@ -4081,12 +4081,12 @@ containing a value of this type.
         public static final int rl_leaderDuban_list=0x7f0c0102;
         public static final int rl_leaderintruction_list=0x7f0c0105;
         public static final int rl_logo=0x7f0c027d;
-        public static final int rl_npc_comment=0x7f0c0138;
+        public static final int rl_npc_comment=0x7f0c0130;
         public static final int rl_npc_left=0x7f0c02ae;
-        public static final int rl_npc_legal=0x7f0c013b;
-        public static final int rl_npc_myjob=0x7f0c0135;
-        public static final int rl_npc_myriver=0x7f0c0132;
-        public static final int rl_npc_name=0x7f0c012f;
+        public static final int rl_npc_legal=0x7f0c0133;
+        public static final int rl_npc_myjob=0x7f0c012d;
+        public static final int rl_npc_myriver=0x7f0c012a;
+        public static final int rl_npc_name=0x7f0c0127;
         public static final int rl_npc_right=0x7f0c02b2;
         public static final int rl_problem_report=0x7f0c00f6;
         public static final int rl_problem_report_list=0x7f0c00fc;
@@ -4161,26 +4161,26 @@ containing a value of this type.
         public static final int tv_bossChiefIntruction_time=0x7f0c022f;
         public static final int tv_checkResult_1=0x7f0c0252;
         public static final int tv_checkResult_2=0x7f0c0294;
-        public static final int tv_chief_complaint=0x7f0c0117;
-        public static final int tv_chief_duban=0x7f0c0125;
-        public static final int tv_chief_dubanToperson=0x7f0c0128;
-        public static final int tv_chief_inspect=0x7f0c011f;
+        public static final int tv_chief_complaint=0x7f0c013a;
+        public static final int tv_chief_duban=0x7f0c011d;
+        public static final int tv_chief_dubanToperson=0x7f0c0120;
+        public static final int tv_chief_inspect=0x7f0c0117;
         public static final int tv_chief_mail=0x7f0c0113;
-        public static final int tv_chief_notepad=0x7f0c013f;
+        public static final int tv_chief_notepad=0x7f0c0137;
         public static final int tv_chief_npcsug=0x7f0c010f;
         public static final int tv_chief_record=0x7f0c00f1;
-        public static final int tv_chief_rivermanage=0x7f0c0122;
+        public static final int tv_chief_rivermanage=0x7f0c011a;
         public static final int tv_chief_sign=0x7f0c00ee;
-        public static final int tv_chief_suggestion=0x7f0c011b;
-        public static final int tv_chief_unhandleDubanToperson_count=0x7f0c012a;
+        public static final int tv_chief_suggestion=0x7f0c013e;
+        public static final int tv_chief_unhandleDubanToperson_count=0x7f0c0122;
         public static final int tv_chief_unhandle_npccomplaint_count=0x7f0c0111;
-        public static final int tv_chief_unhandlecomplaint_count=0x7f0c0119;
-        public static final int tv_chief_unhandlesuggestion_count=0x7f0c011d;
+        public static final int tv_chief_unhandlecomplaint_count=0x7f0c013c;
+        public static final int tv_chief_unhandlesuggestion_count=0x7f0c0140;
         public static final int tv_chief_unreadmail_count=0x7f0c0115;
         public static final int tv_cityChiefIntruction=0x7f0c0233;
         public static final int tv_cityChiefIntruction_time=0x7f0c0232;
-        public static final int tv_citychief_dubanToperson=0x7f0c012c;
-        public static final int tv_citychief_unhandleDubanToperson_count=0x7f0c012e;
+        public static final int tv_citychief_dubanToperson=0x7f0c0124;
+        public static final int tv_citychief_unhandleDubanToperson_count=0x7f0c0126;
         public static final int tv_cleaners=0x7f0c01bb;
         public static final int tv_collection=0x7f0c0147;
         public static final int tv_comp_content=0x7f0c00ca;
@@ -4265,13 +4265,13 @@ containing a value of this type.
         public static final int tv_news_article=0x7f0c02c2;
         public static final int tv_news_title=0x7f0c02c1;
         public static final int tv_npc=0x7f0c01b1;
-        public static final int tv_npc_comment=0x7f0c0139;
+        public static final int tv_npc_comment=0x7f0c0131;
         public static final int tv_npc_district=0x7f0c0300;
-        public static final int tv_npc_legal=0x7f0c013c;
+        public static final int tv_npc_legal=0x7f0c0134;
         public static final int tv_npc_mobilephone=0x7f0c02ff;
-        public static final int tv_npc_myjob=0x7f0c0136;
-        public static final int tv_npc_myriver=0x7f0c0133;
-        public static final int tv_npc_name=0x7f0c0130;
+        public static final int tv_npc_myjob=0x7f0c012e;
+        public static final int tv_npc_myriver=0x7f0c012b;
+        public static final int tv_npc_name=0x7f0c0128;
         public static final int tv_npc_river=0x7f0c02c5;
         public static final int tv_npc_suptime=0x7f0c015f;
         public static final int tv_npc_title=0x7f0c02fe;
@@ -5335,15 +5335,8 @@ containing a value of this type.
         public static final int Animation_AppCompat_DropDownUp=0x7f090090;
         /**  API 11 theme customizations can go here. 
  API 14 theme customizations can go here. 
-
-        @android:style/Theme.DeviceDefault.Dialog.NoActionBar
-            android:style/Theme.DeviceDefault.Light.NoActionBarcan go in
-            res/values-vXX/styles.xml, while customizations related to
-            backward-compatibility can go here.
          */
         public static final int AppBaseTheme=0x7f09000b;
-        /**  All customizations that are NOT specific to a particular API-level can go here. 
-         */
         public static final int AppTheme=0x7f090091;
         public static final int Base_AlertDialog_AppCompat=0x7f090092;
         public static final int Base_AlertDialog_AppCompat_Light=0x7f090093;
@@ -5488,8 +5481,6 @@ containing a value of this type.
         public static final int Base_Widget_AppCompat_TextView_SpinnerItem=0x7f09007d;
         public static final int Base_Widget_AppCompat_Toolbar=0x7f0900be;
         public static final int Base_Widget_AppCompat_Toolbar_Button_Navigation=0x7f09007e;
-        /** 动画
-         */
         public static final int BottomAnimDialogStyle=0x7f0900bf;
         public static final int CardView=0x7f09008b;
         public static final int CardView_Dark=0x7f0900c0;
@@ -9457,7 +9448,7 @@ containing a value of this type.
 <tr><th>Constant</th><th>Value</th><th>Description</th></tr>
 <tr><td><code>none</code></td><td>0</td><td></td></tr>
 <tr><td><code>standard</code></td><td>3</td><td></td></tr>
-<tr><td><code>direct</code></td><td>1</td><td> for now only direct & barriers </td></tr>
+<tr><td><code>direct</code></td><td>1</td><td></td></tr>
 <tr><td><code>barrier</code></td><td>2</td><td></td></tr>
 <tr><td><code>chains</code></td><td>4</td><td></td></tr>
 <tr><td><code>dimensions</code></td><td>8</td><td></td></tr>

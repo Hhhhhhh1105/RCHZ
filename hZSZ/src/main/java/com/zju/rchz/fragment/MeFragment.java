@@ -3,6 +3,7 @@ package com.zju.rchz.fragment;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,6 +21,7 @@ import com.zju.rchz.activity.DubanTopersonCoordListActivity;
 import com.zju.rchz.activity.LakeDubanTopersonListActivity;
 import com.zju.rchz.activity.LakeProblemReportActivity;
 import com.zju.rchz.activity.LoginActivity;
+import com.zju.rchz.activity.MyCenterActivity;
 import com.zju.rchz.activity.MyCollectActivity;
 import com.zju.rchz.activity.ProblemReportActivity;
 import com.zju.rchz.activity.ProblemReportListActivity;
@@ -47,6 +49,7 @@ import static android.content.Context.LOCATION_SERVICE;
  */
 
 public class MeFragment extends BaseFragment implements View.OnClickListener{
+    private static final String TAG = "MeFragment";
 
     //任何人登录时显示我的投诉、我的建议、注销登录
     private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_complaint, R.id.rl_suggestion };
@@ -229,100 +232,217 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 
         boolean isLakeCoordinator=getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isLakeCoordinator();
 
+        //所有人登录时都可以看到 我的建议，我的投诉，注销登录
 
-        for(int id:showWhenLakechiefLogined){
-            View v = rootView.findViewById(id);
-            if(v!=null){
-                v.setVisibility((isLakechief||isCityLakeChief||isVillageLakeChief)?View.VISIBLE:View.GONE);
-            }
-        }
-
+        getRootViewWarp().setHeadTitle("个人中心");
+        //更改底端tab栏为“个人中心”
+        ((RadioButton) getBaseActivity().findViewById(R.id.rd_panhang)).setText("个人中心");
         rootView.findViewById(R.id.rl_chief_rivermanage).setVisibility(View.GONE);
         for (int id : showWhenLogined) {
             View v = rootView.findViewById(id);
             if (v != null)
                 v.setVisibility(logined ? View.VISIBLE : View.GONE);
         }
-        for (int id : showWhenChiefLogined) {
-            View v =  rootView.findViewById(id);
-            if (v != null)
-                v.setVisibility((ischief||isVillageChief||isCityChief||isCleaner)? View.VISIBLE : View.GONE);
+        if (!logined){
+            rootView.findViewById(R.id.rl_chief_record).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_chief_dubanToperson).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_citychief_dubanToperson).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_problem_report).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_chief_sign).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_problem_report).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_citychief_dubanToperson).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_problem_report_list).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_ducha).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_ducha_list).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.GONE);
+
+            rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.GONE);
+
         }
-        if(isCityChief||isVillageChief||isCleaner){
-            View v1 =  rootView.findViewById(R.id.rl_chief_complaint);
-            v1.setVisibility(View.GONE);
-            View v2 =  rootView.findViewById(R.id.rl_chief_suggestion);
-            v2.setVisibility(View.GONE);
-        }
-        if(isLakechief){
-            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+
+
+
+
+        //镇级河长显示巡河记录，处理投诉，处理建议，我的督办单
+        if(ischief){
+            rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
             rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+
+            rootView.findViewById(R.id.rl_chief_dubanToperson).setVisibility(View.VISIBLE);
         }
-        //协管员
-        if(isCoordinator){
-            View v1=rootView.findViewById(R.id.rl_problem_report);
-            v1.setVisibility(View.VISIBLE);
-            View v2=rootView.findViewById(R.id.rl_problem_report_list);
-            v2.setVisibility(View.VISIBLE);
-            View v3=rootView.findViewById(R.id.rl_chief_record);
-            v3.setVisibility(View.VISIBLE);
-        }else {
-            View v1=rootView.findViewById(R.id.rl_problem_report);
-            v1.setVisibility(View.GONE);
-            View v2=rootView.findViewById(R.id.rl_problem_report_list);
-            v2.setVisibility(View.GONE);
+        //村级河长显示巡河记录
+        if(isVillageChief){
+            rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
         }
-        if(isLakeCoordinator||isLakechief||isCityLakeChief){
-            View v1=rootView.findViewById(R.id.rl_lakeproblem_report);
-            v1.setVisibility(View.VISIBLE);
-            View v2=rootView.findViewById(R.id.rl_lakeproblem_report_list);
-            v2.setVisibility(View.VISIBLE);
-//            View v3=rootView.findViewById(R.id.rl_lakechief_record);
-//            v3.setVisibility(View.VISIBLE);
-        }else {
-            View v1=rootView.findViewById(R.id.rl_lakeproblem_report);
-            v1.setVisibility(View.GONE);
-            View v2=rootView.findViewById(R.id.rl_lakeproblem_report_list);
-            v2.setVisibility(View.GONE);
+        //市级河长显示巡河记录，我的督办单，河道问题上报
+        if(isCityChief){
+            rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_citychief_dubanToperson).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_problem_report).setVisibility(View.VISIBLE);
+
         }
-        //河管员签到
+        //河管员显示巡河记录，河长签到
         if(isCleaner){
-            View v1=rootView.findViewById(R.id.rl_chief_sign);
-            v1.setVisibility(View.VISIBLE);
-        }else {
-            View v1=rootView.findViewById(R.id.rl_chief_sign);
-            v1.setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_chief_sign).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河管员签到");
+            rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河管员巡河");
+
         }
-        //督察员
-        if(isDucha){
-            View v1=rootView.findViewById(R.id.rl_ducha);
-            v1.setVisibility(View.VISIBLE);
-            View v2=rootView.findViewById(R.id.rl_ducha_list);
-            v2.setVisibility(View.VISIBLE);
-        }else {
-            View v1=rootView.findViewById(R.id.rl_ducha);
-            v1.setVisibility(View.GONE);
-            View v2=rootView.findViewById(R.id.rl_ducha_list);
-            v2.setVisibility(View.GONE);
+        //联络人显示河道问题上报，我的督办单
+        if (isCityLinkMan){
+            rootView.findViewById(R.id.rl_problem_report).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_citychief_dubanToperson).setVisibility(View.VISIBLE);
         }
-        //我的督办单，镇街河长
-        if (ischief){
-            View v1=rootView.findViewById(R.id.rl_chief_dubanToperson);
-            v1.setVisibility(View.VISIBLE);
-        }else {
-            View v1=rootView.findViewById(R.id.rl_chief_dubanToperson);
-            v1.setVisibility(View.GONE);
+        //河督察员显示巡河记录，河道问题上报，河道业务处置
+        if (isCoordinator){
+            Log.d(TAG, "refreshView: 河督河督河督");
+
+
+            rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("督察员巡河");
+            rootView.findViewById(R.id.rl_problem_report).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_problem_report_list).setVisibility(View.VISIBLE);
         }
-        //我的督办单，市级河长
-        if (isCityChief ||isCityLinkMan){
-            View v1=rootView.findViewById(R.id.rl_citychief_dubanToperson);
-            v1.setVisibility(View.VISIBLE);
-            View v3=rootView.findViewById(R.id.rl_problem_report);
-            v3.setVisibility(View.VISIBLE);
-        }else {
-            View v1=rootView.findViewById(R.id.rl_citychief_dubanToperson);
-            v1.setVisibility(View.GONE);
+        //市级督察员显示新建督查，我的督查单
+        if (isDucha){
+            rootView.findViewById(R.id.rl_ducha).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_ducha_list).setVisibility(View.VISIBLE);
         }
+        //人大
+        if (isNpc){
+            changeNpcLogo();
+        }
+        //镇级湖长显示巡湖记录，处理投诉，处理建议，(湖泊问题上报)，湖泊业务处置
+        if (isLakechief){
+            rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+            //rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_lakeproblem_report_list)).setText("查看湖泊督办单");
+        }
+        //村级湖长显示巡湖记录，处理投诉，处理建议
+        if (isVillageLakeChief){
+            rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+        }
+        //市级湖长显示巡湖记录，处理投诉，处理建议，(湖泊问题上报)，湖泊业务处置
+        if (isCityLakeChief){
+            rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+            //rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_lakeproblem_report_list)).setText("查看湖泊督办单");
+        }
+        //湖泊督察员湖泊问题上报，湖泊业务处置,（目前不可见巡湖记录）
+        if (isLakeCoordinator){
+            Log.d(TAG, "refreshView: 湖督湖督湖督0000");
+
+            rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("督察员巡湖");
+        }
+
+
+
+
+
+
+//        for(int id:showWhenLakechiefLogined){
+//            View v = rootView.findViewById(id);
+//            if(v!=null){
+//                v.setVisibility((isLakechief||isCityLakeChief||isVillageLakeChief)?View.VISIBLE:View.GONE);
+//            }
+//        }
+
+
+//        for (int id : showWhenChiefLogined) {
+//            View v =  rootView.findViewById(id);
+//            if (v != null)
+//                v.setVisibility((ischief||isVillageChief||isCityChief||isCleaner)? View.VISIBLE : View.GONE);
+//        }
+//        if(isCityChief||isVillageChief||isCleaner){
+//            View v1 =  rootView.findViewById(R.id.rl_chief_complaint);
+//            v1.setVisibility(View.GONE);
+//            View v2 =  rootView.findViewById(R.id.rl_chief_suggestion);
+//            v2.setVisibility(View.GONE);
+//        }
+//        if(isLakechief){
+//            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+//            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+//        }
+//        //协管员
+//        if(isCoordinator){
+//            View v1=rootView.findViewById(R.id.rl_problem_report);
+//            v1.setVisibility(View.VISIBLE);
+//            View v2=rootView.findViewById(R.id.rl_problem_report_list);
+//            v2.setVisibility(View.VISIBLE);
+//            View v3=rootView.findViewById(R.id.rl_chief_record);
+//            v3.setVisibility(View.VISIBLE);
+//        }else {
+//            View v1=rootView.findViewById(R.id.rl_problem_report);
+//            v1.setVisibility(View.GONE);
+//            View v2=rootView.findViewById(R.id.rl_problem_report_list);
+//            v2.setVisibility(View.GONE);
+//        }
+//        if(isLakeCoordinator||isLakechief||isCityLakeChief){
+//            View v1=rootView.findViewById(R.id.rl_lakeproblem_report);
+//            v1.setVisibility(View.VISIBLE);
+//            View v2=rootView.findViewById(R.id.rl_lakeproblem_report_list);
+//            v2.setVisibility(View.VISIBLE);
+////            View v3=rootView.findViewById(R.id.rl_lakechief_record);
+////            v3.setVisibility(View.VISIBLE);
+//        }else {
+//            View v1=rootView.findViewById(R.id.rl_lakeproblem_report);
+//            v1.setVisibility(View.GONE);
+//            View v2=rootView.findViewById(R.id.rl_lakeproblem_report_list);
+//            v2.setVisibility(View.GONE);
+//        }
+//        //河管员签到
+//        if(isCleaner){
+//            View v1=rootView.findViewById(R.id.rl_chief_sign);
+//            v1.setVisibility(View.VISIBLE);
+//        }else {
+//            View v1=rootView.findViewById(R.id.rl_chief_sign);
+//            v1.setVisibility(View.GONE);
+//        }
+//        //督察员
+//        if(isDucha){
+//            View v1=rootView.findViewById(R.id.rl_ducha);
+//            v1.setVisibility(View.VISIBLE);
+//            View v2=rootView.findViewById(R.id.rl_ducha_list);
+//            v2.setVisibility(View.VISIBLE);
+//        }else {
+//            View v1=rootView.findViewById(R.id.rl_ducha);
+//            v1.setVisibility(View.GONE);
+//            View v2=rootView.findViewById(R.id.rl_ducha_list);
+//            v2.setVisibility(View.GONE);
+//        }
+//        //我的督办单，镇街河长
+//        if (ischief){
+//            View v1=rootView.findViewById(R.id.rl_chief_dubanToperson);
+//            v1.setVisibility(View.VISIBLE);
+//        }else {
+//            View v1=rootView.findViewById(R.id.rl_chief_dubanToperson);
+//            v1.setVisibility(View.GONE);
+//        }
+//        //我的督办单，市级河长
+//        if (isCityChief ||isCityLinkMan){
+//            View v1=rootView.findViewById(R.id.rl_citychief_dubanToperson);
+//            v1.setVisibility(View.VISIBLE);
+//            View v3=rootView.findViewById(R.id.rl_problem_report);
+//            v3.setVisibility(View.VISIBLE);
+//        }else {
+//            View v1=rootView.findViewById(R.id.rl_citychief_dubanToperson);
+//            v1.setVisibility(View.GONE);
+//        }
         //批示
         if(isSecretary || isMayor || isOtherMayor){
             View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
@@ -343,29 +463,31 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             v1.setVisibility(View.GONE);
         }
 
-        //如果是人大代表账号
-        if (isNpc){
-            changeNpcLogo();
-
-        }
-        if (isCleaner) {
-
-            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河管员巡河");
-            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河管员签到");
-
-        } else if(isCoordinator||isLakeCoordinator){
-            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("督察员巡河");
-            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("督察员巡湖");
-        } else {
-            getRootViewWarp().setHeadTitle("个人中心");
-            //更改底端tab栏为“个人中心”
-            ((RadioButton) getBaseActivity().findViewById(R.id.rd_panhang)).setText("个人中心");
-
-            //dh
-            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("巡河记录");
-            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河长签到");
-
-        }
+//        //如果是人大代表账号
+//        if (isNpc){
+//            changeNpcLogo();
+//
+//        }
+//        if (isCleaner) {
+//
+//            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河管员巡河");
+//            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河管员签到");
+//
+//        } else if(isCoordinator||isLakeCoordinator){
+//            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("督察员巡河");
+//            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("督察员巡湖");
+//        } else {
+//            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("巡河记录");
+//            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("巡湖记录");
+//            getRootViewWarp().setHeadTitle("个人中心");
+//            //更改底端tab栏为“个人中心”
+//            ((RadioButton) getBaseActivity().findViewById(R.id.rd_panhang)).setText("个人中心");
+//
+//            //dh
+//            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("巡河记录");
+//            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河长签到");
+//
+//        }
 
         //如果是区级河长，需要显示下级河长的投诉与巡河情况
 
@@ -596,6 +718,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         rootView.findViewById(R.id.tv_info).setVisibility(View.VISIBLE);
         rootView.findViewById(R.id.shape_radius).setVisibility(View.VISIBLE);
         rootView.findViewById(R.id.npc_logo).setVisibility(View.INVISIBLE);
+
         //更换"我的投诉"、"我的建议"
         ((TextView) rootView.findViewById(R.id.tv_complaint)).setText("我的投诉");
         ((TextView) rootView.findViewById(R.id.tv_suggestion)).setText("我的建议");

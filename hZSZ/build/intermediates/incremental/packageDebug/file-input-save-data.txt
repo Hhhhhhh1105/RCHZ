@@ -1,5 +1,5 @@
 #Internal package file, do not edit.
-#Fri Aug 03 16:20:51 GMT+08:00 2018
+#Mon Aug 06 12:29:41 GMT+08:00 2018
 835.base=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_
 100.set=ANDROID_RESOURCE
 57.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\layout\\inc_instruction.xml
@@ -729,7 +729,7 @@
 287.set=ANDROID_RESOURCE
 534.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\color\\common_plus_signin_btn_text_light.xml
 865.base=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_
-87.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png
+87.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png
 780.base=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\mergeJavaRes\\debug\\jars\\2\\1f\\main.jar
 489.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-hdpi-v4\\ic_bottom_xinwen_s.png
 82.set=ANDROID_RESOURCE
@@ -2167,7 +2167,7 @@ count=873
 388.base=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_
 450.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable\\shape_tabbtn_m_bg_n.xml
 866.base=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_
-88.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\common_plus_signin_btn_text_dark_focused.9.png
+88.file=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_\\res\\drawable-xhdpi-v4\\abc_list_longpressed_holo.9.png
 781.base=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\resources-debug.ap_
 92.set=ANDROID_RESOURCE
 681.set=ANDROID_RESOURCE
