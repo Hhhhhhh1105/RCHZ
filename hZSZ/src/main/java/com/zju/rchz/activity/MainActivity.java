@@ -13,6 +13,7 @@ import android.widget.RadioGroup.OnCheckedChangeListener;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.sin.android.update.ToolBox;
+import com.tencent.open.utils.Global;
 import com.umeng.socialize.bean.SHARE_MEDIA;
 import com.umeng.socialize.controller.UMServiceFactory;
 import com.umeng.socialize.controller.UMSocialService;
@@ -29,6 +30,7 @@ import com.zju.rchz.R;
 import com.zju.rchz.Tags;
 import com.zju.rchz.Values;
 import com.zju.rchz.fragment.BaseFragment;
+import com.zju.rchz.fragment.LakeFragment;
 import com.zju.rchz.fragment.MainFragment;
 import com.zju.rchz.fragment.MeFragment;
 import com.zju.rchz.fragment.NewsFragment;
@@ -53,6 +55,9 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 	private BaseFragment rankingFragment = null;
 	private BaseFragment publicityFragment = null; //投诉公示
 	private BaseFragment meFragment = null; //个人中心
+	private BaseFragment lakeFragment=null;
+
+	public static boolean islakeFr=false;
 
 
 	@Override
@@ -77,6 +82,8 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 		newsFragment = new NewsFragment();
 		mainFragment = new MainFragment();
 		riverFragment = new RiverFragment();
+		lakeFragment=new LakeFragment();
+
 		// rankingFragment = new RankingFragment();
 		rankingFragment = new TabRankingFragment();
 		publicityFragment = new PublicityFragment();
@@ -101,6 +108,7 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 			replaceFragment(newsFragment);
 			break;
 		case R.id.rd_hedao:
+
 			replaceFragment(riverFragment);
 			break;
 		case R.id.rd_panhang:
@@ -114,7 +122,7 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 		}
 	}
 
-	BaseFragment curFragment = null;
+	public BaseFragment curFragment = null;
 
 	private void replaceFragment(BaseFragment newFragment) {
 		FragmentTransaction transaction = getFragmentManager().beginTransaction();
@@ -124,7 +132,8 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 			if (curFragment == null) {
 				transaction.replace(R.id.container, newFragment).commit();
 			} else {
-				transaction.hide(curFragment).add(R.id.container, newFragment).commit();
+				transaction.replace(R.id.container, newFragment).commit();
+//				transaction.hide(curFragment).add(R.id.container, newFragment).commit();
 			}
 		} else {
 			if (curFragment != null)

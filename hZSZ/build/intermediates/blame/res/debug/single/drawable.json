@@ -12,12 +12,12 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_seekbar_track_material.xml"
     },
     {
-        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_on.png",
-        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_sina_on.png"
-    },
-    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_default_mtrl_shape.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_default_mtrl_shape.xml"
+    },
+    {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_on.png",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_sina_on.png"
     },
     {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_renren_off.png",
@@ -48,24 +48,24 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_dialog_material_background_dark.xml"
     },
     {
-        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_o_bg_s.xml",
-        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_o_bg_s.xml"
-    },
-    {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ic_menu_share_material.xml",
         "source": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_menu_share_material.xml"
+    },
+    {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_o_bg_s.xml",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_o_bg_s.xml"
     },
     {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_tab_r_bg_n.xml",
         "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_tab_r_bg_n.xml"
     },
     {
-        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_tab_r_bg_n.xml",
-        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_tab_r_bg_n.xml"
-    },
-    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_window_shadow_pad.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_window_shadow_pad.xml"
+    },
+    {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_tab_r_bg_n.xml",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_tab_r_bg_n.xml"
     },
     {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_light_bar_bg.9.png",
@@ -156,16 +156,16 @@
         "source": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ic_go_search_api_material.xml"
     },
     {
-        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_right_pressed.png",
-        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_title_tab_right_pressed.png"
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\cb_green_gray.xml",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\cb_green_gray.xml"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_bottom_gray_dashline.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_bottom_gray_dashline.xml"
     },
     {
-        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\cb_green_gray.xml",
-        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\cb_green_gray.xml"
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_title_tab_right_pressed.png",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_title_tab_right_pressed.png"
     },
     {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_board_btn_bg_s.xml",
@@ -180,12 +180,12 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_title_back_bt_selected.png"
     },
     {
-        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_on_mtrl.xml",
-        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_radio_on_mtrl.xml"
-    },
-    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sidebar_selector.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_sidebar_selector.xml"
+    },
+    {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_btn_radio_on_mtrl.xml",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_btn_radio_on_mtrl.xml"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_share_to_button.xml",
@@ -212,12 +212,12 @@
         "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_action_back_selected.png"
     },
     {
-        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_action_back.xml",
-        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_action_back.xml"
-    },
-    {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_at_normal.png",
         "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_at_normal.png"
+    },
+    {
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_action_back.xml",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_action_back.xml"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_twitter.png",
@@ -416,12 +416,12 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_button_grey.9.png"
     },
     {
-        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_l_bg.xml",
-        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_l_bg.xml"
-    },
-    {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\ic_smallwater.png",
         "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\ic_smallwater.png"
+    },
+    {
+        "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_l_bg.xml",
+        "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_l_bg.xml"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_head_tab_l_bg.xml",
@@ -612,28 +612,28 @@
         "source": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_item_background_holo_light.xml"
     },
     {
-        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_head_tab_l_bg_n.xml",
-        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_head_tab_l_bg_n.xml"
-    },
-    {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_box_btn_bg_s.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_box_btn_bg_s.xml"
     },
     {
-        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_m_bg.xml",
-        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_m_bg.xml"
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_head_tab_l_bg_n.xml",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_head_tab_l_bg_n.xml"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_renren_off.png",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_renren_off.png"
     },
     {
-        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_off.png",
-        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_sina_off.png"
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\shape_tabbtn_m_bg.xml",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\shape_tabbtn_m_bg.xml"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\abc_ratingbar_full_material.xml",
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.android.support\\appcompat-v7\\23.2.0\\res\\drawable\\abc_ratingbar_full_material.xml"
+    },
+    {
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\umeng_socialize_sina_off.png",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable\\umeng_socialize_sina_off.png"
     },
     {
         "merged": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable\\mk_position_done1.png",

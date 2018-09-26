@@ -78,6 +78,16 @@ public class User {
 
 	public int ifOnJob = 0;
 
+//	public List<River> getRiverSumList(){
+//		List<River> aa=null;
+//		for (int i=0;i<riverSum.length;i++){
+//			aa.add(riverSum[i]);
+//		}
+//		return  aa;
+//	}
+
+
+
 
 
 	// 是否镇级河长

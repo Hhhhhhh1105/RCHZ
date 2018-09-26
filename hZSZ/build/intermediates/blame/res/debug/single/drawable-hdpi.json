@@ -40,12 +40,12 @@
         "source": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.google.android.gms\\play-services-base\\8.4.0\\res\\drawable-hdpi\\common_google_signin_btn_icon_light_normal.9.png"
     },
     {
-        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_head_search_s.png",
-        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable-hdpi\\ic_head_search_s.png"
-    },
-    {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_ope_suggestion.png",
         "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable-hdpi\\ic_ope_suggestion.png"
+    },
+    {
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\ic_head_search_s.png",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\drawable-hdpi\\ic_head_search_s.png"
     },
     {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\drawable-hdpi\\im_me_bg.png",

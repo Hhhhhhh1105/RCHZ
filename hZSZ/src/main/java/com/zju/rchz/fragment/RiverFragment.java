@@ -1,11 +1,13 @@
 package com.zju.rchz.fragment;
 
+import android.app.FragmentTransaction;
 import android.content.Context;
 import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -28,12 +30,14 @@ import com.zju.rchz.fragment.river.RiverInfoPubItem;
 import com.zju.rchz.fragment.river.RiverPolicyItem;
 import com.zju.rchz.fragment.river.RiverPositionItem;
 import com.zju.rchz.fragment.river.RiverQualityItem;
+import com.zju.rchz.model.BaseRes;
 import com.zju.rchz.model.River;
 import com.zju.rchz.model.RiverListRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.StrUtils;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 /**
@@ -42,7 +46,33 @@ import java.util.List;
  * @author Robin
  * 
  */
+
 public class RiverFragment extends BaseFragment implements OnCheckedChangeListener, OnPageChangeListener {
+	BaseFragment curFragment = null;
+
+	private void replaceFragment(BaseFragment newFragment) {
+		FragmentTransaction transaction = getFragmentManager().beginTransaction();
+		if (curFragment != null)
+			curFragment.whenVisibilityChanged(false);
+		if (!newFragment.isAdded()) {
+			if (curFragment == null) {
+				transaction.replace(R.id.container, newFragment).commit();
+			} else {
+				transaction.hide(curFragment).add(R.id.container, newFragment).commit();
+			}
+		} else {
+			if (curFragment != null)
+				transaction.hide(curFragment);
+			transaction.show(newFragment);
+			transaction.commit();
+		}
+
+		curFragment = newFragment;
+		curFragment.whenVisibilityChanged(true);
+	}
+	private BaseFragment lakeFragment = null; //跳转至湖
+
+
 
 	enum ShowRiverType {
 		DZGSP, YHYC, HDSZ, HDFW, TSXX
@@ -124,7 +154,7 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 //				Toast toast=new Toast(MainActivity.getCurActivity());
 //				toast.makeText(MainActivity.getCurActivity(),"暂无收藏的河道信息。\n请点击右上角搜索河道并收藏！",Toast.LENGTH_LONG).show();
 //				toast.setGravity(Gravity.CENTER, 0, 0);
-				showToastCenter(MainActivity.getCurActivity(),"暂无收藏的河道信息。\n请点击右上角搜索河道并收藏！");
+//				showToastCenter(MainActivity.getCurActivity(),"暂无收藏的河道信息。\n请点击右上角搜索河道并收藏！");
 			}
 		}
 
@@ -157,6 +187,8 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 	}
 
 	private List<River> rivers = null;
+	private List<River> aa = null;
+	private River[] riversArr=null;
 
 	private List<PagerItem> pagerItems = new ArrayList<PagerItem>();
 	private SimplePagerAdapter adapter = null;
@@ -168,10 +200,19 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 			rootView = inflater.inflate(R.layout.fragment_river, container, false);
 			// rivers.addAll(getBaseActivity().getUser().getCollections());
 			//rivers = new List<River>();
-			rivers = getBaseActivity().getUser().getCollections();
+//			rivers = getBaseActivity().getUser().getCollections();
+//			rivers = getBaseActivity().getUser().getRiverSumList();
+
+
+			rivers = Arrays.asList(getBaseActivity().getUser().riverSum);
+
+
+
+
+
 
 			//顶栏左边无图片，右边为search图片
-			getRootViewWarp().setHeadImage(0, R.drawable.ic_head_search);
+			getRootViewWarp().setHeadImage(0, R.drawable.ic_head_refresh);
 			//为RadioGroup绑定监听器
 			((RadioGroup) rootView.findViewById(R.id.rg_river_showwith)).setOnCheckedChangeListener(this);
 			//为ViewPager绑定监听器
@@ -198,12 +239,39 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 			rootView.findViewById(R.id.iv_head_right).setOnClickListener(new View.OnClickListener() {
 				@Override
 				public void onClick(View arg0) {
-					startActivity(new Intent(getBaseActivity(), SearchRiverActivity.class));
+					lakeFragment = new LakeFragment();
+					MainActivity.islakeFr=true;
+					replaceFragment(lakeFragment);
 				}
 			});
 
 			if (rivers.size() == 0) {
-				getRivers();
+//				showToastCenter(MainActivity.getCurActivity(),"3333333333333");
+                showOperating();
+                getRequestContext().add("Get_RandomRiver_List", new Callback<RiverListRes>() {
+                    @Override
+                    public void callback(RiverListRes o) {
+                        if (o != null && o.isSuccess()) {
+
+                            // 更新
+
+                            rivers = Arrays.asList(o.data);
+
+                        }
+
+                        hideOperating();
+                        pagerItems.clear();
+                        for (River r : rivers) {
+
+                            pagerItems.add(new RiverPagerItem(r));
+                        }
+
+                        adapter.notifyDataSetChanged();
+                        refreshTitle();
+                    }
+                }, RiverListRes.class, null);
+
+
 			} else {
 				pagerItems.clear();
 				for (River r : rivers) {
@@ -215,9 +283,30 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 			}
 		}
 		if (rivers==null||rivers.size()==0){
-//			Toast.makeText(MainActivity.getCurActivity(),"暂无收藏的河道信息。\n" +
-//					"请点击右上角搜索河道并收藏",Toast.LENGTH_SHORT).show();
-			showToastCenter(MainActivity.getCurActivity(),"暂无收藏的河道信息\n请点击右上角搜索河道并收藏");
+			showOperating();
+			getRequestContext().add("Get_RandomRiver_List", new Callback<RiverListRes>() {
+				@Override
+				public void callback(RiverListRes o) {
+					if (o != null && o.isSuccess()) {
+
+						// 更新
+
+						rivers = Arrays.asList(o.data);
+
+					}
+
+					hideOperating();
+					pagerItems.clear();
+					for (River r : rivers) {
+
+						pagerItems.add(new RiverPagerItem(r));
+					}
+
+					adapter.notifyDataSetChanged();
+					refreshTitle();
+				}
+			}, RiverListRes.class, null);
+
 		}
 		return rootView;
 	}
@@ -253,16 +342,60 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 		if (rivers==null||rivers.size()==0){
 //			Toast.makeText(MainActivity.getCurActivity(),"暂无收藏的河道信息。\n" +
 //					"请点击右上角搜索河道并收藏",Toast.LENGTH_SHORT).show();
-			showToastCenter(MainActivity.getCurActivity(),"暂无收藏的河道信息\n请点击右上角搜索河道并收藏");
+//			showToastCenter(MainActivity.getCurActivity(),"???????????????");
 		}
 	}
+	private List<River> getRandRivers(){
+		 aa=null;
+        showOperating();
+        getRequestContext().add("Get_RandomRiver_List", new Callback<RiverListRes>() {
+            @Override
+            public void callback(RiverListRes o) {
+                if (o != null && o.isSuccess()) {
+
+					// 更新
+
+					aa = Arrays.asList(o.data);
+
+				}
+//
+
+
+                hideOperating();
+            }
+        }, RiverListRes.class, null);
+        return aa;
+
+
+
+    }
 
 	@Override
 	public void onCheckedChanged(RadioGroup rg, int rdid) {
 		if (rivers==null||rivers.size()==0){
-//			Toast.makeText(MainActivity.getCurActivity(),"暂无收藏的河道信息。\n" +
-//					"请点击右上角搜索河道并收藏",Toast.LENGTH_SHORT).show();
-			showToastCenter(MainActivity.getCurActivity(),"暂无收藏的河道信息\n请点击右上角搜索河道并收藏");
+			 showOperating();
+                getRequestContext().add("Get_RandomRiver_List", new Callback<RiverListRes>() {
+                    @Override
+                    public void callback(RiverListRes o) {
+                        if (o != null && o.isSuccess()) {
+
+                            // 更新
+
+                            rivers = Arrays.asList(o.data);
+
+                        }
+
+                        hideOperating();
+                        pagerItems.clear();
+                        for (River r : rivers) {
+
+                            pagerItems.add(new RiverPagerItem(r));
+                        }
+
+                        adapter.notifyDataSetChanged();
+                        refreshTitle();
+                    }
+                }, RiverListRes.class, null);
 		}
 		if (pagerItems.size() == 0)
 			return;
@@ -334,7 +467,29 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 			refreshTitle();
 
 			if (rivers.size() == 0) {
-				getRivers();
+				showOperating();
+				getRequestContext().add("Get_RandomRiver_List", new Callback<RiverListRes>() {
+					@Override
+					public void callback(RiverListRes o) {
+						if (o != null && o.isSuccess()) {
+
+							// 更新
+
+							rivers = Arrays.asList(o.data);
+
+						}
+
+						hideOperating();
+						pagerItems.clear();
+						for (River r : rivers) {
+
+							pagerItems.add(new RiverPagerItem(r));
+						}
+
+						adapter.notifyDataSetChanged();
+						refreshTitle();
+					}
+				}, RiverListRes.class, null);
 			} else {
 				// 更新
 				pagerItems.clear();

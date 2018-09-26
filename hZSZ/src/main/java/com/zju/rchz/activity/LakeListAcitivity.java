@@ -205,6 +205,17 @@ public class LakeListAcitivity extends BaseActivity implements TextView.OnEditor
             }
         }, RiverQuickSearchRes.class, ParamUtils.freeParam(null));
 
+
+
+
+        findViewById(R.id.iv_search).setOnClickListener(new View.OnClickListener() {
+
+            @Override
+            public void onClick(View arg0) {
+                loadLakes(true);
+            }
+        });
+
         adapter = new SimpleListAdapter(this, lakes, lakeInitor);
         listViewWarp = new ListViewWarp(this, adapter, new ListViewWarp.WarpHandler() {
             @Override

@@ -133,7 +133,7 @@
     <string name="section_info">断面水质信息</string>
     <string name="section_name">断面名称</string>
     <string name="outlet">阳光排放口信息</string>
-    <string name="lake_info">湖泊水质信息</string>
+    <string name="lake_info">湖泊信息</string>
     <string name="smallwater_info">小微水体信息</string>
     <string name="rive_name">河道名称</string>
     <string name="section_level">等级</string>
@@ -469,5 +469,8 @@
     <string name="town_lake_chief_name">镇街湖长</string>
     <string name="village_lake_chief_name">村级湖长</string>
     <string name="lake_police_name">湖泊警长</string>
+
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="hello_blank_fragment">Hello blank fragment</string>
 
 </resources>

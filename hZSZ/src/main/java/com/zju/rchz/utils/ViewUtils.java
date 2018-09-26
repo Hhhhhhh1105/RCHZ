@@ -7,6 +7,7 @@ import android.graphics.Color;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -90,7 +91,10 @@ public class ViewUtils {
 			line.setOrientation(LinearLayout.HORIZONTAL);
 
 			line.addView(genIndexLine(context, items[i], true));
-			line.addView((i + 1) < items.length ? genIndexLine(context, items[i + 1], false) : null);
+			if((i+1)< items.length){
+				line.addView( genIndexLine(context, items[i + 1], false) );
+			}
+
 
 			if ((i + 2) <= items.length) {
 				// not last
@@ -103,6 +107,29 @@ public class ViewUtils {
 
 		}
 	}
+	public static void initIndexTablehh(Context context, LinearLayout ll_indexs, SectionIndex[] items) {
+		ll_indexs.removeAllViews();
+		for (int i = 0; i < items.length; i += 1) {
+			LinearLayout line = new LinearLayout(context);
+			line.setOrientation(LinearLayout.HORIZONTAL);
+
+			line.addView(genIndexLine(context, items[i], true));
+			line.addView( genIndexLinehh(context, items[i], false));
+
+			if ((i +1 ) <= items.length) {
+				// not last
+				LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT, 0);
+				lp.setMargins(0, 0, 0, DipPxUtils.dip2px(context, context.getResources().getDimension(R.dimen.linew)));
+				line.setLayoutParams(lp);
+			}
+
+			ll_indexs.addView(line);
+
+		}
+	}
+
+
+
 
 	private static View genIndexLine(Context context, SectionIndex data, boolean isLeft) {
 		View view = LinearLayout.inflate(context, R.layout.item_section_indexone, null);
@@ -113,12 +140,34 @@ public class ViewUtils {
 		view.setLayoutParams(lp);
 		if (data != null) {
 			ViewWarp warp = new ViewWarp(view, context);
+
 			warp.setText(R.id.tv_index_value, StrUtils.floatS2Str(data.indexValue));
 
 			warp.setText(R.id.tv_index_en, IndexENUtils.getString(data.indexNameEN));
 
 			warp.setText(R.id.tv_index_ch, "" + data.indexNameCH);
 			((TextView) warp.getViewById(R.id.tv_index_value)).setTextColor(context.getResources().getColor(ResUtils.getQuiltyColor(data.indexLevel)));
+		} else {
+			view.setVisibility(View.INVISIBLE);
+		}
+		return view;
+	}
+	private static View genIndexLinehh(Context context, SectionIndex data, boolean isLeft) {
+		View view = LinearLayout.inflate(context, R.layout.item_section_indextwo, null);
+		LinearLayout.LayoutParams lp = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.MATCH_PARENT, 1);
+		if (isLeft) {
+			lp.setMargins(0, 0, DipPxUtils.dip2px(context, context.getResources().getDimension(R.dimen.linew)), 0);
+		}
+		view.setLayoutParams(lp);
+		if (data != null) {
+			ViewWarp warp = new ViewWarp(view, context);
+//			warp.setText(R.id.tv_index_value, StrUtils.floatS2Str(data.indexValue));
+
+			warp.setText(R.id.tv_index_en, IndexENUtils.getString(data.indexNameEN)+"指标等级");
+			((ImageView)warp.getViewById(R.id.iv_index_value)).setImageResource(ResUtils.getQuiltySmallImg(data.indexLevel-1));
+
+//			warp.setText(R.id.tv_index_ch, "单项指标等级" );
+//			((TextView) warp.getViewById(R.id.tv_index_value)).setTextColor(context.getResources().getColor(ResUtils.getQuiltyColor(data.indexLevel)));
 		} else {
 			view.setVisibility(View.INVISIBLE);
 		}

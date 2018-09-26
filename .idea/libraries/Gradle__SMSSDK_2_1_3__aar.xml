@@ -1,8 +1,8 @@
 <component name="libraryTable">
   <library name="Gradle: SMSSDK-2.1.3:@aar">
     <CLASSES>
-      <root url="file://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SMSSDK-2.1.3.aar/08a6688b7fab8adb2d8dde5b45b27cc5/res" />
-      <root url="jar://$USER_HOME$/.gradle/caches/transforms-1/files-1.1/SMSSDK-2.1.3.aar/08a6688b7fab8adb2d8dde5b45b27cc5/jars/classes.jar!/" />
+      <root url="jar://$PROJECT_DIR$/hZSZ/build/intermediates/exploded-aar/SMSSDK-2.1.3/jars/classes.jar!/" />
+      <root url="file://$PROJECT_DIR$/hZSZ/build/intermediates/exploded-aar/SMSSDK-2.1.3/res" />
     </CLASSES>
     <JAVADOC />
     <SOURCES />

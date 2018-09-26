@@ -255,7 +255,9 @@ public class RiverInfoItem extends BaseRiverPagerItem {
 				warp.getViewById(R.id.iv_suggestion).setVisibility(View.INVISIBLE);
 			}
 
-			warp.setImage(R.id.iv_love, river.isCared(context.getUser()) ? R.drawable.ic_loved : R.drawable.ic_love);
+//			warp.setImage(R.id.iv_love, river.isCared(context.getUser()) ? R.drawable.ic_loved : R.drawable.ic_love);
+			warp.getViewById(R.id.iv_love).setVisibility(View.GONE);
+			warp.getViewById(R.id.tv_love).setVisibility(View.GONE);
 
 			View.OnClickListener clk = new View.OnClickListener() {
 				@Override

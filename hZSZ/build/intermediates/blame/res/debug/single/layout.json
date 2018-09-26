@@ -596,6 +596,10 @@
         "source": "D:\\Androidproject\\RC\\RCHZ\\hZSZ\\src\\main\\res\\layout\\inc_quality_line_v.xml"
     },
     {
+        "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout\\item_section_indextwo.xml",
+        "source": "D:\\Learn\\RCHZ\\hZSZ\\src\\main\\res\\layout\\item_section_indextwo.xml"
+    },
+    {
         "merged": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\res\\merged\\debug\\layout\\md_stub_titleframe_lesspadding.xml",
         "source": "D:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\exploded-aar\\com.github.afollestad.material-dialogs\\core\\0.8.5.1\\res\\layout\\md_stub_titleframe_lesspadding.xml"
     },

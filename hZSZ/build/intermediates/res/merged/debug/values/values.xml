@@ -1125,6 +1125,7 @@
     <string name="handler">处理人</string>
     <string name="handlestatus">处理状态:</string>
     <string name="handletime">答复时间</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
     <string name="hint_authcode">输入验证码</string>
     <string name="hint_com_name">投诉人姓名</string>
     <string name="hint_com_subject">投诉主题</string>
@@ -1159,7 +1160,7 @@
     <string name="lake_code">湖泊编号：</string>
     <string name="lake_contactinfo">湖长联系方式</string>
     <string name="lake_depth">平均深度：</string>
-    <string name="lake_info">湖泊水质信息</string>
+    <string name="lake_info">湖泊信息</string>
     <string name="lake_level">湖泊等级</string>
     <string name="lake_main_function">主要功能</string>
     <string name="lake_police_name">湖泊警长</string>

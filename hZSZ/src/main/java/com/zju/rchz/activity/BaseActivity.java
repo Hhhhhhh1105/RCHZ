@@ -399,6 +399,7 @@ public class BaseActivity extends com.sin.android.sinlibs.activities.BaseActivit
 	public static double latitude = 0.0;
 	public static double longitude = 0.0;
 
+
 	public double getLatitude() {
 		return latitude;
 	}

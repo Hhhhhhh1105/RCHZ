@@ -45,9 +45,11 @@ public class RiverQualityItem extends BaseRiverPagerItem implements OnCheckedCha
 			((RadioGroup) view.findViewById(R.id.rg_indexs)).removeAllViews();
 			((RadioGroup) view.findViewById(R.id.rg_segments)).removeAllViews();
 			((LinearLayout) view.findViewById(R.id.ll_indexs)).removeAllViews();
-			refrehDeepView();
+
+
 			initedView();
 			loadData();
+			refrehDeepView();
 		}
 		return view;
 	}
@@ -66,7 +68,8 @@ public class RiverQualityItem extends BaseRiverPagerItem implements OnCheckedCha
 			}, this);
 		}
 		if (river.indexs != null && river.indexs.length > 0) {
-			ViewUtils.initIndexTable(context, (LinearLayout) view.findViewById(R.id.ll_indexs), river.indexs);
+
+			ViewUtils.initIndexTablehh(context, (LinearLayout) view.findViewById(R.id.ll_indexs), river.indexs);
 			ViewUtils.initTabLine(context, (RadioGroup) view.findViewById(R.id.rg_indexs), river.indexs, new ViewUtils.NameGetter() {
 				@Override
 				public CharSequence getName(Object o) {
@@ -154,9 +157,9 @@ public class RiverQualityItem extends BaseRiverPagerItem implements OnCheckedCha
 							return index.getTime.getYM(context);
 						}
 					});
-					ViewUtils.setQuilityLineV(context, (LinearLayout) view.findViewById(R.id.inc_quality_line_v), "DO".equals(curIndex.indexNameEN), ValUtils.getYVals(curIndex.indexNameEN));
+					ViewUtils.setQuilityLineV(context, (LinearLayout) view.findViewById(R.id.inc_quality_line_v), "DO".equals(curIndex.indexNameEN)||"Transp".equals(curIndex.indexNameEN), ValUtils.getYVals(curIndex.indexNameEN));
 					if (o.data.indexDatas != null) {
-						ViewUtils.initIndexTable(context, (LinearLayout) view.findViewById(R.id.ll_indexs), o.data.indexDatas);
+						ViewUtils.initIndexTablehh(context, (LinearLayout) view.findViewById(R.id.ll_indexs), o.data.indexDatas);
 					}
 					((ImageView) view.findViewById(R.id.iv_quality)).setImageResource(ResUtils.getQuiltySmallImg(o.data.waterLevel));
 				}

@@ -299,17 +299,20 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 			listViewWarp.setRefreshing(true);
 		else
 			listViewWarp.setLoadingMore(true);
+		if(!getUser().isCityChief()){
+			//判断轨迹有效性的请求
+			getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
+				@Override
+				public void callback(BaseRes o) {
+					hideOperating();
+					if (o != null && o.isSuccess()) {
 
-		//判断轨迹有效性的请求
-		getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
-			@Override
-			public void callback(BaseRes o) {
-				hideOperating();
-				if (o != null && o.isSuccess()) {
-
+					}
 				}
-			}
-		}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
+			}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
+		}
+
+
 
 		getRequestContext().add("Get_Record_List", new Callback<RiverRecordListRes>() {
 			@Override
