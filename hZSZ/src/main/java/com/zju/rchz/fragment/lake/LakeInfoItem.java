@@ -4,6 +4,7 @@ import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
@@ -32,7 +33,9 @@ import org.json.JSONObject;
  * Created by ZJTLM4600l on 2018/6/12.
  */
 
+
 public class LakeInfoItem extends BaseLakePagerItem {
+    private static final String TAG="LakeInfoItem";
     private BaseActivity.BooleanCallback careCkb = null;
 
     public LakeInfoItem(Lake lake, BaseActivity context, BaseActivity.BooleanCallback careCkb) {
@@ -232,10 +235,23 @@ public class LakeInfoItem extends BaseLakePagerItem {
             warp.setText(R.id.tv_river_name, lake.lakeName);//河与湖复用的文本框
             warp.setText(R.id.tv_lake_code, lake.lakeSerialNum);
             warp.setText(R.id.tv_lake_owner, lake.districtName);
-            warp.setText(R.id.tv_lake_main_function, lake.mianFunction);
+            if (lake.mianFunction==null||lake.mianFunction==""||lake.mianFunction.isEmpty()){
+                warp.getViewById(R.id.tr_lake_main_function).setVisibility(View.GONE);
+            }else{
+                warp.setText(R.id.tv_lake_main_function, lake.mianFunction);
+            }
             warp.setText(R.id.tv_lake_level, ResUtils.getRiverSLittleLevel(lake.lakeLevel));
-            warp.setText(R.id.tv_lake_size, lake.lakeSize+" km^2");
-            warp.setText(R.id.tv_lake_depth, lake.deep+" m");
+            if (lake.lakeSize==null||lake.lakeSize==""||lake.lakeSize.isEmpty()){
+                warp.setText(R.id.tv_lake_size, "暂无信息");
+            }else {
+                warp.setText(R.id.tv_lake_size, lake.lakeSize+" km^2");
+            }
+            Log.d(TAG, "lakedeep="+lake.deep);
+            if (lake.deep==null||lake.deep==""||lake.deep.isEmpty()){
+                warp.setText(R.id.tv_lake_depth, "暂无信息");
+            }else{
+                warp.setText(R.id.tv_lake_depth, lake.deep+" m");
+            }
             warp.setText(R.id.tv_lake_capacity, lake.capacity+" m^3");
 //            warp.setText(R.id.tv_lake_size, StrUtils.renderText(context, R.string.fmt_size_km2, StrUtils.floatS2Str(lake.lakeSize)));
 //            warp.setText(R.id.tv_lake_depth, StrUtils.renderText(context, R.string.fmt_depth_m, StrUtils.floatS2Str("2.50")));
@@ -368,7 +384,8 @@ public class LakeInfoItem extends BaseLakePagerItem {
                 row = new LinearLayout(context);
                 row.addView(initContItem(R.string.river_contdep, lake.department, null, false));
 //                row.addView(initContItem(R.string.river_contpe, lake.lakeContactUser, lake.departmentPhone, false));
-                ll_contacts.addView(row);
+//                暂不显示所有的联系部门
+//                ll_contacts.addView(row);
             }
 
 //            //增加统一监督电话

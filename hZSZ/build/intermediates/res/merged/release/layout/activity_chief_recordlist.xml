@@ -47,7 +47,7 @@
             android:gravity="center"
             android:paddingLeft="@dimen/padding_small"
             android:paddingRight="@dimen/padding_small"
-            android:text="开始巡河"
+            android:text="开始巡查"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/btn_green_white"
             android:textSize="@dimen/font_small" />
@@ -78,7 +78,7 @@
             android:layout_height="wrap_content"
             android:layout_weight="1.2"
             android:gravity="center"
-            android:text="巡查河段"
+            android:text="巡查河段/湖泊"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/blue"
             android:textSize="@dimen/font_normal" />
@@ -89,9 +89,11 @@
             android:layout_weight="0.6"
             android:gravity="center"
             android:text="有效性"
+            android:id="@+id/isValid"
             android:textAppearance="?android:attr/textAppearanceMedium"
             android:textColor="@color/blue"
-            android:textSize="@dimen/font_normal" />
+            android:textSize="@dimen/font_normal"
+            />
 
         <TextView
             android:layout_width="@dimen/two_text_btn_w"

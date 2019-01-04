@@ -52,7 +52,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
     private static final String TAG = "MeFragment";
 
     //任何人登录时显示我的投诉、我的建议、注销登录
-    private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_complaint, R.id.rl_suggestion };
+    private int[] showWhenLogined = { R.id.tv_logout, R.id.rl_complaint, R.id.rl_suggestion,R.id.rl_setting};
     //三级河长、河管员登陆时
     private int[] showWhenChiefLogined = {R.id.rl_chief_complaint, R.id.rl_chief_record, R.id.rl_chief_suggestion };
     //三级湖长登录时显示巡湖记录、处理投诉、处理建议
@@ -229,8 +229,12 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         boolean isVillageLakeChief=getBaseActivity().getUser().isLogined()&&getBaseActivity().getUser().isVillageLakeChief();
         //市级湖长 10
         boolean isCityLakeChief=getBaseActivity().getUser().isLogined()&&getBaseActivity().getUser().isCityLakeChief();
-
+        //胡泊督察员 6
         boolean isLakeCoordinator=getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isLakeCoordinator();
+        //湖管员7
+        boolean isLakeCleaner = getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isLakeCleaner();
+        //市级湖长联系人  10
+        boolean isLakeCityLinkMan = getBaseActivity().getUser().isLogined() && getBaseActivity().getUser().isLakeCityLinkMan();
 
         //所有人登录时都可以看到 我的建议，我的投诉，注销登录
 
@@ -287,8 +291,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         }
         //河管员显示巡河记录，河长签到
         if(isCleaner){
-            rootView.findViewById(R.id.rl_chief_sign).setVisibility(View.VISIBLE);
-            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河管员签到");
+//            rootView.findViewById(R.id.rl_chief_sign).setVisibility(View.VISIBLE);
+//            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河管员签到");
             rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
             ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河管员巡河");
 
@@ -329,25 +333,43 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         //村级湖长显示巡湖记录，处理投诉，处理建议
         if (isVillageLakeChief){
             rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
-            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
-            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+//            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+//            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
         }
-        //市级湖长显示巡湖记录，处理投诉，处理建议，(湖泊问题上报)，湖泊业务处置
+        //市级湖长显示巡湖记录，湖泊问题上报，湖泊督办单
         if (isCityLakeChief){
             rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
-            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
-            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
-            //rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
+//            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+//            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
             rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.VISIBLE);
             ((TextView)rootView.findViewById(R.id.tv_lakeproblem_report_list)).setText("查看湖泊督办单");
         }
-        //湖泊督察员湖泊问题上报，湖泊业务处置,（目前不可见巡湖记录）
+        //湖泊督察员湖泊问题上报，湖泊业务处置,巡湖记录
         if (isLakeCoordinator){
             Log.d(TAG, "refreshView: 湖督湖督湖督0000");
+            rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
 
             rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
             rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.VISIBLE);
+            ( (TextView)rootView.findViewById(R.id.tv_lakeproblem_report_list)).setText("湖泊业务处置");
             ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("督察员巡湖");
+        }
+        //湖管员签到、巡湖，投诉建议
+        if (isLakeCleaner){
+//            rootView.findViewById(R.id.rl_lakechief_sign).setVisibility(View.VISIBLE);
+//            ((TextView)rootView.findViewById(R.id.tv_lakechief_sign)).setText("湖管员签到");
+            rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("湖管员巡湖");
+        }
+        if (isLakeCityLinkMan){
+
+//            rootView.findViewById(R.id.rl_chief_suggestion).setVisibility(View.VISIBLE);
+//            rootView.findViewById(R.id.rl_chief_complaint).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
+            rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.VISIBLE);
+            ((TextView)rootView.findViewById(R.id.tv_lakeproblem_report_list)).setText("查看湖泊督办单");
+
         }
 
 

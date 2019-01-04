@@ -1,5 +1,6 @@
 package com.zju.rchz.lakechief.activity;
 
+import com.baidu.mapapi.utils.DistanceUtil;
 import com.zju.rchz.activity.BaseActivity;
 import android.content.Intent;
 import android.graphics.Color;
@@ -37,6 +38,7 @@ import com.zju.rchz.model.Imag;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ImgUtils;
 import com.zju.rchz.utils.ParamUtils;
+import com.zju.rchz.utils.PatrolRecordUtils;
 import com.zju.rchz.utils.StrUtils;
 
 import java.util.ArrayList;
@@ -57,6 +59,8 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
     private static String picPath;
     private static Double longitude;
     private static Double latitude;
+    private String patrolLength;//巡河长度
+    private String patrolTime;//巡河时长
 
     private static String[] latArray;
     private static String[] lngArray;
@@ -68,11 +72,15 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
     private LatLng[] imagesLocation;
 
     private List<LatLng> pointsToDraw;
+    private List<Integer> abnormalPoints;//轨迹分段显示的各组点
 
     //传入河道编号：
     private int lakeId;
 
     Handler handler = new Handler();
+
+    private TextView txPatrolTime;
+    private TextView txPatrolLength;
 
     BitmapDescriptor bmp_image = BitmapDescriptorFactory.fromResource(R.drawable.river_record_image_location);
     @Override
@@ -91,6 +99,9 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
         baiduMap.getUiSettings().setOverlookingGesturesEnabled(true);
         mv_trackview.showZoomControls(false);
 
+        txPatrolTime = (TextView) findViewById(R.id.tv_passTime);
+        txPatrolLength = (TextView) findViewById((R.id.tv_dstance));
+
         //得到轨迹经纬度数组
         Bundle bundle=this.getIntent().getExtras();
         latList = bundle.getString("latList");
@@ -102,10 +113,15 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
 //        longitude=bundle.getDouble("longitude");
 //        latitude=bundle.getDouble("latitude");
         lakeId = bundle.getInt("lakeId",0);
+        patrolLength = bundle.getString("patrolLength");
+        patrolTime = bundle.getString("patrolTime");
 
-//        if(lakeId!=0){
-//
-//        }
+        if(patrolLength != null && !patrolLength.equals("")){
+            txPatrolLength.setText(patrolLength);
+        }
+        if(patrolTime != null && !patrolTime.equals("")){
+            txPatrolTime.setText(patrolTime);
+        }
 
         //将字符串变成数组形式,如果只含有一个坐标点，强行变成两个
         if (getIntent().getExtras().getString("latList") != null){
@@ -158,6 +174,10 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
         //开始循环填充数据
         for (int i = 0; i < latArray.length; i ++){
             pointsToDraw.add(new LatLng(Double.parseDouble(latArray[i]),Double.parseDouble(lngArray[i])));
+        }
+        abnormalPoints = new ArrayList<Integer>();
+        if (pointsToDraw.size()>1){
+            abnormalPoints = PatrolRecordUtils.segmentTrack(pointsToDraw);
         }
         Log.i("来自trackView的latArray", latArray[0].toString());
         Log.i("来自trackView的lngArray", lngArray[0].toString());
@@ -255,7 +275,6 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
 
     }
 
-
     private void drawTrack() {
         baiduMap.clear();
 
@@ -287,12 +306,34 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
         float lng = (float) ((from.longitude + to.longitude)/2);
         baiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
 
-        List<LatLng> points = new ArrayList<LatLng>();
-
-        //可设置循环，添加坐标点
-        OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                .color(Color.GREEN).points(pointsToDraw);
-        baiduMap.addOverlay(ooPolyline);
+        if(pointsToDraw.size()>1 && abnormalPoints.size()>0){
+            int i = 0;
+            int last= 0;//起始点
+            for (;i<abnormalPoints.size();i++){
+                if(i>0){
+                    last = abnormalPoints.get(i-1);
+                }
+                //两点之间距离正常的点
+                OverlayOptions ooPolyline = new PolylineOptions().width(10)
+                        .color(Color.GREEN).points(pointsToDraw.subList(last,abnormalPoints.get(i)+1));
+                baiduMap.addOverlay(ooPolyline);
+                //两点之间距离异常的点
+                ooPolyline = new PolylineOptions().width(4).dottedLine(true)
+                        .color(Color.LTGRAY).points(pointsToDraw.subList(abnormalPoints.get(i),abnormalPoints.get(i)+2));
+                baiduMap.addOverlay(ooPolyline);
+            }
+            if (abnormalPoints.get(i-1)<pointsToDraw.size()-2){
+                //两点之间距离正常的点
+                OverlayOptions ooPolyline = new PolylineOptions().width(10)
+                        .color(Color.GREEN).points(pointsToDraw.subList(abnormalPoints.get(i-1)+1,pointsToDraw.size()));
+                baiduMap.addOverlay(ooPolyline);
+            }
+        }else{
+            //可设置循环，添加坐标点
+            OverlayOptions ooPolyline = new PolylineOptions().width(10)
+                    .color(Color.GREEN).points(pointsToDraw);
+            baiduMap.addOverlay(ooPolyline);
+        }
 
         //设置地图中心点与设置缩放级别
         MapStatus status = new MapStatus.Builder().target(new LatLng(lat,lng)).zoom(Values.MAP_ZOOM_LEVEL).build();

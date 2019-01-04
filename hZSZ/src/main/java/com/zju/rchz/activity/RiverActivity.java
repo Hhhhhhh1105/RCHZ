@@ -3,6 +3,7 @@ package com.zju.rchz.activity;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v4.view.ViewPager.OnPageChangeListener;
+import android.util.Log;
 import android.view.View;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
@@ -34,13 +35,14 @@ public class RiverActivity extends BaseActivity implements OnPageChangeListener,
 	private River river = null;
 	private List<PagerItem> pagerItems = null;
 	private SimplePagerAdapter adapter = null;
+	private static final String TAG = "hhh11";
 
 	// private int[] rdids = new int[] { R.id.rb_river_dzgsp,
 	// R.id.rb_river_hdsz, R.id.rb_river_yhyc, R.id.rb_river_hdfw };
 	//rdids：电子公示牌-基本信息，河道水质，一河一策，信息公开；
 	//取消投诉统计
 //	private int[] rdids = new int[] { R.id.rb_river_dzgsp, R.id.rb_river_hdsz, R.id.rb_river_yhyc, R.id.rb_river_tsxx };
-	private int[] rdids = new int[] { R.id.rb_river_dzgsp, R.id.rb_river_hdsz, R.id.rb_river_yhyc};
+	private int[] rdids ;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -52,11 +54,30 @@ public class RiverActivity extends BaseActivity implements OnPageChangeListener,
 
 		river = StrUtils.Str2Obj(getIntent().getStringExtra(Tags.TAG_RIVER), River.class);
 		if (river != null) {
+
+
 			setTitle(StrUtils.renderText(this, R.string.fmt_riverinfo, river.riverName));
 			pagerItems = new ArrayList<PagerItem>();
-			pagerItems.add(new RiverInfoItem(river, this, null));
-			pagerItems.add(new RiverQualityItem(river, this));
-			pagerItems.add(new RiverPolicyItem(river, this));
+			//不知道为什么riverLevel是0
+			if((river.riverLevel==3)||(river.riverLevel==0)){
+				Log.d(TAG, "Msg "+river.riverLevel);
+				pagerItems.clear();
+				pagerItems.add(new RiverInfoItem(river, this, null));
+
+				pagerItems.add(new RiverPolicyItem(river, this));
+                rdids = new int[] { R.id.rb_river_dzgsp, R.id.rb_river_yhyc};
+                findViewById(R.id.rb_river_hdsz).setVisibility(View.GONE);
+
+			}
+			else {
+				Log.d(TAG, "Msg "+river.riverLevel);
+				pagerItems.clear();
+				pagerItems.add(new RiverInfoItem(river, this, null));
+                pagerItems.add(new RiverQualityItem(river, this));
+				pagerItems.add(new RiverPolicyItem(river, this));
+                rdids = new int[] { R.id.rb_river_dzgsp, R.id.rb_river_hdsz, R.id.rb_river_yhyc};
+                findViewById(R.id.rb_river_hdsz).setVisibility(View.VISIBLE);
+			}
 //			pagerItems.add(new RiverInfoPubItem(river, this));//DH
 
 			((ViewPager) findViewById(R.id.vp_river_tab)).setOnPageChangeListener(this);

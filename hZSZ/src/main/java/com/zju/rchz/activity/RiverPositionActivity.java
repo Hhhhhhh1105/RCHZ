@@ -29,6 +29,8 @@ import com.zju.rchz.Tags;
 import com.zju.rchz.model.River;
 import com.zju.rchz.model.RiverPosition;
 import com.zju.rchz.model.RiverPositionRes;
+import com.zju.rchz.model.WholeRiverMap;
+import com.zju.rchz.model.WholeRiverMapRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ParamUtils;
 import com.zju.rchz.utils.StrUtils;
@@ -48,7 +50,12 @@ public class RiverPositionActivity extends BaseActivity {
 	private LatLng start;
 	private LatLng end;
 	private LatLng me;
-
+	WholeRiverMap wholeRiverMap;
+	private String riverAllLatitude;//河道全部点
+	private String riverAllLongitude;
+	private String[] riverAllLatitudeArray;
+	private String[] riverAllLongitudeArray;
+	ArrayList<LatLng> riverAllPoint;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -109,10 +116,48 @@ public class RiverPositionActivity extends BaseActivity {
 							points.add(end);
 						}
 
-						drawRiver();
+
 					}
 				}
 			}, RiverPositionRes.class, ParamUtils.freeParam(null, "riverId", river.riverId));
+
+			getRequestContext().add("Get_WholeRiverMap", new Callback<WholeRiverMapRes>() {
+				@Override
+				public void callback(WholeRiverMapRes o) {
+					hideOperating();
+					if (o != null && o.isSuccess()) {
+						if (o.data != null && o.data.allLongitude != null) {
+							wholeRiverMap = o.data;
+							riverAllLatitude = wholeRiverMap.allLatitude;
+							riverAllLongitude = wholeRiverMap.allLongitude;
+							System.out.println("testrc: o.data !=null && o.data.allLongitude!=null");
+						}
+						if (riverAllLatitude != null && !riverAllLatitude.equals("")) {
+							System.out.println("testrc: //得到河道的所有坐标");
+							//得到河道的所有坐标
+							if (riverAllLatitude != null && riverAllLatitude.contains(",")) {
+								//如果不止一个数据，变成一个数组
+								riverAllLatitudeArray = riverAllLatitude.split(",");
+								riverAllLongitudeArray = riverAllLongitude.split(",");
+
+							} else {
+								//如果只有一个数据
+								riverAllLatitudeArray = new String[1];
+								riverAllLongitudeArray = new String[1];
+								riverAllLatitudeArray[0] = riverAllLatitude;
+								riverAllLongitudeArray[0] = riverAllLongitude;
+
+							}
+							riverAllPoint = new ArrayList<LatLng>();
+
+							for (int i = 0; i < riverAllLatitudeArray.length; i++){
+								riverAllPoint.add(new LatLng(Double.parseDouble(riverAllLatitudeArray[i]), Double.parseDouble(riverAllLongitudeArray[i])));
+							}
+						}
+					}
+					drawRiver();
+				}
+			 }, WholeRiverMapRes.class, ParamUtils.freeParam(null, "riverId", river.riverId));
 
 		}
 	}
@@ -133,6 +178,10 @@ public class RiverPositionActivity extends BaseActivity {
 		BitmapDescriptor bmp_me = BitmapDescriptorFactory.fromResource(R.drawable.ic_location_me);
 		BitmapDescriptor bmp_pub = BitmapDescriptorFactory.fromResource(R.drawable.ic_pub);
 		MarkerOptions optionMe = new MarkerOptions().position(me).icon(bmp_me);
+		BitmapDescriptor bdA = BitmapDescriptorFactory.fromResource(R.drawable.my_blue5px);
+
+
+
 		baiduMap.addOverlay(optionMe);
 
 		if (start != null && end != null) {
@@ -140,6 +189,13 @@ public class RiverPositionActivity extends BaseActivity {
 			MarkerOptions optionTo = new MarkerOptions().position(end).icon(bmp_to);
 
 			baiduMap.addOverlay(optionFrom);
+			
+			for(int i=1;i<riverAllPoint.size();i++){
+				OverlayOptions option1 =  new MarkerOptions()
+						.position(new LatLng(riverAllPoint.get(i).latitude, riverAllPoint.get(i).longitude))
+						.icon(bdA);
+				baiduMap.addOverlay(option1);
+			}
 			baiduMap.addOverlay(optionTo);
 
 			if (points.size() > 2) {
@@ -162,9 +218,9 @@ public class RiverPositionActivity extends BaseActivity {
 			float lng = (float) ((start.longitude + end.longitude) / 2);
 			baiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
 
-			OverlayOptions ooPolyline = new PolylineOptions().width(10)
-					.color(Color.BLUE).points(points);
-			baiduMap.addOverlay(ooPolyline);
+//			OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//					.color(Color.BLUE).points(points);
+//			baiduMap.addOverlay(ooPolyline);
 
 			//target：设置地图中心点；zoom:设置缩放级别
 			MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(13).build();

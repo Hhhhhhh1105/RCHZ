@@ -72,7 +72,7 @@ public class ComplainMap extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_riverposition);
         initHead(R.drawable.ic_head_back, 0);
-        setTitle("投诉方位");
+        setTitle("方位");
 //        river = StrUtils.Str2Obj(getIntent().getStringExtra(Tags.TAG_RIVER), River.class);
 
         me = new LatLng(getLatitude(), getLongitude());

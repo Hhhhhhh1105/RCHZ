@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zju.rchz"
     android:versionCode="17"
-    android:versionName="2.1.8" >
+    android:versionName="2.2.3" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -187,6 +187,9 @@
             android:name="com.zju.rchz.activity.DubanTopersonCoordListActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.zju.rchz.activity.LakeDubanTopersonListActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.zju.rchz.activity.DubanTopersonCitychiefListActivity"
             android:screenOrientation="portrait" />
         <activity
@@ -197,6 +200,9 @@
             android:screenOrientation="portrait" />
         <activity
             android:name="com.zju.rchz.activity.ProblemReportActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zju.rchz.activity.LakeProblemReportActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.zju.rchz.activity.DuChaDanActivity"
@@ -259,10 +265,6 @@
             android:label="@string/register"
             android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.MeActivity"
-            android:label="@string/mycenter"
-            android:screenOrientation="portrait" />
-        <activity
             android:name="com.zju.rchz.activity.SettingActivity"
             android:label="@string/mycenter"
             android:screenOrientation="portrait" />
@@ -298,6 +300,10 @@
         <activity
             android:name="com.zju.rchz.activity.SearchRiverActivity"
             android:label="@string/searchriver"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zju.rchz.activity.MyCenterActivity"
+            android:label="个人中心"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.zju.rchz.activity.LeaderInstructionActivity"

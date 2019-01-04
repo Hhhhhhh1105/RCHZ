@@ -167,6 +167,7 @@ public class SearchRiverActivity extends BaseActivity implements OnCheckedChange
 					convertView.findViewById(R.id.iv_quality).setVisibility(View.VISIBLE);
 					((ImageView) convertView.findViewById(R.id.iv_quality)).setImageResource(ResUtils.getQuiltyImg(river.waterType));
 				}
+				convertView.findViewById(R.id.btn_follow).setVisibility(View.GONE);
 
 				//收藏按钮的操作
 				Button btn = (Button) convertView.findViewById(R.id.btn_follow);

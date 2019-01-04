@@ -28,6 +28,7 @@
             android:visibility="visible"
             android:id="@+id/relativeLayout">
             <include
+                android:id="@+id/river_legend"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 layout="@layout/item_map_legend" />
@@ -56,6 +57,19 @@
             android:layout_marginRight="@dimen/bottom_button_leftandright_magin"
             />
 
+        <RelativeLayout
+            android:layout_width="180dp"
+            android:layout_height="50dp"
+            android:layout_above="@+id/btn_my_position"
+            android:layout_marginBottom="15dp"
+            android:layout_marginTop="15dp"
+            android:layout_centerHorizontal="true"
+            >
+            <include
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                layout="@layout/item_passtime" />
+        </RelativeLayout>
     </RelativeLayout>
 
     <LinearLayout

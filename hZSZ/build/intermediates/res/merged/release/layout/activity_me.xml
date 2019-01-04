@@ -61,8 +61,42 @@
                     android:src="@drawable/ic_chief_sign" >
                 </ImageView>
             </RelativeLayout>
+            <!--湖长签到-->
+            <RelativeLayout
+                android:id="@+id/rl_lakechief_sign"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
 
-            <!--巡查记录-->
+                <TextView
+                    android:id="@+id/tv_lakechief_sign"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_lakechief_sign"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="湖长签到"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <ImageView
+                    android:id="@+id/iv_lakechief_sign"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_chief_sign" >
+                </ImageView>
+            </RelativeLayout>
+
+            <!--河道巡查记录-->
             <RelativeLayout
                 android:id="@+id/rl_chief_record"
                 android:layout_width="match_parent"
@@ -132,7 +166,7 @@
                 </ImageView>
             </RelativeLayout>
 
-            <!--问题上报-->
+            <!--河道问题上报-->
             <RelativeLayout
                 android:id="@+id/rl_problem_report"
                 android:layout_width="match_parent"
@@ -153,7 +187,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/me_item_tv_padding_left"
                     android:paddingRight="@dimen/page_padding"
-                    android:text="问题上报"
+                    android:text="河道问题上报"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
@@ -181,7 +215,56 @@
 
             </RelativeLayout>
 
-            <!--我的上报-->
+            <!--湖泊问题上报-->
+            <RelativeLayout
+                android:id="@+id/rl_lakeproblem_report"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_lakeproblem_report"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_lakeproblem_report"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="湖泊问题上报"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_comp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_lakeproblem_report"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_chief_record" >
+                </ImageView>
+
+            </RelativeLayout>
+
+            <!--河道业务处置-->
             <RelativeLayout
                 android:id="@+id/rl_problem_report_list"
                 android:layout_width="match_parent"
@@ -202,7 +285,7 @@
                     android:gravity="center_vertical"
                     android:paddingLeft="@dimen/me_item_tv_padding_left"
                     android:paddingRight="@dimen/page_padding"
-                    android:text="业务处置"
+                    android:text="河道业务处置"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
@@ -221,6 +304,57 @@
 
                 <ImageView
                     android:id="@+id/iv_problem_report_list"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_coord_task" >
+                </ImageView>
+
+            </RelativeLayout>
+
+
+
+            <!--湖泊业务处置-->
+            <RelativeLayout
+                android:id="@+id/rl_lakeproblem_report_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_lakeproblem_report_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_lakeproblem_report_list"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="湖泊业务处置"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_comp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_lakeproblem_report_list"
                     android:layout_width="@dimen/me_item_icon_w"
                     android:layout_height="@dimen/me_item_icon_h"
                     android:contentDescription="@null"
@@ -286,7 +420,7 @@
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
                 android:layout_marginTop="@dimen/page_item_margin_v"
-                android:visibility="visible">
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_leaderintruction_list"
@@ -525,101 +659,7 @@
                 </ImageView>
             </RelativeLayout>
 
-            <!--处理投诉-->
-            <RelativeLayout
-                android:id="@+id/rl_chief_complaint"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/me_item_h"
-                android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
 
-                <TextView
-                    android:id="@+id/tv_chief_complaint"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/me_item_h"
-                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
-                    android:layout_toRightOf="@+id/iv_chief_complaint"
-                    android:background="@drawable/btn_white_gray"
-                    android:clickable="true"
-                    android:drawableRight="@drawable/ic_arrow_rigth"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/me_item_tv_padding_left"
-                    android:paddingRight="@dimen/page_padding"
-                    android:text="@string/mychiefcomplaint"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/text_gray" />
-
-                <TextView
-                    android:id="@+id/tv_chief_unhandlecomplaint_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/me_item_h"
-                    android:gravity="right"
-                    android:paddingRight="@dimen/padding_medium"
-                    android:text="@string/eg_chief_unhandle_comp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/littlelightgray"
-                    android:visibility="gone" >
-                </TextView>
-
-                <ImageView
-                    android:id="@+id/iv_chief_complaint"
-                    android:layout_width="@dimen/me_item_icon_w"
-                    android:layout_height="@dimen/me_item_icon_h"
-                    android:contentDescription="@null"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_chief_complaint" >
-                </ImageView>
-            </RelativeLayout>
-
-            <!--处理意见-->
-            <RelativeLayout
-                android:id="@+id/rl_chief_suggestion"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/me_item_h"
-                android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
-
-                <TextView
-                    android:id="@+id/tv_chief_suggestion"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/me_item_h"
-                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
-                    android:layout_toRightOf="@+id/iv_chief_suggestion"
-                    android:background="@drawable/btn_white_gray"
-                    android:clickable="true"
-                    android:drawableRight="@drawable/ic_arrow_rigth"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/me_item_tv_padding_left"
-                    android:paddingRight="@dimen/page_padding"
-                    android:text="@string/mychiefsuggestion"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/text_gray" />
-
-                <TextView
-                    android:id="@+id/tv_chief_unhandlesuggestion_count"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/me_item_h"
-                    android:gravity="right"
-                    android:paddingRight="@dimen/padding_medium"
-                    android:text="@string/eg_chief_unhandle_sugs"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/littlelightgray"
-                    android:visibility="gone" >
-                </TextView>
-
-                <ImageView
-                    android:id="@+id/iv_chief_suggestion"
-                    android:layout_width="@dimen/me_item_icon_w"
-                    android:layout_height="@dimen/me_item_icon_h"
-                    android:contentDescription="@null"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_chief_suggestion" >
-                </ImageView>
-            </RelativeLayout>
 
             <!--开始巡河-->
             <RelativeLayout
@@ -731,7 +771,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_chief_dubanToperson"
@@ -779,7 +820,8 @@
                 android:layout_width="match_parent"
                 android:layout_height="@dimen/me_item_h"
                 android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v" >
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
 
                 <TextView
                     android:id="@+id/tv_citychief_dubanToperson"
@@ -1029,6 +1071,103 @@
                     android:contentDescription="@null"
                     android:scaleType="fitXY"
                     android:src="@drawable/ic_chief_complaint" >
+                </ImageView>
+            </RelativeLayout>
+            <!--处理投诉-->
+            <RelativeLayout
+                android:id="@+id/rl_chief_complaint"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_chief_complaint"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_chief_complaint"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="@string/mychiefcomplaint"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:id="@+id/tv_chief_unhandlecomplaint_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_comp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_chief_complaint"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_chief_complaint" >
+                </ImageView>
+            </RelativeLayout>
+
+            <!--处理意见-->
+            <RelativeLayout
+                android:id="@+id/rl_chief_suggestion"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_chief_suggestion"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_chief_suggestion"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="@string/mychiefsuggestion"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:id="@+id/tv_chief_unhandlesuggestion_count"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_sugs"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_chief_suggestion"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_chief_suggestion" >
                 </ImageView>
             </RelativeLayout>
 

@@ -53,6 +53,7 @@ import com.sin.android.sinlibs.utils.InjectUtils;
 import com.zju.rchz.R;
 import com.zju.rchz.Tags;
 import com.zju.rchz.Values;
+import com.zju.rchz.activity.LakeProblemReportActivity;
 import com.zju.rchz.activity.PhotoViewActivity;
 import com.zju.rchz.activity.ProblemReportActivity;
 import com.zju.rchz.model.BaseRes;
@@ -65,6 +66,7 @@ import com.zju.rchz.net.Callback;
 import com.zju.rchz.service.LocalService;
 import com.zju.rchz.utils.ImgUtils;
 import com.zju.rchz.utils.ParamUtils;
+import com.zju.rchz.utils.PatrolRecordUtils;
 import com.zju.rchz.utils.StrUtils;
 
 import org.json.JSONException;
@@ -115,6 +117,10 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
     private String latList_host;//服务器回传的轨迹经纬度
     private String lngList_host;
     private int lakeRecordTempLakeId;
+    private int lakeRecordTempPassTime;//服务器保存的之前的巡河时长（单位：秒）
+    //巡河记录返回的信息
+    private String patrolLength;//巡河长度
+    private String patrolTime;//巡河时长
 
     private String imgLnglist="";
     private String imgLatlist="";
@@ -194,6 +200,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                     intent.putExtra("latlist_temp", latlist_temp);//将当前的巡湖数据传至巡湖地图界面
                     intent.putExtra("lnglist_temp", lnglist_temp);
                     intent.putExtra("isAddNewLakeRecord",isAddNewLakeRecord);
+                    intent.putExtra("passTime",lakeRecordTempPassTime);
                     intent.putExtra("lakeId", (int)lakeRecord.lakeId);
                     startActivityForResult(intent, Tags.CODE_LATLNG);
                 }
@@ -209,6 +216,8 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                 bundle.putString("lngList", lngList);
                 bundle.putString("imgLnglist",imgLnglist);
                 bundle.putString("imgLatlist",imgLatlist);
+                bundle.putString("patrolLength",patrolLength);
+                bundle.putString("patrolTime",patrolTime);
                 bundle.putString("picPath",picPath);
                 intent.putExtra("lakeId", lakeRecord.lakeId);
                 bundle.putDouble("longitude",longitude);
@@ -230,6 +239,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
         latList_host = getIntent().getExtras().getString("latList_host");
         lngList_host = getIntent().getExtras().getString("lngList_host");
         lakeRecordTempLakeId = getIntent().getExtras().getInt("lakeId");
+        lakeRecordTempPassTime = getIntent().getExtras().getInt("passTime",0);
 
         submitUuidParam = new JSONObject();
         submitTemporaryParam = new JSONObject();
@@ -247,6 +257,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
 
         if (lakeRecord == null){//从新建中进入
 //			showToastCenter(ChiefEditRecordActivity.getCurActivity(),"除拍照等操作外\n请在【查看轨迹】界面方便记录轨迹");//提示
+
             //确定是新加巡湖单还是编辑巡湖单（现在已经无法编辑）
             isAddNewLakeRecord = true;
 
@@ -282,7 +293,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             if (latList_host != null && !latList_host.equals("")) {
                 AlertDialog.Builder ab = new AlertDialog.Builder(LakeChiefEditRecordActivity.this);
                 ab.setTitle("有未完成的巡湖轨迹");
-                ab.setMessage("您要放弃这条轨迹吗?");
+                ab.setMessage("系统检测到您上次未正常提交巡湖单，继续采用之前的巡湖轨迹？");
                 ab.setPositiveButton("是", new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
@@ -314,7 +325,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                                 }
                             }
                         }, BaseRes.class, submitUuidParam);
-
+                        lakeRecordTempPassTime = 0;
                         startTimer();//开启定时器
 
                         arg0.dismiss();
@@ -325,28 +336,6 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             }else {
                 //开启定时器
                 startTimer();
-            }
-
-            //检查是否开启了GPS,若未开启，则弹出窗口令其开启GPS
-            if (!isOPen(getApplicationContext())) {
-                //弹窗
-                AlertDialog.Builder ab = new AlertDialog.Builder(LakeChiefEditRecordActivity.this);
-                ab.setTitle("开启GPS定位");
-                ab.setMessage("为了正常记录你的巡湖位置信息，需要你开启GPS定位功能");
-                ab.setPositiveButton("开启", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        startActivity(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"));
-                    }
-                });
-                ab.setNegativeButton("取消", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
-                        arg0.dismiss();
-                    }
-                });
-                ab.setCancelable(false);
-                ab.create().show();
             }
         } else {//从具体巡湖条目中进入
             //确定是新加巡湖单还是编辑巡湖单（现在已经无法编辑）
@@ -399,7 +388,9 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                         imgLnglist=o.data.imgLnglist;
                         //图片信息
                         picPath=o.data.picPath;
-
+                        //巡河时长和巡河轨迹长度
+                        patrolLength = o.data.patrolLength;
+                        patrolTime = o.data.patrolTime;
                         //如果无轨迹则不显示“查看轨迹”按钮
                         if (latList == "" && lngList == "") {
                             btn_track.setVisibility(View.GONE);
@@ -438,7 +429,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
         findViewById(R.id.action_event_report).setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(LakeChiefEditRecordActivity.this, ProblemReportActivity.class);
+                Intent intent = new Intent(LakeChiefEditRecordActivity.this, LakeProblemReportActivity.class);
                 Bundle bundle=new Bundle();
                 bundle.putString("eventFlag", eventFlag);//上报人员身份标志位
                 intent.putExtras(bundle);
@@ -528,6 +519,10 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
     Timer mTimer = null;
     TimerTask mTimerTask = null;
 
+    //定时器，用于记录巡河时长并显示
+    Timer passTimer = null;
+    TimerTask passTimerTask = null;
+
     private void startTimer(){
         if(lakeRecord.lakeId ==0){
             selectLake();
@@ -554,7 +549,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                         submitTemporaryParam.put("latList",latlist_temp);
                         submitTemporaryParam.put("lngList",lnglist_temp);
                         submitTemporaryParam.put("lakeId",lakeRecord.lakeId);
-
+                        submitTemporaryParam.put("passTime",lakeRecordTempPassTime);
                         if(latlist_temp!=null && !latlist_temp.equals("")){
                             getRequestContext().add("AddOrEdit_LakeRecordTemporary", new Callback<BaseRes>() {
                                 @Override
@@ -586,9 +581,34 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
         if(mTimer != null && mTimerTask != null )
             mTimer.schedule(mTimerTask, DELAY_TIME, PERIOD_TIME);
 
+        //巡河时长相关定时器和定时任务
+        if (passTimer == null) {
+            passTimer = new Timer();
+        }
+
+        if (passTimerTask == null) {
+            passTimerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+                            lakeRecordTempPassTime++;
+//							showToast(getStringTime(lakeRecordTempPassTime++));
+                        }
+                    });
+
+                }
+            };
+        }
+
+        if(passTimer != null && passTimerTask != null )
+            passTimer.schedule(passTimerTask, 500, 1000);
+
     }
 
     private void stopTimer(){
+        //服务器暂存轨迹相关定时器
         if (mTimer != null) {
             mTimer.cancel();
             mTimer = null;
@@ -597,7 +617,18 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             mTimerTask.cancel();
             mTimerTask = null;
         }
+
+        //巡河时长相关定时器
+        if (passTimer != null) {
+            passTimer.cancel();
+            passTimer = null;
+        }
+        if (passTimerTask != null) {
+            passTimerTask.cancel();
+            passTimerTask = null;
+        }
     }
+
 
     private static final String[] CBOX_TITLES = new String[]{//
             //
@@ -685,14 +716,14 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             @Override
             public void onClick(DialogInterface arg0, int arg1) {
 //                //删除舍弃的轨迹
-//                getRequestContext().add("Delete_LakeRecordTemporary", new Callback<BaseRes>() {
-//                    @Override
-//                    public void callback(BaseRes o) {
-//                        if (o != null && o.isSuccess()) {
-//
-//                        }
-//                    }
-//                }, BaseRes.class, submitUuidParam);
+                getRequestContext().add("Delete_LakeRecordTemporary", new Callback<BaseRes>() {
+                    @Override
+                    public void callback(BaseRes o) {
+                        if (o != null && o.isSuccess()) {
+
+                        }
+                    }
+                }, BaseRes.class, submitUuidParam);
 
                 //提交成功之后，将缓存坐标值设为空
                 latlist_temp = "";
@@ -883,11 +914,19 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                 lakeRecord.locLakeName = lakeRecord.locLake.lakeName;
                 refreshSelectLakeBtn();
             }
-        }).setNegativeButton(android.R.string.cancel, new DialogInterface.OnClickListener() {
-            @Override
-            public void onClick(DialogInterface dialog, int which) {
-            }
         }).create();
+        alertDialog.setCancelable(false);
+        alertDialog.setOnKeyListener(new DialogInterface.OnKeyListener() {
+            @Override
+            public boolean onKey(DialogInterface dialog, int keyCode, KeyEvent event) {
+                if (keyCode == KeyEvent.KEYCODE_SEARCH) {
+                    return true;
+                }
+                else {
+                    return false;//默认返回false
+                }
+            }
+        });
         alertDialog.show();
     }
 
@@ -989,10 +1028,10 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                         submitParam.put("picPath", picPath);
 
                         //添加巡湖轨迹经纬度信息
-//						submitParam.put("latlist", OptimizePoints(latlist_temp,lnglist_temp)[0]);
-//						submitParam.put("lnglist", OptimizePoints(latlist_temp,lnglist_temp)[1]);
-                        submitParam.put("latlist", latlist_temp);
-                        submitParam.put("lnglist", lnglist_temp);
+						submitParam.put("latlist", OptimizePoints(latlist_temp,lnglist_temp)[0]);
+						submitParam.put("lnglist", OptimizePoints(latlist_temp,lnglist_temp)[1]);
+//                        submitParam.put("latlist", latlist_temp);
+//                        submitParam.put("lnglist", lnglist_temp);
 
                         //添加图片经纬度信息
                         submitParam.put("imgLatlist", imgLatlist);
@@ -1012,18 +1051,20 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                         //看是否超过5min
                         int endTimeHour = DateTime.getNow().hours;
                         int endTimeMin = DateTime.getNow().minutes;
-                        if (endTimeHour - startTimeHour == 0 && endTimeMin - startTimeMin < 5) {
+                        if (lakeRecordTempPassTime <= 300) {
                             //系统参数，值由湖长办定 0：不能结束 1：可以结束
-//                            if (Values.tourriver == 0) {
-//                                showToast("您的巡湖时间小于5min, 请继续巡湖");
-//                                return;
-//                            }
+                            if (Values.tourriver == 0) {
+                                showToast("您的巡湖时间小于5min, 请继续巡湖");
+                                return;
+                            }
                         }
-
+                        //巡河时长
+                        submitParam.put("passTime", lakeRecordTempPassTime);
                         if (location != null) {
                             submitParam.put("latitude", location.getLatitude());
                             submitParam.put("longtitude", location.getLongitude());
                         }
+                        submitParam.put("version",Values.Ver);
                     } catch (JSONException e) {
                         e.printStackTrace();
                     }
@@ -1307,6 +1348,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             //由inspect返回并需要上传至服务器的地理位置信息
             latList = data.getExtras().getString("latList");
             lngList = data.getExtras().getString("lngList");
+            lakeRecordTempPassTime = data.getExtras().getInt("passTime");
             if(latList == null || lngList == null){
                 latList = "";
                 lngList = "";
@@ -1470,19 +1512,6 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
      * String:locate_temp:当前的定位数据
      */
 
-    /**
-     * 判断GPS是否开启，GPS或者AGPS开启一个就认为是开启的
-     *
-     * @param context
-     * @return true 表示开启
-     */
-    public static final boolean isOPen(final Context context) {
-        LocationManager locationManager
-                = (LocationManager) context.getSystemService(Context.LOCATION_SERVICE);
-        // 通过GPS卫星定位，定位级别可以精确到街（通过24颗卫星定位，在室外和空旷的地方定位准确、速度快）
-        boolean gps = locationManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        return gps;
-    }
 
     Handler handler = new Handler();
     private boolean isFirstLoc = true;
@@ -1586,6 +1615,15 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
 
             if (bdLocation == null)
                 return;
+
+            if (!PatrolRecordUtils.isOPen(getApplicationContext())) {
+                showMyToast(Toast.makeText(LakeChiefEditRecordActivity.this, "定位未开启，请打开定位。", Toast.LENGTH_LONG),900);
+            }
+            if (bdLocation.getLocType() == BDLocation.TypeNetWorkException || bdLocation.getLocType() == BDLocation.TypeCriteriaException){
+                Toast.makeText(LakeChiefEditRecordActivity.this, "信号弱，请确定网络是否通畅。", Toast.LENGTH_SHORT).show();
+            }else if (bdLocation.getLocType() == BDLocation.TypeOffLineLocationFail || bdLocation.getLocType() == BDLocation.TypeOffLineLocationNetworkFail) {
+                Toast.makeText(LakeChiefEditRecordActivity.this, "定位失败，请检查。", Toast.LENGTH_SHORT).show();
+            }
             LatLng point = new LatLng(bdLocation.getLatitude(), bdLocation.getLongitude());
             imgLngTemp=bdLocation.getLongitude();
             imgLatTemp=bdLocation.getLatitude();

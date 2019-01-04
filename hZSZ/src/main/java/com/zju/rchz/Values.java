@@ -3,12 +3,12 @@ package com.zju.rchz;
 import com.zju.rchz.model.District;
 
 public class Values {
-	final public static String Ver = "2.1.8";
+	final public static String Ver = "2.2.4";
 //	final public static String Ver = "1.3.2";
 	final public static boolean DEBUG = false;
 	final public static boolean RELEASE = false;
 	public static String LastVer = null;
-	final public static boolean hhDEBUG = true;
+	final public static boolean hhDEBUG = false;
 	public static long lastAuthCodeTime = 0;
 
 	final public static int AUTHCODE_GAP_S = 60;

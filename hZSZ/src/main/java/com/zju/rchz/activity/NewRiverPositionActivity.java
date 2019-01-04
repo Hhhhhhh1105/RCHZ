@@ -3,6 +3,7 @@ package com.zju.rchz.activity;
 import android.graphics.Color;
 import android.location.Location;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.TextView;
@@ -28,6 +29,8 @@ import com.zju.rchz.Tags;
 import com.zju.rchz.model.River;
 import com.zju.rchz.model.RiverPosition;
 import com.zju.rchz.model.RiverPositionRes;
+import com.zju.rchz.model.WholeRiverMap;
+import com.zju.rchz.model.WholeRiverMapRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ParamUtils;
 import com.zju.rchz.utils.StrUtils;
@@ -50,6 +53,13 @@ public class NewRiverPositionActivity extends BaseActivity {
     private LatLng end;
     private LatLng me;
     private  InfoWindow mInfoWindow;
+    private String riverAllLatitude;//河道全部点
+    private String riverAllLongitude;
+    private String[] riverAllLatitudeArray;
+    private String[] riverAllLongitudeArray;
+    WholeRiverMap wholeRiverMap;
+    ArrayList<LatLng> riverAllPoint;
+    private static final String TAG = "hhh";
 
 
     @Override
@@ -80,8 +90,9 @@ public class NewRiverPositionActivity extends BaseActivity {
             getRequestContext().add("Get_OneRiverMap", new Callback<RiverPositionRes>() {
                 @Override
                 public void callback(RiverPositionRes o) {
-                    hideOperating();
+
                     if (o != null && o.isSuccess()) {
+                        Log.d(TAG, "callback1234");
 
                         setTitle(river.riverName);
 
@@ -91,16 +102,19 @@ public class NewRiverPositionActivity extends BaseActivity {
                             start = new LatLng(rp.baidu_start_lat, rp.baidu_start_lng);
                             points.add(start);
                         }
+                        Log.d(TAG, "points2 "+points);
                         if (rp.baidu_pub1_lat != 0.0) {
                             LatLng pub1 = new LatLng(rp.baidu_pub1_lat, rp.baidu_pub1_lng);
                             points.add(pub1);
                         }
 
+                        Log.d(TAG, "points3 "+points);
                         if (rp.baidu_pub2_lat != 0.0) {
                             LatLng pub2 = new LatLng(rp.baidu_pub2_lat, rp.baidu_pub2_lng);
                             points.add(pub2);
                         }
 
+                        Log.d(TAG, "points4 "+points);
                         if (rp.baidu_pub3_lat != 0.0) {
                             LatLng pub3 = new LatLng(rp.baidu_pub3_lat, rp.baidu_pub3_lng);
                             points.add(pub3);
@@ -109,11 +123,19 @@ public class NewRiverPositionActivity extends BaseActivity {
                             end = new LatLng(rp.baidu_end_lat, rp.baidu_end_lng);
                             points.add(end);
                         }
+                        Log.d(TAG, "points5 "+points);
 
-                        drawRiver();
+
                     }
                 }
             }, RiverPositionRes.class, ParamUtils.freeParam(null, "riverId", river.riverId));
+            Log.d(TAG, "start1: "+start);
+            Log.d(TAG, "end1" +end);
+            Log.d(TAG, "points1 "+points);
+
+
+
+
 
             baiduMap.setOnMarkerClickListener(new BaiduMap.OnMarkerClickListener() {
                 @Override
@@ -122,6 +144,50 @@ public class NewRiverPositionActivity extends BaseActivity {
                     return false;
                 }
             });
+            getRequestContext().add("Get_WholeRiverMap", new Callback<WholeRiverMapRes>() {
+                @Override
+                public void callback(WholeRiverMapRes o) {
+                    hideOperating();
+
+                    if (o != null && o.isSuccess()) {
+                        if (o.data != null && o.data.allLongitude != null) {
+                            wholeRiverMap = o.data;
+                            riverAllLatitude = wholeRiverMap.allLatitude;
+                            riverAllLongitude = wholeRiverMap.allLongitude;
+                            System.out.println("testrc: o.data !=null && o.data.allLongitude!=null");
+                        }
+                        if (riverAllLatitude != null && !riverAllLatitude.equals("")) {
+                            System.out.println("testrc: //得到河道的所有坐标");
+                            //得到河道的所有坐标
+                            if (riverAllLatitude != null && riverAllLatitude.contains(",")) {
+                                //如果不止一个数据，变成一个数组
+                                riverAllLatitudeArray = riverAllLatitude.split(",");
+                                riverAllLongitudeArray = riverAllLongitude.split(",");
+                                System.out.println("testrc: //如果不止一个数据，变成一个数组");
+                            } else {
+                                //如果只有一个数据
+                                riverAllLatitudeArray = new String[1];
+                                riverAllLongitudeArray = new String[1];
+                                riverAllLatitudeArray[0] = riverAllLatitude;
+                                riverAllLongitudeArray[0] = riverAllLongitude;
+                                System.out.println("testrc: //如果只有一个数据");
+                            }
+                            riverAllPoint = new ArrayList<LatLng>();
+
+                            for (int i = 0; i < riverAllLatitudeArray.length; i++){
+                                riverAllPoint.add(new LatLng(Double.parseDouble(riverAllLatitudeArray[i]), Double.parseDouble(riverAllLongitudeArray[i])));
+                            }
+                            Log.d(TAG, "riverAllPoint: "+riverAllPoint);
+                        }
+                    }
+                    drawRiver();
+                }
+            }, WholeRiverMapRes.class, ParamUtils.freeParam(null, "riverId", river.riverId));
+
+
+
+
+
 
         }
 
@@ -145,12 +211,21 @@ public class NewRiverPositionActivity extends BaseActivity {
         MarkerOptions optionMe = new MarkerOptions().position(me).icon(bmp_me);
         Marker marker_Me = (Marker) baiduMap.addOverlay(optionMe);
 //        baiduMap.addOverlay(optionMe);
+        BitmapDescriptor bdA = BitmapDescriptorFactory.fromResource(R.drawable.my_blue5px);
+
+
 
         if (start != null && end != null) {
             MarkerOptions optionFrom = new MarkerOptions().position(start).icon(bmp_from);
             MarkerOptions optionTo = new MarkerOptions().position(end).icon(bmp_to);
 
             Marker marker_Start = (Marker)baiduMap.addOverlay(optionFrom);
+            for(int i=1;i<riverAllPoint.size();i++){
+                OverlayOptions option1 =  new MarkerOptions()
+                        .position(new LatLng(riverAllPoint.get(i).latitude, riverAllPoint.get(i).longitude))
+                        .icon(bdA);
+                baiduMap.addOverlay(option1);
+            }
             Marker marker_End = (Marker) baiduMap.addOverlay(optionTo);
 
             if (points.size() > 2) {
@@ -173,9 +248,9 @@ public class NewRiverPositionActivity extends BaseActivity {
             float lng = (float) ((start.longitude + end.longitude) / 2);
             baiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
 
-            OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                    .color(Color.BLUE).points(points);
-            baiduMap.addOverlay(ooPolyline);
+//            OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//                    .color(Color.BLUE).points(points);
+//            baiduMap.addOverlay(ooPolyline);
 
             //target：设置地图中心点；zoom:设置缩放级别
             MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(13).build();

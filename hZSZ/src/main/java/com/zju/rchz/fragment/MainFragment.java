@@ -75,6 +75,7 @@ import static com.zju.rchz.R.id.ll_rivers;
 import static com.zju.rchz.R.id.ll_smallwater;
 
 public class MainFragment extends BaseFragment implements OnRefreshListener {
+	private static final String TAG = "HHHHHH";
 
 	/*
 	 * class SectionBoxAdapter extends PagerAdapter { ArrayList<View>
@@ -894,6 +895,10 @@ public class MainFragment extends BaseFragment implements OnRefreshListener {
 					if (bannerimg != null) {
 						ImgUtils.loadImage(getBaseActivity(), ((ImageView) rootView.findViewById(R.id.iv_banner)), bannerimg);
 					}
+					if (indexData.checkNew==1){
+						Log.d(TAG,"checknew=1");
+
+					}
 
 					Values.districtLists = indexData.districtLists;
 					Values.tourriver = indexData.tourriver;
@@ -925,6 +930,6 @@ public class MainFragment extends BaseFragment implements OnRefreshListener {
 				((SwipeRefreshLayout) rootView.findViewById(R.id.srl_main)).setRefreshing(false);
 				hideOperating();
 			}
-		}, IndexDataRes.class, ParamUtils.freeParam(null, "latitude", latitude, "longitude", longitude));
+		}, IndexDataRes.class, ParamUtils.freeParam(null, "latitude", latitude, "longitude", longitude,"isNewApp",1));
 	}
 }

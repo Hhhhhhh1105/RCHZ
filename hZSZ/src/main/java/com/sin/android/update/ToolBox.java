@@ -1,5 +1,6 @@
 package com.sin.android.update;
 
+import android.app.ActivityManager;
 import android.app.AlertDialog;
 import android.content.Context;
 import android.content.DialogInterface;
@@ -16,6 +17,8 @@ import com.android.volley.toolbox.Volley;
 import com.google.gson.Gson;
 import com.zju.rchz.Values;
 import com.zju.rchz.net.Constants;
+
+import static com.tencent.open.utils.Global.getPackageName;
 
 public class ToolBox {
 	public interface CheckCallback {
@@ -89,6 +92,9 @@ public class ToolBox {
 								Uri uri = Uri.parse(update.getUrl());
 								Intent intent = new Intent(Intent.ACTION_VIEW, uri);
 								context.startActivity(intent);
+								//打开下载链接后关闭当前应用程序，不安装新版本不得用老版本
+								android.os.Process.killProcess(android.os.Process.myPid()) ;
+								System.exit(0);
 							}
 						});
 						ab.setCancelable(false);

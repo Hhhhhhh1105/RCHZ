@@ -110,7 +110,11 @@ public class User {
 	//是否是河管员
 	public boolean isCleaner(){
 		//河管员的权限
-		return authority == 7 && ifOnJob == 0;
+		return (authority == 7 && ifOnJob == 0&&(status==0||status==2));
+	}
+	public boolean isLakeCleaner(){
+		//湖管员的权限
+		return (authority == 7 && ifOnJob == 0&&(status==1||status==2));
 	}
 
 	public boolean isCoordinator(){
@@ -163,7 +167,10 @@ public class User {
 	}
 
 	public boolean isCityLinkMan(){
-		return authority == 10 && statusCity.equals("3");
+		return authority == 10 && statusCity.equals("3")&&(status==0||status==2);
+	}
+	public boolean isLakeCityLinkMan(){
+		return authority == 10 && statusCity.equals("3")&&(status==1||status==2);
 	}
 
 	//是否是人大代表

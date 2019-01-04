@@ -1,8 +1,10 @@
 package com.zju.rchz.chief.activity;
 
 
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
+import android.location.LocationManager;
 import android.os.Bundle;
 import android.os.Handler;
 import android.util.Log;
@@ -38,12 +40,14 @@ import com.zju.rchz.model.WholeRiverMap;
 import com.zju.rchz.model.WholeRiverMapRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ParamUtils;
+import com.zju.rchz.utils.PatrolRecordUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -116,6 +120,8 @@ public class ChiefInspectActivity extends BaseActivity{
 
     //传入河道编号：
     private int riverId;
+    private int passTime;//已巡河时长
+    private TextView passTimeTextView = null;
 
     //计数，如果长时间没有新的点加入要删除的轨迹，认为之前的取点有误
     private int countNoJoin = 0;
@@ -139,14 +145,15 @@ public class ChiefInspectActivity extends BaseActivity{
         mMapView = (MapView) findViewById(R.id.mv_position);
         mBaiduMap = mMapView.getMap();
         mMapView.showZoomControls(false);
+        passTimeTextView = (TextView)findViewById(R.id.tv_passTime);
 
         btn_stop = (Button) findViewById(R.id.btn_stop);
 
         latlist_temp = getIntent().getExtras().getString("latlist_temp");
         lnglist_temp = getIntent().getExtras().getString("lnglist_temp");
-//        showToast(latlist_temp+"++"+lnglist_temp+hasHistroyData);
         isAddNewRiverRecord = getIntent().getExtras().getBoolean("isAddNewRiverRecord");
         riverId = getIntent().getExtras().getInt("riverId",0);
+        passTime = getIntent().getExtras().getInt("passTime",0);
 
         if(riverId!=0){
             getRequestContext().add("Get_WholeRiverMap", new Callback<WholeRiverMapRes>() {
@@ -324,9 +331,21 @@ public class ChiefInspectActivity extends BaseActivity{
             MarkerOptions optionFrom = new MarkerOptions().position(riverStart).icon(bmp_from);
             MarkerOptions optionTo = new MarkerOptions().position(riverEnd).icon(bmp_to);
             mBaiduMap.addOverlay(optionFrom);
+//河道轨迹连线版
+//            OverlayOptions ooPolyline = new PolylineOptions().width(10).color(Color.BLUE).points(riverAllPoint);
+//            mBaiduMap.addOverlay(ooPolyline);
+            //河道轨迹点点版hh
+            BitmapDescriptor bdA = BitmapDescriptorFactory.fromResource(R.drawable.my_blue5px);
 
-            OverlayOptions ooPolyline = new PolylineOptions().width(10).color(Color.BLUE).points(riverAllPoint);
-            mBaiduMap.addOverlay(ooPolyline);
+            for(int i=0;i<riverAllPoint.size();i++){
+                    OverlayOptions option1 =  new MarkerOptions()
+                            .position(new LatLng(riverAllPoint.get(i).latitude, riverAllPoint.get(i).longitude))
+                            .icon(bdA);
+                    mBaiduMap.addOverlay(option1);
+            }
+
+
+
             Marker marker_End = (Marker) mBaiduMap.addOverlay(optionTo);
         }else {
             showToast("暂时未录入河道信息。");
@@ -340,6 +359,9 @@ public class ChiefInspectActivity extends BaseActivity{
     TimerTask mTimerTask = null;
     JSONObject submitTemporaryParam = null;
 
+    //定时器，用于记录巡河时长并显示
+    Timer passTimer = null;
+    TimerTask passTimerTask = null;
     private void startTimer(){
         if (mTimer == null) {
             mTimer = new Timer();
@@ -353,6 +375,7 @@ public class ChiefInspectActivity extends BaseActivity{
                         submitTemporaryParam.put("latList",latList);
                         submitTemporaryParam.put("lngList",lngList);
                         submitTemporaryParam.put("riverId",riverId);
+                        submitTemporaryParam.put("passTime",passTime);
 
                         if(latlist_temp!=null && !latlist_temp.equals("")){
                             getRequestContext().add("AddOrEdit_RiverRecordTemporary", new Callback<BaseRes>() {
@@ -376,9 +399,34 @@ public class ChiefInspectActivity extends BaseActivity{
         if(mTimer != null && mTimerTask != null )
             mTimer.schedule(mTimerTask, DELAY_TIME, PERIOD_TIME);
 
+        //巡河时长相关定时器和定时任务
+        if (passTimer == null) {
+            passTimer = new Timer();
+        }
+
+        if (passTimerTask == null) {
+            passTimerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+//                            showToast(getStringTime(passTime++));
+                            passTimeTextView.setText(getStringTime(passTime++));
+                        }
+                    });
+
+                }
+            };
+        }
+
+        if(passTimer != null && passTimerTask != null )
+            passTimer.schedule(passTimerTask, 500, 1000);
+
     }
 
     private void stopTimer(){
+        //服务器暂存轨迹相关定时器
         if (mTimer != null) {
             mTimer.cancel();
             mTimer = null;
@@ -387,6 +435,23 @@ public class ChiefInspectActivity extends BaseActivity{
             mTimerTask.cancel();
             mTimerTask = null;
         }
+
+        //巡河时长相关定时器
+        if (passTimer != null) {
+            passTimer.cancel();
+            passTimer = null;
+        }
+        if (passTimerTask != null) {
+            passTimerTask.cancel();
+            passTimerTask = null;
+        }
+    }
+    //巡河时长显示
+    private String getStringTime(int cnt) {
+//		int hour = cnt/3600;
+        int min = cnt / 60;
+        int second = cnt % 60;
+        return String.format(Locale.CHINA,"%02d 分 %02d 秒",min,second);
     }
 
     View.OnClickListener backToEditListener = new View.OnClickListener() {
@@ -420,7 +485,7 @@ public class ChiefInspectActivity extends BaseActivity{
             intent.putExtra("latList",  latList);
             intent.putExtra("lngList", lngList); //优化前的轨迹数据
             intent.putExtra("isAddNewRiverRecord",isAddNewRiverRecord);
-
+            intent.putExtra("passTime",passTime);
             ChiefInspectActivity.this.setResult(RESULT_OK, intent);
 
             //若成功提交，则地理坐标缓存值设置设为空
@@ -661,7 +726,15 @@ public class ChiefInspectActivity extends BaseActivity{
         public void onReceiveLocation(BDLocation location) {
             if(location == null || mMapView == null)
                 return;
-
+            if (!PatrolRecordUtils.isOPen(getApplicationContext())) {
+//                Toast.makeText(ChiefInspectActivity.this, "定位未开启，请打开定位。", Toast.LENGTH_SHORT).show();
+                showMyToast(Toast.makeText(ChiefInspectActivity.this, "定位未开启，请打开定位。", Toast.LENGTH_LONG),900);
+            }
+            if (location.getLocType() == BDLocation.TypeNetWorkException || location.getLocType() == BDLocation.TypeCriteriaException){
+                Toast.makeText(ChiefInspectActivity.this, "信号弱，请确定网络是否通畅。", Toast.LENGTH_SHORT).show();
+            }else if (location.getLocType() == BDLocation.TypeOffLineLocationFail || location.getLocType() == BDLocation.TypeOffLineLocationNetworkFail) {
+                Toast.makeText(ChiefInspectActivity.this, "定位失败，请检查。", Toast.LENGTH_SHORT).show();
+            }
             MyLocationData locData = new MyLocationData.Builder().accuracy(0)
                     .latitude(location.getLatitude())
                     .longitude(location.getLongitude()).build();
@@ -702,8 +775,24 @@ public class ChiefInspectActivity extends BaseActivity{
                 myPosition.setClickable(true);
                 riverPosition.setClickable(true);
                 drawBeforeTrack();
+
+//巡河轨迹连线版
                 options = new PolylineOptions().color(Color.GREEN).width(10).points(points);
                 mBaiduMap.addOverlay(options);
+//巡河轨迹点点版hh
+//                points.get(points.size()-1).latitude
+//                BitmapDescriptor bdA = BitmapDescriptorFactory
+//                        .fromResource(R.drawable.my_green);
+//
+//                for(int i=1;i<points.size();i++){
+//                    OverlayOptions option1 =  new MarkerOptions()
+//                            .position(new LatLng(points.get(i).latitude, points.get(i).longitude))
+//                            .icon(bdA);
+//                    mBaiduMap.addOverlay(option1);
+//                    }
+
+
+
 //                if(pointsToDrawFirst.size()>=1){
 //                    MapStatus status = new MapStatus.Builder().target(new LatLng(pointsToDrawFirst.get(0).latitude,pointsToDrawFirst.get(0).longitude)).zoom(19).build();
 //                    //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
@@ -720,7 +809,6 @@ public class ChiefInspectActivity extends BaseActivity{
             }
         }
     }
-
     private void drawStart(List<LatLng> points) {
         drawRiver();//画出河道的起止点
 

@@ -11,12 +11,6 @@
         android:layout_width="fill_parent"
         android:layout_height="@dimen/head_h"
         layout="@layout/inc_head" />
-    <com.baidu.mapapi.map.MapView
-        android:id="@+id/mv_position"
-        android:layout_width="match_parent"
-        android:layout_height="1dp"
-        android:clickable="false"
-        android:visibility="gone"/>
 
     <RelativeLayout
         android:layout_width="wrap_content"
@@ -131,15 +125,16 @@
                     android:textSize="@dimen/font_normal" />
 
                 <TextView
-                    android:layout_width="0dp"
+                    android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="@dimen/padding_medium"
-                    android:layout_weight="1"
+                    android:layout_weight="0.46"
                     android:tag="tt:{.recordSerNum}"
                     android:text="XC112222"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/blue"
                     android:textSize="@dimen/font_normal" />
+
             </LinearLayout>
 
             <TextView
@@ -362,6 +357,13 @@
 
     </RelativeLayout>
 
+    <com.baidu.mapapi.map.MapView
+        android:id="@+id/mv_position"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:clickable="false"
+        android:visibility="gone"/>
+
 
     <LinearLayout
         android:id="@+id/linear_river_record"
@@ -384,7 +386,7 @@
             android:layout_marginTop="@dimen/form_singleline_margin_v"
             android:layout_weight="1"
             android:background="@drawable/form_btn1_bg"
-            android:text="结束巡河"
+            android:text="结束巡查"
             android:textColor="@color/btn_white_green" />
 
         <Button

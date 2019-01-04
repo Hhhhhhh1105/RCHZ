@@ -41,6 +41,10 @@ public class LakeRecord {
     public int recordPersonAuthority;  //巡湖人的authority
 
     public String isCorrect;//有效性判断 ，1表示有效，0表示无效
+    public String judgeReason;//无效时的原因
+
+    public String patrolLength;//巡河长度
+    public String patrolTime;//巡河时长
 
     // local
     public Lake locLake;

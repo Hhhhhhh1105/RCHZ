@@ -36,16 +36,19 @@ import com.zju.rchz.Values;
 import com.zju.rchz.model.BaseRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ParamUtils;
+import com.zju.rchz.utils.PatrolRecordUtils;
 
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Locale;
 import java.util.Timer;
 import java.util.TimerTask;
 
 import static com.baidu.mapapi.utils.DistanceUtil.getDistance;
+
 /**
  * Created by ZJTLM4600l on 2018/7/14.
  */
@@ -103,6 +106,8 @@ public class LakeChiefInspectActivity extends BaseActivity {
 
     //传入湖泊编号：
     private int lakeRecordTempLakeId;
+    private int passTime;//已巡河时长
+    private TextView passTimeTextView = null;
 
     //计数，如果长时间没有新的点加入要删除的轨迹，认为之前的取点有误
     private int countNoJoin = 0;
@@ -128,16 +133,15 @@ public class LakeChiefInspectActivity extends BaseActivity {
         mMapView.showZoomControls(false);
 
         btn_stop = (Button) findViewById(R.id.btn_stop);
+        passTimeTextView = (TextView)findViewById(R.id.tv_passTime);
 
         latlist_temp = getIntent().getExtras().getString("latlist_temp");
         lnglist_temp = getIntent().getExtras().getString("lnglist_temp");
 //        showToast(latlist_temp+"++"+lnglist_temp+hasHistroyData);
         isAddNewLakeRecord = getIntent().getExtras().getBoolean("isAddNewLakeRecord");
         lakeRecordTempLakeId = getIntent().getExtras().getInt("lakeId");
+        passTime = getIntent().getExtras().getInt("passTime",0);
 
-//        if(lakeId!=0){
-//
-//        }
 
         submitTemporaryParam = new JSONObject();
         try{
@@ -257,6 +261,10 @@ public class LakeChiefInspectActivity extends BaseActivity {
     TimerTask mTimerTask = null;
     JSONObject submitTemporaryParam = null;
 
+    //定时器，用于记录巡河时长并显示
+    Timer passTimer = null;
+    TimerTask passTimerTask = null;
+
     private void startTimer(){
         if (mTimer == null) {
             mTimer = new Timer();
@@ -270,6 +278,7 @@ public class LakeChiefInspectActivity extends BaseActivity {
                         submitTemporaryParam.put("latList",latList);
                         submitTemporaryParam.put("lngList",lngList);
                         submitTemporaryParam.put("lakeId",lakeRecordTempLakeId);
+                        submitTemporaryParam.put("passTime",passTime);
 
                         if(latlist_temp!=null && !latlist_temp.equals("")){
                             getRequestContext().add("AddOrEdit_LakeRecordTemporary", new Callback<BaseRes>() {
@@ -293,17 +302,59 @@ public class LakeChiefInspectActivity extends BaseActivity {
         if(mTimer != null && mTimerTask != null )
             mTimer.schedule(mTimerTask, DELAY_TIME, PERIOD_TIME);
 
+        //巡河时长相关定时器和定时任务
+        if (passTimer == null) {
+            passTimer = new Timer();
+        }
+
+        if (passTimerTask == null) {
+            passTimerTask = new TimerTask() {
+                @Override
+                public void run() {
+                    runOnUiThread(new Runnable() {
+                        @Override
+                        public void run() {
+//                            showToast(getStringTime(passTime++));
+                            passTimeTextView.setText(getStringTime(passTime++));
+                        }
+                    });
+
+                }
+            };
+        }
+
+        if(passTimer != null && passTimerTask != null )
+            passTimer.schedule(passTimerTask, 500, 1000);
+
     }
 
     private void stopTimer(){
-//        if (mTimer != null) {
-//            mTimer.cancel();
-//            mTimer = null;
-//        }
-//        if (mTimerTask != null) {
-//            mTimerTask.cancel();
-//            mTimerTask = null;
-//        }
+//        //服务器暂存轨迹相关定时器
+        if (mTimer != null) {
+            mTimer.cancel();
+            mTimer = null;
+        }
+        if (mTimerTask != null) {
+            mTimerTask.cancel();
+            mTimerTask = null;
+        }
+
+        //巡河时长相关定时器
+        if (passTimer != null) {
+            passTimer.cancel();
+            passTimer = null;
+        }
+        if (passTimerTask != null) {
+            passTimerTask.cancel();
+            passTimerTask = null;
+        }
+    }
+    //巡河时长显示
+    private String getStringTime(int cnt) {
+//		int hour = cnt/3600;
+        int min = cnt / 60;
+        int second = cnt % 60;
+        return String.format(Locale.CHINA,"%02d 分 %02d 秒",min,second);
     }
 
     View.OnClickListener backToEditListener = new View.OnClickListener() {
@@ -337,6 +388,7 @@ public class LakeChiefInspectActivity extends BaseActivity {
             intent.putExtra("latList",  latList);
             intent.putExtra("lngList", lngList); //优化前的轨迹数据
             intent.putExtra("isAddNewLakeRecord",isAddNewLakeRecord);
+            intent.putExtra("passTime",passTime);
 
             LakeChiefInspectActivity.this.setResult(RESULT_OK, intent);
 
@@ -576,6 +628,15 @@ public class LakeChiefInspectActivity extends BaseActivity {
         public void onReceiveLocation(BDLocation location) {
             if(location == null || mMapView == null)
                 return;
+
+            if (!PatrolRecordUtils.isOPen(getApplicationContext())) {
+                showMyToast(Toast.makeText(LakeChiefInspectActivity.this, "定位未开启，请打开定位。", Toast.LENGTH_LONG),900);
+            }
+            if (location.getLocType() == BDLocation.TypeNetWorkException || location.getLocType() == BDLocation.TypeCriteriaException){
+                Toast.makeText(LakeChiefInspectActivity.this, "信号弱，请确定网络是否通畅。", Toast.LENGTH_SHORT).show();
+            }else if (location.getLocType() == BDLocation.TypeOffLineLocationFail || location.getLocType() == BDLocation.TypeOffLineLocationNetworkFail) {
+                Toast.makeText(LakeChiefInspectActivity.this, "定位失败，请检查。", Toast.LENGTH_SHORT).show();
+            }
 
             MyLocationData locData = new MyLocationData.Builder().accuracy(0)
                     .latitude(location.getLatitude())

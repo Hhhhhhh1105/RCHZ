@@ -9,6 +9,7 @@ public class RiverRecordTemporaryJson {
     private String latlist;//纬度
     private long riverId;
     private long lakeId;
+    private Integer passTime;//暂存的巡河时长。（单位：秒）
 
     public long getLakeId() {
         return lakeId;
@@ -40,5 +41,13 @@ public class RiverRecordTemporaryJson {
 
     public String getLatlist() {
         return latlist;
+    }
+
+    public Integer getPassTime() {
+        return passTime;
+    }
+
+    public void setPassTime(Integer passTime) {
+        this.passTime = passTime;
     }
 }

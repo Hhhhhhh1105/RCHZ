@@ -136,7 +136,8 @@
     <TableRow
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="@dimen/padding_large" >
+        android:layout_marginBottom="@dimen/padding_large"
+        android:id="@+id/tr_lake_main_function">
 
 
         <TextView

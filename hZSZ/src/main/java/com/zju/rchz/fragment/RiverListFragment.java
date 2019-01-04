@@ -78,6 +78,7 @@ public class RiverListFragment extends BaseFragment {
 					ImgUtils.loadImage(getBaseActivity(), ((ImageView) convertView.findViewById(R.id.iv_picture)), img);*/
 
 //					convertView.findViewById(R.id.btn_follow).setVisibility(View.VISIBLE);
+					convertView.findViewById(R.id.btn_follow).setVisibility(View.GONE);
 					convertView.findViewById(R.id.iv_quality).setVisibility(View.VISIBLE);
 					((ImageView) convertView.findViewById(R.id.iv_quality)).setImageResource(ResUtils.getQuiltyImg(river.waterType));
 

@@ -4,75 +4,59 @@
     density="xhdpi"
     format="8"
     plugin-version="2.2.0"
-    timestamp="27288057699321"
+    timestamp="27512567212698"
     token="-8900174504563252341"
     verifier="COLD_SWAP_REQUESTED" >
 
     <task
         name="javac"
-        duration="1731" />
+        duration="622" />
     <task
         name="instant-run-dex"
         duration="0" />
     <task
         name="instant-run-transform"
-        duration="75" />
+        duration="81" />
     <task
         name="verifier"
-        duration="20" />
+        duration="25" />
 
-    <artifact
-        location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
-        type="RESOURCES" />
     <artifact
         location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
         type="DEX" />
     <artifact
-        location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-        type="DEX" />
-    <artifact
-        location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
-        type="DEX" />
-    <artifact
         location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-        type="DEX" />
-    <artifact
-        location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-        type="DEX" />
-    <artifact
-        location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
         type="DEX" />
 
     <build
-        timestamp="15610159323370"
+        timestamp="24614400331750"
         verifier="FULL_BUILD_REQUESTED" >
         <artifact
             location="D:\Androidproject\RC\RCHZ\hZSZ\build\outputs\apk\hZSZ-debug.apk"
             type="MAIN" />
     </build>
     <build
-        timestamp="27288057699321"
+        timestamp="26969894440306"
+        verifier="COLD_SWAP_REQUESTED" >
+        <artifact
+            location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
+            type="DEX" />
+    </build>
+    <build
+        timestamp="27226709958484"
         verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\instant-run-resources\resources-debug.ir.ap_"
             type="RESOURCES" />
+    </build>
+    <build
+        timestamp="27512567212698"
+        verifier="COLD_SWAP_REQUESTED" >
         <artifact
             location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_0\classes.dex"
             type="DEX" />
         <artifact
-            location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_1\classes.dex"
-            type="DEX" />
-        <artifact
-            location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_6\classes.dex"
-            type="DEX" />
-        <artifact
             location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_8\classes.dex"
-            type="DEX" />
-        <artifact
-            location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_7\classes.dex"
-            type="DEX" />
-        <artifact
-            location="D:\Androidproject\RC\RCHZ\hZSZ\build\intermediates\transforms\dex\debug\folders\1000\5\slice_2\classes.dex"
             type="DEX" />
     </build>
 

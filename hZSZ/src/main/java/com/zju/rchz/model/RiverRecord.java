@@ -41,6 +41,10 @@ public class RiverRecord {
 	public String recordRiverName;
 	public int recordPersonAuth; //巡河人的等级
 	public String isCorrect;//有效性判断 ，1表示有效，0表示无效
+	public String judgeReason;//无效时的原因
+
+	public String patrolLength;//巡河长度
+	public String patrolTime;//巡河时长
 
 	public String getIsCorrect() {
 		return isCorrect;

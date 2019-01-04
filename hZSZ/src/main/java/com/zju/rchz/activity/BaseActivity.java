@@ -16,6 +16,7 @@ import android.view.View.OnClickListener;
 import android.webkit.WebView;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.android.volley.toolbox.Volley;
 import com.sin.android.sinlibs.exutils.ImgUtils;
@@ -36,6 +37,8 @@ import com.zju.rchz.utils.StrUtils;
 import org.json.JSONObject;
 
 import java.lang.reflect.InvocationTargetException;
+import java.util.Timer;
+import java.util.TimerTask;
 
 public class BaseActivity extends com.sin.android.sinlibs.activities.BaseActivity implements OnClickListener {
 	private static BaseActivity curActivity = null;
@@ -319,7 +322,7 @@ public class BaseActivity extends com.sin.android.sinlibs.activities.BaseActivit
 					if (url == null || url.trim().length() == 0) {
 						iv.setImageResource(R.drawable.ic_launcher);
 					} else {
-						ImgUtils.loadImage(BaseActivity.this, iv, com.zju.rchz.utils.StrUtils.getImgUrl(url), R.drawable.ic_launcher, R.drawable.ic_launcher);
+						ImgUtils.loadImage(BaseActivity.this, iv, StrUtils.getImgUrl(url), R.drawable.ic_launcher, R.drawable.ic_launcher);
 					}
 				}
 
@@ -392,13 +395,32 @@ public class BaseActivity extends com.sin.android.sinlibs.activities.BaseActivit
 	protected void onServiceConnected() {
 
 	}
+	/**
+	 * 自定义Toast时间方法
+	 * */
+
+	public void showMyToast(final Toast toast, final int cnt) {
+		final Timer timer =new Timer();
+		timer.schedule(new TimerTask() {
+			@Override
+			public void run() {
+				toast.show();
+			}
+		},0,3000);
+		new Timer().schedule(new TimerTask() {
+			@Override
+			public void run() {
+				toast.cancel();
+				timer.cancel();
+			}
+		}, cnt );
+	}
 
 	/**
 	 *位置信息相关
 	 */
 	public static double latitude = 0.0;
 	public static double longitude = 0.0;
-
 
 	public double getLatitude() {
 		return latitude;

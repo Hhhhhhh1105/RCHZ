@@ -208,6 +208,7 @@ public class ChiefCompDetailActivity extends BaseActivity {
 					compFul.advTheme = comp.advTheme;
 					compFul.compTheme = comp.compTheme;
 					viewRender.renderView(findViewById(R.id.ll_root), compFul);
+					findViewById(R.id.tv_sgin).setVisibility(View.GONE);
 
 					if (compFul.ifAnonymous == 1) {
 						((TextView) findViewById(R.id.tv_user_name)).setText("***");

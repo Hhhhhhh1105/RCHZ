@@ -21,7 +21,6 @@ import com.sin.android.sinlibs.adapter.SimpleViewInitor;
 import com.sin.android.sinlibs.tagtemplate.ViewRender;
 import com.zju.rchz.R;
 import com.zju.rchz.Tags;
-import com.zju.rchz.Values;
 import com.zju.rchz.chief.activity.YearMonthSelectDialog;
 import com.zju.rchz.model.BaseRes;
 import com.zju.rchz.model.DateTime;
@@ -32,6 +31,7 @@ import com.zju.rchz.net.Callback;
 import com.zju.rchz.net.Constants;
 import com.zju.rchz.utils.DipPxUtils;
 import com.zju.rchz.utils.ParamUtils;
+import com.zju.rchz.utils.PatrolRecordUtils;
 import com.zju.rchz.utils.StrUtils;
 import com.zju.rchz.view.ListViewWarp;
 import com.zju.rchz.view.ListViewWarp.WarpHandler;
@@ -120,12 +120,12 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
             convertView.findViewById(R.id.btn_delete).setOnClickListener(delClk);
 
             ((TextView)convertView.findViewById(R.id.recordRiverName)).setText(record.recordLakeName);
-            ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setVisibility(View.GONE);
+            ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setVisibility(View.VISIBLE);
             if(record.isCorrect.equals("1")){
                 ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("有效");
                 ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.GREEN);
             }else if(record.isCorrect.equals("0")){
-                ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("无效");
+                ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText(record.judgeReason);
                 ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.RED);
             }else {
                 ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("判断中");
@@ -154,9 +154,6 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
         setContentView(R.layout.activity_chief_recordlist);
         setTitle("巡查记录");
         initHead(R.drawable.ic_head_back, 0);
-
-        //目前湖长巡湖记录不显示有效性
-        findViewById(R.id.isValid).setVisibility(View.GONE);
 
         todayDateTime = DateTime.getNow();//初始化
 
@@ -211,7 +208,8 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
     private YearMonthSelectDialog selectDialog = null;
     private String latList_host;
     private String lngList_host;
-    private int riverRecordTempLakeId;
+    private int lakeRecordTempLakeId;
+    private int lakeRecordTempPassTime;
     JSONObject submitUuidParam = null;
 
     //请求，判断服务器是否对应河长有未完成的轨迹
@@ -225,11 +223,13 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
                         //获得经纬度信息
                         latList_host = o.data.getLatlist();
                         lngList_host = o.data.getLnglist();
-                        riverRecordTempLakeId = (int)o.data.getLakeId();
+                        lakeRecordTempLakeId = (int)o.data.getLakeId();
+                        lakeRecordTempPassTime = o.data.getPassTime();
                     }else{
                         latList_host = "";
                         lngList_host = "";
-                        riverRecordTempLakeId = 0;
+                        lakeRecordTempLakeId = 0;
+                        lakeRecordTempPassTime = 0;
                     }
                 }
             }
@@ -243,28 +243,50 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
 //			if(timesOfRiverRecord >= Values.timesOfRiverTour){
 //				showToast("今日巡河次数已达上限！");
 //			}else {
-                AlertDialog.Builder ab = new AlertDialog.Builder(LakeChiefRecordListActivity.this);
-                ab.setTitle("温馨提示");
-                ab.setMessage("请您在巡湖履职过程中保持APP在前台显示，中途跳转到其他应用（如微信等）可能导致轨迹考核无效！感谢您对工作的支持！");
-                ab.setPositiveButton("确定", new DialogInterface.OnClickListener() {
-                    @Override
-                    public void onClick(DialogInterface arg0, int arg1) {
+                //检查是否开启了GPS,若未开启，则弹出窗口令其开启GPS
+                if (!PatrolRecordUtils.isOPen(getApplicationContext())) {
+                    //弹窗
+                    AlertDialog.Builder ab = new AlertDialog.Builder(LakeChiefRecordListActivity.this);
+                    ab.setTitle("开启GPS定位");
+                    ab.setMessage("为了正常记录你的巡湖位置信息，需要你开启GPS定位功能");
+                    ab.setPositiveButton("开启", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
+                            startActivity(new Intent("android.settings.LOCATION_SOURCE_SETTINGS"));
+                        }
+                    });
+//                ab.setNegativeButton("取消", new DialogInterface.OnClickListener() {
+//                    @Override
+//                    public void onClick(DialogInterface arg0, int arg1) {
+//                        arg0.dismiss();
+//                    }
+//                });
+                    ab.setCancelable(false);
+                    ab.create().show();
+                }else{
+                    AlertDialog.Builder ab = new AlertDialog.Builder(LakeChiefRecordListActivity.this);
+                    ab.setTitle("温馨提示");
+                    ab.setMessage("请您在巡湖履职过程中保持APP在前台显示，中途跳转到其他应用（如微信等）可能导致轨迹考核无效！感谢您对工作的支持！");
+                    ab.setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                        @Override
+                        public void onClick(DialogInterface arg0, int arg1) {
 
-                        Intent intent = new Intent(getCurActivity(), LakeChiefEditRecordActivity.class);
-                        Bundle bundle=new Bundle();
-                        bundle.putString("latList_host", latList_host);
-                        bundle.putString("lngList_host", lngList_host);
-                        bundle.putInt("lakeId",riverRecordTempLakeId);
-                        intent.putExtras(bundle);
-                        startActivityForResult(intent, Tags.CODE_NEW);
+                            Intent intent = new Intent(getCurActivity(), LakeChiefEditRecordActivity.class);
+                            Bundle bundle=new Bundle();
+                            bundle.putString("latList_host", latList_host);
+                            bundle.putString("lngList_host", lngList_host);
+                            bundle.putInt("lakeId", lakeRecordTempLakeId);
+                            bundle.putInt("passTime",lakeRecordTempPassTime);
+                            intent.putExtras(bundle);
+                            startActivityForResult(intent, Tags.CODE_NEW);
 
-                        arg0.dismiss();
-                    }
-                });
+                            arg0.dismiss();
+                        }
+                    });
 
-                ab.setCancelable(false);
-                ab.create().show();
-
+                    ab.setCancelable(false);
+                    ab.create().show();
+                }
 //			}
                 break;
             }
