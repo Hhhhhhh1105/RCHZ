@@ -128,7 +128,7 @@ public class LakeChiefRecordListActivity extends BaseActivity implements WarpHan
                 ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText(record.judgeReason);
                 ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.RED);
             }else {
-                ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("判断中");
+                ((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("待判断");
                 ((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.BLACK);
             }
 //			if(record.recordDate.year == todayDateTime.year){

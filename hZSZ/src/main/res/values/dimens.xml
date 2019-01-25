@@ -123,7 +123,7 @@
     <dimen name="onekey_comp_w">80dp</dimen>
     <dimen name="onekey_comp_h">80dp</dimen>
     <dimen name="onekey_comp_bottom">-15dp</dimen>
-    
+
     <dimen name="wbanner_h">80dp</dimen>
 
 </resources>

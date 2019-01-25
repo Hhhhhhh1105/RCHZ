@@ -46,18 +46,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minWidth="120dp"
                     android:text="@string/checkresult"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
                 <TextView
                     android:id="@+id/tv_checkResult_1"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:tag="tt:{.dealPersonName}"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
                     android:text="@string/eg_handleresult"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />

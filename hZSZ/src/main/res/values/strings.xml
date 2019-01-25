@@ -2,7 +2,7 @@
 <resources>
 
     <!-- 标题 文字 -->
-    <string name="app_name">荣成智慧河道</string>
+    <string name="app_name">荣成河湖长制</string>
     <string name="empty"></string>
     <string name="holdtext">占位</string>
     <string name="register">注册</string>
@@ -103,6 +103,7 @@
     <string name="otherMayorIntruction">分管市长批示</string>
     <string name="cityChiefIntruction">市级河长批示</string>
     <string name="bossChiefIntruction">镇街总河长批示</string>
+    <string name="replyIntruction">批示回复详情</string>
     <string name="replayinfo">回复详情</string>
     <string name="handler">处理人</string>
     <string name="dubanTheam">督办主题</string>
@@ -117,6 +118,8 @@
     <string name="instructionPerson">批示领导</string>
     <string name="checkresult">查验结果</string>
     <string name="intructionContent">批示结果</string>
+    <string name="replyIntructionContent">回复内容</string>
+    <string name="replyIntructionChief">河长姓名</string>
 
     <string name="deadline">处理期限</string>
     <string name="handlestatus">处理状态:</string>
@@ -308,6 +311,7 @@
     <string name="eg_name">张**</string>
     <string name="eg_sug_river">**镇街 **河</string>
     <string name="eg_sug_theme">这里是标题</string>
+    <string name="sug_theme">标题:  </string>
     <string name="eg_deal_deadline">这是处理期限</string>
     <string name="eg_sug_content">**河上游有臭水排放</string>
     <string name="eg_datetime">2015&#8211;05&#8211;01 09:20</string>
@@ -334,9 +338,9 @@
     <string name="eg_segment3">暂无</string>
     <string name="eg_arearanking">**镇街河道投诉处理排行榜</string>
     <string name="eg_version">版本: 1.0.0</string>
-    <string name="eg_chief_unhandle_comp">5个投诉未处理</string>
-    <string name="eg_chief_unhandle_dubanToperson">5个督办单未处理</string>
-    <string name="eg_chief_unhandle_sugs">2个建议未处理</string>
+    <string name="eg_chief_unhandle_comp">5个未处理</string>
+    <string name="eg_chief_unhandle_dubanToperson">5个未处理</string>
+    <string name="eg_chief_unhandle_sugs">2个未处理</string>
     <string name="fmt_submit_result" formatted="false">建议单号：T1213121</string>
 
     <!-- format -->
@@ -400,9 +404,7 @@
 
     <!-- about -->
 
-
     <!-- title -->
-
 
     <!-- error -->
     <string name="error_network">网络错误!</string>
@@ -434,6 +436,7 @@
     <string name="handle01_status50">已归档</string>
     <string name="handle01_status60">已转督</string>
     <string name="handle01_status99">不受理</string>
+    <string name="un_instruction">暂无批示</string>
 
     <!-- chief comp -->
     <string name="chief_vieworder">查看处理单</string>

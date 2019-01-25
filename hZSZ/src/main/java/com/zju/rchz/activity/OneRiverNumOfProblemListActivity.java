@@ -84,7 +84,7 @@ public class OneRiverNumOfProblemListActivity extends BaseActivity implements Vi
                 if (convertView == null) {
                     convertView = LinearLayout.inflate(
                             OneRiverNumOfProblemListActivity.this,
-                            R.layout.item_chief_complaint2, null);
+                            R.layout.item_dubantoperson, null);
                 }
                 ViewWarp warp = new ViewWarp(convertView,
                         OneRiverNumOfProblemListActivity.this);
@@ -95,7 +95,7 @@ public class OneRiverNumOfProblemListActivity extends BaseActivity implements Vi
                 warp.setText(R.id.tv_title, comp.getTheme());   //投诉单标题
                 warp.setText(R.id.tv_content, comp.getContent());  //投诉单内容
                 if (comp.getDeadline()!=null&&comp.getDeadline()!=""){
-                    warp.setText(R.id.tv_deal_deadline,"处理期限："+comp.getDeadline());  //处理期限
+                    warp.setText(R.id.tv_deal_deadline,comp.getDeadline());  //处理期限
                 }
                 warp.setText(R.id.tv_time, comp.getTime() != null ? comp
                         .getTime().getYMDHM(OneRiverNumOfProblemListActivity.this) : "");    //投诉时间

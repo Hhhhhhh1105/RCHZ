@@ -34,6 +34,8 @@ import com.baidu.mapapi.utils.DistanceUtil;
 import com.zju.rchz.R;
 import com.zju.rchz.Values;
 import com.zju.rchz.model.BaseRes;
+import com.zju.rchz.model.WholeRiverMap;
+import com.zju.rchz.model.WholeRiverMapRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ParamUtils;
 import com.zju.rchz.utils.PatrolRecordUtils;
@@ -56,6 +58,15 @@ import static com.baidu.mapapi.utils.DistanceUtil.getDistance;
 public class LakeChiefInspectActivity extends BaseActivity {
     MapView mMapView;
     BaiduMap mBaiduMap;
+
+    private LatLng lakeStart;
+    private LatLng lakeEnd;
+    private String lakeAllLatitude;//河道全部点
+    private String lakeAllLongitude;
+    private String[] lakeAllLatitudeArray;
+    private String[] lakeAllLongitudeArray;
+    WholeRiverMap wholeLakeMap;
+    ArrayList<LatLng> lakeAllPoint;
 
     Button btn_stop;
 
@@ -139,9 +150,51 @@ public class LakeChiefInspectActivity extends BaseActivity {
         lnglist_temp = getIntent().getExtras().getString("lnglist_temp");
 //        showToast(latlist_temp+"++"+lnglist_temp+hasHistroyData);
         isAddNewLakeRecord = getIntent().getExtras().getBoolean("isAddNewLakeRecord");
-        lakeRecordTempLakeId = getIntent().getExtras().getInt("lakeId");
+        lakeRecordTempLakeId = getIntent().getExtras().getInt("lakeId",0);
         passTime = getIntent().getExtras().getInt("passTime",0);
 
+        if(lakeRecordTempLakeId!=0){
+            getRequestContext().add("Get_WholeLakeMap", new Callback<WholeRiverMapRes>() {
+                @Override
+                public void callback(WholeRiverMapRes o) {
+                    hideOperating();
+                    if (o != null && o.isSuccess()) {
+                        if (o.data !=null && o.data.allLongitude!=null){
+                            wholeLakeMap = o.data;
+                            lakeAllLatitude = wholeLakeMap.allLatitude;
+                            lakeAllLongitude = wholeLakeMap.allLongitude;
+                            System.out.println("testrc: o.data !=null && o.data.allLongitude!=null");
+                        }
+                        if(lakeAllLatitude !=null && !lakeAllLatitude.equals("")){
+                            System.out.println("testrc: //得到湖泊的所有坐标");
+                            //得到河道的所有坐标
+                            if (lakeAllLatitude!=null && lakeAllLatitude.contains(",")){
+                                //如果不止一个数据，变成一个数组
+                                lakeAllLatitudeArray = lakeAllLatitude.split(",");
+                                lakeAllLongitudeArray = lakeAllLongitude.split(",");
+                                System.out.println("testrc: //如果不止一个数据，变成一个数组");
+                            }else{
+                                //如果只有一个数据
+                                lakeAllLatitudeArray = new String[1];
+                                lakeAllLongitudeArray = new String[1];
+                                lakeAllLatitudeArray[0] = lakeAllLatitude;
+                                lakeAllLongitudeArray[0] = lakeAllLongitude;
+                                System.out.println("testrc: //如果只有一个数据");
+                            }
+                            lakeStart =new LatLng(Double.parseDouble(lakeAllLatitudeArray[0]), Double.parseDouble(lakeAllLongitudeArray[0]));
+                            lakeEnd =new LatLng(Double.parseDouble(lakeAllLatitudeArray[lakeAllLatitudeArray.length-1]),
+                                    Double.parseDouble(lakeAllLongitudeArray[lakeAllLatitudeArray.length-1]));
+
+                            lakeAllPoint = new ArrayList<LatLng>();
+
+                            for (int i = 0; i < lakeAllLatitudeArray.length; i++){
+                                lakeAllPoint.add(new LatLng(Double.parseDouble(lakeAllLatitudeArray[i]), Double.parseDouble(lakeAllLongitudeArray[i])));
+                            }
+                        }
+                    }
+                }
+            }, WholeRiverMapRes.class, ParamUtils.freeParam(null, "lakeId", lakeRecordTempLakeId));
+        }
 
         submitTemporaryParam = new JSONObject();
         try{
@@ -217,15 +270,13 @@ public class LakeChiefInspectActivity extends BaseActivity {
                 }
             }
         });*/
-        findViewById(R.id.river_legend).setVisibility(View.GONE);
 
         myPosition = (Button) findViewById(R.id.btn_my_position);
-        myPosition.setVisibility(View.GONE);
         myPosition.setClickable(false);
         myPosition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(points!=null){
+                if(points!=null && points.size()>0){
                     mBaiduMap.setMyLocationData(new MyLocationData.Builder()
                             .latitude(points.get(points.size()-1).latitude)
                             .longitude(points.get(points.size()-1).longitude).build());
@@ -244,16 +295,43 @@ public class LakeChiefInspectActivity extends BaseActivity {
             }
         });
         lakePosition = (Button) findViewById(R.id.btn_river_position);
-        lakePosition.setVisibility(View.GONE);
         lakePosition.setClickable(false);
         lakePosition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                if (lakeStart != null && lakeEnd != null) {
+                    float lat = (float) ((lakeStart.latitude + lakeEnd.latitude) / 2);
+                    float lng = (float) ((lakeStart.longitude + lakeEnd.longitude) / 2);
+                    mBaiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
 
+                    //target：设置地图中心点；zoom:设置缩放级别
+                    MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(14).build();
+                    //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+                    mBaiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+                }else {
+                    showToast("暂时未录入湖泊信息。");
+                }
             }
         });
     }
 
+    //湖泊应巡点
+    private void drawLake() {
+        if (lakeStart != null && lakeEnd != null) {
+            System.out.println("testrc: drawRiver():riverStart != null && riverEnd != null");
+
+            BitmapDescriptor bdA = BitmapDescriptorFactory.fromResource(R.drawable.my_blue5px);
+
+            for(int i=0;i<lakeAllPoint.size();i++){
+                OverlayOptions option1 =  new MarkerOptions()
+                        .position(new LatLng(lakeAllPoint.get(i).latitude, lakeAllPoint.get(i).longitude))
+                        .icon(bdA);
+                mBaiduMap.addOverlay(option1);
+            }
+        }else {
+            showToast("暂时未录入湖泊信息。");
+        }
+    }
     //定时器，定时向服务器发送轨迹经纬度信息
     private int DELAY_TIME = 1000;//延时1s开启定时器
     private int PERIOD_TIME = 90000;//每过90s传一次数据
@@ -316,6 +394,7 @@ public class LakeChiefInspectActivity extends BaseActivity {
                         public void run() {
 //                            showToast(getStringTime(passTime++));
                             passTimeTextView.setText(getStringTime(passTime++));
+                            System.out.println("testrc: passtime: "+passTime);
                         }
                     });
 
@@ -404,6 +483,8 @@ public class LakeChiefInspectActivity extends BaseActivity {
         showOperating();
 
         mBaiduMap.clear();
+
+        drawLake();//画出湖泊应巡点
 
         BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.track_start);
         LatLng from = pointsToDrawFirst.get(0);
@@ -667,7 +748,9 @@ public class LakeChiefInspectActivity extends BaseActivity {
 //                showToast("isFirstLoc(else):"+points.size());
                 System.out.println("testrc: IP:isFirstLoc>=3 speed: "+location.getSpeed()+"type:"+location.getLocType());
 //                Toast.makeText(getCurActivity(),"isFirstLoc(else):speed: "+location.getSpeed(),Toast.LENGTH_SHORT).show();
-                points.add(newPoint);
+                if(newPoint.latitude>20){
+                    points.add(newPoint);
+                }
             }
 
             if(points.size() == 2 && !hasHistroyData ){

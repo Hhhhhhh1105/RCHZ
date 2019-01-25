@@ -44,6 +44,8 @@ import com.zju.rchz.utils.ParamUtils;
 import com.zju.rchz.utils.PatrolRecordUtils;
 import com.zju.rchz.utils.StrUtils;
 
+import org.json.JSONObject;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -137,8 +139,20 @@ public class ChiefTrackViewActivity extends BaseActivity {
         if(patrolTime != null && !patrolTime.equals("")){
             txPatrolTime.setText(patrolTime);
         }
-        if(riverId!=0){
-            getRequestContext().add("Get_WholeRiverMap", new Callback<WholeRiverMapRes>() {
+
+        //获取河道应巡点
+        JSONObject params;
+        final String request;
+
+        if(getUser().isVillageChief()){//村级河长取河道应巡点
+            request = "Get_VillChiefRiverMap";
+            params = ParamUtils.freeParam(null, "phoneNumber" , getUser().userName);
+        }else{//其他河长取河道应巡点
+            request = "Get_WholeRiverMap";
+            params = ParamUtils.freeParam(null, "riverId", riverId);
+        }
+        if(riverId!=0||getUser().isVillageChief()){
+            getRequestContext().add(request, new Callback<WholeRiverMapRes>() {
                 @Override
                 public void callback(WholeRiverMapRes o) {
                     hideOperating();
@@ -184,7 +198,7 @@ public class ChiefTrackViewActivity extends BaseActivity {
                         }
                     }
                 }
-            }, WholeRiverMapRes.class, ParamUtils.freeParam(null, "riverId", riverId));
+            }, WholeRiverMapRes.class, params);
         }
 
         //将字符串变成数组形式,如果只含有一个坐标点，强行变成两个
@@ -390,34 +404,48 @@ public class ChiefTrackViewActivity extends BaseActivity {
 
         List<LatLng> points = new ArrayList<LatLng>();
 
-        if(pointsToDraw.size()>1 && abnormalPoints.size()>0){
-            int i = 0;
-            int last= 0;//起始点
-            for (;i<abnormalPoints.size();i++){
-                if(i>0){
-                    last = abnormalPoints.get(i-1);
-                }
-                //两点之间距离正常的点
-                OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                        .color(Color.GREEN).points(pointsToDraw.subList(last,abnormalPoints.get(i)+1));
-                baiduMap.addOverlay(ooPolyline);
+        OverlayOptions ooPolyline;
+        for(int i = 0;i<pointsToDraw.size()-1;i++){
+            if(DistanceUtil.getDistance(pointsToDraw.get(i),pointsToDraw.get(i+1))>=180){
                 //两点之间距离异常的点
                 ooPolyline = new PolylineOptions().width(4).dottedLine(true)
-                        .color(Color.LTGRAY).points(pointsToDraw.subList(abnormalPoints.get(i),abnormalPoints.get(i)+2));
+                        .color(Color.LTGRAY).points(pointsToDraw.subList(i,i+2));
                 baiduMap.addOverlay(ooPolyline);
-            }
-            if (abnormalPoints.get(i-1)<pointsToDraw.size()-2){
+            }else{
                 //两点之间距离正常的点
-                OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                        .color(Color.GREEN).points(pointsToDraw.subList(abnormalPoints.get(i-1)+1,pointsToDraw.size()));
+                ooPolyline = new PolylineOptions().width(10)
+                        .color(Color.GREEN).points(pointsToDraw.subList(i,i+2));
                 baiduMap.addOverlay(ooPolyline);
             }
-        }else{
-            //可设置循环，添加坐标点
-            OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                    .color(Color.GREEN).points(pointsToDraw);
-            baiduMap.addOverlay(ooPolyline);
         }
+//        if(pointsToDraw.size()>1 && abnormalPoints.size()>0){
+//            int i = 0;
+//            int last= 0;//起始点
+//            for (;i<abnormalPoints.size();i++){
+//                if(i>0){
+//                    last = abnormalPoints.get(i-1);
+//                }
+//                //两点之间距离正常的点
+//                OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//                        .color(Color.GREEN).points(pointsToDraw.subList(last,abnormalPoints.get(i)+1));
+//                baiduMap.addOverlay(ooPolyline);
+//                //两点之间距离异常的点
+//                ooPolyline = new PolylineOptions().width(4).dottedLine(true)
+//                        .color(Color.LTGRAY).points(pointsToDraw.subList(abnormalPoints.get(i),abnormalPoints.get(i)+2));
+//                baiduMap.addOverlay(ooPolyline);
+//            }
+//            if (abnormalPoints.get(i-1)<pointsToDraw.size()-2){
+//                //两点之间距离正常的点
+//                OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//                        .color(Color.GREEN).points(pointsToDraw.subList(abnormalPoints.get(i-1)+1,pointsToDraw.size()));
+//                baiduMap.addOverlay(ooPolyline);
+//            }
+//        }else{
+//            //可设置循环，添加坐标点
+//            OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//                    .color(Color.GREEN).points(pointsToDraw);
+//            baiduMap.addOverlay(ooPolyline);
+//        }
 
         //设置地图中心点与设置缩放级别
         MapStatus status = new MapStatus.Builder().target(new LatLng(lat,lng)).zoom(15).build();
@@ -493,14 +521,14 @@ public class ChiefTrackViewActivity extends BaseActivity {
      */
     private void drawRiver() {
         //在地图上显示起点和终点
-        BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.river_start);
-        BitmapDescriptor bmp_to = BitmapDescriptorFactory.fromResource(R.drawable.river_end);
+//        BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.river_end);
+//        BitmapDescriptor bmp_to = BitmapDescriptorFactory.fromResource(R.drawable.river_end);
 //        baiduMap.addOverlay(optionMe);
         if (riverStart != null && riverEnd != null) {
             System.out.println("testrc: drawRiver():riverStart != null && riverEnd != null");
-            MarkerOptions optionFrom = new MarkerOptions().position(riverStart).icon(bmp_from);
-            MarkerOptions optionTo = new MarkerOptions().position(riverEnd).icon(bmp_to);
-            baiduMap.addOverlay(optionFrom);
+//            MarkerOptions optionFrom = new MarkerOptions().position(riverStart).icon(bmp_from);
+//            MarkerOptions optionTo = new MarkerOptions().position(riverEnd).icon(bmp_to);
+//            baiduMap.addOverlay(optionFrom);
 
 //            OverlayOptions ooPolyline = new PolylineOptions().width(10).color(Color.BLUE).points(riverAllPoint);
 //            baiduMap.addOverlay(ooPolyline);
@@ -512,7 +540,7 @@ public class ChiefTrackViewActivity extends BaseActivity {
                         .icon(bdA);
                 baiduMap.addOverlay(option1);
             }
-            Marker marker_End = (Marker) baiduMap.addOverlay(optionTo);
+//            Marker marker_End = (Marker) baiduMap.addOverlay(optionTo);
         }else {
             showToast("暂时未录入河道信息。");
         }

@@ -85,7 +85,7 @@ public class LakeDubanTopersonListActivity extends BaseActivity implements ViewP
                 warp.setText(R.id.tv_title, comp.getTheme());   //投诉单标题
                 warp.setText(R.id.tv_content, comp.getContent());  //投诉单内容
                 if (comp.getDeadline()!=null&&comp.getDeadline()!=""){
-                    warp.setText(R.id.tv_deal_deadline,"处理期限："+comp.getDeadline());  //处理期限
+                    warp.setText(R.id.tv_deal_deadline,comp.getDeadline());  //处理期限
                 }
                 warp.setText(R.id.tv_time, comp.getTime() != null ? comp
                         .getTime().getYMDHM(LakeDubanTopersonListActivity.this) : "");    //投诉时间

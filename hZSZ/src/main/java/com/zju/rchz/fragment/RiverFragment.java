@@ -203,13 +203,7 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 //			rivers = getBaseActivity().getUser().getCollections();
 //			rivers = getBaseActivity().getUser().getRiverSumList();
 
-
 			rivers = Arrays.asList(getBaseActivity().getUser().riverSum);
-
-
-
-
-
 
 			//顶栏左边无图片，右边为search图片
 			getRootViewWarp().setHeadImage(0, R.drawable.ic_head_refresh);
@@ -290,9 +284,7 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
 					if (o != null && o.isSuccess()) {
 
 						// 更新
-
 						rivers = Arrays.asList(o.data);
-
 					}
 
 					hideOperating();
@@ -352,22 +344,13 @@ public class RiverFragment extends BaseFragment implements OnCheckedChangeListen
             @Override
             public void callback(RiverListRes o) {
                 if (o != null && o.isSuccess()) {
-
 					// 更新
-
 					aa = Arrays.asList(o.data);
-
 				}
-//
-
-
                 hideOperating();
             }
         }, RiverListRes.class, null);
         return aa;
-
-
-
     }
 
 	@Override

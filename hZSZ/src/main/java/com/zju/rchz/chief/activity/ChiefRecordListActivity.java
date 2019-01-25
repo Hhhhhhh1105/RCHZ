@@ -124,7 +124,7 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText(record.judgeReason);
 				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.RED);
 			}else {
-				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("判断中");
+				((TextView)convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setText("待判断");
 				((TextView) convertView.findViewById(R.id.tv_riverrecord_iscorrect)).setTextColor(Color.BLACK);
 			}
 //			if(record.recordDate.year == todayDateTime.year){
@@ -329,16 +329,16 @@ public class ChiefRecordListActivity extends BaseActivity implements WarpHandler
 		else
 			listViewWarp.setLoadingMore(true);
 
-		//判断轨迹有效性的请求
-		getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
-			@Override
-			public void callback(BaseRes o) {
-				hideOperating();
-				if (o != null && o.isSuccess()) {
-
-				}
-			}
-		}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
+		//判断轨迹有效性的请求//服务器定时判断有效性
+//		getRequestContext().add("Set_RiverRecord_IsCorrect", new Callback<BaseRes>() {
+//			@Override
+//			public void callback(BaseRes o) {
+//				hideOperating();
+//				if (o != null && o.isSuccess()) {
+//
+//				}
+//			}
+//		}, BaseRes.class, submitSetRiverRecordIsCorrectParam);
 
 		getRequestContext().add("Get_Record_List", new Callback<RiverRecordListRes>() {
 			@Override

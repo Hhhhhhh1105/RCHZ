@@ -282,7 +282,7 @@ public class MainFragment extends BaseFragment implements OnRefreshListener {
 					circleMedia.setTargetUrl("http://123.206.204.153:8080/RongChengHeZhang/homepage/home.htm");
 
 //					circleMedia.setShareImage(new UMImage(getBaseActivity(), "http://7xiw6r.com1.z0.glb.clouddn.com/ic_launcher-web.png"));
-					circleMedia.setShareContent("荣成智慧河道App正式发布，大家一起来关注身边的水环境！");
+					circleMedia.setShareContent("荣成河湖长制App正式发布，大家一起来关注身边的水环境！");
 
 					//circleMedia.setShareContent("杭州河道水质App首发，全国首个城市河道水质数据和河长制信息公开发布App!");
 

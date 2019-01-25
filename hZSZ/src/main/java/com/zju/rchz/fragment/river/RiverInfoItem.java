@@ -424,47 +424,6 @@ public class RiverInfoItem extends BaseRiverPagerItem {
 
 				warp.getViewById(R.id.tv_low_level_river).setVisibility(View.GONE);
 
-				/*//镇街级河道有下属村级河长 分栏显示方式
-				if (river.villageRiverChiefs.length > 0) {
-
-					//下属村级河道
-					warp.getViewById(R.id.tv_low_level_river).setVisibility(View.VISIBLE);
-					((TextView) warp.getViewById(R.id.tv_low_level_river)).setText(R.string.river_villagechief);
-
-					for (int i = 0; i < river.villageRiverChiefs.length; i += 2) {
-						VillageRiverChief villageRiverChief_l = river.villageRiverChiefs[i];
-						VillageRiverChief villageRiverChief_r = (i + 1) < river.villageRiverChiefs.length ? river.villageRiverChiefs[i + 1] : null;
-
-						View view = LinearLayout.inflate(context, R.layout.item_mainpage_section, null);
-						((TextView) view.findViewById(R.id.tv_name_l)).setText(villageRiverChief_l.chiefName);
-						((TextView) view.findViewById(R.id.tv_level_l)).setText(villageRiverChief_l.position);
-						((ImageView) view.findViewById(R.id.iv_quality_l)).setImageResource(R.drawable.ic_phone);
-
-						view.findViewById(R.id.rl_section_left).setOnClickListener(telclik);
-						view.findViewById(R.id.rl_section_left).setTag(villageRiverChief_l.contactWay);
-
-						if (villageRiverChief_r!= null) {
-
-							((TextView) view.findViewById(R.id.tv_name_r)).setText(villageRiverChief_r.chiefName);
-							((TextView) view.findViewById(R.id.tv_level_r)).setText(villageRiverChief_r.position);
-							((ImageView) view.findViewById(R.id.iv_quality_r)).setImageResource(R.drawable.ic_phone);
-							((ImageView) view.findViewById(R.id.iv_quality_r)).setScaleType(ImageView.ScaleType.FIT_XY);
-
-							view.findViewById(R.id.rl_section_right).setOnClickListener(telclik);
-							view.findViewById(R.id.rl_section_right).setTag(villageRiverChief_r.contactWay);
-
-						} else {
-							view.findViewById(R.id.rl_section_right).setVisibility(View.INVISIBLE);
-						}
-
-						ll_rivers.addView(view);
-
-					}
-				} else {
-					//若无下级河道则不显示下属村级河长列表
-					warp.getViewById(R.id.tv_low_level_river).setVisibility(View.GONE);
-				}
-*/
 				//镇街级河道有下属村级河长 按分段河长方式显示
 				if (river.villageRiverChiefs.length > 0) {
 

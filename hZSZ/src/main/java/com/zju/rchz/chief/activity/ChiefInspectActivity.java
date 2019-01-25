@@ -76,7 +76,7 @@ public class ChiefInspectActivity extends BaseActivity{
     private LocationClient mLocationClient;
     BitmapDescriptor track_start = null;
     BitmapDescriptor track_end = null;
-//    boolean isFirstLoc = true;
+    //    boolean isFirstLoc = true;
     int isFirstLoc = 0;
     List<LatLng> points = new ArrayList<LatLng>();//全部点
     List<LatLng> points_tem = new ArrayList<LatLng>();//临时点
@@ -85,7 +85,7 @@ public class ChiefInspectActivity extends BaseActivity{
     //测试巡河轨迹点数
     int countOfHandler = 0;
 
-//    List<LatLng> points_to_server = new ArrayList<LatLng>();//提交至服务器后台的点
+    //    List<LatLng> points_to_server = new ArrayList<LatLng>();//提交至服务器后台的点
     String lngList;//上传至服务器的经度列表，为上传方便转化为字符串
     String latList;//上传至服务器的纬度列表，为上传方便转化为字符串
     private String[] lat_array;
@@ -155,12 +155,23 @@ public class ChiefInspectActivity extends BaseActivity{
         riverId = getIntent().getExtras().getInt("riverId",0);
         passTime = getIntent().getExtras().getInt("passTime",0);
 
-        if(riverId!=0){
-            getRequestContext().add("Get_WholeRiverMap", new Callback<WholeRiverMapRes>() {
+        //获取河道应巡点
+        JSONObject params;
+        final String request;
+
+        if(getUser().isVillageChief()){//村级河长取河道应巡点
+            request = "Get_VillChiefRiverMap";
+            params = ParamUtils.freeParam(null, "phoneNumber" , getUser().userName);
+        }else{//其他河长取河道应巡点
+            request = "Get_WholeRiverMap";
+            params = ParamUtils.freeParam(null, "riverId", riverId);
+        }
+        if(riverId!=0 ||getUser().isVillageChief()){
+            getRequestContext().add(request, new Callback<WholeRiverMapRes>() {
                 @Override
                 public void callback(WholeRiverMapRes o) {
                     hideOperating();
-                    if (o != null && o.isSuccess()) {
+                    if (o != null && o.isSuccess()){
                         if (o.data !=null && o.data.allLongitude!=null){
                             wholeRiverMap = o.data;
                             riverAllLatitude = wholeRiverMap.allLatitude;
@@ -193,7 +204,7 @@ public class ChiefInspectActivity extends BaseActivity{
                         }
                     }
                 }
-            }, WholeRiverMapRes.class, ParamUtils.freeParam(null, "riverId", riverId));
+            }, WholeRiverMapRes.class, params);
         }
 
 
@@ -277,7 +288,7 @@ public class ChiefInspectActivity extends BaseActivity{
         myPosition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(points!=null){
+                if(points!=null && points.size()>0){
                     mBaiduMap.setMyLocationData(new MyLocationData.Builder()
                             .latitude(points.get(points.size()-1).latitude)
                             .longitude(points.get(points.size()-1).longitude).build());
@@ -323,14 +334,14 @@ public class ChiefInspectActivity extends BaseActivity{
     private void drawRiver() {
 
         //在地图上显示起点和终点
-        BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.river_start);
+        BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.river_end);
         BitmapDescriptor bmp_to = BitmapDescriptorFactory.fromResource(R.drawable.river_end);
 //        baiduMap.addOverlay(optionMe);
 
         if (riverStart != null && riverEnd != null) {
-            MarkerOptions optionFrom = new MarkerOptions().position(riverStart).icon(bmp_from);
-            MarkerOptions optionTo = new MarkerOptions().position(riverEnd).icon(bmp_to);
-            mBaiduMap.addOverlay(optionFrom);
+//            MarkerOptions optionFrom = new MarkerOptions().position(riverStart).icon(bmp_from);
+//            MarkerOptions optionTo = new MarkerOptions().position(riverEnd).icon(bmp_to);
+//            mBaiduMap.addOverlay(optionFrom);//不画起止点
 //河道轨迹连线版
 //            OverlayOptions ooPolyline = new PolylineOptions().width(10).color(Color.BLUE).points(riverAllPoint);
 //            mBaiduMap.addOverlay(ooPolyline);
@@ -338,15 +349,15 @@ public class ChiefInspectActivity extends BaseActivity{
             BitmapDescriptor bdA = BitmapDescriptorFactory.fromResource(R.drawable.my_blue5px);
 
             for(int i=0;i<riverAllPoint.size();i++){
-                    OverlayOptions option1 =  new MarkerOptions()
-                            .position(new LatLng(riverAllPoint.get(i).latitude, riverAllPoint.get(i).longitude))
-                            .icon(bdA);
-                    mBaiduMap.addOverlay(option1);
+                OverlayOptions option1 =  new MarkerOptions()
+                        .position(new LatLng(riverAllPoint.get(i).latitude, riverAllPoint.get(i).longitude))
+                        .icon(bdA);
+                mBaiduMap.addOverlay(option1);
             }
 
 
 
-            Marker marker_End = (Marker) mBaiduMap.addOverlay(optionTo);
+//            Marker marker_End = (Marker) mBaiduMap.addOverlay(optionTo);
         }else {
             showToast("暂时未录入河道信息。");
         }
@@ -413,6 +424,7 @@ public class ChiefInspectActivity extends BaseActivity{
                         public void run() {
 //                            showToast(getStringTime(passTime++));
                             passTimeTextView.setText(getStringTime(passTime++));
+                            System.out.println("testrc: passtime: "+passTime);
                         }
                     });
 
@@ -764,7 +776,9 @@ public class ChiefInspectActivity extends BaseActivity{
                 System.out.println("testrc: IP:iisFirstLoc<=6 && !hasHistroyData points.size()= "+points.size());
             }else{
 //                Toast.makeText(getCurActivity(),"isFirstLoc(else):speed: "+location.getSpeed(),Toast.LENGTH_SHORT).show();
-                points.add(newPoint);
+                if(newPoint.latitude>20){
+                    points.add(newPoint);
+                }
             }
 
             if(points.size() == 2 && !hasHistroyData ){

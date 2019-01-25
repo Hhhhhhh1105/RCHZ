@@ -7,7 +7,7 @@ import com.zju.rchz.activity.BaseActivity;
  */
 
 public class LakeRecord {
-    public long lakeId;//巡查湖道Id
+    public int lakeId;//巡查湖道Id
     public String recordSerNum;//编号RR-XH-00001
 
     public int flotage;

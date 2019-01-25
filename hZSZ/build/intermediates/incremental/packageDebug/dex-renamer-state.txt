@@ -1,4 +1,7 @@
-#Thu Dec 27 21:33:16 GMT+08:00 2018
-base.0=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main
+#Wed Jan 23 20:48:24 CST 2019
+base.0=F\:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_e443e26e56940633466839bb30914f056d24510a
+renamed.1=classes2.dex
 renamed.0=classes.dex
-file.0=D\:\\Learn\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\1f\\main\\classes.dex
+file.1=F\:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2970f8fdc4faa9e0d15c31c16732a4ab7045c572\\classes.dex
+base.1=F\:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run-bootstrap_2970f8fdc4faa9e0d15c31c16732a4ab7045c572
+file.0=F\:\\AndroidStudioProjects\\RC\\RCHZ\\hZSZ\\build\\intermediates\\transforms\\dex\\debug\\folders\\1000\\10\\instant-run_e443e26e56940633466839bb30914f056d24510a\\classes.dex

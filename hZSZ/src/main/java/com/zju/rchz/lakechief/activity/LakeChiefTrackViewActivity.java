@@ -10,6 +10,7 @@ import android.os.Handler;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -35,6 +36,8 @@ import com.zju.rchz.Values;
 import com.zju.rchz.activity.ComplainMap;
 import com.zju.rchz.activity.PhotoViewActivity;
 import com.zju.rchz.model.Imag;
+import com.zju.rchz.model.WholeRiverMap;
+import com.zju.rchz.model.WholeRiverMapRes;
 import com.zju.rchz.net.Callback;
 import com.zju.rchz.utils.ImgUtils;
 import com.zju.rchz.utils.ParamUtils;
@@ -74,11 +77,21 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
     private List<LatLng> pointsToDraw;
     private List<Integer> abnormalPoints;//轨迹分段显示的各组点
 
+    private LatLng lakeStart;
+    private LatLng lakeEnd;
+    private String lakeAllLatitude;//河道全部点
+    private String lakeAllLongitude;
+    private String[] lakeAllLatitudeArray;
+    private String[] lakeAllLongitudeArray;
+    WholeRiverMap wholeLakeMap;
+    ArrayList<LatLng> lakeAllPoint;
+
     //传入河道编号：
     private int lakeId;
 
     Handler handler = new Handler();
-
+    private Button trackPosition;
+    private Button lakePosition;
     private TextView txPatrolTime;
     private TextView txPatrolLength;
 
@@ -121,6 +134,49 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
         }
         if(patrolTime != null && !patrolTime.equals("")){
             txPatrolTime.setText(patrolTime);
+        }
+
+        if(lakeId!=0){
+            getRequestContext().add("Get_WholeLakeMap", new Callback<WholeRiverMapRes>() {
+                @Override
+                public void callback(WholeRiverMapRes o) {
+                    hideOperating();
+                    if (o != null && o.isSuccess()) {
+                        if (o.data !=null && o.data.allLongitude!=null){
+                            wholeLakeMap = o.data;
+                            lakeAllLatitude = wholeLakeMap.allLatitude;
+                            lakeAllLongitude = wholeLakeMap.allLongitude;
+                            System.out.println("testrc: o.data !=null && o.data.allLongitude!=null");
+                        }
+                        if(lakeAllLatitude !=null && !lakeAllLatitude.equals("")){
+                            System.out.println("testrc: //得到湖泊的所有坐标");
+                            //得到河道的所有坐标
+                            if (lakeAllLatitude!=null && lakeAllLatitude.contains(",")){
+                                //如果不止一个数据，变成一个数组
+                                lakeAllLatitudeArray = lakeAllLatitude.split(",");
+                                lakeAllLongitudeArray = lakeAllLongitude.split(",");
+                                System.out.println("testrc: //如果不止一个数据，变成一个数组");
+                            }else{
+                                //如果只有一个数据
+                                lakeAllLatitudeArray = new String[1];
+                                lakeAllLongitudeArray = new String[1];
+                                lakeAllLatitudeArray[0] = lakeAllLatitude;
+                                lakeAllLongitudeArray[0] = lakeAllLongitude;
+                                System.out.println("testrc: //如果只有一个数据");
+                            }
+                            lakeStart =new LatLng(Double.parseDouble(lakeAllLatitudeArray[0]), Double.parseDouble(lakeAllLongitudeArray[0]));
+                            lakeEnd =new LatLng(Double.parseDouble(lakeAllLatitudeArray[lakeAllLatitudeArray.length-1]),
+                                    Double.parseDouble(lakeAllLongitudeArray[lakeAllLatitudeArray.length-1]));
+
+                            lakeAllPoint = new ArrayList<LatLng>();
+
+                            for (int i = 0; i < lakeAllLatitudeArray.length; i++){
+                                lakeAllPoint.add(new LatLng(Double.parseDouble(lakeAllLatitudeArray[i]), Double.parseDouble(lakeAllLongitudeArray[i])));
+                            }
+                        }
+                    }
+                }
+            }, WholeRiverMapRes.class, ParamUtils.freeParam(null, "lakeId", lakeId));
         }
 
         //将字符串变成数组形式,如果只含有一个坐标点，强行变成两个
@@ -210,7 +266,9 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
             }
         });
 
-        findViewById(R.id.btn_my_position).setOnClickListener(new View.OnClickListener() {
+        trackPosition = (Button) findViewById(R.id.btn_my_position);
+        trackPosition.setClickable(false);
+        trackPosition.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 if(pointsToDraw!=null){
@@ -226,21 +284,36 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
 
             }
         });
-        findViewById(R.id.river_legend).setVisibility(View.GONE);
-        findViewById(R.id.btn_my_position).setVisibility(View.GONE);
-        findViewById(R.id.btn_river_position).setVisibility(View.GONE);
-//        findViewById(R.id.btn_river_position).setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
+//        findViewById(R.id.river_legend).setVisibility(View.GONE);
+//        findViewById(R.id.btn_my_position).setVisibility(View.GONE);
+//        findViewById(R.id.btn_river_position).setVisibility(View.GONE);
+        lakePosition = (Button) findViewById(R.id.btn_river_position);
+        lakePosition.setClickable(false);
+        lakePosition.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                if (lakeStart != null && lakeEnd != null) {
+                    float lat = (float) ((lakeStart.latitude + lakeEnd.latitude) / 2);
+                    float lng = (float) ((lakeStart.longitude + lakeEnd.longitude) / 2);
+                    baiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
 
-//            }
-//        });
+                    //target：设置地图中心点；zoom:设置缩放级别
+                    MapStatus status = new MapStatus.Builder().target(new LatLng(lat, lng)).zoom(14).build();
+                    //setMapStatus:改变地图的状态；MapStatusUpdateFactory:生成地图状态将要发生的变化
+                    baiduMap.setMapStatus(MapStatusUpdateFactory.newMapStatus(status));
+                }else {
+                    showToast("暂时未录入湖泊信息。");
+                }
+            }
+        });
     }
 
     private class MyRunable implements Runnable {
 
         @Override
         public void run() {
+            lakePosition.setClickable(true);
+            trackPosition.setClickable(true);
             //开始画轨迹
             drawTrack();
         }
@@ -278,6 +351,9 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
     private void drawTrack() {
         baiduMap.clear();
 
+        //画湖泊
+        drawLake();
+
         //在地图上显示起点和终点
         BitmapDescriptor bmp_from = BitmapDescriptorFactory.fromResource(R.drawable.track_start);
         BitmapDescriptor bmp_to = BitmapDescriptorFactory.fromResource(R.drawable.track_end);
@@ -306,34 +382,48 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
         float lng = (float) ((from.longitude + to.longitude)/2);
         baiduMap.setMyLocationData(new MyLocationData.Builder().latitude(lat).longitude(lng).build());
 
-        if(pointsToDraw.size()>1 && abnormalPoints.size()>0){
-            int i = 0;
-            int last= 0;//起始点
-            for (;i<abnormalPoints.size();i++){
-                if(i>0){
-                    last = abnormalPoints.get(i-1);
-                }
-                //两点之间距离正常的点
-                OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                        .color(Color.GREEN).points(pointsToDraw.subList(last,abnormalPoints.get(i)+1));
-                baiduMap.addOverlay(ooPolyline);
+        OverlayOptions ooPolyline;
+        for(int i = 0;i<pointsToDraw.size()-1;i++){
+            if(DistanceUtil.getDistance(pointsToDraw.get(i),pointsToDraw.get(i+1))>=180){
                 //两点之间距离异常的点
                 ooPolyline = new PolylineOptions().width(4).dottedLine(true)
-                        .color(Color.LTGRAY).points(pointsToDraw.subList(abnormalPoints.get(i),abnormalPoints.get(i)+2));
+                        .color(Color.LTGRAY).points(pointsToDraw.subList(i,i+2));
                 baiduMap.addOverlay(ooPolyline);
-            }
-            if (abnormalPoints.get(i-1)<pointsToDraw.size()-2){
+            }else{
                 //两点之间距离正常的点
-                OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                        .color(Color.GREEN).points(pointsToDraw.subList(abnormalPoints.get(i-1)+1,pointsToDraw.size()));
+                ooPolyline = new PolylineOptions().width(10)
+                        .color(Color.GREEN).points(pointsToDraw.subList(i,i+2));
                 baiduMap.addOverlay(ooPolyline);
             }
-        }else{
-            //可设置循环，添加坐标点
-            OverlayOptions ooPolyline = new PolylineOptions().width(10)
-                    .color(Color.GREEN).points(pointsToDraw);
-            baiduMap.addOverlay(ooPolyline);
         }
+//        if(pointsToDraw.size()>1 && abnormalPoints.size()>0){
+//            int i = 0;
+//            int last= 0;//起始点
+//            for (;i<abnormalPoints.size();i++){
+//                if(i>0){
+//                    last = abnormalPoints.get(i-1);
+//                }
+//                //两点之间距离正常的点
+//                OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//                        .color(Color.GREEN).points(pointsToDraw.subList(last,abnormalPoints.get(i)+1));
+//                baiduMap.addOverlay(ooPolyline);
+//                //两点之间距离异常的点
+//                ooPolyline = new PolylineOptions().width(4).dottedLine(true)
+//                        .color(Color.LTGRAY).points(pointsToDraw.subList(abnormalPoints.get(i),abnormalPoints.get(i)+2));
+//                baiduMap.addOverlay(ooPolyline);
+//            }
+//            if (abnormalPoints.get(i-1)<pointsToDraw.size()-2){
+//                //两点之间距离正常的点
+//                OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//                        .color(Color.GREEN).points(pointsToDraw.subList(abnormalPoints.get(i-1)+1,pointsToDraw.size()));
+//                baiduMap.addOverlay(ooPolyline);
+//            }
+//        }else{
+//            //可设置循环，添加坐标点
+//            OverlayOptions ooPolyline = new PolylineOptions().width(10)
+//                    .color(Color.GREEN).points(pointsToDraw);
+//            baiduMap.addOverlay(ooPolyline);
+//        }
 
         //设置地图中心点与设置缩放级别
         MapStatus status = new MapStatus.Builder().target(new LatLng(lat,lng)).zoom(Values.MAP_ZOOM_LEVEL).build();
@@ -425,6 +515,23 @@ public class LakeChiefTrackViewActivity extends BaseActivity {
 //            showToast("暂时未录入河道信息。");
 //        }
 //    }
+    //湖泊应巡点
+    private void drawLake() {
+        if (lakeStart != null && lakeEnd != null) {
+            System.out.println("testrc: drawRiver():riverStart != null && riverEnd != null");
+
+            BitmapDescriptor bdA = BitmapDescriptorFactory.fromResource(R.drawable.my_blue5px);
+
+            for(int i=0;i<lakeAllPoint.size();i++){
+                OverlayOptions option1 =  new MarkerOptions()
+                        .position(new LatLng(lakeAllPoint.get(i).latitude, lakeAllPoint.get(i).longitude))
+                        .icon(bdA);
+                baiduMap.addOverlay(option1);
+            }
+        }else {
+            showToast("暂时未录入湖泊信息。");
+        }
+    }
 
     String[] imgResultUrls = null;
     private View.OnClickListener clkResultGotoPhotoView = new View.OnClickListener() {

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zju.rchz"
     android:versionCode="17"
-    android:versionName="2.2.4">
+    android:versionName="2.2.6">
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -25,7 +25,7 @@
     <uses-permission android:name="android.permission.BROADCAST_STICKY" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
 
-    <!--<permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />-->
+    <!-- <permission android:name="android.permission.BAIDU_LOCATION_SERVICE" /> -->
 
     <uses-permission android:name="android.permission.BAIDU_LOCATION_SERVICE" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
@@ -39,23 +39,23 @@
     <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
     <uses-permission android:name="android.permission.READ_LOGS" />
     <!-- end baidu map -->
-    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.READ_PHONE_STATE"></uses-permission>
-    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"></uses-permission>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"></uses-permission>
-    <uses-permission android:name="android.permission.READ_LOGS"></uses-permission>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
+    <uses-permission android:name="android.permission.READ_LOGS" />
     <uses-permission android:name="android.permission.VIBRATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
 
-    <!--smsSDK-->
+    <!-- smsSDK -->
     <uses-permission android:name="android.permission.READ_CONTACTS" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
@@ -111,10 +111,11 @@
 
     <permission
         android:name="getui.permission.GetuiService.com.zju.rchz"
-        android:protectionLevel="normal"></permission>
+        android:protectionLevel="normal" />
 
     <android:users-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
-    <!-- 个推SDK权限配置结束 -->
+
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" /> <!-- 个推SDK权限配置结束 -->
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
@@ -125,26 +126,28 @@
             android:enabled="true"
             android:process=":remote">
             <intent-filter>
-                <action android:name="com.baidu.location.service_v2.2"></action>
+                <action android:name="com.baidu.location.service_v2.2" />
             </intent-filter>
         </service>
-         <!--百度正式 SHA1=7D:78:E9:BF:B2:DE:E4:83:EF:14:64:F5:C9:A3:53:9E:C7:84:2C:5D-->
-        <!--<meta-data-->
-            <!--android:name="com.baidu.lbsapi.API_KEY"-->
-            <!--android:value="NAIjbQ5YZ6lDQ6sjDjNyGWhPLgfrv7U6" />-->
+        <!-- 百度正式 SHA1=7D:78:E9:BF:B2:DE:E4:83:EF:14:64:F5:C9:A3:53:9E:C7:84:2C:5D -->
+        <!-- <meta-data -->
+        <!-- android:name="com.baidu.lbsapi.API_KEY" -->
+        <!-- android:value="NAIjbQ5YZ6lDQ6sjDjNyGWhPLgfrv7U6" /> -->
 
-        <!-- 百度正式 SHA1=91:0C:25:B7:C6:B7:FD:9F:7F:7B:F9:DC:E9:76:8E:04:03:58:1A:5C  台式机debug版-->
-        <!--<meta-data-->
-            <!--android:name="com.baidu.lbsapi.API_KEY"-->
-            <!--android:value="z2LMSwExOzmteAwGCAGvhqw0v3sBNUTF" />-->
 
-        <!-- 签名版 SHA1=08:B5:FA:61:F7:38:79:FD:1D:10:58:3D:C0:00:72:8D:21:97:70:8C-->
+        <!-- 百度正式 SHA1=91:0C:25:B7:C6:B7:FD:9F:7F:7B:F9:DC:E9:76:8E:04:03:58:1A:5C  台式机debug版 -->
+        <!-- <meta-data -->
+        <!-- android:name="com.baidu.lbsapi.API_KEY" -->
+        <!-- android:value="z2LMSwExOzmteAwGCAGvhqw0v3sBNUTF" /> -->
+
+
+        <!-- 签名版 SHA1=08:B5:FA:61:F7:38:79:FD:1D:10:58:3D:C0:00:72:8D:21:97:70:8C -->
         <meta-data
             android:name="com.baidu.lbsapi.API_KEY"
             android:value="qBqh3W4TiHNOWG7h0hOQzLVZ0TXPPZMk" />
 
         <activity
-            android:name="com.zju.rchz.activity.WelcomeActivity"
+            android:name=".activity.WelcomeActivity"
             android:label="@string/app_name"
             android:screenOrientation="portrait"
             android:theme="@style/Theme.AppStartLoad">
@@ -155,276 +158,292 @@
             </intent-filter>
         </activity>
 
-        <!--smsSDK activity-->
+        <!-- smsSDK activity -->
         <activity
             android:name="com.mob.tools.MobUIShell"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"
             android:configChanges="keyboardHidden|orientation|screenSize"
-            android:windowSoftInputMode="stateHidden|adjustResize"/>
-
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize" />
         <activity
-            android:name="com.zju.rchz.activity.MainActivity"
+            android:name=".activity.MainActivity"
             android:label="@string/app_name"
             android:launchMode="singleTask"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.LoginActivity"
+            android:name=".activity.LoginActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SugOrComtActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.SugOrComtActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.LakeSugOrComtActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.LakeSugOrComtActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.DubanTopersonListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.InstructionAndReplyDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.DubanTopersonCoordListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.DubanTopersonListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.LakeDubanTopersonListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.InstrcutionListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.DubanTopersonCitychiefListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.DubanTopersonCoordListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.OneRiverNumOfProblemListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.LakeDubanTopersonListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.DubanTopersonLeaderListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.DubanTopersonCitychiefListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ProblemReportActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.OneRiverNumOfProblemListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.LakeProblemReportActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.DubanTopersonLeaderListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.DuChaDanActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.ProblemReportActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ProblemReportDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.LakeProblemReportActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.DuChaDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.DuChaDanActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.EvalCompActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.ProblemReportDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ForgotPasswordActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.DuChaDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ChangePasswordActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.EvalCompActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ViewAllActivity"
+            android:name=".activity.ForgotPasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ChangePasswordActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.ViewAllActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.NewsDetailActivity"
+            android:name=".activity.NewsDetailActivity"
             android:label="@string/app_name"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.XmlActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.XmlActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.MyCollectActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.MyCollectActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.NpcMemberActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.activity.NpcListActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.activity.NpcFeedbackActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.NpcMemberActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.CompListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.NpcListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ProblemReportListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.NpcFeedbackActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.DuChaListAcitivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.CompListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.CompDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.ProblemReportListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.AboutActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.DuChaListAcitivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.RegisterActivity"
+            android:name=".activity.CompDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.AboutActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.RegisterActivity"
             android:label="@string/register"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SettingActivity"
+            android:name=".activity.SettingActivity"
             android:label="@string/mycenter"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SectionActivity"
+            android:name=".activity.SectionActivity"
             android:label="@string/section_info"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.RiverActivity"
+            android:name=".activity.RiverActivity"
             android:label="@string/river_info"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LakeActivity"
             android:label="@string/lake_info"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LakePositionActivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.OutletActivity"
+            android:name=".activity.OutletActivity"
             android:label="@string/outlet"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SmallWaterActivity"
+            android:name=".activity.SmallWaterActivity"
             android:label="@string/smallwater_info"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SmallWaterListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.SmallWaterListActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".activity.LakeListAcitivity"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SearchRiverActivity"
+            android:name=".activity.SearchRiverActivity"
             android:label="@string/searchriver"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name=".activity.MyCenterActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.MyCenterActivity"
             android:label="个人中心"
-            android:screenOrientation="portrait"></activity>
-
-
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.LeaderInstructionActivity"
+            android:name=".activity.LeaderInstructionActivity"
             android:label="@string/leaderinstruction"
-            android:screenOrientation="portrait"></activity>
-
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SearchNewsActivity"
+            android:name=".activity.SearchNewsActivity"
             android:label="搜索新闻"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SearchCompActivity"
+            android:name=".activity.SearchCompActivity"
             android:label="搜索投诉"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ViewItActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.ViewItActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.SectionListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.SectionListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.RiverListActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.activity.OutletListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.RiverListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.OutletListActivity"
+            android:screenOrientation="portrait" />
         <!-- Chief -->
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefCompListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefCompListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefCompDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefCompDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefInspectActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefInspectActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefRecordListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefRecordListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.lakechief.activity.LakeChiefRecordListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".lakechief.activity.LakeChiefRecordListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.lakechief.activity.LakeChiefEditRecordActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".lakechief.activity.LakeChiefEditRecordActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.lakechief.activity.LakeChiefInspectActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".lakechief.activity.LakeChiefInspectActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.lakechief.activity.LakeChiefTrackViewActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".lakechief.activity.LakeChiefTrackViewActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefDubanListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefDubanListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefEditRecordActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefEditRecordActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefDubanDetailActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.chief.activity.ChiefRivermanageActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.chief.activity.ChiefLowLevelPubActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefDubanDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefSignActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.chief.activity.ChiefNpcSupActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.npc.activity.ChiefNpcSugDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefRivermanageActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefMailListActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefLowLevelPubActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefNotepadActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefSignActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefEditNoteActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefNpcSupActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.DuabnTopersonDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".npc.activity.ChiefNpcSugDetailActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.LeaderIntructionDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefMailListActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.DuabnTopersonCitychiefDetailActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefNotepadActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.chief.activity.ChiefMailDetailActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.chief.activity.ChiefTrackViewActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".chief.activity.ChiefEditNoteActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chief.activity.DuabnTopersonDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".activity.LeaderIntructionDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chief.activity.DuabnTopersonCitychiefDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chief.activity.ChiefMailDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".chief.activity.ChiefTrackViewActivity"
+            android:screenOrientation="portrait" />
 
         <!-- end chief -->
 
+
         <!-- npc -->
-        <activity android:name="com.zju.rchz.npc.activity.NpcLegalListActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.npc.activity.NpcMyjobActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.npc.activity.NpcRankActivity"
-            android:screenOrientation="portrait"></activity>
-        <activity android:name="com.zju.rchz.npc.activity.NpcSugDetailActivity"
-            android:screenOrientation="portrait"></activity>
+        <activity
+            android:name=".npc.activity.NpcLegalListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".npc.activity.NpcMyjobActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".npc.activity.NpcRankActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".npc.activity.NpcSugDetailActivity"
+            android:screenOrientation="portrait" />
         <!-- end npc -->
 
-        <service android:name="com.zju.rchz.service.LocalService" />
+        <service android:name=".service.LocalService" />
 
         <activity
-            android:name="com.zju.rchz.activity.CompPhotoActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.CompPhotoActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.PhotoViewActivity"
+            android:name=".activity.PhotoViewActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"></activity>
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
         <activity
-            android:name="com.zju.rchz.activity.RiverPositionActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.RiverPositionActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.NewRiverPositionActivity"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.NewRiverPositionActivity"
+            android:screenOrientation="portrait" />
         <activity
-            android:name="com.zju.rchz.activity.ComplainMap"
-            android:screenOrientation="portrait"></activity>
+            android:name=".activity.ComplainMap"
+            android:screenOrientation="portrait" />
         <!-- 正式 -->
         <meta-data
             android:name="UMENG_APPKEY"
@@ -448,7 +467,7 @@
             android:theme="@style/Theme.UMDialog"
             android:windowSoftInputMode="stateVisible|adjustResize" />
         <activity
-            android:name="com.zju.rchz.wxapi.WXEntryActivity"
+            android:name=".wxapi.WXEntryActivity"
             android:configChanges="keyboardHidden|orientation|screenSize"
             android:exported="true"
             android:screenOrientation="portrait"
@@ -471,7 +490,7 @@
         <activity
             android:name="com.tencent.connect.common.AssistActivity"
             android:screenOrientation="portrait"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <!-- 个推SDK配置开始 -->
         <!-- 配置的第三方参数属性 -->
@@ -487,7 +506,7 @@
 
         <!-- 配置第三方Receiver -->
         <receiver
-            android:name="com.zju.rchz.receiver.PushReceiver"
+            android:name=".receiver.PushReceiver"
             android:exported="false">
             <intent-filter>
                 <action android:name="com.igexin.sdk.action.4YaVWDm7Cj8Fv7qvEQ2CW4" />
@@ -499,11 +518,11 @@
             android:name="com.igexin.sdk.PushService"
             android:exported="true"
             android:label="NotificationCenter"
-            android:process=":pushservice"></service>
+            android:process=":pushservice" />
         <service
             android:name="com.igexin.sdk.PushServiceUser"
             android:exported="true"
-            android:label="NotificationCenterUser"></service>
+            android:label="NotificationCenterUser" />
 
         <receiver android:name="com.igexin.sdk.PushReceiver">
             <intent-filter>
@@ -531,7 +550,7 @@
             android:exported="false"
             android:process=":pushservice"
             android:taskAffinity="com.igexin.sdk.PushActivityTask"
-            android:theme="@android:style/Theme.Translucent.NoTitleBar"></activity>
+            android:theme="@android:style/Theme.Translucent.NoTitleBar" />
 
         <service
             android:name="com.igexin.download.DownloadService"
@@ -579,6 +598,7 @@
             android:value="@integer/google_play_services_version" />
 
         <!-- 个推SDK配置结束 -->
+        <activity android:name=".activity.ReplyInstructionActivity"></activity>
     </application>
 
 </manifest>

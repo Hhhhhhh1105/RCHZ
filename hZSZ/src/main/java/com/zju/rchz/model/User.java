@@ -86,10 +86,6 @@ public class User {
 //		return  aa;
 //	}
 
-
-
-
-
 	// 是否镇级河长
 	public boolean isChief() {
 		return authority == 2 && ifOnJob == 0&&(status==0||status==2);
@@ -138,13 +134,11 @@ public class User {
 	//市级河长
 	public boolean isCityChief() {
 
-
 		return authority == 10 && statusCity.equals("1")&&(status==0||status==2);
 	}
 
 	//市级湖长
 	public boolean isCityLakeChief() {
-
 
 		return authority == 10 && statusCity.equals("1")&&(status==1||status==2);
 	}

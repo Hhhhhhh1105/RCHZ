@@ -200,7 +200,7 @@ public class MainActivity extends BaseActivity implements OnCheckedChangeListene
 
 		String title = getString(R.string.app_name);
 		String shareurl = "http://123.206.204.153:8080/RongChengHeZhang/homepage/home.htm";
-		String content = "荣成智慧河道APP：以河长制，促进河长治！";// + shareurl;
+		String content = "荣成河湖长制APP：以河长制，促进河长治！";// + shareurl;
 
 		// 设置分享内容
 		mController.setShareContent(content);

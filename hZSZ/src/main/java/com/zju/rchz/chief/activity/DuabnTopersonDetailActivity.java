@@ -104,7 +104,6 @@ public class DuabnTopersonDetailActivity extends BaseActivity {
         //是否有回复框
         if (isHandled) {
             findViewById(R.id.ll_handle).setVisibility(View.GONE);
-            // findViewById(R.id.ll_status).setVisibility(View.GONE);
         } else {
             if (!dubanTopersonObject.isHandled())
                 findViewById(R.id.ll_result).setVisibility(View.GONE);

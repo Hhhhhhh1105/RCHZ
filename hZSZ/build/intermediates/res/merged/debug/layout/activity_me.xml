@@ -210,7 +210,7 @@
                     android:layout_height="@dimen/me_item_icon_h"
                     android:contentDescription="@null"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_chief_record" >
+                    android:src="@drawable/ic_problem_report" >
                 </ImageView>
 
             </RelativeLayout>
@@ -259,7 +259,91 @@
                     android:layout_height="@dimen/me_item_icon_h"
                     android:contentDescription="@null"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_chief_record" >
+                    android:src="@drawable/ic_problem_report" >
+                </ImageView>
+
+            </RelativeLayout>
+            <!--领导新建批示。三个领导能看到所有的问题并进行批示-->
+            <RelativeLayout
+                android:id="@+id/rl_leaderintruction_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_leaderintruction_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_leaderintruction_list"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="新建批示"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:layout_marginRight="@dimen/me_item_h"
+                    android:gravity="right"
+                    android:paddingRight="@dimen/padding_medium"
+                    android:text="@string/eg_chief_unhandle_comp"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/littlelightgray"
+                    android:visibility="gone" >
+                </TextView>
+
+                <ImageView
+                    android:id="@+id/iv_leaderintruction_list"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_leader_check" >
+                </ImageView>
+
+            </RelativeLayout>
+
+            <!--领导历史批示。三个领导能看到所有批示过的问题-->
+            <RelativeLayout
+                android:id="@+id/rl_history_leaderintruction_list"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/me_item_h"
+                android:layout_marginBottom="@dimen/page_item_margin_v"
+                android:layout_marginTop="@dimen/page_item_margin_v"
+                android:visibility="gone">
+
+                <TextView
+                    android:id="@+id/tv_history_leaderintruction_list"
+                    android:layout_width="match_parent"
+                    android:layout_height="@dimen/me_item_h"
+                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
+                    android:layout_toRightOf="@+id/iv_history_leaderintruction_list"
+                    android:drawableRight="@drawable/ic_arrow_rigth"
+                    android:background="@drawable/btn_white_gray"
+                    android:clickable="true"
+                    android:gravity="center_vertical"
+                    android:paddingLeft="@dimen/me_item_tv_padding_left"
+                    android:paddingRight="@dimen/page_padding"
+                    android:text="历史批示"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/text_gray" />
+
+                <ImageView
+                    android:id="@+id/iv_history_leaderintruction_list"
+                    android:layout_width="@dimen/me_item_icon_w"
+                    android:layout_height="@dimen/me_item_icon_h"
+                    android:contentDescription="@null"
+                    android:scaleType="fitXY"
+                    android:src="@drawable/ic_history_instruction" >
                 </ImageView>
 
             </RelativeLayout>
@@ -308,12 +392,10 @@
                     android:layout_height="@dimen/me_item_icon_h"
                     android:contentDescription="@null"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_coord_task" >
+                    android:src="@drawable/ic_chief_duban" >
                 </ImageView>
 
             </RelativeLayout>
-
-
 
             <!--湖泊业务处置-->
             <RelativeLayout
@@ -359,10 +441,12 @@
                     android:layout_height="@dimen/me_item_icon_h"
                     android:contentDescription="@null"
                     android:scaleType="fitXY"
-                    android:src="@drawable/ic_coord_task" >
+                    android:src="@drawable/ic_chief_duban" >
                 </ImageView>
 
             </RelativeLayout>
+
+
 
             <!--领导视察（领导督办）-->
             <RelativeLayout
@@ -404,55 +488,6 @@
 
                 <ImageView
                     android:id="@+id/iv_leaderDuban_list"
-                    android:layout_width="@dimen/me_item_icon_w"
-                    android:layout_height="@dimen/me_item_icon_h"
-                    android:contentDescription="@null"
-                    android:scaleType="fitXY"
-                    android:src="@drawable/ic_leader_check" >
-                </ImageView>
-
-            </RelativeLayout>
-
-            <!--领导批示。三个领导能看到所有的问题并进行批示-->
-            <RelativeLayout
-                android:id="@+id/rl_leaderintruction_list"
-                android:layout_width="match_parent"
-                android:layout_height="@dimen/me_item_h"
-                android:layout_marginBottom="@dimen/page_item_margin_v"
-                android:layout_marginTop="@dimen/page_item_margin_v"
-                android:visibility="gone">
-
-                <TextView
-                    android:id="@+id/tv_leaderintruction_list"
-                    android:layout_width="match_parent"
-                    android:layout_height="@dimen/me_item_h"
-                    android:layout_marginLeft="@dimen/me_item_tv_margin_left"
-                    android:layout_toRightOf="@+id/iv_leaderintruction_list"
-                    android:drawableRight="@drawable/ic_arrow_rigth"
-                    android:background="@drawable/btn_white_gray"
-                    android:clickable="true"
-                    android:gravity="center_vertical"
-                    android:paddingLeft="@dimen/me_item_tv_padding_left"
-                    android:paddingRight="@dimen/page_padding"
-                    android:text="领导批示"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/text_gray" />
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_centerInParent="true"
-                    android:layout_marginRight="@dimen/me_item_h"
-                    android:gravity="right"
-                    android:paddingRight="@dimen/padding_medium"
-                    android:text="@string/eg_chief_unhandle_comp"
-                    android:textAppearance="?android:attr/textAppearanceMedium"
-                    android:textColor="@color/littlelightgray"
-                    android:visibility="gone" >
-                </TextView>
-
-                <ImageView
-                    android:id="@+id/iv_leaderintruction_list"
                     android:layout_width="@dimen/me_item_icon_w"
                     android:layout_height="@dimen/me_item_icon_h"
                     android:contentDescription="@null"
@@ -594,6 +629,7 @@
                     android:gravity="right"
                     android:paddingRight="@dimen/padding_medium"
                     android:text="@string/eg_chief_unhandle_comp"
+                    android:textSize="@dimen/bottom_btn_textsize"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/littlelightgray"
                     android:visibility="gone" >
@@ -644,6 +680,7 @@
                     android:gravity="right"
                     android:paddingRight="@dimen/padding_medium"
                     android:text="@string/eg_chief_unhandle_comp"
+                    android:textSize="@dimen/bottom_btn_textsize"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/littlelightgray"
                     android:visibility="gone" >
@@ -799,6 +836,7 @@
                     android:gravity="right"
                     android:paddingRight="@dimen/padding_medium"
                     android:text="@string/eg_chief_unhandle_dubanToperson"
+                    android:textSize="@dimen/bottom_btn_textsize"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/littlelightgray"
                     android:visibility="gone" >
@@ -1107,6 +1145,7 @@
                     android:gravity="right"
                     android:paddingRight="@dimen/padding_medium"
                     android:text="@string/eg_chief_unhandle_comp"
+                    android:textSize="@dimen/bottom_btn_textsize"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/littlelightgray"
                     android:visibility="gone" >
@@ -1156,6 +1195,7 @@
                     android:gravity="right"
                     android:paddingRight="@dimen/padding_medium"
                     android:text="@string/eg_chief_unhandle_sugs"
+                    android:textSize="@dimen/bottom_btn_textsize"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/littlelightgray"
                     android:visibility="gone" >

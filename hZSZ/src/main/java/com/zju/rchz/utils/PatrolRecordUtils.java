@@ -38,7 +38,7 @@ public class PatrolRecordUtils {
             return out;
         }
         for(int i  = 0; i<pointsToSegment.size()-1;i++){
-            if(DistanceUtil.getDistance(pointsToSegment.get(i),pointsToSegment.get(i+1))>=200){
+            if(DistanceUtil.getDistance(pointsToSegment.get(i),pointsToSegment.get(i+1))>=100){
                 out.add(i);
             }
         }

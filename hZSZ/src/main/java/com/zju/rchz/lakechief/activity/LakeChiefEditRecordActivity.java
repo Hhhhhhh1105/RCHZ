@@ -194,6 +194,9 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                 if(lakeRecord.lakeId==0){
                     selectLake();
                 }else{
+                    //关闭定时器
+                    stopTimer();
+
                     Intent intent = new Intent(LakeChiefEditRecordActivity.this, LakeChiefInspectActivity.class);
 //					intent.putExtra("latlist_temp", OptimizePoints(latlist_temp,lnglist_temp)[0]);
 //					intent.putExtra("lnglist_temp", OptimizePoints(latlist_temp,lnglist_temp)[1]);
@@ -341,11 +344,14 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             //确定是新加巡湖单还是编辑巡湖单（现在已经无法编辑）
             isAddNewLakeRecord = false;
 
-            setTitle("编辑巡查记录");
+            setTitle("查看巡查记录");
             isNewLakeRecord = false;//不是新建（编辑巡湖记录）
             //取消结束巡湖以及拍照按钮。
             findViewById(R.id.multiple_actions).setVisibility(View.GONE);
             findViewById(R.id.linear_river_record).setVisibility(View.GONE);
+            findViewById(R.id.et_otherquestion).setEnabled(false);
+            findViewById(R.id.et_deal).setEnabled(false);
+            findViewById(R.id.btn_selriver).setEnabled(false);
 
             findViewById(R.id.iv_head_left).setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -594,6 +600,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                         @Override
                         public void run() {
                             lakeRecordTempPassTime++;
+                            System.out.println("testrc: passtime: "+lakeRecordTempPassTime);
 //							showToast(getStringTime(lakeRecordTempPassTime++));
                         }
                     });
@@ -602,8 +609,9 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             };
         }
 
-        if(passTimer != null && passTimerTask != null )
+        if(passTimer != null && passTimerTask != null ){
             passTimer.schedule(passTimerTask, 500, 1000);
+        }
 
     }
 
@@ -1344,6 +1352,9 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
                 e.printStackTrace();
             }
         } else if (requestCode == Tags.CODE_LATLNG && resultCode == RESULT_OK) {
+            //打开定时器
+            startTimer();
+
             String result = data.getExtras().getString("result");
             //由inspect返回并需要上传至服务器的地理位置信息
             latList = data.getExtras().getString("latList");
@@ -1601,7 +1612,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
             handler.postDelayed(myRunable_record, 2000); //改为每2s记录一次当前轨迹
             initLocation();
             //开启定时器
-            startTimer();
+//            startTimer();
         }
     }
 
@@ -1839,7 +1850,7 @@ public class LakeChiefEditRecordActivity extends BaseActivity {
         client.disconnect();
         isRunMyRunable = false;
         //关闭定时器
-        stopTimer();
+//        stopTimer();
 
     }
 

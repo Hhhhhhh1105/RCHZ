@@ -190,6 +190,9 @@ public class ChiefEditRecordActivity extends BaseActivity {
 //					createMessageDialog("提示", "请选择巡查河道。", "确定", null, null, null, null).show();
 					selectRiver();
 				}else{
+					//关闭定时器
+					stopTimer();
+					
 					Intent intent = new Intent(ChiefEditRecordActivity.this, ChiefInspectActivity.class);
 //					intent.putExtra("latlist_temp", OptimizePoints(latlist_temp,lnglist_temp)[0]);//将当前的巡河数据传至巡河地图界面
 //					intent.putExtra("lnglist_temp", OptimizePoints(latlist_temp,lnglist_temp)[1]);
@@ -282,9 +285,6 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			else
 				refreshToNpcView();
 
-			//看是否有未完成的轨迹信息
-//			getHostRiverRecordTemporary();
-
 			//检查是否正确退出了巡河,弹出窗口询问其是否继续巡河
 			if (latList_host != null && !latList_host.equals("")) {
 				AlertDialog.Builder ab = new AlertDialog.Builder(ChiefEditRecordActivity.this);
@@ -337,11 +337,14 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			//确定是新加巡河单还是编辑巡河单（现在已经无法编辑）
 			isAddNewRiverRecord = false;
 
-			setTitle("编辑巡查记录");
+			setTitle("查看巡查记录");
 			isNewRiverRecord = false;//不是新建（编辑巡河记录）
 			//取消结束巡河以及拍照按钮。
 			findViewById(R.id.multiple_actions).setVisibility(View.GONE);
 			findViewById(R.id.linear_river_record).setVisibility(View.GONE);
+			findViewById(R.id.et_otherquestion).setEnabled(false);
+			findViewById(R.id.et_deal).setEnabled(false);
+			findViewById(R.id.btn_selriver).setEnabled(false);
 
 			findViewById(R.id.iv_head_left).setOnClickListener(new View.OnClickListener() {
 				@Override
@@ -577,6 +580,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 						@Override
 						public void run() {
 							riverRecordTempPassTime++;
+							System.out.println("testrc: passtime: "+riverRecordTempPassTime);
 //							showToast(getStringTime(riverRecordTempPassTime++));
 						}
 					});
@@ -585,9 +589,9 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			};
 		}
 
-		if(passTimer != null && passTimerTask != null )
+		if(passTimer != null && passTimerTask != null ){
 			passTimer.schedule(passTimerTask, 500, 1000);
-
+		}
 	}
 
 	private void stopTimer(){
@@ -957,7 +961,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 						if (riverRecord.recordId != 0) {
 							submitParam.put("recordId", riverRecord.recordId);
 						}
-						if (!getUser().isNpc()) {
+						if (!getUser().isNpc()){
 							for (int i = 0; i < CBOX_FIELDS.length; ++i) {
 								boolean b = ((CompoundButton) CBOXES[i].findViewById(R.id.cb_yes)).isChecked();
 								submitParam.put(CBOX_FIELDS[i], b ? 1 : 0);
@@ -982,7 +986,7 @@ public class ChiefEditRecordActivity extends BaseActivity {
 							}
 							submitParam.put("deal", et_deal.getText().toString());
 
-						} else {
+						} else{
 							for (int i = 0; i < CBOX_NPC_FIELDS.length; ++i) {
 								int b = 0;
 								if (((CompoundButton) CBOXES_NPC[i].findViewById(R.id.cb_good)).isChecked())
@@ -1010,7 +1014,6 @@ public class ChiefEditRecordActivity extends BaseActivity {
 							submitParam.put("riverinplace", 0);
 							submitParam.put("riverinplaces", "");
 							submitParam.put("deal", "");
-
 						}
 
 						submitParam.put("RiverId", riverRecord.riverId);
@@ -1038,10 +1041,10 @@ public class ChiefEditRecordActivity extends BaseActivity {
 						submitParam.put("startTime", startTime);
 
 						//判断巡河是否超过了5min
-						//看是否超过5min
-						int endTimeHour = DateTime.getNow().hours;
-						int endTimeMin = DateTime.getNow().minutes;
-						if (riverRecordTempPassTime <= 300) {
+//						//看是否超过5min
+//						int endTimeHour = DateTime.getNow().hours;
+//						int endTimeMin = DateTime.getNow().minutes;
+						if (riverRecordTempPassTime <= 300){
 							//系统参数，值由河长办定 0：不能结束 1：可以结束
 							if (Values.tourriver == 0) {
 								showToast("您的巡河时间小于5min, 请继续巡河");
@@ -1347,6 +1350,9 @@ public class ChiefEditRecordActivity extends BaseActivity {
 				e.printStackTrace();
 			}
 		} else if (requestCode == Tags.CODE_LATLNG && resultCode == RESULT_OK) {
+			//打开定时器
+			startTimer();
+
 			String result = data.getExtras().getString("result");
 			//由inspect返回并需要上传至服务器的地理位置信息
 			latList = data.getExtras().getString("latList");
@@ -1601,8 +1607,8 @@ public class ChiefEditRecordActivity extends BaseActivity {
 			isRunMyRunable = true;
 			handler.postDelayed(myRunable_record, 2000); //改为每2s记录一次当前轨迹
 			initLocation();
-			//开启定时器
-			startTimer();
+//			//开启定时器
+//			startTimer();
 		}
 	}
 
@@ -1841,8 +1847,6 @@ public class ChiefEditRecordActivity extends BaseActivity {
 		// See https://g.co/AppIndexing/AndroidStudio for more information.
 		client.disconnect();
 		isRunMyRunable = false;
-		//关闭定时器
-		stopTimer();
 
 	}
 

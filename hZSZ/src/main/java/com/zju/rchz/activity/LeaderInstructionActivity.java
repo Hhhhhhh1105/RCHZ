@@ -43,6 +43,7 @@ import java.util.List;
 
 /**
  * Created by ZJTLM4600l on 2018/5/10.
+ * 领导新建批示
  */
 
 public class LeaderInstructionActivity extends BaseActivity implements CompoundButton.OnCheckedChangeListener, TextView.OnEditorActionListener {
@@ -103,80 +104,7 @@ public class LeaderInstructionActivity extends BaseActivity implements CompoundB
             }
         };
 
-
-//        final View.OnClickListener goRiver = new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                Intent intent = new Intent(LeaderInstructionActivity.this, RiverActivity.class);
-//                intent.putExtra(Tags.TAG_RIVER, StrUtils.Obj2Str(v.getTag()));
-//                startActivity(intent);
-//            }
-//        };
-//
-//        final View.OnClickListener backRiver = new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                final River river = (River) v.getTag();
-//                showOperating("加载河道数据...");
-//                getRequestContext().add("oneriver_data_get", new Callback<RiverDataRes>() {
-//
-//                    @Override
-//                    public void callback(RiverDataRes o) {
-//                        hideOperating();
-//                        if (o != null && o.isSuccess()) {
-//                            ObjUtils.mergeObj(river, o.data);
-//                            Intent intent = new Intent();
-//                            intent.putExtra(Tags.TAG_RIVER, StrUtils.Obj2Str(river));
-//                            setResult(RESULT_OK, intent);
-//                            finish();
-//                        }
-//                    }
-//                }, RiverDataRes.class, ParamUtils.freeParam(null, "riverId", river.riverId));
-//            }
-//        };
-
         findViewById(R.id.ll_keyword).setVisibility(View.GONE);
-//        findViewById(R.id.iv_search).setOnClickListener(new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View arg0) {
-//                startSearch(true);
-//            }
-//        });
-
-//        final View.OnClickListener togFollow = new View.OnClickListener() {
-//
-//            @Override
-//            public void onClick(View v) {
-//                if (v.getTag() instanceof River) {
-//                    final River river = (River) v.getTag();
-//
-//                    river.toggleCare(LeaderInstructionActivity.this, new BaseActivity.BooleanCallback() {
-//                        @Override
-//                        public void callback(boolean b) {
-//                            riversAdapter.notifyDataSetChanged();
-//                        }
-//                    });
-//
-//					/*
-//					 * showOperating();
-//					 *
-//					 * getRequestContext().add(river.isCared(getUser()) ?
-//					 * "careriver_action_delete" : "careriver_action_add", new
-//					 * Callback<SimpleRes>() {
-//					 *
-//					 * @Override public void callback(SimpleRes o) { if (o !=
-//					 * null && o.isSuccess()) { // river.ifCare = !river.ifCare;
-//					 * river.setCared(getUser(), !river.isCared(getUser()));
-//					 * riversAdapter.notifyDataSetChanged(); } hideOperating();
-//					 * } }, SimpleRes.class, ParamUtils.freeParam(null,
-//					 * "riverId", river.riverId));
-//					 */
-//                }
-//            }
-//        };
 
         //河道列表的适配器
         riversAdapter = new SimpleListAdapter(this, rivers, new SimpleViewInitor() {
@@ -199,23 +127,6 @@ public class LeaderInstructionActivity extends BaseActivity implements CompoundB
                     ((TextView)convertView.findViewById(R.id.tv_num_leaderintructions)).setText(river.numOfProblem+"");
                     ((TextView)convertView.findViewById(R.id.tv_num_leaderintructions)).setTextColor(context.getResources().getColor(R.color.red));
                 }
-//                showToast(river.numOfProblem);
-//                if (isSelectRiver) {
-//                    convertView.findViewById(R.id.btn_follow).setVisibility(View.GONE);
-//                }
-//
-//                if (isAllRiver) {
-//                    convertView.findViewById(R.id.btn_follow).setVisibility(View.GONE); //查看全部河道时，不显示收藏按钮，只显示水质等级
-//                    convertView.findViewById(R.id.iv_quality).setVisibility(View.VISIBLE);
-//                    ((ImageView) convertView.findViewById(R.id.iv_quality)).setImageResource(ResUtils.getQuiltyImg(river.waterType));
-//                }
-
-//                //收藏按钮的操作
-//                Button btn = (Button) convertView.findViewById(R.id.btn_follow);
-//                btn.setText(river.isCared(getUser()) ? R.string.unfollow : R.string.follow); //isCared都是false
-//                btn.setBackgroundResource(river.isCared(getUser()) ? R.drawable.btn_gray_white : R.drawable.btn_green_white);
-//                btn.setTag(river);
-//                btn.setOnClickListener(togFollow);
 
                 //当不指定区划时，显示河道所在区
                 if (curDw == null || curDw.district == null || curDw.district.districtId == 0) {
@@ -262,9 +173,6 @@ public class LeaderInstructionActivity extends BaseActivity implements CompoundB
         });
 
         ((LinearLayout) findViewById(R.id.ll_contain)).addView(listViewWarp.getRootView());
-
-        // ((ListView) findViewById(R.id.ll_rivers)).setAdapter(riversAdapter);
-//        ((EditText) findViewById(R.id.et_keyword)).setOnEditorActionListener(this); //按键盘处的搜索也可运行startSearch函数
 
         //区划的适配器
         dwAdapter = new SimpleListAdapter(LeaderInstructionActivity.this, dwItems, new SimpleViewInitor() {
@@ -356,14 +264,6 @@ public class LeaderInstructionActivity extends BaseActivity implements CompoundB
     private boolean isAllRiver = false; //查看所有河道
 
     private LeaderInstructionActivity.DistrictWarper curDw = null;
-
-    /**
-     * 得到搜索关键词
-     * @return 关键词
-     */
-//    private String getKeyword() {
-//        return ((EditText) findViewById(R.id.et_keyword)).getText().toString();
-//    }
 
     private final int DefaultPageSize = 10;
 

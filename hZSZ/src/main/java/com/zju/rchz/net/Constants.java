@@ -15,10 +15,7 @@ public class Constants {
 	public static final String uniiedPlatform = "/UniiedPlatform/background/app.htm";
 
 
-
 	public static final String SerUrl = SerUrl2;
-
-
 
 //	public static final String ApiUrl = SerUrl + uniiedPlatform;
 	public static final String ApiUrl = SerUrl ;

@@ -77,7 +77,7 @@ public class DubanTopersonCoordListActivity extends BaseActivity implements View
                 if (convertView == null) {
                     convertView = LinearLayout.inflate(
                             DubanTopersonCoordListActivity.this,
-                            R.layout.item_chief_complaint2, null);
+                            R.layout.item_dubantoperson, null);
                 }
                 ViewWarp warp = new ViewWarp(convertView,
                         DubanTopersonCoordListActivity.this);
@@ -87,7 +87,7 @@ public class DubanTopersonCoordListActivity extends BaseActivity implements View
                 warp.setText(R.id.tv_title, comp.getTheme());   //投诉单标题
                 warp.setText(R.id.tv_content, comp.getContent());  //投诉单内容
                 if (comp.getDeadline()!=null&&comp.getDeadline()!=""){
-                    warp.setText(R.id.tv_deal_deadline,"处理期限："+comp.getDeadline());  //处理期限
+                    warp.setText(R.id.tv_deal_deadline,comp.getDeadline());  //处理期限
                 }
                 warp.setText(R.id.tv_time, comp.getTime() != null ? comp
                         .getTime().getYMDHM(DubanTopersonCoordListActivity.this) : "");    //投诉时间

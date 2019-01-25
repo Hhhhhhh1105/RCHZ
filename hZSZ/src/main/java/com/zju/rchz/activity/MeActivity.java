@@ -23,7 +23,6 @@ public class MeActivity extends BaseActivity {
 	private int[] showWhenCityChiefLogined = {R.id.rl_chief_record};
 	private int[] showWhenCleanerLogined = { R.id.rl_chief_record};
 
-
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
@@ -48,7 +47,8 @@ public class MeActivity extends BaseActivity {
 		findViewById(R.id.tv_chief_dubanToperson).setOnClickListener(this);//我的督办单,镇街河长
 		findViewById(R.id.tv_citychief_dubanToperson).setOnClickListener(this);//我的督办单,市级河长
 		findViewById(R.id.tv_leaderDuban_list).setOnClickListener(this);//领导督办
-		findViewById(R.id.tv_leaderintruction_list).setOnClickListener(this);//领导督办rl_leaderintruction_list
+		findViewById(R.id.tv_leaderintruction_list).setOnClickListener(this);//领导新建批示
+		findViewById(R.id.tv_history_leaderintruction_list).setOnClickListener(this);//领导l历史批示
 
 		findViewById(R.id.tv_chief_inspect).setOnClickListener(this);
 		findViewById(R.id.tv_chief_record).setOnClickListener(this);
@@ -69,14 +69,14 @@ public class MeActivity extends BaseActivity {
 
 					//投诉信息提醒
 					if (o.data.sumUndealComp > 0) {
-						((TextView) findViewById(R.id.tv_chief_unhandlecomplaint_count)).setText(o.data.sumUndealComp + "个投诉未处理");
+						((TextView) findViewById(R.id.tv_chief_unhandlecomplaint_count)).setText(o.data.sumUndealComp + "个未处理");
 						((TextView) findViewById(R.id.tv_chief_unhandlecomplaint_count)).setVisibility(View.VISIBLE);
 					} else {
 						((TextView) findViewById(R.id.tv_chief_unhandlecomplaint_count)).setVisibility(View.GONE);
 					}
 
 					if (o.data.sumUndealAdv > 0) {
-						((TextView) findViewById(R.id.tv_chief_unhandlesuggestion_count)).setText(o.data.sumUndealAdv + "个建议未处理");
+						((TextView) findViewById(R.id.tv_chief_unhandlesuggestion_count)).setText(o.data.sumUndealAdv + "个未处理");
 						((TextView) findViewById(R.id.tv_chief_unhandlesuggestion_count)).setVisibility(View.VISIBLE);
 					} else {
 						((TextView) findViewById(R.id.tv_chief_unhandlesuggestion_count)).setVisibility(View.GONE);
@@ -84,7 +84,7 @@ public class MeActivity extends BaseActivity {
 
 					//督办单信息提醒
 					if (o.data.sumUndealDubanToperson>0){
-						((TextView) findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setText(o.data.sumUndealDubanToperson + "个督办单未处理");
+						((TextView) findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setText(o.data.sumUndealDubanToperson + "个未处理");
 						((TextView) findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setVisibility(View.VISIBLE);
 					}else {
 						((TextView) findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setVisibility(View.GONE);
@@ -218,27 +218,30 @@ public class MeActivity extends BaseActivity {
 		if(isSecretary || isMayor || isOtherMayor){
 			View v1=findViewById(R.id.rl_leaderintruction_list);
 			v1.setVisibility(View.VISIBLE);
-			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("领导批示");
+			findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.VISIBLE);
+//			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("领导批示");
 //			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
 		}else if(isCityChief){
 			View v1=findViewById(R.id.rl_leaderintruction_list);
 			v1.setVisibility(View.VISIBLE);
-			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("市级河长批示");
+			findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.VISIBLE);
+//			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("市级河长批示");
 //			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
 		} else if (isBossChief) {
 			View v1=findViewById(R.id.rl_leaderintruction_list);
 			v1.setVisibility(View.VISIBLE);
-			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("镇街总河长批示");
+			findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.VISIBLE);
+//			((TextView)findViewById(R.id.tv_leaderintruction_list)).setText("镇街总河长批示");
 //			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
 		}else {
 			View v1=findViewById(R.id.rl_leaderintruction_list);
 			v1.setVisibility(View.GONE);
+			findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.GONE);
 //			Toast.makeText(this,"else",Toast.LENGTH_LONG).show();
 		}
 
 		((TextView) findViewById(R.id.tv_name)).setText(getUser().getDisplayName());
-		((TextView) findViewById(R.id.tv_info)).setText(getUser().getDisplayRiver());
-//		((TextView) findViewById(R.id.tv_info)).setText("1");
+
 	}
 
 	@Override
@@ -265,10 +268,17 @@ public class MeActivity extends BaseActivity {
 				startActivity(intent);
 				break;
 			}
-			//领导批示
+			//领导新建批示
 			case R.id.tv_leaderintruction_list: {
 				Intent intent = new Intent(this,
 						com.zju.rchz.activity.LeaderInstructionActivity.class);
+				startActivity(intent);
+				break;
+			}
+			//领导历史批示
+			case R.id.tv_history_leaderintruction_list:{
+				Intent intent = new Intent(this,
+						com.zju.rchz.activity.InstrcutionListActivity.class);
 				startActivity(intent);
 				break;
 			}

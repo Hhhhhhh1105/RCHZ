@@ -894,6 +894,8 @@
     <item name="progress_circular" type="id"/>
     <item name="progress_horizontal" type="id"/>
     <item name="split_action_bar" type="id"/>
+    <item name="tag_first" type="id"/>
+    <item name="tag_second" type="id"/>
     <item name="up" type="id"/>
     <item name="viewpager_inner" type="id"/>
     <integer name="abc_config_activityDefaultDur">220</integer>
@@ -922,7 +924,7 @@
     <string name="abc_shareactionprovider_share_with_application">Share with %s</string>
     <string name="abc_toolbar_collapse_description">Collapse</string>
     <string name="about">关于系统</string>
-    <string name="app_name">荣成智慧河道</string>
+    <string name="app_name">荣成河湖长制</string>
     <string name="auth_google_play_services_client_facebook_display_name">Facebook</string>
     <string name="auth_google_play_services_client_google_display_name">Google</string>
     <string name="back">返回</string>
@@ -1007,9 +1009,9 @@
     <string name="dubandan">督办单列表</string>
     <string name="ducha">督察单</string>
     <string name="eg_arearanking">**镇街河道投诉处理排行榜</string>
-    <string name="eg_chief_unhandle_comp">5个投诉未处理</string>
-    <string name="eg_chief_unhandle_dubanToperson">5个督办单未处理</string>
-    <string name="eg_chief_unhandle_sugs">2个建议未处理</string>
+    <string name="eg_chief_unhandle_comp">5个未处理</string>
+    <string name="eg_chief_unhandle_dubanToperson">5个未处理</string>
+    <string name="eg_chief_unhandle_sugs">2个未处理</string>
     <string name="eg_datetime">2015–05–01 09:20</string>
     <string name="eg_datetime2">2015.5.1 9:20</string>
     <string name="eg_dateweek">4月12日 星期天</string>
@@ -1253,6 +1255,9 @@
     <string name="ranking">排行榜</string>
     <string name="register">注册</string>
     <string name="replayinfo">回复详情</string>
+    <string name="replyIntruction">批示回复详情</string>
+    <string name="replyIntructionChief">河长姓名</string>
+    <string name="replyIntructionContent">回复内容</string>
     <string name="rive_name">河道名称</string>
     <string name="river_area">河道区域</string>
     <string name="river_city_title">市级河长</string>
@@ -1436,6 +1441,7 @@
     <string name="sug_name">建议人姓名</string>
     <string name="sug_phone">手机号码  </string>
     <string name="sug_river">建议河道</string>
+    <string name="sug_theme">标题:  </string>
     <string name="suggest">建议</string>
     <string name="suggestioninfo">建议情况</string>
     <string name="sup_isread">河长已阅</string>
@@ -1506,6 +1512,7 @@
     <string name="umeng_socialize_tip_loginfailed" translatable="false">登录失败…</string>
     <string name="umeng_socialize_ucenter_login_title_guide" translatable="false">游客登录</string>
     <string name="umeng_socialize_ucenter_login_title_platform" translatable="false">登录帐号</string>
+    <string name="un_instruction">暂无批示</string>
     <string name="unfollow">已收藏</string>
     <string name="unhandle">未处理</string>
     <string name="unlimeited">不限</string>

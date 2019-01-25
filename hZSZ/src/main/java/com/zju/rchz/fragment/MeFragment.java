@@ -63,7 +63,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 //    private int[] showWhenChiefLogined = { R.id.rl_chief_sign, R.id.rl_chief_mail, R.id.rl_chief_complaint, R.id.rl_chief_duban, R.id.rl_chief_record, R.id.rl_chief_suggestion };
     private int[] showWhenNpcLogined = { R.id.rl_npc_myriver};
 
-
+    private String userIdentity = "";
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -93,7 +93,8 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             rootView.findViewById(R.id.tv_chief_dubanToperson).setOnClickListener(this);//我的督办单.，镇街河长
             rootView.findViewById(R.id.tv_citychief_dubanToperson).setOnClickListener(this);//我的督办单.，市级河长
             rootView.findViewById(R.id.tv_leaderDuban_list).setOnClickListener(this);//领导督办
-            rootView.findViewById(R.id.tv_leaderintruction_list).setOnClickListener(this);//领导批示
+            rootView.findViewById(R.id.tv_leaderintruction_list).setOnClickListener(this);//领导新建批示
+            rootView.findViewById(R.id.tv_history_leaderintruction_list).setOnClickListener(this);//领导历史批示
             rootView.findViewById(R.id.tv_chief_rivermanage).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_notepad).setOnClickListener(this);
             rootView.findViewById(R.id.tv_chief_inspect).setOnClickListener(this);
@@ -135,7 +136,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 
                     //投诉信息提醒
                     if (o.data.sumUndealComp > 0) {
-                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandlecomplaint_count)).setText(o.data.sumUndealComp + "个投诉未处理");
+                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandlecomplaint_count)).setText(o.data.sumUndealComp + "个未处理");
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandlecomplaint_count)).setVisibility(View.VISIBLE);
                     } else {
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandlecomplaint_count)).setVisibility(View.GONE);
@@ -143,21 +144,21 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 
                     //代表投诉提醒
                     if (o.data.sumUnDealDeputyComp > 0) {
-                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandle_npccomplaint_count)).setText(o.data.sumUnDealDeputyComp + "个代表投诉未处理");
+                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandle_npccomplaint_count)).setText(o.data.sumUnDealDeputyComp + "个未处理");
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandle_npccomplaint_count)).setVisibility(View.VISIBLE);
                     } else {
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandle_npccomplaint_count)).setVisibility(View.GONE);
                     }
                     //督办单信息提醒
                     if (o.data.sumUndealDubanToperson>0){
-                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setText(o.data.sumUndealDubanToperson + "个督办单未处理");
+                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setText(o.data.sumUndealDubanToperson + "个未处理");
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setVisibility(View.VISIBLE);
                     }else {
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandleDubanToperson_count)).setVisibility(View.GONE);
                     }
 
                     if (o.data.sumUndealAdv > 0) {
-                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandlesuggestion_count)).setText(o.data.sumUndealAdv + "个建议未处理");
+                        ((TextView) rootView.findViewById(R.id.tv_chief_unhandlesuggestion_count)).setText(o.data.sumUndealAdv + "个未处理");
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandlesuggestion_count)).setVisibility(View.VISIBLE);
                     } else {
                         ((TextView) rootView.findViewById(R.id.tv_chief_unhandlesuggestion_count)).setVisibility(View.GONE);
@@ -267,9 +268,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 
         }
 
-
-
-
         //镇级河长显示巡河记录，处理投诉，处理建议，我的督办单
         if(ischief){
             rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
@@ -294,7 +292,7 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 //            rootView.findViewById(R.id.rl_chief_sign).setVisibility(View.VISIBLE);
 //            ((TextView)rootView.findViewById(R.id.tv_chief_sign)).setText("河管员签到");
             rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
-            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河管员巡河");
+//            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("河管员巡河");//都叫巡河
 
         }
         //联络人显示河道问题上报，我的督办单
@@ -308,7 +306,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 
 
             rootView.findViewById(R.id.rl_chief_record).setVisibility(View.VISIBLE);
-            ((TextView)rootView.findViewById(R.id.tv_chief_record)).setText("督察员巡河");
             rootView.findViewById(R.id.rl_problem_report).setVisibility(View.VISIBLE);
             rootView.findViewById(R.id.rl_problem_report_list).setVisibility(View.VISIBLE);
         }
@@ -353,14 +350,14 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             rootView.findViewById(R.id.rl_lakeproblem_report).setVisibility(View.VISIBLE);
             rootView.findViewById(R.id.rl_lakeproblem_report_list).setVisibility(View.VISIBLE);
             ( (TextView)rootView.findViewById(R.id.tv_lakeproblem_report_list)).setText("湖泊业务处置");
-            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("督察员巡湖");
+//            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("督察员巡湖");
         }
         //湖管员签到、巡湖，投诉建议
         if (isLakeCleaner){
 //            rootView.findViewById(R.id.rl_lakechief_sign).setVisibility(View.VISIBLE);
 //            ((TextView)rootView.findViewById(R.id.tv_lakechief_sign)).setText("湖管员签到");
             rootView.findViewById(R.id.rl_lakechief_record).setVisibility(View.VISIBLE);
-            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("湖管员巡湖");
+//            ((TextView)rootView.findViewById(R.id.tv_lakechief_record)).setText("湖管员巡湖");
         }
         if (isLakeCityLinkMan){
 
@@ -371,11 +368,6 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
             ((TextView)rootView.findViewById(R.id.tv_lakeproblem_report_list)).setText("查看湖泊督办单");
 
         }
-
-
-
-
-
 
 //        for(int id:showWhenLakechiefLogined){
 //            View v = rootView.findViewById(id);
@@ -469,20 +461,24 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
         if(isSecretary || isMayor || isOtherMayor){
             View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
             v1.setVisibility(View.VISIBLE);
-            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("领导批示");
+            rootView.findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.VISIBLE);
+//            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("领导批示");
         }else if(isCityChief){
             View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
             v1.setVisibility(View.VISIBLE);
-            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("市级河长批示");
+            rootView.findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.VISIBLE);
+//            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("市级河长批示");
 //			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
         } else if (isBossChief) {
             View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
             v1.setVisibility(View.VISIBLE);
-            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("镇街总河长批示");
+            rootView.findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.VISIBLE);
+//            ((TextView)rootView.findViewById(R.id.tv_leaderintruction_list)).setText("镇街总河长批示");
 //			Toast.makeText(this,"if",Toast.LENGTH_LONG).show();
         }else {
             View v1=rootView.findViewById(R.id.rl_leaderintruction_list);
             v1.setVisibility(View.GONE);
+            rootView.findViewById(R.id.rl_history_leaderintruction_list).setVisibility(View.GONE);
         }
 
 //        //如果是人大代表账号
@@ -511,16 +507,72 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
 //
 //        }
 
-        //如果是区级河长，需要显示下级河长的投诉与巡河情况
-
-
-//		if(ischief){
-//			rootView.findViewById()(R.id.rl_complaint).setVisibility(View.GONE);
-//			rootView.findViewById()(R.id.rl_suggestion).setVisibility(View.GONE);
-//		}
-
         ((TextView) rootView.findViewById(R.id.tv_name)).setText(getBaseActivity().getUser().getDisplayName());
-        ((TextView) rootView.findViewById(R.id.tv_info)).setText(getBaseActivity().getUser().getDisplayRiver());
+        //用户身份
+        if(isSecretary || isMayor || isOtherMayor){
+            userIdentity = "领导";
+        }else if (isBossChief){
+            userIdentity = "镇街总河长";
+        }else{
+            if(getBaseActivity().getUser().getStatus() == 2){//河湖
+                if(isVillageChief ){
+                    userIdentity = "村级河/湖长";
+                }else if (ischief){
+                    userIdentity = "镇街河/湖长";
+                }else if(isCityChief){
+                    userIdentity = "市级河/湖长";
+                }else if(isCityLinkMan){
+                    userIdentity = "市级河/湖长联系人";
+                }else if(isCleaner){
+                    userIdentity = "河/湖管员";
+                }else if (isCoordinator){
+                    userIdentity = "督察员";
+                }else if(logined){
+                    userIdentity = "公众用户";
+                }else{
+                    userIdentity = " ";
+                }
+            }else if(getBaseActivity().getUser().getStatus() == 1){//湖泊
+                if(isVillageLakeChief ){
+                    userIdentity = "村级湖长";
+                }else if (isLakechief){
+                    userIdentity = "镇街湖长";
+                }else if(isCityLakeChief){
+                    userIdentity = "市级湖长";
+                }else if(isLakeCityLinkMan){
+                    userIdentity = "市级湖长联系人";
+                }else if(isLakeCleaner){
+                    userIdentity = "湖管员";
+                }else if (isLakeCoordinator){
+                    userIdentity = "督察员";
+                }else if(logined){
+                    userIdentity = "公众用户";
+                }else{
+                    userIdentity = " ";
+                }
+            }else{//河道
+                if(isVillageChief){
+                    userIdentity = "村级河湖长";
+                }else if (ischief){
+                    userIdentity = "镇街河长";
+                }else if(isCityChief){
+                    userIdentity = "市级河长";
+                }else if(isCityLinkMan){
+                    userIdentity = "市级河长联系人";
+                }else if(isCleaner){
+                    userIdentity = "河管员";
+                }else if (isCoordinator){
+                    userIdentity = "督察员";
+                }else if(logined){
+                    userIdentity = "公众用户";
+                }else{
+                    userIdentity = " ";
+                }
+            }
+        }
+//		((TextView) findViewById(R.id.tv_info)).setText(getUser().getDisplayRiver());
+        ((TextView) rootView.findViewById(R.id.tv_info)).setText(userIdentity);
+//        ((TextView) rootView.findViewById(R.id.tv_info)).setText(getBaseActivity().getUser().getDisplayRiver());
 //        ((TextView) rootView.findViewById(R.id.tv_info)).setText("3");
     }
 
@@ -600,9 +652,15 @@ public class MeFragment extends BaseFragment implements View.OnClickListener{
                 startActivity(intent);
                 break;
             }
-            //领导批示
+            //领导新建批示
             case R.id.tv_leaderintruction_list: {
                 Intent intent = new Intent(getBaseActivity(), com.zju.rchz.activity.LeaderInstructionActivity.class);
+                startActivity(intent);
+                break;
+            }
+            //领导历史批示
+            case R.id.tv_history_leaderintruction_list: {
+                Intent intent = new Intent(getBaseActivity(), com.zju.rchz.activity.InstrcutionListActivity.class);
                 startActivity(intent);
                 break;
             }

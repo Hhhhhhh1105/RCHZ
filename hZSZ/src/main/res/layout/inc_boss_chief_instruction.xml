@@ -13,12 +13,26 @@
         android:orientation="vertical"
         android:padding="@dimen/page_padding" >
 
-        <TextView
+        <RelativeLayout
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="@string/bossChiefIntruction"
-            android:textAppearance="?android:attr/textAppearanceMedium"
-            android:textColor="@color/blue" />
+            android:layout_height="match_parent">
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/bossChiefIntruction"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/blue" />
+            <Button
+                android:id="@+id/btn_reply_bosschief"
+                style="android:attr/buttonBarButtonStyle"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:background="@drawable/form_btn1_bg"
+                android:layout_alignParentRight="true"
+                android:text="回复批示"
+                android:textColor="@color/btn_white_green"
+                android:visibility="gone"/>
+        </RelativeLayout>
 
         <TextView
             android:id="@+id/tv_bossChiefIntruction_time"
@@ -45,18 +59,16 @@
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
-                    android:minWidth="120dp"
                     android:text="@string/intructionContent"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />
 
                 <TextView
                     android:id="@+id/tv_bossChiefIntruction"
-                    android:layout_width="wrap_content"
+                    android:layout_width="0dp"
                     android:layout_height="wrap_content"
-                    android:layout_weight="2"
-                    android:tag="tt:{.dealPersonName}"
+                    android:layout_weight="1"
+                    android:layout_marginLeft="12dp"
                     android:text="示例"
                     android:textAppearance="?android:attr/textAppearanceMedium"
                     android:textColor="@color/text_gray" />

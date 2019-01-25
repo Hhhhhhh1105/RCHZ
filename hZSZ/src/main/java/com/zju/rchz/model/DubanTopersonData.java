@@ -72,6 +72,53 @@ public class DubanTopersonData {
     private String lakeName;
     private String lakeDist;
 
+    //回复批示的内容（每个领导批示对应一个列表）
+    private ReplyForInstruction[] replyForSecretaryList;
+    private ReplyForInstruction[] replyForMayorList;
+    private ReplyForInstruction[] replyForOtherMayorList;
+    private ReplyForInstruction[] replyForCityChiefList;
+    private ReplyForInstruction[] replyForBossChiefList;
+
+    public void setReplyForSecretaryList(ReplyForInstruction[] replyForSecretaryList) {
+        this.replyForSecretaryList = replyForSecretaryList;
+    }
+
+    public void setReplyForMayorList(ReplyForInstruction[] replyForMayorList) {
+        this.replyForMayorList = replyForMayorList;
+    }
+
+    public void setReplyForOtherMayorList(ReplyForInstruction[] replyForOtherMayorList) {
+        this.replyForOtherMayorList = replyForOtherMayorList;
+    }
+
+    public void setReplyForCityChiefList(ReplyForInstruction[] replyForCityChiefList) {
+        this.replyForCityChiefList = replyForCityChiefList;
+    }
+
+    public void setReplyForBossChiefList(ReplyForInstruction[] replyForBossChiefList) {
+        this.replyForBossChiefList = replyForBossChiefList;
+    }
+
+    public ReplyForInstruction[] getReplyForSecretaryList() {
+        return replyForSecretaryList;
+    }
+
+    public ReplyForInstruction[] getReplyForMayorList() {
+        return replyForMayorList;
+    }
+
+    public ReplyForInstruction[] getReplyForOtherMayorList() {
+        return replyForOtherMayorList;
+    }
+
+    public ReplyForInstruction[] getReplyForCityChiefList() {
+        return replyForCityChiefList;
+    }
+
+    public ReplyForInstruction[] getReplyForBossChiefList() {
+        return replyForBossChiefList;
+    }
+
     public void setRiverOrLake(Integer riverOrLake) {
         this.riverOrLake = riverOrLake;
     }

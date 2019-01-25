@@ -34,7 +34,6 @@
                 android:visibility="gone"
                 />
             <TextView
-                android:id="@+id/tv_complain_map"
                 android:layout_width="wrap_content"
                 android:layout_height="35dp"
                 android:text="@string/complain_map"
@@ -42,9 +41,28 @@
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:layout_marginLeft="20dp"
                 android:textColor="@color/blue"
-                android:visibility="visible"/>
+                android:visibility="gone"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/padding_2large">
+                <TextView
+                    android:id="@+id/tv_complain_map"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_board_btn_bg"
+                    android:clickable="true"
+                    android:paddingBottom="@dimen/padding_small"
+                    android:paddingLeft="@dimen/padding_large"
+                    android:paddingRight="@dimen/padding_large"
+                    android:paddingTop="@dimen/padding_small"
+                    android:text="@string/complain_map"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/btn_green_white"
+                    android:textSize="@dimen/font_normal" />
+            </LinearLayout>
+
             <TextView
-                android:id="@+id/tv_sgin"
                 android:layout_width="77dp"
                 android:layout_height="35dp"
                 android:text="未签收"
@@ -52,7 +70,27 @@
                 android:layout_marginLeft="10dp"
                 android:textAppearance="?android:attr/textAppearanceMedium"
                 android:textColor="@color/blue"
-                android:visibility="visible"/>
+                android:visibility="gone"/>
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:paddingLeft="@dimen/padding_large">
+                <TextView
+                    android:id="@+id/tv_sgin"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/shape_board_btn_bg"
+                    android:clickable="true"
+                    android:paddingBottom="@dimen/padding_small"
+                    android:paddingLeft="@dimen/padding_large"
+                    android:paddingRight="@dimen/padding_large"
+                    android:paddingTop="@dimen/padding_small"
+                    android:text="未签收"
+                    android:textAppearance="?android:attr/textAppearanceMedium"
+                    android:textColor="@color/btn_green_white"
+                    android:textSize="@dimen/font_normal" />
+            </LinearLayout>
+
             </LinearLayout>
 
 

@@ -2,7 +2,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.zju.rchz"
     android:versionCode="17"
-    android:versionName="2.2.3" >
+    android:versionName="2.2.6" >
 
     <uses-sdk
         android:minSdkVersion="14"
@@ -115,6 +115,8 @@
 
     <android:users-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
 
+    <android:uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <!-- 个推SDK权限配置结束 -->
     <application
         android:name="com.android.tools.fd.runtime.BootstrapApplication"
@@ -181,7 +183,13 @@
             android:name="com.zju.rchz.activity.LakeSugOrComtActivity"
             android:screenOrientation="portrait" />
         <activity
+            android:name="com.zju.rchz.activity.InstructionAndReplyDetailActivity"
+            android:screenOrientation="portrait" />
+        <activity
             android:name="com.zju.rchz.activity.DubanTopersonListActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name="com.zju.rchz.activity.InstrcutionListActivity"
             android:screenOrientation="portrait" />
         <activity
             android:name="com.zju.rchz.activity.DubanTopersonCoordListActivity"
@@ -593,6 +601,7 @@
             android:value="@integer/google_play_services_version" />
 
         <!-- 个推SDK配置结束 -->
+        <activity android:name="com.zju.rchz.activity.ReplyInstructionActivity" />
     </application>
 
 </manifest>

@@ -38,6 +38,7 @@ import java.util.List;
 
 /**
  *
+ * 镇街河长  获得问题上报后的督办单list
  */
 
 public class DubanTopersonListActivity extends BaseActivity implements ViewPager.OnPageChangeListener, RadioGroup.OnCheckedChangeListener {
@@ -45,7 +46,6 @@ public class DubanTopersonListActivity extends BaseActivity implements ViewPager
         private View view = null;
         private int type = 0;
         private ListViewWarp listViewWarp = null;
-//        private List<ChiefComp> items = new ArrayList<ChiefComp>();
         private List<DubanTopersonObject> items=new ArrayList<DubanTopersonObject>();
         private SimpleListAdapter adapter = null;
 
@@ -61,7 +61,23 @@ public class DubanTopersonListActivity extends BaseActivity implements ViewPager
 
                     intent.putExtra(Tags.TAG_COMP, StrUtils.Obj2Str(comp));
                     intent.putExtra(Tags.TAG_ISCOMP, isComp);
-                    intent.putExtra(Tags.TAG_HANDLED, type != 0);    //0是未处理，1是已处理
+                    intent.putExtra(Tags.TAG_HANDLED, !comp.isChiefHandle());    //0是未处理，1是已处理
+
+                    startActivityForResult(intent, Tags.CODE_COMP);
+                }
+            }
+        };
+
+        //回复批示按钮
+        private View.OnClickListener btnReply = new View.OnClickListener() {
+
+            @Override
+            public void onClick(View v) {
+                if (v.getTag() instanceof DubanTopersonObject) {
+                    DubanTopersonObject comp = (DubanTopersonObject) v.getTag();
+                    Intent intent = new Intent(DubanTopersonListActivity.this,
+                            InstructionAndReplyDetailActivity.class);
+                    intent.putExtra(Tags.TAG_COMP, StrUtils.Obj2Str(comp));
 
                     startActivityForResult(intent, Tags.CODE_COMP);
                 }
@@ -75,28 +91,36 @@ public class DubanTopersonListActivity extends BaseActivity implements ViewPager
                 if (convertView == null) {
                     convertView = LinearLayout.inflate(
                             DubanTopersonListActivity.this,
-                            R.layout.item_chief_complaint2, null);
+                            R.layout.item_dubantoperson, null);
                 }
                 ViewWarp warp = new ViewWarp(convertView,
                         DubanTopersonListActivity.this);
                 DubanTopersonObject comp = (DubanTopersonObject) data;
-//                warp.setText(R.id.tv_status, comp.getStatuss());  //处理状态
                 warp.setText(R.id.tv_status,comp.getNewMark(TransformNewstate(comp.getNewState())));  //处理状态
                 warp.setText(R.id.tv_sernum, comp.getSerNum());   //投诉单编号
                 warp.setText(R.id.tv_title, comp.getTheme());   //投诉单标题
                 warp.setText(R.id.tv_content, comp.getContent());  //投诉单内容
                 if (comp.getDeadline()!=null&&comp.getDeadline()!=""){
-                    warp.setText(R.id.tv_deal_deadline,"处理期限："+comp.getDeadline());  //处理期限
-               }
+                    warp.setText(R.id.tv_deal_deadline,comp.getDeadline());  //处理期限
+                }
+
+                warp.setText(R.id.tv_instryction_status, comp.getReplyStateTxt());  //批示状态
                 warp.setText(R.id.tv_time, comp.getTime() != null ? comp
                         .getTime().getYMDHM(DubanTopersonListActivity.this) : "");    //投诉时间
 
-                if (type == 0) {
+                if (type == 0 && comp.isChiefHandle()) {
                     ((Button) warp.getViewById(R.id.btn_handle))
                             .setText("处理督办单");         //0是未处理，1是已处理
                 } else {
                     ((Button) warp.getViewById(R.id.btn_handle))
                             .setText("查看督办单");
+                }
+                if (comp.getReplyState().intValue() == 1){
+                    ((Button)warp.getViewById(R.id.btn_replyInstruction)).setVisibility(View.VISIBLE);
+                    ((Button) warp.getViewById(R.id.btn_replyInstruction)).setTag(comp);
+                    ((Button) warp.getViewById(R.id.btn_replyInstruction)).setOnClickListener(btnReply);
+                }else{
+                    ((Button)warp.getViewById(R.id.btn_replyInstruction)).setVisibility(View.GONE);
                 }
                 ((Button) warp.getViewById(R.id.btn_handle)).setTag(comp);
                 ((Button) warp.getViewById(R.id.btn_handle))
